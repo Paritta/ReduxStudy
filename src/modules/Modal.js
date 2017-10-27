@@ -7,16 +7,19 @@ export const showModal = createAction(SHOW_MODAL);
 export const hideModal = createAction(HIDE_MODAL);
 
 const initialState = {
-    modalTypes: null,
+    modalType: null,
     modalProps: {}
 };
 
 const reducer = handleActions({
     [SHOW_MODAL]: (state, action) => {
-
+        return {
+            modalType: action.modalType,
+            modalProps: action.modalProps
+        }
     },
     [HIDE_MODAL]: (state, action) => {
-
+        return initialState
     }
 }, initialState);
 

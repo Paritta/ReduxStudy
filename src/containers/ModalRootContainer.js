@@ -7,20 +7,14 @@ const MODAL_COMPONENTS ={
     'MODAL_REGISTER': ModalRegister,
 };
 
-function ModalRootContainer () {
-    return (
-        <div>ModalRootContainer</div>
-    )
+function ModalRootContainer ({ modalTypes, modalProps }) {
+    if (!modalTypes) {
+        return <span />
+    }
+
+    const SpecificModal = MODAL_COMPONENTS[modalTypes];
+    return <SpecificModal {...modalProps} />
 }
-//
-// function ModalRootContainer ({ modalTypes, modalProps }) {
-//     if (!modalTypes) {
-//         return <span />
-//     }
-//
-//     const SpecificModal = MODAL_COMPONENTS[modalTypes];
-//     return <SpecificModal modalProps={...modalProps} />
-// }
 
 export default connect(
     state => ({ Modal: state.Modal }),
