@@ -14,8 +14,8 @@ const initialState = {
 const reducer = handleActions({
     [SHOW_MODAL]: (state, action) => {
         return {
-            modalType: action.modalType,
-            modalProps: action.modalProps
+            modalType: action.payload.modalType,
+            modalProps: action.payload.modalProps,
         }
     },
     [HIDE_MODAL]: (state, action) => {

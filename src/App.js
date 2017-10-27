@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import HeaderContainer from "./containers/HeaderContainer";
 import ModalRootContainer from "./containers/ModalRootContainer";
+import ModalRegister from "./components/ModalRegister";
 
 class App extends Component {
   render() {
@@ -14,7 +16,9 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-          <ModalRootContainer modalTypes={"MODAL_REGISTER"}/>
+          <HeaderContainer />
+          <ModalRootContainer />
+          {/*<ModalRegister/>*/}
       </div>
     );
   }
