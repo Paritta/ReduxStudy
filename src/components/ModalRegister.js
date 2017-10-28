@@ -1,5 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
+import { zoomIn } from 'react-animations';
+
+const zoomInAnimation = keyframes`${zoomIn}`;
 
 const Wrapper = styled.div`
     position: fixed;
@@ -10,12 +13,14 @@ const Wrapper = styled.div`
     z-index: 10;
     
     width: 400px;
-`
+    
+    animation: 1s ${zoomInAnimation};
+`;
 
 const ModalBox = styled.div`
     background: white;
     border: 1px solid rgba(0, 0, 0, 0.3);
-`
+`;
 
 const Dimmed = styled.div`
     position: fixed;
@@ -27,7 +32,7 @@ const Dimmed = styled.div`
     z-index: 5;
     
     background: rgba(0, 0, 0, 0.3);
-`
+`;
 
 const ModalRegister = () => {
     return (

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import oc from "open-color";
 
 const propTypes = {
     onShowModal: PropTypes.func,
@@ -22,7 +23,14 @@ const Button = styled.button`
     
     border: 2px solid palevioletred;
     border-radius: 3px;
-`
+    
+    transition: all 0.3s ease;
+    
+    &:hover {
+        background: ${oc.pink[4]};
+        border: 2px solid ${oc.pink[4]};
+    }
+`;
 
 const Header = ({ onShowModal, onHideModal }) => {
     return (
