@@ -3,6 +3,16 @@ import styled, {keyframes} from "styled-components";
 import { zoomIn } from 'react-animations';
 import oc from "open-color";
 import ModalRegisterForm from "./ModalRegisterForm";
+import PropTypes from "prop-types";
+
+const propTypes = {
+    Modal: PropTypes.object,
+    hideModal: PropTypes.func,
+};
+
+const defaultTypes = {
+    hideModal() {},
+};
 
 const zoomInAnimation = keyframes`${zoomIn}`;
 
@@ -69,7 +79,7 @@ const Button = styled.button`
     }
 `;
 
-const ModalRegister = () => {
+const ModalRegister = ({ hideModal }) => {
     return (
         <div>
             ModalRegister
@@ -80,11 +90,16 @@ const ModalRegister = () => {
                     <ModalRegisterForm />
                     <div>Body</div>
                     <div>Footer</div>
-                    <Button>등록하기</Button>
+                    <Button onClick={() => hideModal()} >
+                        나가기
+                    </Button>
                 </ModalBox>
             </Wrapper>
         </div>
     )
 };
+
+ModalRegister.propTypes = propTypes;
+ModalRegister.defaultTypes = defaultTypes;
 
 export default ModalRegister;
