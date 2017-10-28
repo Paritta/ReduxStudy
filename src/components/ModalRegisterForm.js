@@ -6,10 +6,6 @@ const Wrapper = styled.div`
     text-align: left
 `;
 
-const InputWrapper = styled.div`
-
-`;
-
 const InputLabel = styled.div`
     margin: 10px 0px 10px 0px;
     display: block;
