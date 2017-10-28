@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="872b3471-b421-4b2f-a6b3-b7245dbb93e2" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/config.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Filter.js" afterPath="$PROJECT_DIR$/src/components/Filter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/index.js" afterPath="$PROJECT_DIR$/src/modules/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/store.js" afterPath="$PROJECT_DIR$/src/store.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,58 +24,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Filter.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/Filter.js">
+      <file leaf-file-name="store.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/store.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="72" column="59" lean-forward="false" selection-start-line="72" selection-start-column="59" selection-end-line="72" selection-end-column="59" />
-              <caret line="57" column="63" lean-forward="false" selection-start-line="57" selection-start-column="63" selection-end-line="57" selection-end-column="63" />
-              <caret line="62" column="59" lean-forward="false" selection-start-line="62" selection-start-column="59" selection-end-line="62" selection-end-column="59" />
-              <caret line="67" column="58" lean-forward="false" selection-start-line="67" selection-start-column="58" selection-end-line="67" selection-end-column="58" />
+            <state relative-caret-position="324">
+              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
-                <marker date="1509179061000" expanded="true" signature="1239:2080" ph="..." />
-                <marker date="1509179061000" expanded="true" signature="1239:2103" ph="..." />
-                <marker date="1509179061000" expanded="true" signature="1239:2118" ph="..." />
-                <marker date="1509179061000" expanded="true" signature="1269:1444" ph="..." />
-                <marker date="1509179061000" expanded="true" signature="1476:1647" ph="..." />
-                <marker date="1509179061000" expanded="true" signature="1679:1849" ph="..." />
-                <marker date="1509179061000" expanded="true" signature="1881:2052" ph="..." />
+                <element signature="e#0#62#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModalRegisterForm.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ModalRegisterForm.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+            <state relative-caret-position="54">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Header.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Header.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1296">
-              <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -99,9 +67,7 @@
         <option value="$PROJECT_DIR$/src/components/modal.js" />
         <option value="$PROJECT_DIR$/src/containers/modalRegisterContainer.js" />
         <option value="$PROJECT_DIR$/src/components/modalRegister.js" />
-        <option value="$PROJECT_DIR$/src/store.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/modules/index.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/containers/ModalRootContainer.js" />
         <option value="$PROJECT_DIR$/src/__test__/Modal.spec.js" />
@@ -117,6 +83,9 @@
         <option value="$PROJECT_DIR$/src/components/ModalRegisterForm.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/Filter.js" />
+        <option value="$PROJECT_DIR$/src/modules/index.js" />
+        <option value="$PROJECT_DIR$/src/config.js" />
+        <option value="$PROJECT_DIR$/src/store.js" />
       </list>
     </option>
   </component>
@@ -131,7 +100,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1280" />
     <option name="height" value="800" />
   </component>
@@ -240,10 +209,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27363000" />
+    <option name="totallyTimeSpent" value="30106000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="6" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.49445984" order="0" side_tool="false" content_ui="combo" />
@@ -297,16 +266,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/containers/ModalRootContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="24" column="40" lean-forward="false" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ModalRegisterForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -387,13 +346,13 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <marker date="1509179061000" expanded="true" signature="1239:2080" ph="..." />
-            <marker date="1509179061000" expanded="true" signature="1239:2103" ph="..." />
-            <marker date="1509179061000" expanded="true" signature="1239:2118" ph="..." />
-            <marker date="1509179061000" expanded="true" signature="1269:1444" ph="..." />
-            <marker date="1509179061000" expanded="true" signature="1476:1647" ph="..." />
-            <marker date="1509179061000" expanded="true" signature="1679:1849" ph="..." />
-            <marker date="1509179061000" expanded="true" signature="1881:2052" ph="..." />
+            <marker date="1509179207000" expanded="true" signature="1239:2080" ph="..." />
+            <marker date="1509179207000" expanded="true" signature="1239:2103" ph="..." />
+            <marker date="1509179207000" expanded="true" signature="1239:2118" ph="..." />
+            <marker date="1509179207000" expanded="true" signature="1269:1444" ph="..." />
+            <marker date="1509179207000" expanded="true" signature="1476:1647" ph="..." />
+            <marker date="1509179207000" expanded="true" signature="1679:1849" ph="..." />
+            <marker date="1509179207000" expanded="true" signature="1881:2052" ph="..." />
           </folding>
         </state>
       </provider>
@@ -580,28 +539,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/modalRegisterContainer.js" />
-    <entry file="file://$PROJECT_DIR$/src/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -655,59 +592,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Banner.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-            <marker date="1509166223000" expanded="true" signature="300:349" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ModalRegister.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="1" column="35" lean-forward="false" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/ModalRootContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
           <caret line="24" column="40" lean-forward="false" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
           <folding>
             <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/HeaderContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ModalRegisterForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1296">
-          <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -724,20 +614,99 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Filter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="72" column="59" lean-forward="false" selection-start-line="72" selection-start-column="59" selection-end-line="72" selection-end-column="59" />
-          <caret line="57" column="63" lean-forward="false" selection-start-line="57" selection-start-column="63" selection-end-line="57" selection-end-column="63" />
-          <caret line="62" column="59" lean-forward="false" selection-start-line="62" selection-start-column="59" selection-end-line="62" selection-end-column="59" />
-          <caret line="67" column="58" lean-forward="false" selection-start-line="67" selection-start-column="58" selection-end-line="67" selection-end-column="58" />
+        <state relative-caret-position="447">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <marker date="1509179061000" expanded="true" signature="1239:2080" ph="..." />
-            <marker date="1509179061000" expanded="true" signature="1239:2103" ph="..." />
-            <marker date="1509179061000" expanded="true" signature="1239:2118" ph="..." />
-            <marker date="1509179061000" expanded="true" signature="1269:1444" ph="..." />
-            <marker date="1509179061000" expanded="true" signature="1476:1647" ph="..." />
-            <marker date="1509179061000" expanded="true" signature="1679:1849" ph="..." />
-            <marker date="1509179061000" expanded="true" signature="1881:2052" ph="..." />
+            <marker date="1509179207000" expanded="true" signature="1239:2080" ph="..." />
+            <marker date="1509179207000" expanded="true" signature="1239:2103" ph="..." />
+            <marker date="1509179207000" expanded="true" signature="1239:2118" ph="..." />
+            <marker date="1509179207000" expanded="true" signature="1269:1444" ph="..." />
+            <marker date="1509179207000" expanded="true" signature="1476:1647" ph="..." />
+            <marker date="1509179207000" expanded="true" signature="1679:1849" ph="..." />
+            <marker date="1509179207000" expanded="true" signature="1881:2052" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Banner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="13" column="30" lean-forward="false" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+          <folding>
+            <marker date="1509166223000" expanded="true" signature="300:349" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/HeaderContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1509187476000" expanded="true" signature="86:529" ph="{&quot;enzyme&quot;: &quot;^3.1.0&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="60" column="23" lean-forward="false" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ModalRegister.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1631">
+          <caret line="1" column="35" lean-forward="false" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ModalRegisterForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="38" column="10" lean-forward="false" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
           </folding>
         </state>
       </provider>
