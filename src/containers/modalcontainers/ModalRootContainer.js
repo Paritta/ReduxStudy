@@ -1,5 +1,5 @@
 import React from "react";
-import ModalRegisterContainer from "../containers/ModalRegisterContainer";
+import ModalRegisterContainer from "./ModalRegisterContainer";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 

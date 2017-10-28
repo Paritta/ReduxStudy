@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "../../modules/Modal";
 
-describe("Check Modal reducers", () => {
+describe("Check modal reducers", () => {
     it("handle SHOW_MODAL", () => {
         const initialState = {
             modalType: null,
