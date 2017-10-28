@@ -1,6 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import oc from "open-color";
+import FaApple from "react-icons/lib/fa/apple";
+import FaFeed from "react-icons/lib/fa/feed";
+import FaFlask from "react-icons/lib/fa/flask";
+import FaHeartbeat from "react-icons/lib/fa/heartbeat";
+import FaRecycle from "react-icons/lib/fa/recycle";
 
 const Wrapper = styled.div`
     text-align: left;
@@ -17,6 +22,12 @@ const FilterItem = styled.div`
     
     border-radius: 100%;
     background: ${oc.gray[3]};
+    
+    &:hover {
+        background: ${oc.gray[2]};
+    }
+    
+    transition: background 1s ease;
     
     display: flex;
     justify-content: center;
@@ -38,19 +49,29 @@ const Filter = () => {
             <Wrapper>
                 <FilterUl>
                     <FilterBox>
-                        <FilterItem></FilterItem>
+                        <FilterItem>
+                            <FaRecycle size={70} color="white"/>
+                        </FilterItem>
                     </FilterBox>
                     <FilterBox>
-                        <FilterItem></FilterItem>
+                        <FilterItem>
+                            <FaHeartbeat size={70} color="white"/>
+                        </FilterItem>
                     </FilterBox>
                     <FilterBox>
-                        <FilterItem></FilterItem>
+                        <FilterItem>
+                            <FaApple size={70} color="white"/>
+                        </FilterItem>
                     </FilterBox>
                     <FilterBox>
-                        <FilterItem></FilterItem>
+                        <FilterItem>
+                            <FaFeed size={70} color="white"/>
+                        </FilterItem>
                     </FilterBox>
                     <FilterBox>
-                        <FilterItem></FilterItem>
+                        <FilterItem>
+                            <FaFlask size={70} color="white"/>
+                        </FilterItem>
                     </FilterBox>
                 </FilterUl>
             </Wrapper>
