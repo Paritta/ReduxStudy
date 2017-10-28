@@ -13,12 +13,17 @@ const defaultTypes = {
     onHideModal() {},
 };
 
+const Wrapper = styled.div`
+    text-align: right;
+    padding-right: 70px;
+`;
+
 const Button = styled.button`
     background: palevioletred;
     color: white;
     
     font-size: 1em;
-    margin: 1em;
+    margin: 1em 0em 1em 8em;
     padding: 0.25em 1em;
     
     border: 2px solid palevioletred;
@@ -32,13 +37,30 @@ const Button = styled.button`
     }
 `;
 
+const MenuItem = styled.button`
+    background: white;
+    font-weight: 500;
+    font-size: 0.9em;
+    border: 2px solid white;
+    
+    margin-left: 20px;
+    
+    &:hover {
+        color: ${oc.gray[5]};
+    }
+`;
+
 const Header = ({ onShowModal, onHideModal }) => {
     return (
         <div>
-            <Button
-                onClick={() => onShowModal({modalType: 'MODAL_REGISTER'})}>
-                등록하기
-            </Button>
+            <Wrapper>
+                <MenuItem>로그인</MenuItem>
+                <MenuItem>로그 아웃</MenuItem>
+                <Button
+                    onClick={() => onShowModal({modalType: 'MODAL_REGISTER'})}>
+                    등록하기
+                </Button>
+            </Wrapper>
         </div>
     )
 };

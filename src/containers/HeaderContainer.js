@@ -18,7 +18,6 @@ const defaultTypes = {
 function HeaderContainer({ showModal, hideModal }) {
     return (
         <div>
-            HeaderContainer
             <Header
                 onShowModal={showModal}
                 onHideModal={hideModal}

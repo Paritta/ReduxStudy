@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     
     z-index: 10;
     
-    width: 400px;
+    width: 700px;
     
     animation: 1s ${zoomInAnimation};
 `;
