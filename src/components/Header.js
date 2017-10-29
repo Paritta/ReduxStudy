@@ -54,7 +54,10 @@ const Header = ({ onShowModal, onHideModal }) => {
     return (
         <div>
             <Wrapper>
-                <MenuItem>회원가입</MenuItem>
+                <MenuItem
+                    onClick={() => onShowModal({modalType: "MODAL_SIGNUP"})}>
+                    회원가입
+                </MenuItem>
                 <MenuItem
                     onClick={() => onShowModal({modalType: "MODAL_SIGNIN"})}>
                     로그인
