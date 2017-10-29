@@ -3,6 +3,7 @@ import styled, {keyframes} from "styled-components";
 import { zoomIn } from 'react-animations';
 import oc from "open-color";
 import PropTypes from "prop-types";
+import ModalSignUpForm from "./ModalSignUpForm";
 
 const propTypes = {
     Modal: PropTypes.object,
@@ -86,6 +87,7 @@ const ModalSignUp = ({ hideModal }) => {
                 <ModalHeader>회원가입</ModalHeader>
                 <ModalBox>
                     <div>Body</div>
+                    <ModalSignUpForm />
                     <Button onClick={() => hideModal()} >
                         나가기
                     </Button>
