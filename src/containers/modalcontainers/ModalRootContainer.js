@@ -1,5 +1,6 @@
 import React from "react";
 import ModalRegisterContainer from "./ModalRegisterContainer";
+import ModalSignInContainer from "./ModalSignInContainer"
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -8,7 +9,8 @@ const propTypes = {
 }
 
 const MODAL_COMPONENTS ={
-    'MODAL_REGISTER': ModalRegisterContainer,
+    "MODAL_REGISTER": ModalRegisterContainer,
+    "MODAL_SIGNIN": ModalSignInContainer,
 };
 
 function ModalRootContainer ({ Modal }) {

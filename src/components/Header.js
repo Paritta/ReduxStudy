@@ -54,10 +54,14 @@ const Header = ({ onShowModal, onHideModal }) => {
     return (
         <div>
             <Wrapper>
-                <MenuItem>로그인</MenuItem>
+                <MenuItem>회원가입</MenuItem>
+                <MenuItem
+                    onClick={() => onShowModal({modalType: "MODAL_SIGNIN"})}>
+                    로그인
+                </MenuItem>
                 <MenuItem>로그 아웃</MenuItem>
                 <Button
-                    onClick={() => onShowModal({modalType: 'MODAL_REGISTER'})}>
+                    onClick={() => onShowModal({modalType: "MODAL_REGISTER"})}>
                     등록하기
                 </Button>
             </Wrapper>
