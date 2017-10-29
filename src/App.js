@@ -15,6 +15,8 @@ class App extends Component {
           <ModalRootContainer />
           <Filter />
           <Layout />
+          <Layout />
+          <Layout />
       </div>
     );
   }

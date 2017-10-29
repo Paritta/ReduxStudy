@@ -8,11 +8,32 @@ const propTypes = {
 const defaultTypes = {
 };
 
+const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    padding: 100px;
+`;
+
+const Item = styled.div`
+`;
+
 const Layout = () => {
     return (
         <div>
             Layout
-            <Card />
+            <Container>
+                <Item>
+                    <Card />
+                </Item>
+                <Item>
+                    <Card />
+                </Item>
+                <Item>
+                    <Card />
+                </Item>
+            </Container>
         </div>
     );
 };
