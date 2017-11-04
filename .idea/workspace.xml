@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="872b3471-b421-4b2f-a6b3-b7245dbb93e2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/modal/ModalSignIn.js" afterPath="$PROJECT_DIR$/src/components/modal/ModalSignIn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/modal/ModalSignInForm.js" afterPath="$PROJECT_DIR$/src/components/modal/ModalSignInForm.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/modal/ModalSignUp.js" afterPath="$PROJECT_DIR$/src/components/modal/ModalSignUp.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/modal/ModalSignUpForm.js" afterPath="$PROJECT_DIR$/src/components/modal/ModalSignUpForm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/modalcontainers/ModalRootContainer.js" afterPath="$PROJECT_DIR$/src/containers/modalcontainers/ModalRootContainer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="ModalSignUpForm.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/modal/ModalSignUpForm.js">
+      <file leaf-file-name="ModalSignIn.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/modal/ModalSignIn.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state relative-caret-position="499">
+              <caret line="30" column="35" lean-forward="false" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -38,33 +40,11 @@
       <file leaf-file-name="ModalSignUp.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/modal/ModalSignUp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+            <state relative-caret-position="-1050">
+              <caret line="32" column="35" lean-forward="false" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModalSignInForm.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/modal/ModalSignInForm.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1429">
-              <caret line="56" column="22" lean-forward="false" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModalSignIn.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/modal/ModalSignIn.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -109,7 +89,6 @@
         <option value="$PROJECT_DIR$/src/components/Modal/ModalSignInForm.js" />
         <option value="$PROJECT_DIR$/src/containers/modalcontainers/ModalSignInContainer.js" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/containers/modalcontainers/ModalRootContainer.js" />
         <option value="$PROJECT_DIR$/src/containers/modalcontainers/ModalSignUpContainer.js" />
         <option value="$PROJECT_DIR$/src/components/Header.js" />
         <option value="$PROJECT_DIR$/src/components/box/Layout.js" />
@@ -118,9 +97,10 @@
         <option value="$PROJECT_DIR$/src/store.js" />
         <option value="$PROJECT_DIR$/src/modules/index.js" />
         <option value="$PROJECT_DIR$/src/components/modal/ModalRegister.js" />
-        <option value="$PROJECT_DIR$/src/components/modal/ModalSignUp.js" />
-        <option value="$PROJECT_DIR$/src/components/modal/ModalSignUpForm.js" />
         <option value="$PROJECT_DIR$/src/components/modal/ModalSignInForm.js" />
+        <option value="$PROJECT_DIR$/src/containers/modalcontainers/ModalRootContainer.js" />
+        <option value="$PROJECT_DIR$/src/components/modal/ModalSignUpForm.js" />
+        <option value="$PROJECT_DIR$/src/components/modal/ModalSignUp.js" />
         <option value="$PROJECT_DIR$/src/components/modal/ModalSignIn.js" />
       </list>
     </option>
@@ -167,6 +147,11 @@
             <path>
               <item name="redux-study" type="b2602c69:ProjectViewProjectNode" />
               <item name="redux-study" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="redux-study" type="b2602c69:ProjectViewProjectNode" />
+              <item name="redux-study" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -174,13 +159,6 @@
               <item name="redux-study" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="redux-study" type="b2602c69:ProjectViewProjectNode" />
-              <item name="redux-study" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="box" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="redux-study" type="b2602c69:ProjectViewProjectNode" />
@@ -265,12 +243,12 @@
       <workItem from="1509260545873" duration="6652000" />
       <workItem from="1509345475396" duration="158000" />
       <workItem from="1509416099864" duration="560000" />
-      <workItem from="1509763645732" duration="3909000" />
+      <workItem from="1509763645732" duration="8388000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44731000" />
+    <option name="totallyTimeSpent" value="49210000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -327,13 +305,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/modules/Modal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/HeaderContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -409,7 +380,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1509265948000" expanded="true" signature="86:557" ph="{&quot;enzyme&quot;: &quot;^3.1.0&quot;...}" />
+            <marker date="1509770889000" expanded="true" signature="86:597" ph="{&quot;enzyme&quot;: &quot;^3.1.0&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -475,7 +446,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1509265948000" expanded="true" signature="86:557" ph="{&quot;enzyme&quot;: &quot;^3.1.0&quot;...}" />
+            <marker date="1509770889000" expanded="true" signature="86:597" ph="{&quot;enzyme&quot;: &quot;^3.1.0&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -513,7 +484,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1509265948000" expanded="true" signature="86:557" ph="{&quot;enzyme&quot;: &quot;^3.1.0&quot;...}" />
+            <marker date="1509770889000" expanded="true" signature="86:597" ph="{&quot;enzyme&quot;: &quot;^3.1.0&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -632,14 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/modalcontainers/ModalRootContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-311">
-          <caret line="3" column="56" lean-forward="false" selection-start-line="3" selection-start-column="56" selection-end-line="3" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/HeaderContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-338">
@@ -664,14 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/modalcontainers/ModalSignInContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -680,30 +635,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/modal/ModalSignUpForm.js">
+    <entry file="file://$PROJECT_DIR$/src/components/modal/ModalSignInForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state relative-caret-position="1332">
+          <caret line="56" column="22" lean-forward="false" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/modalcontainers/ModalRootContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-191">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-animations/lib/bounceInDown.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/modal/ModalSignUpForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/modalcontainers/ModalSignInContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/modal/ModalSignUp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/modal/ModalSignInForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1429">
-          <caret line="56" column="22" lean-forward="false" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
+        <state relative-caret-position="-1050">
+          <caret line="32" column="35" lean-forward="false" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -712,9 +693,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/modal/ModalSignIn.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-          <folding />
+        <state relative-caret-position="499">
+          <caret line="30" column="35" lean-forward="false" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

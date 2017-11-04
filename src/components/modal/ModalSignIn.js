@@ -1,6 +1,6 @@
 import React from "react";
 import styled, {keyframes} from "styled-components";
-import { zoomIn } from 'react-animations';
+import { fadeIn } from 'react-animations';
 import PropTypes from "prop-types";
 import ModalSignInForm from "./ModalSignInForm";
 
@@ -13,7 +13,7 @@ const defaultTypes = {
     hideModal() {},
 };
 
-const zoomInAnimation = keyframes`${zoomIn}`;
+const fadeInAnimation = keyframes`${fadeIn}`;
 
 const Wrapper = styled.div`
     position: fixed;
@@ -28,7 +28,11 @@ const Wrapper = styled.div`
     
     width: 550px;
     
-    animation: 1s ${zoomInAnimation};
+    animation: 1s ${fadeInAnimation};
+`;
+
+const AnimationWrapper = styled.div`
+    animation: 1s ${fadeInAnimation};
 `;
 
 const ModalHeader = styled.div`
@@ -71,13 +75,15 @@ class ModalSignIn extends React.Component {
             <div>
                 <Dimmed />
                 <Wrapper>
-                    <ModalHeader>로그인</ModalHeader>
-                    <ModalBox>
-                        <ModalSignInForm
-                            hideModal={hideModal}
-                            onSubmit={this.submit}
-                        />
-                    </ModalBox>
+                    <AnimationWrapper>
+                        <ModalHeader>로그인</ModalHeader>
+                        <ModalBox>
+                            <ModalSignInForm
+                                hideModal={hideModal}
+                                onSubmit={this.submit}
+                            />
+                        </ModalBox>
+                    </AnimationWrapper>
                 </Wrapper>
             </div>
         )

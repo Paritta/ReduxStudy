@@ -1,6 +1,6 @@
 import React from "react";
 import styled, {keyframes} from "styled-components";
-import { zoomIn } from 'react-animations';
+import { fadeIn } from 'react-animations';
 import oc from "open-color";
 import PropTypes from "prop-types";
 import ModalSignUpForm from "./ModalSignUpForm";
@@ -14,7 +14,7 @@ const defaultTypes = {
     hideModal() {},
 };
 
-const zoomInAnimation = keyframes`${zoomIn}`;
+const fadeInAnimation = keyframes`${fadeIn}`;
 
 const Wrapper = styled.div`
     position: fixed;
@@ -28,8 +28,10 @@ const Wrapper = styled.div`
     z-index: 10;
     
     width: 550px;
-    
-    animation: 1s ${zoomInAnimation};
+`;
+
+const AnimationWrapper = styled.div`
+    animation: 1s ${fadeInAnimation};
 `;
 
 const ModalHeader = styled.div`
@@ -72,15 +74,17 @@ class ModalSignUp extends React.Component {
         return (
             <div>
                 <Dimmed />
-                <Wrapper>
-                    <ModalHeader>회원가입</ModalHeader>
-                    <ModalBox>
-                        <ModalSignUpForm
-                            onSubmit={this.submit}
-                            hideModal={hideModal}
-                        />
-                    </ModalBox>
-                </Wrapper>
+                    <Wrapper>
+                        <AnimationWrapper>
+                        <ModalHeader>회원가입</ModalHeader>
+                        <ModalBox>
+                            <ModalSignUpForm
+                                onSubmit={this.submit}
+                                hideModal={hideModal}
+                            />
+                        </ModalBox>
+                        </AnimationWrapper>
+                    </Wrapper>
             </div>
         )
     }

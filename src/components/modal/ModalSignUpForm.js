@@ -54,7 +54,7 @@ let ModalSignUpForm = ({ handleSubmit, hideModal }) => {
             </form>
         </Wrapper>
     )
-}
+};
 
 ModalSignUpForm = reduxForm({
     form: 'ModalSignUp'

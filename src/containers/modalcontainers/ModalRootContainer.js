@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 
 const propTypes = {
     Modal: PropTypes.object,
-}
+};
 
 const MODAL_COMPONENTS ={
     "MODAL_REGISTER": ModalRegisterContainer,
