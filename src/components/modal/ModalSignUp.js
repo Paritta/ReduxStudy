@@ -60,41 +60,30 @@ const Dimmed = styled.div`
     background: rgba(0, 0, 0, 0.3);
 `;
 
-const Button = styled.button`
-    background: palevioletred;
-    color: white;
-    
-    font-size: 1em;
-    margin: 1em;
-    padding: 0.25em 1em;
-    
-    border: 2px solid palevioletred;
-    border-radius: 3px;
-    
-    transition: all 0.3s ease;
-    
-    &:hover {
-        background: ${oc.pink[4]};
-        border: 2px solid ${oc.pink[4]};
-    }
-`;
 
-const ModalSignUp = ({ hideModal }) => {
-    return (
-        <div>
-            <Dimmed />
-            <Wrapper>
-                <ModalHeader>회원가입</ModalHeader>
-                <ModalBox>
-                    <div>Body</div>
-                    <ModalSignUpForm />
-                    <Button onClick={() => hideModal()} >
-                        나가기
-                    </Button>
-                </ModalBox>
-            </Wrapper>
-        </div>
-    )
+class ModalSignUp extends React.Component {
+    submit = values => {
+      console.log(values);
+    };
+
+    render () {
+        const { hideModal } = this.props;
+
+        return (
+            <div>
+                <Dimmed />
+                <Wrapper>
+                    <ModalHeader>회원가입</ModalHeader>
+                    <ModalBox>
+                        <ModalSignUpForm
+                            onSubmit={this.submit}
+                            hideModal={hideModal}
+                        />
+                    </ModalBox>
+                </Wrapper>
+            </div>
+        )
+    }
 };
 
 ModalSignUp.propTypes = propTypes;

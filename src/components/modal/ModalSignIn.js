@@ -1,8 +1,8 @@
 import React from "react";
 import styled, {keyframes} from "styled-components";
 import { zoomIn } from 'react-animations';
-import oc from "open-color";
 import PropTypes from "prop-types";
+import ModalSignInForm from "./ModalSignInForm";
 
 const propTypes = {
     Modal: PropTypes.object,
@@ -59,40 +59,29 @@ const Dimmed = styled.div`
     background: rgba(0, 0, 0, 0.3);
 `;
 
-const Button = styled.button`
-    background: palevioletred;
-    color: white;
-    
-    font-size: 1em;
-    margin: 1em;
-    padding: 0.25em 1em;
-    
-    border: 2px solid palevioletred;
-    border-radius: 3px;
-    
-    transition: all 0.3s ease;
-    
-    &:hover {
-        background: ${oc.pink[4]};
-        border: 2px solid ${oc.pink[4]};
-    }
-`;
+class ModalSignIn extends React.Component {
+    submit = values => {
+        console.log(values);
+    };
 
-const ModalSignIn = ({ hideModal }) => {
-    return (
-        <div>
-            <Dimmed />
-            <Wrapper>
-                <ModalHeader>로그인</ModalHeader>
-                <ModalBox>
-                    <div>Body</div>
-                    <Button onClick={() => hideModal()} >
-                        나가기
-                    </Button>
-                </ModalBox>
-            </Wrapper>
-        </div>
-    )
+    render () {
+        const { hideModal } = this.props;
+
+        return (
+            <div>
+                <Dimmed />
+                <Wrapper>
+                    <ModalHeader>로그인</ModalHeader>
+                    <ModalBox>
+                        <ModalSignInForm
+                            hideModal={hideModal}
+                            onSubmit={this.submit}
+                        />
+                    </ModalBox>
+                </Wrapper>
+            </div>
+        )
+    }
 };
 
 ModalSignIn.propTypes = propTypes;
