@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import ModalSignInForm from "./ModalSignInForm";
 import { pathToJS, firebaseConnect } from "react-redux-firebase";
 import { connect } from "react-redux";
+import ReactLoading from "react-loading";
 
 const propTypes = {
     Modal: PropTypes.object,
@@ -41,8 +42,6 @@ const AnimationWrapper = styled.div`
 `;
 
 const ModalHeader = styled.div`
-    @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
-    font-family: 'Hanna', fantasy;
     font-style: normal;
     font-weight: 400;
     color: white;
@@ -68,13 +67,20 @@ const Dimmed = styled.div`
     background: rgba(0, 0, 0, 0.3);
 `;
 
+const WrappedReactLoading = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(2);
+    padding: 80px 0;
+`;
+
 class ModalSignIn extends React.Component {
     state = {
       isLoading: false
     };
 
     submit = values => {
-        console.log(values);
         this.Login(values);
     };
 
@@ -87,6 +93,7 @@ class ModalSignIn extends React.Component {
             })
             .then(() => {
                 this.setState({ isLoading: false })
+                this.props.hideModal()
             })
             .catch((error) => {
                 this.setState({ isLoading: false })
@@ -105,10 +112,16 @@ class ModalSignIn extends React.Component {
                     <AnimationWrapper>
                         <ModalHeader>로그인</ModalHeader>
                         <ModalBox>
-                            <ModalSignInForm
-                                hideModal={hideModal}
-                                onSubmit={this.submit}
-                            />
+                        {!this.state.isLoading?
+                                <ModalSignInForm
+                                    hideModal={hideModal}
+                                    onSubmit={this.submit}
+                                />
+                            :
+                            <WrappedReactLoading>
+                                <ReactLoading type="cylon" color="palevioletred"/>
+                            </WrappedReactLoading>
+                        }
                         </ModalBox>
                     </AnimationWrapper>
                 </Wrapper>

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import oc from "open-color";
-import { firebaseConnect } from "react-redux-firebase";
+import { firebaseConnect, pathToJS } from "react-redux-firebase";
 import { connect } from "react-redux";
 
 const propTypes = {
@@ -59,23 +59,29 @@ class Header extends React.Component {
     }
 
     render () {
-        const { onShowModal } = this.props;
+        const { onShowModal, profile } = this.props;
 
         return (
             <div>
                 <Wrapper>
-                    <MenuItem
-                        onClick={() => onShowModal({modalType: "MODAL_SIGNUP"})}>
-                        회원가입
-                    </MenuItem>
-                    <MenuItem
-                        onClick={() => onShowModal({modalType: "MODAL_SIGNIN"})}>
-                        로그인
-                    </MenuItem>
-                    <MenuItem
-                        onClick={() => this.handleLogOut()}>
-                        로그 아웃
-                    </MenuItem>
+                    {profile&&
+                        <MenuItem
+                            onClick={() => this.handleLogOut()}>
+                            로그 아웃
+                        </MenuItem>
+                    }
+                    {!profile&&
+                        <span>
+                            <MenuItem
+                                onClick={() => onShowModal({modalType: "MODAL_SIGNUP"})}>
+                                회원가입
+                            </MenuItem>
+                            <MenuItem
+                                onClick={() => onShowModal({modalType: "MODAL_SIGNIN"})}>
+                                로그인
+                            </MenuItem>
+                        </span>
+                    }
                     <Button
                         onClick={() => onShowModal({modalType: "MODAL_REGISTER"})}>
                         등록하기
@@ -93,6 +99,8 @@ Header.defaultTypes = defaultTypes;
 const WrappedHeader = firebaseConnect()(Header);
 
 export default connect(
-    ({ firebase }) => ({})
+    ({ firebase}) => ({
+        profile: pathToJS(firebase, "profile")
+    })
 )(WrappedHeader);
 
