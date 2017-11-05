@@ -1,9 +1,11 @@
 import React from "react";
 import styled, {keyframes} from "styled-components";
-import { zoomIn } from 'react-animations';
+import { fadeIn } from 'react-animations';
 import oc from "open-color";
 import ModalRegisterForm from "./ModalRegisterForm";
 import PropTypes from "prop-types";
+import { firebaseConnect } from "react-redux-firebase";
+import { connect } from "react-redux";
 
 const propTypes = {
     Modal: PropTypes.object,
@@ -14,7 +16,7 @@ const defaultTypes = {
     hideModal() {},
 };
 
-const zoomInAnimation = keyframes`${zoomIn}`;
+const fadeInAnimation = keyframes`${fadeIn}`;
 
 const Wrapper = styled.div`
     position: fixed;
@@ -28,13 +30,9 @@ const Wrapper = styled.div`
     z-index: 10;
     
     width: 700px;
-    
-    animation: 1s ${zoomInAnimation};
 `;
 
 const ModalHeader = styled.div`
-    @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
-    font-family: 'Hanna', fantasy;
     font-style: normal;
     font-weight: 400;
     color: white;
@@ -60,6 +58,10 @@ const Dimmed = styled.div`
     background: rgba(0, 0, 0, 0.3);
 `;
 
+const AnimationWrapper = styled.div`
+    animation: 1s ${fadeInAnimation};
+`;
+
 const Button = styled.button`
     background: palevioletred;
     color: white;
@@ -79,27 +81,38 @@ const Button = styled.button`
     }
 `;
 
-const ModalRegister = ({ hideModal }) => {
-    return (
-        <div>
-            ModalRegister
-            <Dimmed />
-            <Wrapper>
-                <ModalHeader>스터디 등록</ModalHeader>
-                <ModalBox>
-                    <ModalRegisterForm />
-                    <div>Body</div>
-                    <div>Footer</div>
-                    <Button onClick={() => hideModal()} >
-                        나가기
-                    </Button>
-                </ModalBox>
-            </Wrapper>
-        </div>
-    )
+class ModalRegister extends React.Component {
+    submit = values => {
+        console.log(values);
+        this.props.firebase.push("Posts", { post: values });
+    };
+
+    render () {
+        const { hideModal } = this.props;
+
+        return (
+            <div>
+                <Dimmed />
+                <Wrapper>
+                    <AnimationWrapper>
+                        <ModalHeader>스터디 등록</ModalHeader>
+                        <ModalBox>
+                            <ModalRegisterForm
+                                onSubmit={this.submit}
+                                hideModal={hideModal}/>
+                        </ModalBox>
+                    </AnimationWrapper>
+                </Wrapper>
+            </div>
+        )
+    }
 };
 
 ModalRegister.propTypes = propTypes;
 ModalRegister.defaultTypes = defaultTypes;
 
-export default ModalRegister;
+const WrappedModalRegister = firebaseConnect()(ModalRegister);
+
+export default connect(
+    ({ firebase }) => ({})
+)(WrappedModalRegister);

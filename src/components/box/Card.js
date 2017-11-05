@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import oc from "open-color";
+import FaCameraRetro from "react-icons/lib/fa/camera-retro";
 
 const propTypes = {
 };
@@ -14,7 +15,6 @@ const Wrapper = styled.div`
     margin: 0;
     padding: 0;
     
-    border: 3px solid palevioletred;
     border-radius: 15px;
     overflow: hidden;
 `;
@@ -27,6 +27,16 @@ const View = styled.div`
     height: 300px;
     
     background: ${oc.gray[1]};
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    color: white;
+    
+    transform: scale(10);
+    
+    z-index: 5;
 `;
 
 const Info =styled.div`
@@ -38,6 +48,8 @@ const Info =styled.div`
     height: 100px;
     
     background: pink;
+    
+    z-index: 10;
 `;
 
 const Card = () => {
@@ -45,10 +57,10 @@ const Card = () => {
         <div>
             <Wrapper>
                 <View>
-
+                    <FaCameraRetro/>
                 </View>
-                <Info/>
             </Wrapper>
+            <Info/>
         </div>
     );
 };

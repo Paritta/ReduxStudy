@@ -1,91 +1,79 @@
 import React from "react";
 import styled from "styled-components";
+import { Field, reduxForm  } from "redux-form";
+import oc from "open-color";
 
 const Wrapper = styled.div`
-    padding: 50px;
-    text-align: left
+    padding: 30px 0 10px 0;
 `;
 
-const InputLabel = styled.div`
-    margin: 10px 0px 10px 0px;
-    display: block;
+const StyledField = styled(Field)`
+    background-color: ${oc.gray[0]};
+    width: 400px;
+    height: 40px;
+    font-size: 15px;
+    border: 2px solid white;
+    padding-left: 20px;
+    margin-bottom: 10px;
 `;
 
-const InputField = styled.input`
-    padding: 5px 300px 5px 0px;
+const IntroField = StyledField.extend`
+    padding: 0 0 200px 20px;
 `;
 
-class ModalRegisterForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            title: "",
-            category: "",
-            count: 0,
-            location: "",
-            time: "",
-            greeting: "",
-        };
-
-        this.handleInputChange = this.handleInputChange.bind(this);
+const Button = styled.button`
+    background: palevioletred;
+    color: white;
+    
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    
+    transition: all 0.3s ease;
+    
+    &:hover {
+        background: ${oc.pink[4]};
+        border: 2px solid ${oc.pink[4]};
     }
+`;
 
-    handleInputChange(e) {
-        const value = e.target.value;
-        const name = e.target.name;
+// 스터디 제목, 카테고리, 장소, 스터디 시간, 모집 명수, 스터디 소개
+let ModalRegisterForm = ({ handleSubmit, hideModal, handlePush, valuesObject }) => {
+    return (
+        <Wrapper>
+            <form onSubmit={ handleSubmit }>
+                <div>
+                    <StyledField name="StudyTitle" component="input" type="text" required placeholder="스터디 이름"/>
+                </div>
+                <div>
+                    <StyledField name="Category" component="input" type="text" required placeholder="학과"/>
+                </div>
+                <div>
+                    <StyledField name="Location" component="input" type="text" required placeholder="장소"/>
+                </div>
+                <div>
+                    <StyledField name="Time" component="input" type="text" required placeholder="시간"/>
+                </div>
+                <div>
+                    <StyledField name="Number" component="input" type="text" required placeholder="모집 인원"/>
+                </div>
+                <div>
+                    <IntroField name="Introduction" component="input" type="text" required placeholder="스터디 소개"/>
+                </div>
+                <Button type="submit">
+                    등록
+                </Button>
+                <Button onClick={() => hideModal()}>나가기</Button>
+            </form>
+        </Wrapper>
+    )
+};
 
-        this.setState({
-            [name]: value,
-        });
-    }
-
-    render () {
-        return (
-            <div>
-                <Wrapper>
-                    <form action="">
-                        <InputLabel><label>스터디 제목</label></InputLabel>
-                        <InputField
-                            name="title"
-                            onChange={this.handleInputChange}
-                            type="text"
-                            width="448"
-                            height="49"/>
-
-                        <InputLabel><label>카테고리</label></InputLabel>
-                        <InputField
-                            name="category"
-                            onChange={this.handleInputChange}
-                            type="text"/>
-
-                        <InputLabel><label>장소</label></InputLabel>
-                        <InputField
-                            name="location"
-                            onChange={this.handleInputChange}
-                            type="text"/>
-
-                        <InputLabel><label>스터디 시간</label></InputLabel>
-                        <InputField
-                            name="time"
-                            onChange={this.handleInputChange}
-                            type="text"/>
-
-                        <InputLabel><label>모집 인</label></InputLabel>
-                        <InputField
-                            name="count"
-                            onChange={this.handleInputChange}
-                            type="text"/>
-
-                        <InputLabel><label>스터디 소개</label></InputLabel>
-                        <InputField
-                            name="greeting"
-                            onChange={this.handleInputChange}
-                            type="text"/>
-                    </form>
-                </Wrapper>
-            </div>
-        )
-    }
-}
+ModalRegisterForm = reduxForm({
+    form: "ModalRegisterForm"
+})(ModalRegisterForm);
 
 export default ModalRegisterForm;
