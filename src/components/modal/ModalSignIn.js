@@ -77,7 +77,7 @@ const WrappedReactLoading = styled.div`
 
 class ModalSignIn extends React.Component {
     state = {
-      isLoading: false
+      isLoading: false,
     };
 
     submit = values => {
@@ -85,18 +85,18 @@ class ModalSignIn extends React.Component {
     };
 
     Login = LoginData => {
-        this.setState({ isLoading: true })
+        this.setState({ isLoading: true });
         return this.props.firebase
             .login({
                 email: LoginData.email,
                 password: LoginData.password
             })
             .then(() => {
-                this.setState({ isLoading: false })
+                this.setState({ isLoading: false });
                 this.props.hideModal()
             })
             .catch((error) => {
-                this.setState({ isLoading: false })
+                this.setState({ isLoading: false });
                 console.log("there was an error:", error);
                 console.log("error prop:", this.props.authError);
             })

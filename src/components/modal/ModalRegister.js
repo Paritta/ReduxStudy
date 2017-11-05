@@ -6,6 +6,7 @@ import ModalRegisterForm from "./ModalRegisterForm";
 import PropTypes from "prop-types";
 import { firebaseConnect } from "react-redux-firebase";
 import { connect } from "react-redux";
+import ReactLoading from "react-loading";
 
 const propTypes = {
     Modal: PropTypes.object,
@@ -81,10 +82,30 @@ const Button = styled.button`
     }
 `;
 
+const WrappedReactLoading = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(2);
+    padding: 80px 0;
+`;
+
 class ModalRegister extends React.Component {
+    state = {
+        isLoading: false,
+        error: ""
+    };
+
     submit = values => {
-        console.log(values);
-        this.props.firebase.push("Posts", { post: values });
+        this.setState({ isLoading: true });
+        this.props.firebase
+            .push("Posts", { post: values })
+            .then(()=> {
+                this.setState({ isLoading: false });
+            })
+            .catch((error) => {
+                this.setState({ isLoading: false, error: error });
+            })
     };
 
     render () {
@@ -97,9 +118,16 @@ class ModalRegister extends React.Component {
                     <AnimationWrapper>
                         <ModalHeader>스터디 등록</ModalHeader>
                         <ModalBox>
+                            {!this.state.isLoading
+                            ?
                             <ModalRegisterForm
                                 onSubmit={this.submit}
                                 hideModal={hideModal}/>
+                            :
+                            <WrappedReactLoading>
+                                <ReactLoading type="cylon" color="palevioletred"/>
+                            </WrappedReactLoading>
+                            }
                         </ModalBox>
                     </AnimationWrapper>
                 </Wrapper>
