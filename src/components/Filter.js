@@ -32,6 +32,8 @@ const FilterItem = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    cursor: pointer;
 `;
 
 const FilterUl = styled.ul`
@@ -43,33 +45,48 @@ const FilterUl = styled.ul`
     justify-content: space-around;
 `;
 
-const Filter = () => {
+const Filter = ({ filterMaterial, filterNursing, filterInformation, filterComputer, filterChemical }) => {
     return (
         <div>
             <Wrapper>
                 <FilterUl>
                     <FilterBox>
-                        <FilterItem>
+                        <FilterItem
+                            onClick={() => {
+                                filterMaterial("filter_Material")
+                            }}>
                             <FaRecycle size={70} color="white"/>
                         </FilterItem>
                     </FilterBox>
                     <FilterBox>
-                        <FilterItem>
+                        <FilterItem
+                            onClick={() => {
+                            filterNursing("filter_Nursing")
+                        }}>
                             <FaHeartbeat size={70} color="white"/>
                         </FilterItem>
                     </FilterBox>
                     <FilterBox>
-                        <FilterItem>
+                        <FilterItem
+                            onClick={() => {
+                                filterInformation("filter_Information")
+                            }}>
                             <FaApple size={70} color="white"/>
                         </FilterItem>
                     </FilterBox>
                     <FilterBox>
-                        <FilterItem>
+                        <FilterItem
+                            onClick={() => {
+                            filterComputer("filter_Computer")
+                        }}>
                             <FaFeed size={70} color="white"/>
                         </FilterItem>
                     </FilterBox>
                     <FilterBox>
-                        <FilterItem>
+                        <FilterItem
+                            onClick={() => {
+                            filterChemical("filter_Chemical")
+                        }}>
                             <FaFlask size={70} color="white"/>
                         </FilterItem>
                     </FilterBox>
