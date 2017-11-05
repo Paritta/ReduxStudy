@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { hideModal } from "../../modules/Modal";
 import ModalSignUp from "../../components/modal/ModalSignUp";
 import PropTypes from "prop-types";
+import { pathToJS } from "react-redux-firebase";
 
 const propTypes = {
     hideModal: PropTypes.func,

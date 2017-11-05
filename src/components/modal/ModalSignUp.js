@@ -1,9 +1,10 @@
 import React from "react";
 import styled, {keyframes} from "styled-components";
 import { fadeIn } from 'react-animations';
-import oc from "open-color";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import ModalSignUpForm from "./ModalSignUpForm";
+import { firebaseConnect, pathToJS } from "react-redux-firebase";
 
 const propTypes = {
     Modal: PropTypes.object,
@@ -64,8 +65,19 @@ const Dimmed = styled.div`
 
 
 class ModalSignUp extends React.Component {
+    createNewUser = ({ email, password, username }) => {
+        this.props.firebase.createUser(
+            { email, password },
+            { username, email }
+        )
+    };
+
     submit = values => {
-      console.log(values);
+        this.createNewUser({
+            email: values.email,
+            password: values.password,
+            username: values.Nickname
+        })
     };
 
     render () {
@@ -93,4 +105,12 @@ class ModalSignUp extends React.Component {
 ModalSignUp.propTypes = propTypes;
 ModalSignUp.defaultTypes = defaultTypes;
 
-export default ModalSignUp;
+const WrappedModalSignUp = firebaseConnect()(ModalSignUp);
+
+export default connect(
+    ({ firebase }) => ({
+        authError: pathToJS(firebase, "authError"),
+        auth: pathToJS(firebase, "auth"),
+        profile: pathToJS(firebase, "profile")
+    })
+)(WrappedModalSignUp)
