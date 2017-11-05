@@ -7,12 +7,13 @@ import { connect } from "react-redux";
 
 const propTypes = {
     onShowModal: PropTypes.func,
-    onHideModal: PropTypes.func,
+    firebase: PropTypes.shape({
+        login: PropTypes.func.isRequired
+    })
 };
 
 const defaultTypes = {
     onShowModal() {},
-    onHideModal() {},
 };
 
 const Wrapper = styled.div`
@@ -58,7 +59,7 @@ class Header extends React.Component {
     }
 
     render () {
-        const { onShowModal, onHideModal } = this.props;
+        const { onShowModal } = this.props;
 
         return (
             <div>
@@ -72,8 +73,7 @@ class Header extends React.Component {
                         로그인
                     </MenuItem>
                     <MenuItem
-                        onClick={() => this.handleLogOut()}
-                    >
+                        onClick={() => this.handleLogOut()}>
                         로그 아웃
                     </MenuItem>
                     <Button
