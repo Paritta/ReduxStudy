@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="872b3471-b421-4b2f-a6b3-b7245dbb93e2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/modal/ModalRegister.js" afterPath="$PROJECT_DIR$/src/components/modal/ModalRegister.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/modal/ModalSignIn.js" afterPath="$PROJECT_DIR$/src/components/modal/ModalSignIn.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/modal/ModalRegisterForm.js" afterPath="$PROJECT_DIR$/src/components/modal/ModalRegisterForm.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,61 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="ModalSignUpForm.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/modal/ModalSignUpForm.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-950">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-                <marker date="1509882590000" expanded="true" signature="2032:3315" ph="&lt;Wrapper/&gt;" />
-                <marker date="1509882590000" expanded="true" signature="2054:2692" ph="&lt;form/&gt;" />
-                <marker date="1509882590000" expanded="true" signature="2103:2238" ph="&lt;div/&gt;" />
-                <marker date="1509882590000" expanded="true" signature="2255:2396" ph="&lt;div/&gt;" />
-                <marker date="1509882590000" expanded="true" signature="2413:2554" ph="&lt;div/&gt;" />
-                <marker date="1509882590000" expanded="true" signature="2705:3296" ph="&lt;SocialLoginButtonWrapper/&gt;" />
-                <marker date="1509882590000" expanded="true" signature="2748:2902" ph="&lt;GoogleSocialLoginButton/&gt;" />
-                <marker date="1509882590000" expanded="true" signature="2919:3081" ph="&lt;FacebookSocialLoginButton/&gt;" />
-                <marker date="1509882590000" expanded="true" signature="3098:3256" ph="&lt;TwitterSocialLoginButton/&gt;" />
-                <marker date="1509882590000" expanded="true" signature="3354:3381" ph="{&quot;form&quot;: 'ModalSignUp'...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModalSignUp.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/modal/ModalSignUp.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding>
-                <marker date="1509882590000" expanded="true" signature="2369:2401" ph="&lt;Wrapper/&gt;" />
-                <marker date="1509882590000" expanded="true" signature="2369:2420" ph="&lt;div/&gt;" />
-                <marker date="1509882590000" expanded="true" signature="2369:2436" ph="{...}" />
-                <marker date="1509882590000" expanded="true" signature="2369:2438" ph="{...}" />
-                <marker date="1509882590000" expanded="true" signature="2625:2773" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ModalRegisterForm.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/modal/ModalRegisterForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="65" column="38" lean-forward="false" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModalRootContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/modalcontainers/ModalRootContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="22" column="50" lean-forward="true" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+            <state relative-caret-position="90">
+              <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -86,20 +35,8 @@
       <file leaf-file-name="ModalRegister.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/modal/ModalRegister.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="125" column="28" lean-forward="false" selection-start-line="125" selection-start-column="28" selection-end-line="125" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModalSignIn.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/modal/ModalSignIn.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="121" column="48" lean-forward="true" selection-start-line="121" selection-start-column="48" selection-end-line="121" selection-end-column="48" />
+            <state relative-caret-position="189">
+              <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -158,8 +95,8 @@
         <option value="$PROJECT_DIR$/src/components/box/Card.js" />
         <option value="$PROJECT_DIR$/src/components/modal/ModalSignInForm.js" />
         <option value="$PROJECT_DIR$/src/components/modal/ModalSignUpForm.js" />
-        <option value="$PROJECT_DIR$/src/components/modal/ModalRegisterForm.js" />
         <option value="$PROJECT_DIR$/src/components/modal/ModalSignIn.js" />
+        <option value="$PROJECT_DIR$/src/components/modal/ModalRegisterForm.js" />
         <option value="$PROJECT_DIR$/src/components/modal/ModalRegister.js" />
       </list>
     </option>
@@ -314,7 +251,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66523000" />
+    <option name="totallyTimeSpent" value="67422000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -735,16 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/modal/ModalRegisterForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="65" column="38" lean-forward="false" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/modalcontainers/ModalRootContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="467">
@@ -765,10 +692,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/modal/ModalRegisterForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/modal/ModalRegister.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="125" column="28" lean-forward="false" selection-start-line="125" selection-start-column="28" selection-end-line="125" selection-end-column="28" />
+        <state relative-caret-position="189">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

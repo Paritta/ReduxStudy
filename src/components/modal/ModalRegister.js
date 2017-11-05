@@ -63,25 +63,6 @@ const AnimationWrapper = styled.div`
     animation: 1s ${fadeInAnimation};
 `;
 
-const Button = styled.button`
-    background: palevioletred;
-    color: white;
-    
-    font-size: 1em;
-    margin: 1em;
-    padding: 0.25em 1em;
-    
-    border: 2px solid palevioletred;
-    border-radius: 3px;
-    
-    transition: all 0.3s ease;
-    
-    &:hover {
-        background: ${oc.pink[4]};
-        border: 2px solid ${oc.pink[4]};
-    }
-`;
-
 const WrappedReactLoading = styled.div`
     display: flex;
     align-items: center;
@@ -97,6 +78,7 @@ class ModalRegister extends React.Component {
     };
 
     submit = values => {
+        console.log(values);
         this.setState({ isLoading: true });
         this.props.firebase
             .push("Posts", { post: values })

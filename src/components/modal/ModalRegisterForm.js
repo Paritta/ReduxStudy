@@ -17,6 +17,11 @@ const StyledField = styled(Field)`
     margin-bottom: 10px;
 `;
 
+const StyledSelect = StyledField.extend`
+    width: 426px;
+    height: 47px;
+`;
+
 const IntroField = StyledField.extend`
     padding: 0 0 200px 20px;
 `;
@@ -48,9 +53,13 @@ let ModalRegisterForm = ({ handleSubmit, hideModal, handlePush, valuesObject }) 
                 <div>
                     <StyledField name="StudyTitle" component="input" type="text" required placeholder="스터디 이름"/>
                 </div>
-                <div>
-                    <StyledField name="Category" component="input" type="text" required placeholder="학과"/>
-                </div>
+                <StyledSelect name="Category" component="select">
+                    <option value="MaterialScience">신소재공학과</option>
+                    <option value="Nursing">간호학과</option>
+                    <option value="ITEngineering">IT융합응용공학과</option>
+                    <option value="ComputerScience">컴퓨터공학과</option>
+                    <option value="Chemical">화학공학과</option>
+                </StyledSelect>
                 <div>
                     <StyledField name="Location" component="input" type="text" required placeholder="장소"/>
                 </div>
