@@ -5,9 +5,19 @@ import { filterMaterial, filterNursing, filterInformation, filterComputer, filte
 import PropTypes from "prop-types";
 
 const propTypes = {
+    filterMaterial: PropTypes.func.isRequired,
+    filterNursing: PropTypes.func.isRequired,
+    filterInformation: PropTypes.func.isRequired,
+    filterComputer: PropTypes.func.isRequired,
+    filterChemical: PropTypes.func.isRequired
 };
 
 const defaultTypes = {
+    filterMaterial () {},
+    filterNursing () {},
+    filterInformation () {},
+    filterComputer () {},
+    filterChemical () {}
 };
 
 function FilterContainer({ filterMaterial, filterNursing, filterInformation, filterComputer, filterChemical }) {
