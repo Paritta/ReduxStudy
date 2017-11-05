@@ -3,10 +3,15 @@ import styled, {keyframes} from "styled-components";
 import { fadeIn } from 'react-animations';
 import PropTypes from "prop-types";
 import ModalSignInForm from "./ModalSignInForm";
+import { pathToJS, firebaseConnect } from "react-redux-firebase";
+import { connect } from "react-redux";
 
 const propTypes = {
     Modal: PropTypes.object,
     hideModal: PropTypes.func,
+    firebase: PropTypes.shape({
+        login: PropTypes.func.isRequired
+    })
 };
 
 const defaultTypes = {
@@ -64,8 +69,30 @@ const Dimmed = styled.div`
 `;
 
 class ModalSignIn extends React.Component {
+    state = {
+      isLoading: false
+    };
+
     submit = values => {
         console.log(values);
+        this.Login(values);
+    };
+
+    Login = LoginData => {
+        this.setState({ isLoading: true })
+        return this.props.firebase
+            .login({
+                email: LoginData.email,
+                password: LoginData.password
+            })
+            .then(() => {
+                this.setState({ isLoading: false })
+            })
+            .catch((error) => {
+                this.setState({ isLoading: false })
+                console.log("there was an error:", error);
+                console.log("error prop:", this.props.authError);
+            })
     };
 
     render () {
@@ -93,4 +120,10 @@ class ModalSignIn extends React.Component {
 ModalSignIn.propTypes = propTypes;
 ModalSignIn.defaultTypes = defaultTypes;
 
-export default ModalSignIn;
+const WrappedModalSignIn = firebaseConnect()(ModalSignIn);
+
+export default connect(
+    ({ firebase }) => ({
+        authError: pathToJS(firebase, "authError"),
+    })
+)(WrappedModalSignIn);
