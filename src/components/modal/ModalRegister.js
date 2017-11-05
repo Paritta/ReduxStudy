@@ -1,7 +1,6 @@
 import React from "react";
 import styled, {keyframes} from "styled-components";
 import { fadeIn } from 'react-animations';
-import oc from "open-color";
 import ModalRegisterForm from "./ModalRegisterForm";
 import PropTypes from "prop-types";
 import { firebaseConnect } from "react-redux-firebase";
