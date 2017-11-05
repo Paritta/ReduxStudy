@@ -19,19 +19,13 @@ const Container = styled.div`
 const Item = styled.div`
 `;
 
-const Layout = () => {
+const Layout = ({ showModal, hideModal }) => {
     return (
-        <div>
+        <div onClick={() => { showModal({modalType: "MODAL_STUDY"}) }}>
             Layout
             <Container>
                 <Item>
-                    <Card />
-                </Item>
-                <Item>
-                    <Card />
-                </Item>
-                <Item>
-                    <Card />
+                    <Card onClick={() => { showModal({modalType: "MODAL_STUDY"}) }}/>
                 </Item>
             </Container>
         </div>

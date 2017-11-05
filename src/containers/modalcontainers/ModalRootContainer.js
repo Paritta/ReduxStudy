@@ -1,7 +1,8 @@
 import React from "react";
 import ModalRegisterContainer from "./ModalRegisterContainer";
 import ModalSignInContainer from "./ModalSignInContainer";
-import ModalSignUpContainer from "./ModalSignUpContainer"
+import ModalSignUpContainer from "./ModalSignUpContainer";
+import ModalStudyContainer from "./ModalStudyContainer";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -13,6 +14,7 @@ const MODAL_COMPONENTS ={
     "MODAL_REGISTER": ModalRegisterContainer,
     "MODAL_SIGNIN": ModalSignInContainer,
     "MODAL_SIGNUP": ModalSignUpContainer,
+    "MODAL_STUDY": ModalStudyContainer
 };
 
 function ModalRootContainer ({ Modal }) {

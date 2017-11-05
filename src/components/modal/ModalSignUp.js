@@ -39,8 +39,6 @@ const AnimationWrapper = styled.div`
 `;
 
 const ModalHeader = styled.div`
-    @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
-    font-family: 'Hanna', fantasy;
     font-style: normal;
     font-weight: 400;
     color: white;

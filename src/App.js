@@ -4,7 +4,7 @@ import Banner from "./components/Banner";
 import HeaderContainer from "./containers/HeaderContainer";
 import ModalRootContainer from "./containers/modalcontainers/ModalRootContainer";
 import FilterContainer from "./containers/FilterContainer";
-import Layout from "./components/box/Layout";
+import LayoutContainer from "./containers/LayoutContainer";
 
 class App extends Component {
   render() {
@@ -14,9 +14,7 @@ class App extends Component {
           <Banner />
           <ModalRootContainer />
           <FilterContainer />
-          <Layout />
-          <Layout />
-          <Layout />
+          <LayoutContainer />
       </div>
     );
   }
