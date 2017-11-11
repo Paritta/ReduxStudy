@@ -1,6 +1,6 @@
 # DataNormalize
 
-``` json
+``` javascript
 {
     posts : {
         byId : {
