@@ -2,7 +2,6 @@ import React from "react";
 import styled, {keyframes} from "styled-components";
 import { fadeIn } from 'react-animations';
 import PropTypes from "prop-types";
-import ModalStudyForm from "./ModalStudyForm";
 
 const propTypes = {
     Modal: PropTypes.object,
@@ -20,31 +19,35 @@ const Wrapper = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 10px;
     
     overflow: hidden;
     
     z-index: 10;
     
-    width: 550px;
+    width: 70%;
 `;
 
 const AnimationWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    
     animation: 1s ${fadeInAnimation};
 `;
 
-const ModalHeader = styled.div`
-    font-style: normal;
-    font-weight: 400;
-    color: white;
-    padding: 15px 15px;
-    background: palevioletred;
-`;
-
-const ModalBox = styled.div`
+const ModalBoxLeft = styled.div`
     background: white;
     border: 1px solid rgba(0, 0, 0, 0.3);
     padding: 15px;
+    
+    width: 58%;
+`;
+
+const ModalBoxRight = styled.div`
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    
+    width: 35%;
 `;
 
 const Dimmed = styled.div`
@@ -65,7 +68,15 @@ class ModalStudy extends React.Component {
 
         return (
             <div>
-                a
+                <Dimmed />
+                <Wrapper>
+                    <AnimationWrapper>
+                        <ModalBoxLeft>
+                        </ModalBoxLeft>
+                        <ModalBoxRight>
+                        </ModalBoxRight>
+                    </AnimationWrapper>
+                </Wrapper>
             </div>
         )
     }

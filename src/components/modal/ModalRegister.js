@@ -77,10 +77,14 @@ class ModalRegister extends React.Component {
     };
 
     submit = values => {
+        const post = {
+          values,
+        };
+
         console.log(values);
         this.setState({ isLoading: true });
         this.props.firebase
-            .push("Posts", { post: values })
+            .push({ post })
             .then(()=> {
                 this.setState({ isLoading: false });
             })
@@ -123,5 +127,6 @@ ModalRegister.defaultTypes = defaultTypes;
 const WrappedModalRegister = firebaseConnect()(ModalRegister);
 
 export default connect(
-    ({ firebase }) => ({})
+    ({ firebase }) => ({
+    })
 )(WrappedModalRegister);
