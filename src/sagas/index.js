@@ -5,14 +5,14 @@ function* fetchData () {
     try {
         const data = yield getFirebase().ref();
         console.log(data);
-        yield put({ type: "FETCH_SUCCESS" });
+        yield put({ type: "fetch/fetch_Success" });
     } catch (error) {
-        yield put({ type: "FETCH_FAILUERE", payload: error })
+        yield put({ type: "fetch/fetch_Failure", payload: error })
     }
 };
 
 function* watchFetchData () {
-    yield takeEvery("FETCH_REQUEST", fetchData);
+    yield takeEvery("fetch/fetch_Request", fetchData);
 }
 
 export default function* rootSaga () {

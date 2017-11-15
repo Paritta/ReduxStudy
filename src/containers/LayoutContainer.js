@@ -2,26 +2,29 @@ import React from "react";
 import Layout from "../components/box/Layout";
 import { connect } from "react-redux";
 import { showModal, hideModal } from "../modules/Modal";
+import { fetchRequest } from "../modules/Fetch";
 import PropTypes from "prop-types";
-import { getModal } from "../selector";
+import { getFetch } from "../selector";
 
 const propTypes = {
-    Modal: PropTypes.object,
-    showModal: PropTypes.func,
-    hideModal: PropTypes.func,
+    showModal: PropTypes.func.isRequired,
+    hideModal: PropTypes.func.isRequired,
+    fetchRequest: PropTypes.func.isRequired,
 };
 
 const defaultTypes = {
     showModal() {},
     hideModal() {},
+    fetchRequest() {}
 };
 
-function LayoutContainer({ showModal, hideModal }) {
+function LayoutContainer({ showModal, hideModal, fetchRequest }) {
     return (
         <div>
             <Layout
                 showModal={showModal}
-                hideModal={hideModal}/>
+                hideModal={hideModal}
+                fetchRequest={fetchRequest}/>
         </div>
     )
 }
@@ -30,6 +33,6 @@ LayoutContainer.propTypes = propTypes;
 LayoutContainer.defaultTypes = defaultTypes;
 
 export default connect(
-    state => ({ Modal: getModal(state) }) ,
-    { showModal, hideModal }
+    state => ({ Fetch: getFetch(state) }) ,
+    { showModal, hideModal, fetchRequest }
 )(LayoutContainer);

@@ -5,10 +5,12 @@ import PropTypes from "prop-types";
 
 const propTypes = {
     showModal: PropTypes.func.isRequired,
+    fetchRequest: PropTypes.func.isRequired
 };
 
 const defaultTypes = {
     showModal () {},
+    fetchRequest () {}
 };
 
 const Container = styled.div`
@@ -22,17 +24,25 @@ const Container = styled.div`
 const Item = styled.div`
 `;
 
-const Layout = ({ showModal }) => {
-    return (
-        <div onClick={() => { showModal({modalType: "MODAL_STUDY" }) }}>
-            Layout
-            <Container>
-                <Item>
-                    <Card onClick={() => { showModal({modalType: "MODAL_STUDY"}) }}/>
-                </Item>
-            </Container>
-        </div>
-    );
+class Layout extends React.Component {
+    componentDidMount () {
+        this.props.fetchRequest()
+    }
+
+    render () {
+        const { showModal, fetchRequest } = this.props;
+
+        return (
+            <div onClick={() => { showModal({modalType: "MODAL_STUDY" }) }}>
+                Layout
+                <Container>
+                    <Item>
+                        <Card onClick={() => { showModal({modalType: "MODAL_STUDY"}) }}/>
+                    </Item>
+                </Container>
+            </div>
+        );
+    }
 };
 
 Layout.propTypes = propTypes;

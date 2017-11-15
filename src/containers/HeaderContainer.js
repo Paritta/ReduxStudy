@@ -6,9 +6,9 @@ import PropTypes from "prop-types";
 import { getModal } from "../selector";
 
 const propTypes = {
-    Modal: PropTypes.object,
-    showModal: PropTypes.func,
-    hideModal: PropTypes.func,
+    Modal: PropTypes.object.isRequired,
+    showModal: PropTypes.func.isRequired,
+    hideModal: PropTypes.func.isRequired,
 };
 
 const defaultTypes = {
