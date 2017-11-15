@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { hideModal } from "../../modules/Modal";
 import ModalSignIn from "../../components/modal/ModalSignIn";
 import PropTypes from "prop-types";
+import { getModal } from "../../selector";
 
 const propTypes = {
     hideModal: PropTypes.func,
@@ -24,6 +25,6 @@ ModalSignInContainer.propTypes = propTypes;
 ModalSignInContainer.defaultTypes = defaultTypes;
 
 export default connect(
-    state => ({ Modal: state.Modal }),
+    state => ({ Modal: getModal(state) }),
     { hideModal }
 )(ModalSignInContainer);

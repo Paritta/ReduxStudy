@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "./Card";
+import PropTypes from "prop-types";
 
 const propTypes = {
+    showModal: PropTypes.func.isRequired,
 };
 
 const defaultTypes = {
+    showModal () {},
 };
 
 const Container = styled.div`
@@ -19,9 +22,9 @@ const Container = styled.div`
 const Item = styled.div`
 `;
 
-const Layout = ({ showModal, hideModal }) => {
+const Layout = ({ showModal }) => {
     return (
-        <div onClick={() => { showModal({modalType: "MODAL_STUDY"}) }}>
+        <div onClick={() => { showModal({modalType: "MODAL_STUDY" }) }}>
             Layout
             <Container>
                 <Item>

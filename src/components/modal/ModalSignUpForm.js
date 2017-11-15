@@ -101,7 +101,7 @@ let ModalSignUpForm = ({ handleSubmit, hideModal }) => {
                     <StyledField name="Nickname" component="input" type="text" required placeholder="Nickname"/>
                 </div>
                 <div>
-                    <StyledField name="password" component="input" type="text" required placeholder="password"/>
+                    <StyledField name="password" component="input" type="password" required placeholder="password"/>
                 </div>
                 <Button type="submit">회원 가입</Button>
                 <Button onClick={() => hideModal()}>나가기</Button>

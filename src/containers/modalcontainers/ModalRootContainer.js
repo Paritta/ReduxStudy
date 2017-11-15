@@ -5,6 +5,7 @@ import ModalSignUpContainer from "./ModalSignUpContainer";
 import ModalStudyContainer from "./ModalStudyContainer";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { getModal } from "../../selector";
 
 const propTypes = {
     Modal: PropTypes.object,
@@ -31,6 +32,6 @@ function ModalRootContainer ({ Modal }) {
 ModalRootContainer.propTypes = propTypes;
 
 export default connect(
-    state => ({ Modal: state.Modal }),
+    state => ({ Modal: getModal(state) }),
     {},
 )(ModalRootContainer);

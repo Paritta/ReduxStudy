@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import { connect } from "react-redux";
 import { showModal, hideModal } from "../modules/Modal";
 import PropTypes from "prop-types";
+import { getModal } from "../selector";
 
 const propTypes = {
     Modal: PropTypes.object,
@@ -30,6 +31,6 @@ HeaderContainer.propTypes = propTypes;
 HeaderContainer.defaultTypes = defaultTypes;
 
 export default connect(
-    state => ({ Modal: state.Modal }) ,
+    state => ({ Modal: getModal(state) }) ,
     { showModal, hideModal }
 )(HeaderContainer);

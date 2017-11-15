@@ -3,6 +3,7 @@ import Layout from "../components/box/Layout";
 import { connect } from "react-redux";
 import { showModal, hideModal } from "../modules/Modal";
 import PropTypes from "prop-types";
+import { getModal } from "../selector";
 
 const propTypes = {
     Modal: PropTypes.object,
@@ -29,6 +30,6 @@ LayoutContainer.propTypes = propTypes;
 LayoutContainer.defaultTypes = defaultTypes;
 
 export default connect(
-    state => ({ Modal: state.Modal }) ,
+    state => ({ Modal: getModal(state) }) ,
     { showModal, hideModal }
 )(LayoutContainer);

@@ -16,6 +16,6 @@ function* watchFetchData () {
 }
 
 export default function* rootSaga () {
-    watchFetchData()
+    yield watchFetchData()
 }
 

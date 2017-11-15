@@ -44,7 +44,7 @@ let ModalSignInForm = ({ handleSubmit, hideModal }) => {
                     <StyledField name="email" component="input" type="text" required placeholder="email"/>
                 </div>
                 <div>
-                    <StyledField name="password" component="input" type="text" required placeholder="password"/>
+                    <StyledField name="password" component="input" type="password" required placeholder="password"/>
                 </div>
                 <Button type="submit">로그인</Button>
                 <Button onClick={() => hideModal()}>나가기</Button>

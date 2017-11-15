@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { hideModal } from "../../modules/Modal";
 import ModalRegister from "../../components/modal/ModalRegister";
 import PropTypes from "prop-types";
+import { getModal } from "../../selector";
 
 const propTypes = {
     hideModal: PropTypes.func,
@@ -24,6 +25,6 @@ ModalRegisterContainer.propTypes = propTypes;
 ModalRegisterContainer.defaultTypes = defaultTypes;
 
 export default connect(
-    state => ({ Modal: state.Modal }),
+    state => ({ Modal: getModal(state) }),
     { hideModal }
 )(ModalRegisterContainer);

@@ -3,6 +3,7 @@ import Filter from "../components/Filter";
 import { connect } from "react-redux";
 import { filterMaterial, filterNursing, filterInformation, filterComputer, filterChemical } from "../modules/Filter";
 import PropTypes from "prop-types";
+import { getFilter } from "../selector";
 
 const propTypes = {
     filterMaterial: PropTypes.func.isRequired,
@@ -38,6 +39,6 @@ FilterContainer.propTypes = propTypes;
 FilterContainer.defaultTypes = defaultTypes;
 
 export default connect(
-    state => ({ Filter: state.Filter }) ,
+    state => ({ Filter: getFilter(state) }) ,
     { filterMaterial, filterNursing, filterInformation, filterComputer, filterChemical }
 )(FilterContainer);
