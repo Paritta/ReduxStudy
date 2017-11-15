@@ -1,17 +1,17 @@
-import { createStore, compose } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
 import reducers from "./modules/index";
-import { reactReduxFirebase } from "react-redux-firebase";
+import { reactReduxFirebase, getFirebase } from "react-redux-firebase";
 import { firebaseConfig as fbConfig, reduxConfig } from './config';
+import createSagaMiddlewares from "redux-saga";
+import rootSaga from "./sagas/index";
 
-// const store = createStore(
-//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-//     compose(
-//         reactReduxFirebase(fbConfig, reduxConfig),
-//     )
-// );
+const sagaMiddleware = createSagaMiddlewares();
+
+const middleware = [sagaMiddleware];
 
 const createStoreWithFirebase = compose(
-    reactReduxFirebase(fbConfig, reduxConfig)
+    reactReduxFirebase(fbConfig, reduxConfig),
+    applyMiddleware(...middleware)
 )(createStore);
 
 const store = createStoreWithFirebase(
@@ -19,15 +19,7 @@ const store = createStoreWithFirebase(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 
-// NOTE: If the ()() syntax seems confusing, you can always break it down into two steps:
-// // ...
-//
-// // create new, "configured" function
-//     createReduxForm = reduxForm({ form: 'contact' })
-//
-// // evaluate it for ContactForm component
-// ContactForm = createReduxForm( ContactForm )
-//
-// export default ContactForm;
+// when calling saga, pass getFirebase
+sagaMiddleware.run(rootSaga, getFirebase);
 
 export default store;

@@ -5,11 +5,9 @@ import PropTypes from "prop-types";
 
 const propTypes = {
     Modal: PropTypes.object,
-    hideModal: PropTypes.func,
 };
 
 const defaultTypes = {
-    hideModal() {},
 };
 
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -64,7 +62,6 @@ const Dimmed = styled.div`
 
 class ModalStudy extends React.Component {
     render () {
-        const { hideModal } = this.props;
 
         return (
             <div>

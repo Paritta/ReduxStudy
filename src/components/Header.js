@@ -60,6 +60,7 @@ class Header extends React.Component {
 
     render () {
         const { onShowModal, profile } = this.props;
+    
 
         return (
             <div>
