@@ -13,7 +13,6 @@ const initialState = {
 
 const reducer = handleActions({
     [SHOW_MODAL]: (state, action) => {
-        console.log('1');
         return {
             modalType: action.payload.modalType,
             modalProps: action.payload.modalProps,

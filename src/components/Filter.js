@@ -94,6 +94,6 @@ const Filter = ({ filterMaterial, filterNursing, filterInformation, filterComput
             </Wrapper>
         </div>
     )
-}
+};
 
 export default Filter;
