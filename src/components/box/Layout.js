@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Card from "./Card";
 import PropTypes from "prop-types";
+import ReactLoading from "react-loading";
 
 const propTypes = {
     showModal: PropTypes.func,
@@ -19,6 +20,14 @@ const Wrapper = styled.div`
     padding: 100px;
 `;
 
+const WrappedReactLoading = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(2);
+    padding: 80px 0;
+`;
+
 const Item = styled.div`
 `;
 
@@ -28,15 +37,29 @@ export class Layout extends React.Component {
     }
 
     render () {
-        const { showModal } = this.props;
+        const { Fetch, showModal } = this.props;
+        const Pending = Fetch.pending;
 
         return (
             <div onClick={() => { showModal({modalType: "MODAL_STUDY" }) }}>
-                Layout
                 <Wrapper>
-                    <Item>
-                        <Card onClick={() => { showModal({modalType: "MODAL_STUDY"}) }}/>
-                    </Item>
+                    {
+                        Pending?
+                        <WrappedReactLoading>
+                            <ReactLoading type="cylon" color="palevioletred"/>
+                        </WrappedReactLoading>
+                        :
+                        Fetch.data.map((item, key) =>
+                            <Item
+                                key={key}
+                            >
+                                <Card
+                                    onClick={() => { showModal({modalType: "MODAL_STUDY"}) }}
+                                    item={item}
+                                />
+                            </Item>
+                        )
+                    }
                 </Wrapper>
             </div>
         );

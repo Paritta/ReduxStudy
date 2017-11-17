@@ -5,7 +5,9 @@ import ReactTestRenderer from "react-test-renderer";
 
 it("Layout render correctly", () => {
     const tree = ReactTestRenderer.create(
-        <Layout fetchRequest={() => {}} />
+        <Layout
+            fetchRequest={() => {}}
+        />
     );
     expect(tree.toJSON()).toMatchSnapshot();
 });

@@ -7,9 +7,10 @@ import PropTypes from "prop-types";
 import { getFetch } from "../selector";
 
 const propTypes = {
+    Fetch: PropTypes.object.isRequired,
     showModal: PropTypes.func.isRequired,
     hideModal: PropTypes.func.isRequired,
-    fetchRequest: PropTypes.func.isRequired,
+    fetchRequest: PropTypes.func.isRequired
 };
 
 const defaultTypes = {
@@ -18,10 +19,11 @@ const defaultTypes = {
     fetchRequest() {}
 };
 
-function LayoutContainer({ showModal, hideModal, fetchRequest }) {
+function LayoutContainer({ Fetch, showModal, hideModal, fetchRequest }) {
     return (
         <div>
             <Layout
+                Fetch={Fetch}
                 showModal={showModal}
                 hideModal={hideModal}
                 fetchRequest={fetchRequest}/>

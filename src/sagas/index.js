@@ -12,12 +12,22 @@ function* fetchData () {
                 return res.val();
             });
 
-        yield put({ type: "fetch/fetch_Success", payload: data });
+        const TransformFetch = [];
 
+        for (let key in data) {
+            const TransformFetchData = {
+                postId: key,
+                data: data
+            };
+
+            TransformFetch.push(TransformFetchData);
+        }
+
+        yield put({ type: "fetch/fetch_Success", payload: TransformFetch });
     } catch (error) {
         yield put({ type: "fetch/fetch_Failure", payload: error })
     }
-};
+}
 
 export function* watchFetchData () {
     yield takeEvery("fetch/fetch_Request", fetchData);

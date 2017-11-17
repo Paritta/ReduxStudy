@@ -11,7 +11,7 @@ export const fetchFailure = createAction(FETCH_FAILURE);
 const initialState = {
     pending: false,
     error: false,
-    data: {}
+    data: []
 };
 
 const reducer = handleActions({
