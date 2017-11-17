@@ -1,20 +1,24 @@
-import { hideModal } from "./Modal";
+import { hideModal, showModal } from "./Modal";
 
 describe("Modal reducer", () => {
     it("should handle HIDE_MODAL", () => {
-        const initialState = {
+        const nextState = hideModal();
+        expect(nextState).toEqual({
+            type: "modal/hide_Modal"
+        })
+    });
+
+    it("should handle SHOW_MODAL", () => {
+        const nextState = showModal({
             modalType: null,
             modalProps: {}
-        };
-
-        const action = {};
-
-        const nextState = hideModal(initialState, action);
+        });
         expect(nextState).toEqual({
+            type: "modal/show_Modal",
             payload: {
-                defaultFilter: "filter_Material"
-            },
-            type: "filter/filter_Chemical"
+                modalType: null,
+                modalProps: {}
+            }
         })
     });
 });
