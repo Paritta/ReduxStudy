@@ -3,15 +3,17 @@ import { getFirebase } from "react-redux-firebase";
 
 function* fetchData () {
     try {
-        const data = getFirebase()
+        const data = yield getFirebase()
             .database()
             .ref("posts")
             .limitToLast(10)
             .once("value")
-            .then(res =>
-                console.log(res.val())
-            );
-        yield put({ type: "fetch/fetch_Success" });
+            .then(res => {
+                return res.val();
+            });
+
+        yield put({ type: "fetch/fetch_Success", payload: data });
+
     } catch (error) {
         yield put({ type: "fetch/fetch_Failure", payload: error })
     }
