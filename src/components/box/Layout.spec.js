@@ -3,7 +3,7 @@ import { Layout } from "./Layout";
 import "jest-styled-components";
 import ReactTestRenderer from "react-test-renderer";
 
-it("Component render correctly", () => {
+it("Layout render correctly", () => {
     const tree = ReactTestRenderer.create(
         <Layout fetchRequest={() => {}} />
     );

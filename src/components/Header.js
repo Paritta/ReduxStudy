@@ -53,7 +53,7 @@ const MenuItem = styled.button`
     }
 `;
 
-class Header extends React.Component {
+export class Header extends React.Component {
     handleLogOut () {
         this.props.firebase.logout();
     }

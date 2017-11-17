@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card render correctly 1`] = `
+.c0 {
+  text-align: right;
+  padding-right: 70px;
+}
+
+.c1 {
+  background: white;
+  font-weight: 500;
+  font-size: 0.9em;
+  border: 2px solid white;
+  margin-left: 20px;
+}
+
+.c1:hover {
+  color: #adb5bd;
+}
+
+.c2 {
+  background: palevioletred;
+  color: white;
+  font-size: 1em;
+  margin: 1em 0em 1em 8em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.c2:hover {
+  background: #f783ac;
+  border: 2px solid #f783ac;
+}
+
+<div>
+  <div
+    className="c0"
+  >
+    <span>
+      <button
+        className="c1"
+        onClick={[Function]}
+      >
+        회원가입
+      </button>
+      <button
+        className="c1"
+        onClick={[Function]}
+      >
+        로그인
+      </button>
+    </span>
+    <button
+      className="c2"
+      onClick={[Function]}
+    >
+      등록하기
+    </button>
+  </div>
+</div>
+`;

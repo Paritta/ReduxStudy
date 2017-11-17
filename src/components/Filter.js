@@ -45,7 +45,7 @@ const FilterUl = styled.ul`
     justify-content: space-around;
 `;
 
-const Filter = ({ filterMaterial, filterNursing, filterInformation, filterComputer, filterChemical }) => {
+export const Filter = ({ filterMaterial, filterNursing, filterInformation, filterComputer, filterChemical }) => {
     return (
         <div>
             <Wrapper>

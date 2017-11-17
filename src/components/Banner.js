@@ -8,7 +8,7 @@ const BannerBackground = styled.div`
     height: 40vh;
 `;
 
-const Banner = () => {
+export const Banner = () => {
     return (
         <div>
             <BannerBackground />

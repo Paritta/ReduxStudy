@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card render correctly 1`] = `
+.c0 {
+  background: url(background.jpg) left bottom;
+  background-size: cover;
+  height: 40vh;
+}
+
+<div>
+  <div
+    className="c0"
+  />
+</div>
+`;
