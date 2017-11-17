@@ -1,3 +1,253 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Check ModalRegister Component Component render correctly 1`] = `null`;
+exports[`Component render correctly 1`] = `
+.c0 {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 5;
+  background: rgba(0,0,0,0.3);
+}
+
+.c1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 10;
+  width: 700px;
+}
+
+.c2 {
+  -webkit-animation: 1s eMLfYp;
+  animation: 1s eMLfYp;
+}
+
+.c3 {
+  font-style: normal;
+  font-weight: 400;
+  color: white;
+  padding: 15px 15px;
+  background: palevioletred;
+}
+
+.c4 {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.3);
+  padding: 15px;
+}
+
+.c5 {
+  padding: 30px 0 10px 0;
+}
+
+.c6 {
+  background-color: #f8f9fa;
+  width: 400px;
+  height: 40px;
+  font-size: 15px;
+  border: 2px solid white;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.c7 {
+  background-color: #f8f9fa;
+  width: 400px;
+  height: 40px;
+  font-size: 15px;
+  border: 2px solid white;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  width: 426px;
+  height: 47px;
+}
+
+.c8 {
+  background-color: #f8f9fa;
+  width: 400px;
+  height: 40px;
+  font-size: 15px;
+  border: 2px solid white;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  padding: 0 0 200px 20px;
+}
+
+.c9 {
+  background: palevioletred;
+  color: white;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.c9:hover {
+  background: #f783ac;
+  border: 2px solid #f783ac;
+}
+
+<div>
+  <div
+    className="c0"
+  />
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    >
+      <div
+        className="c3"
+      >
+        스터디 등록
+      </div>
+      <div
+        className="c4"
+      >
+        <div
+          className="c5"
+        >
+          <form
+            onSubmit={[Function]}
+          >
+            <div>
+              <input
+                className="c6"
+                name="StudyTitle"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onDragStart={[Function]}
+                onDrop={[Function]}
+                onFocus={[Function]}
+                placeholder="스터디 이름"
+                required={true}
+                type="text"
+                value=""
+              />
+            </div>
+            <select
+              className="c7"
+              name="Category"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onDragStart={[Function]}
+              onDrop={[Function]}
+              onFocus={[Function]}
+              value=""
+            >
+              <option
+                value="MaterialScience"
+              >
+                신소재공학과
+              </option>
+              <option
+                value="Nursing"
+              >
+                간호학과
+              </option>
+              <option
+                value="ITEngineering"
+              >
+                IT융합응용공학과
+              </option>
+              <option
+                value="ComputerScience"
+              >
+                컴퓨터공학과
+              </option>
+              <option
+                value="Chemical"
+              >
+                화학공학과
+              </option>
+            </select>
+            <div>
+              <input
+                className="c6"
+                name="Location"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onDragStart={[Function]}
+                onDrop={[Function]}
+                onFocus={[Function]}
+                placeholder="장소"
+                required={true}
+                type="text"
+                value=""
+              />
+            </div>
+            <div>
+              <input
+                className="c6"
+                name="Time"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onDragStart={[Function]}
+                onDrop={[Function]}
+                onFocus={[Function]}
+                placeholder="시간"
+                required={true}
+                type="text"
+                value=""
+              />
+            </div>
+            <div>
+              <input
+                className="c6"
+                name="Number"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onDragStart={[Function]}
+                onDrop={[Function]}
+                onFocus={[Function]}
+                placeholder="모집 인원"
+                required={true}
+                type="text"
+                value=""
+              />
+            </div>
+            <div>
+              <input
+                className="c8"
+                name="Introduction"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onDragStart={[Function]}
+                onDrop={[Function]}
+                onFocus={[Function]}
+                placeholder="스터디 소개"
+                required={true}
+                type="text"
+                value=""
+              />
+            </div>
+            <button
+              className="c9"
+              type="submit"
+            >
+              등록
+            </button>
+            <button
+              className="c9"
+              onClick={[Function]}
+            >
+              나가기
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

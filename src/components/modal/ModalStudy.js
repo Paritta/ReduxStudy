@@ -60,7 +60,7 @@ const Dimmed = styled.div`
     background: rgba(0, 0, 0, 0.3);
 `;
 
-class ModalStudy extends React.Component {
+export class ModalStudy extends React.Component {
     render () {
 
         return (

@@ -75,7 +75,7 @@ const WrappedReactLoading = styled.div`
     padding: 80px 0;
 `;
 
-class ModalSignIn extends React.Component {
+export class ModalSignIn extends React.Component {
     state = {
       isLoading: false,
     };

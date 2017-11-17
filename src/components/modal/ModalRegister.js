@@ -70,7 +70,7 @@ const WrappedReactLoading = styled.div`
     padding: 80px 0;
 `;
 
-class ModalRegister extends React.Component {
+export class ModalRegister extends React.Component {
     state = {
         isLoading: false,
         error: ""
@@ -127,6 +127,5 @@ ModalRegister.defaultTypes = defaultTypes;
 const WrappedModalRegister = firebaseConnect()(ModalRegister);
 
 export default connect(
-    ({ firebase }) => ({
-    })
+    ({ firebase }) => ({ })
 )(WrappedModalRegister);

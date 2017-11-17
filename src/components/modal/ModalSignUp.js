@@ -64,7 +64,7 @@ const Dimmed = styled.div`
     background: rgba(0, 0, 0, 0.3);
 `;
 
-class ModalSignUp extends React.Component {
+export class ModalSignUp extends React.Component {
     createNewUser = ({ email, password, username }) => {
         this.props.firebase.createUser(
             { email, password },
