@@ -24,6 +24,7 @@ const reducer = handleActions({
     [FETCH_SUCCESS]: (state, action) => {
         return {
             ...state,
+            pending: false,
             data: action.payload
         }
     },
