@@ -36,7 +36,7 @@ const Button = styled.button`
     }
 `;
 
-let ModalSignInForm = ({ handleSubmit, hideModal }) => {
+export let ModalSignInForm = ({ handleSubmit, hideModal }) => {
     return (
         <Wrapper>
             <form onSubmit={ handleSubmit }>

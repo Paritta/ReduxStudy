@@ -11,7 +11,7 @@ const defaultTypes = {
     showModal () {},
 };
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
 const Item = styled.div`
 `;
 
-class Layout extends React.Component {
+export class Layout extends React.Component {
     componentDidMount () {
         this.props.fetchRequest()
     }

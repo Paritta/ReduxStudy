@@ -90,7 +90,7 @@ const Span = styled.span`
     margin: 0 0 0 15px;
 `;
 
-let ModalSignUpForm = ({ handleSubmit, hideModal }) => {
+export let ModalSignUpForm = ({ handleSubmit, hideModal }) => {
     return (
         <Wrapper>
             <form onSubmit={ handleSubmit }>

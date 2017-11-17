@@ -9,7 +9,7 @@ const propTypes = {
 const defaultTypes = {
 };
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
     display: inline-block;
     
     margin: 0;
@@ -52,7 +52,7 @@ const Info =styled.div`
     z-index: 10;
 `;
 
-const Card = () => {
+export const Card = () => {
     return (
         <div>
             <Wrapper>

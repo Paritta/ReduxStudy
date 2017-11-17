@@ -1,11 +1,11 @@
 import React from "react";
-import { Wrapper } from "./Card";
+import { Card } from "./Card";
 import "jest-styled-components";
 import ReactTestRenderer from "react-test-renderer";
 
 it("Component render correctly", () => {
     const tree = ReactTestRenderer.create(
-        <Wrapper/>
+        <Card />
     );
     expect(tree.toJSON()).toMatchSnapshot();
 });
