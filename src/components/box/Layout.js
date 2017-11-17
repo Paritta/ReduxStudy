@@ -4,16 +4,14 @@ import Card from "./Card";
 import PropTypes from "prop-types";
 
 const propTypes = {
-    showModal: PropTypes.func.isRequired,
-    fetchRequest: PropTypes.func.isRequired
+    showModal: PropTypes.func,
 };
 
 const defaultTypes = {
     showModal () {},
-    fetchRequest () {}
 };
 
-const Container = styled.div`
+export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -30,16 +28,16 @@ class Layout extends React.Component {
     }
 
     render () {
-        const { showModal, fetchRequest } = this.props;
+        const { showModal } = this.props;
 
         return (
             <div onClick={() => { showModal({modalType: "MODAL_STUDY" }) }}>
                 Layout
-                <Container>
+                <Wrapper>
                     <Item>
                         <Card onClick={() => { showModal({modalType: "MODAL_STUDY"}) }}/>
                     </Item>
-                </Container>
+                </Wrapper>
             </div>
         );
     }

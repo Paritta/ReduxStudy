@@ -9,7 +9,7 @@ const propTypes = {
 const defaultTypes = {
 };
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
     display: inline-block;
     
     margin: 0;
