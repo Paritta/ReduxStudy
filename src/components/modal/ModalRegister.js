@@ -76,15 +76,19 @@ export class ModalRegister extends React.Component {
         error: ""
     };
 
+
     submit = values => {
+        const uid = this.props.firebase.auth().currentUser.uid;
+
         const post = {
           values,
+            author: uid
         };
 
         console.log(values);
         this.setState({ isLoading: true });
         this.props.firebase
-            .push({ post })
+            .push("posts", post)
             .then(()=> {
                 this.setState({ isLoading: false });
             })

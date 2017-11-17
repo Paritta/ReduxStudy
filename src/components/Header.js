@@ -46,7 +46,7 @@ const MenuItem = styled.button`
     font-size: 0.9em;
     border: 2px solid white;
     
-    margin-left: 20px;
+    margin: 15px 0 15px 20px;
     
     &:hover {
         color: ${oc.gray[5]};
@@ -61,15 +61,20 @@ export class Header extends React.Component {
     render () {
         const { onShowModal, profile } = this.props;
     
-
         return (
             <div>
                 <Wrapper>
                     {profile&&
-                        <MenuItem
-                            onClick={() => this.handleLogOut()}>
-                            로그 아웃
-                        </MenuItem>
+                        <div>
+                            <MenuItem
+                                onClick={() => this.handleLogOut()}>
+                                로그 아웃
+                            </MenuItem>
+                            <Button
+                                onClick={() => onShowModal({modalType: "MODAL_REGISTER"})}>
+                                등록하기
+                            </Button>
+                        </div>
                     }
                     {!profile&&
                         <span>
@@ -83,10 +88,6 @@ export class Header extends React.Component {
                             </MenuItem>
                         </span>
                     }
-                    <Button
-                        onClick={() => onShowModal({modalType: "MODAL_REGISTER"})}>
-                        등록하기
-                    </Button>
                 </Wrapper>
             </div>
         )

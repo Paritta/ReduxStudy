@@ -3,15 +3,15 @@ import { getFirebase } from "react-redux-firebase";
 
 function* fetchData () {
     try {
-        const data = yield getFirebase().ref();
-        console.log(data);
+        // const data = getFirebase().database().ref("/").once("value").then(res => console.log(res));
+        // console.log(data);
         yield put({ type: "fetch/fetch_Success" });
     } catch (error) {
         yield put({ type: "fetch/fetch_Failure", payload: error })
     }
 };
 
-function* watchFetchData () {
+export function* watchFetchData () {
     yield takeEvery("fetch/fetch_Request", fetchData);
 }
 
