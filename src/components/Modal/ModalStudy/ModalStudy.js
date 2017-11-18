@@ -59,7 +59,6 @@ const ModalBoxLeftHeader = styled.div`
 const ModalBoxRight = styled.div`
     background: white;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    padding: 15px;
     
     width: 35%;
 `;
