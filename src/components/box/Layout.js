@@ -29,11 +29,15 @@ const WrappedReactLoading = styled.div`
 `;
 
 const Item = styled.div`
+    display: inline-block;
 `;
 
 export class Layout extends React.Component {
     componentDidMount () {
         this.props.fetchRequest()
+    }
+
+    componentWillReceiveProps(nextProps) {
     }
 
     render () {

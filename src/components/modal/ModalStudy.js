@@ -2,6 +2,7 @@ import React from "react";
 import styled, {keyframes} from "styled-components";
 import { fadeIn } from 'react-animations';
 import PropTypes from "prop-types";
+import ModalStudyAsset from "../../asset/ModalStudyAsset.jpeg";
 
 const propTypes = {
     Modal: PropTypes.object,
@@ -33,11 +34,25 @@ const AnimationWrapper = styled.div`
 `;
 
 const ModalBoxLeft = styled.div`
+    position: relative;
+
     background: white;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    padding: 15px;
     
     width: 58%;
+    height: 800px;
+`;
+
+const ModalBoxLeftHeader = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    background: url(${ModalStudyAsset}) center center;
+    background-size: cover;
+    
+    width: 100%;
+    height: 30%;
 `;
 
 const ModalBoxRight = styled.div`
@@ -69,6 +84,7 @@ export class ModalStudy extends React.Component {
                 <Wrapper>
                     <AnimationWrapper>
                         <ModalBoxLeft>
+                            <ModalBoxLeftHeader />
                         </ModalBoxLeft>
                         <ModalBoxRight>
                         </ModalBoxRight>
