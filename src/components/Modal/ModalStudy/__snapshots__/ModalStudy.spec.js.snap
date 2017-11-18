@@ -67,17 +67,74 @@ exports[`ModalSignUp render correctly 1`] = `
 }
 
 .c7 {
-  display: relative;
+  position: relative;
   border: 2px dotted blue;
   height: 100%;
   width: 100%;
 }
 
 .c8 {
-  display: absolute;
-  height: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2%;
   width: 100%;
   background: palevioletred;
+}
+
+.c9 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 30px 0 10px 0;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.c11 {
+  background-color: #f8f9fa;
+  width: 300px;
+  height: 40px;
+  font-size: 15px;
+  border: 2px solid white;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.c12 {
+  background: palevioletred;
+  color: white;
+  font-size: 1em;
+  padding: 0.25em 1em;
+  margin-left: 20px;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.c12:hover {
+  background: #f783ac;
+  border: 2px solid #f783ac;
 }
 
 <div>
@@ -104,19 +161,49 @@ exports[`ModalSignUp render correctly 1`] = `
           className="c6"
         >
           ModalStudyCommentContainer
-          <div>
+          <div
+            className="c7"
+          >
             <div
-              className="c7"
+              className="c8"
             >
-              <div
-                className="c8"
+              Header
+            </div>
+            <div>
+              ModalStudyComment
+            </div>
+            ModalStudyCommentList
+            <hr />
+            <div
+              className="c9"
+            >
+              <form
+                onSubmit={[Function]}
               >
-                Header
-              </div>
-              <div>
-                ModalStudyComment
-              </div>
-              ModalStudyCommentList
+                <div
+                  className="c10"
+                >
+                  <input
+                    className="c11"
+                    name="comment"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onDragStart={[Function]}
+                    onDrop={[Function]}
+                    onFocus={[Function]}
+                    placeholder="comment"
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                  <button
+                    className="c12"
+                    type="submit"
+                  >
+                    전송
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>

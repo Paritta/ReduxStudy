@@ -77,6 +77,10 @@ const Dimmed = styled.div`
 
 export class ModalStudy extends React.Component {
     render () {
+        const { Modal }  = this.props;
+        const Props = Modal.modalProps;
+
+        console.log(Props);
 
         return (
             <div>

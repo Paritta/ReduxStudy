@@ -10,11 +10,17 @@ const mockStore = configureStore(middlewares);
 
 const initialState = {};
 const store = mockStore(initialState);
+const Modal = {
+    modalProps: {}
+};
 
 it("ModalSignUp render correctly", () => {
+
     const tree = ReactTestRenderer.create(
         <Provider store={store}>
-            <ModalStudy />
+            <ModalStudy
+                Modal={Modal}
+            />
         </Provider>
     );
     expect(tree.toJSON()).toMatchSnapshot();

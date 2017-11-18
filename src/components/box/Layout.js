@@ -45,7 +45,7 @@ export class Layout extends React.Component {
         const Pending = Fetch.pending;
 
         return (
-            <div onClick={() => { showModal({modalType: "MODAL_STUDY" }) }}>
+            <div>
                 <Wrapper>
                     {
                         Pending?
@@ -55,10 +55,14 @@ export class Layout extends React.Component {
                         :
                         Fetch.data.map((item, key) =>
                             <Item
+                                onClick={() =>
+                                    { showModal({
+                                        modalType: "MODAL_STUDY",
+                                        modalProps: item
+                                    })}}
                                 key={key}
                             >
                                 <Card
-                                    onClick={() => { showModal({modalType: "MODAL_STUDY"}) }}
                                     item={item}
                                 />
                             </Item>

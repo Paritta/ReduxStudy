@@ -2,32 +2,119 @@
 
 exports[`Layout render correctly 1`] = `
 .c0 {
-  display: relative;
+  position: relative;
   border: 2px dotted blue;
   height: 100%;
   width: 100%;
 }
 
 .c1 {
-  display: absolute;
-  height: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2%;
   width: 100%;
   background: palevioletred;
 }
 
-<div>
+.c2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 30px 0 10px 0;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.c4 {
+  background-color: #f8f9fa;
+  width: 300px;
+  height: 40px;
+  font-size: 15px;
+  border: 2px solid white;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.c5 {
+  background: palevioletred;
+  color: white;
+  font-size: 1em;
+  padding: 0.25em 1em;
+  margin-left: 20px;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.c5:hover {
+  background: #f783ac;
+  border: 2px solid #f783ac;
+}
+
+<div
+  className="c0"
+>
   <div
-    className="c0"
+    className="c1"
   >
-    <div
-      className="c1"
+    Header
+  </div>
+  <div>
+    ModalStudyComment
+  </div>
+  ModalStudyCommentList
+  <hr />
+  <div
+    className="c2"
+  >
+    <form
+      onSubmit={[Function]}
     >
-      Header
-    </div>
-    <div>
-      ModalStudyComment
-    </div>
-    ModalStudyCommentList
+      <div
+        className="c3"
+      >
+        <input
+          className="c4"
+          name="comment"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onDragStart={[Function]}
+          onDrop={[Function]}
+          onFocus={[Function]}
+          placeholder="comment"
+          required={true}
+          type="text"
+          value=""
+        />
+        <button
+          className="c5"
+          type="submit"
+        >
+          전송
+        </button>
+      </div>
+    </form>
   </div>
 </div>
 `;

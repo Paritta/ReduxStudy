@@ -14,10 +14,12 @@ function* fetchData () {
 
         const TransformFetch = [];
 
+        console.log(data);
+
         for (let key in data) {
             const TransformFetchData = {
                 postId: key,
-                data: data
+                data: data[key]
             };
 
             TransformFetch.push(TransformFetchData);

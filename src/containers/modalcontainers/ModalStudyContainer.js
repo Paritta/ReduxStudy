@@ -13,10 +13,13 @@ const defaultTypes = {
     hideModal() {},
 };
 
-const ModalStudyContainer = ({ hideModal }) => {
+const ModalStudyContainer = ({ Modal, hideModal }) => {
     return (
         <div>
-            <ModalStudy hideModal={hideModal}/>
+            <ModalStudy
+                Modal={Modal}
+                hideModal={hideModal}
+            />
         </div>
     )
 };
