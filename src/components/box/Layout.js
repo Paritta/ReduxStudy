@@ -13,6 +13,8 @@ const defaultTypes = {
 };
 
 const Wrapper = styled.div`
+    position: relative;
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -21,10 +23,12 @@ const Wrapper = styled.div`
 `;
 
 const WrappedReactLoading = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transform: scale(2);
+    position: absolute;
+    
+    top: 50%;
+    left: 50%;
+    
     padding: 80px 0;
 `;
 
