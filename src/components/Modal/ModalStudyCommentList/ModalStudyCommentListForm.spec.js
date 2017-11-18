@@ -15,7 +15,7 @@ it("Layout render correctly", () => {
     const tree = ReactTestRenderer.create(
         <Provider store={store}>
             <ModalStudyCommentListForm />
-        </Provider> 
+        </Provider>
     );
     expect(tree.toJSON()).toMatchSnapshot();
 });

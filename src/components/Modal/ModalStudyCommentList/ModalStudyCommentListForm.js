@@ -4,17 +4,23 @@ import { Field, reduxForm } from "redux-form";
 import oc from "open-color";
 
 const Wrapper = styled.div`
+    position: absolute;
+    
+    bottom: 0;
+    left: 0;
+    
     padding: 30px 0 10px 0;
 `;
 
 const StyledField = styled(Field)`
     background-color: ${oc.gray[0]};
-    width: 400px;
+    width: 300px;
     height: 40px;
     font-size: 15px;
     border: 2px solid white;
     padding-left: 20px;
     margin-bottom: 10px;
+    margin-left: 20px;
 `;
 
 const Button = styled.button`
@@ -22,8 +28,9 @@ const Button = styled.button`
     color: white;
     
     font-size: 1em;
-    margin: 1em;
     padding: 0.25em 1em;
+    
+    margin-left: 20px;
     
     border: 2px solid palevioletred;
     border-radius: 3px;
@@ -36,18 +43,23 @@ const Button = styled.button`
     }
 `;
 
-export let ModalStudyCommentListForm = ({ handleSubmit, hideModal }) => {
+const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    margin-bottom: 40px;
+    width: 100%;
+`;
+
+export let ModalStudyCommentListForm = ({ handleSubmit }) => {
     return (
         <Wrapper>
             <form onSubmit={ handleSubmit }>
-                <div>
-                    <StyledField name="email" component="input" type="text" required placeholder="email"/>
-                </div>
-                <div>
-                    <StyledField name="password" component="input" type="password" required placeholder="password"/>
-                </div>
-                <Button type="submit">로그인</Button>
-                <Button onClick={() => hideModal()}>나가기</Button>
+                <Container>
+                    <StyledField name="comment" component="input" type="text" required placeholder="comment"/>
+                    <Button type="submit">전송</Button>
+                </Container>
             </form>
         </Wrapper>
     )

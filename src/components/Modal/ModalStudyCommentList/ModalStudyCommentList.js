@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import ModalStudyComment from "../ModalStudyComment/ModalStudyComment";
 import styled from "styled-components";
+import ModalStudyCommentListForm from "./ModalStudyCommentListForm";
 
 const propTypes = {
 };
@@ -10,7 +11,7 @@ const defaultTypes = {
 };
 
 const Wrapper = styled.div`
-    display: relative;
+    position: relative;
     
     border: 2px dotted blue;
     height: 100%;
@@ -18,9 +19,12 @@ const Wrapper = styled.div`
 `;
 
 const ModalStudyCommentListHeader = styled.div`
-    display: absolute;
+    position: absolute;
     
-    height: 20%;
+    top: 0;
+    left: 0;
+    
+    height: 2%;
     width: 100%;
     
     background: palevioletred;
@@ -28,13 +32,13 @@ const ModalStudyCommentListHeader = styled.div`
 
 export const ModalStudyCommentList = () => {
     return (
-        <div>
             <Wrapper>
                 <ModalStudyCommentListHeader>Header</ModalStudyCommentListHeader>
                 <ModalStudyComment />
                 ModalStudyCommentList
+                <hr />
+                <ModalStudyCommentListForm />
             </Wrapper>
-        </div>
     )
 };
 
