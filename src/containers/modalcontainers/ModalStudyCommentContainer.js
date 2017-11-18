@@ -12,6 +12,8 @@ const defaultTypes = {
 const ModalStudyCommentContainer = () => {
     return (
         <div>
+            ModalStudyCommentContainer
+            <ModalStudyCommentList />
         </div>
     )
 };

@@ -10,6 +10,7 @@ const defaultTypes = {
 export const ModalStudyComment = () => {
     return (
         <div>
+            ModalStudyComment
         </div>
     )
 };
