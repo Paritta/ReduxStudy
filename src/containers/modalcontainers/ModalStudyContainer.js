@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { hideModal } from "../../modules/Modal";
-import ModalStudy from "../../components/modal/ModalStudy";
+import ModalStudy from "../../components/Modal/ModalStudy/ModalStudy";
 import PropTypes from "prop-types";
 import { getModal } from "../../selector";
 

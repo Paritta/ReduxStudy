@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import ModalStudyCommentList from "../../components/modal/ModalStudyCommentList";
+import ModalStudyCommentList from "../../components/Modal/ModalStudyCommentList/ModalStudyCommentList";
 
 const propTypes = {
 };

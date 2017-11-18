@@ -6,6 +6,7 @@ import ReactTestRenderer from "react-test-renderer";
 it("Layout render correctly", () => {
     const tree = ReactTestRenderer.create(
         <Layout
+            Fetch={{pending: ""}}
             fetchRequest={() => {}}
         />
     );

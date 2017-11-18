@@ -2,7 +2,7 @@ import React from "react";
 import styled, {keyframes} from "styled-components";
 import { fadeIn } from 'react-animations';
 import PropTypes from "prop-types";
-import ModalStudyAsset from "../../asset/ModalStudyAsset.jpeg";
+import ModalStudyAsset from "../../../asset/ModalStudyAsset.jpeg";
 
 const propTypes = {
     Modal: PropTypes.object,

@@ -4,7 +4,7 @@ describe("Modal reducer", () => {
     it("should handle HIDE_MODAL", () => {
         const nextState = hideModal();
         expect(nextState).toEqual({
-            type: "modal/hide_Modal"
+            type: "Modal/hide_Modal"
         })
     });
 
@@ -14,7 +14,7 @@ describe("Modal reducer", () => {
             modalProps: {}
         });
         expect(nextState).toEqual({
-            type: "modal/show_Modal",
+            type: "Modal/show_Modal",
             payload: {
                 modalType: null,
                 modalProps: {}

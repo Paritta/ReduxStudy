@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { hideModal } from "../../modules/Modal";
-import ModalRegister from "../../components/modal/ModalRegister";
+import ModalRegister from "../../components/Modal/ModalRegister/ModalRegister";
 import PropTypes from "prop-types";
 import { getModal } from "../../selector";
 
