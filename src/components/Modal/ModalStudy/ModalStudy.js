@@ -97,6 +97,7 @@ export class ModalStudy extends React.Component {
                         <ModalBoxRight>
                             <ModalStudyCommentContainer
                                 postId={Props.postId}
+                                username={Props.data.username}
                             />
                         </ModalBoxRight>
                     </AnimationWrapper>

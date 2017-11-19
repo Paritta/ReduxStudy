@@ -6,6 +6,7 @@ import { firebaseConnect, pathToJS } from "react-redux-firebase";
 import { connect } from "react-redux";
 import { commentMakeArrayRequest } from "../../../modules/CommentMakeArray";
 import { commentReceiveRequest } from "../../../modules/CommentReceive";
+import oc from "open-color";
 
 const propTypes = {
 };
@@ -26,10 +27,44 @@ const ModalStudyCommentListHeader = styled.div`
     top: 0;
     left: 0;
     
-    height: 2%;
+    height: 5%;
     width: 100%;
     
-    background: palevioletred;
+    margin: 20px;
+    
+`;
+
+const ModalStudyCommentListHeaderWrapper = styled.div`
+    position: relative;
+    
+    display: flex;
+    flex-direction: row;
+`;
+
+const ModalStudyCommentListHeaderIcon = styled.div`
+    height: 50px;
+    width: 50px;
+   
+    border-radius: 100%;
+    border: 4px solid ${oc.gray[2]};
+`;
+
+const Span = styled.span`
+    position: absolute;
+    
+    top: 18px;
+    left: 70px;
+    
+    font-weight: 600;
+    font-size: 1.2em;
+`;
+
+const Line = styled.div`
+    width: 100%;
+    background: black;
+    height: 2px;
+    
+    position: absolute;
 `;
 
 export class ModalStudyCommentList extends React.Component {
@@ -49,13 +84,17 @@ export class ModalStudyCommentList extends React.Component {
    };
 
     render () {
-        const { CommentMakeArray, CommentReceive } = this.props;
+        const { CommentMakeArray, CommentReceive, username } = this.props;
 
         return (
             <Wrapper>
                 <ModalStudyCommentListHeader>
-                    Header
+                    <ModalStudyCommentListHeaderWrapper>
+                        <ModalStudyCommentListHeaderIcon />
+                        <Span>작성자: {username}</Span>
+                    </ModalStudyCommentListHeaderWrapper>
                 </ModalStudyCommentListHeader>
+                <Line />
                 {
                     !CommentMakeArray.pending && CommentMakeArray.data.length !== 0 &&
                     CommentMakeArray.data["CommentsList"].map((CommentId, key) =>
@@ -66,7 +105,6 @@ export class ModalStudyCommentList extends React.Component {
                         />
                     )
                 }
-                <hr />
                 <ModalStudyCommentListForm
                     onSubmit={this.submit}
                 />

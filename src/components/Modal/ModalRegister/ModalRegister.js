@@ -3,7 +3,7 @@ import styled, {keyframes} from "styled-components";
 import { fadeIn } from 'react-animations';
 import ModalRegisterForm from "./ModalRegisterForm";
 import PropTypes from "prop-types";
-import { firebaseConnect } from "react-redux-firebase";
+import { firebaseConnect, pathToJS } from "react-redux-firebase";
 import { connect } from "react-redux";
 import ReactLoading from "react-loading";
 
@@ -80,9 +80,12 @@ export class ModalRegister extends React.Component {
     submit = values => {
         const uid = this.props.firebase.auth().currentUser.uid;
 
+        const username = this.props.profile.username;
+
         const post = {
           values,
-            author: uid
+            author: uid,
+            username: username
         };
 
         console.log(values);
@@ -131,5 +134,7 @@ ModalRegister.defaultTypes = defaultTypes;
 const WrappedModalRegister = firebaseConnect()(ModalRegister);
 
 export default connect(
-    ({ firebase }) => ({ })
+    ({ firebase }) => ({
+        profile: pathToJS(firebase, "profile")
+    })
 )(WrappedModalRegister);

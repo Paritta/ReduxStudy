@@ -17,15 +17,15 @@ const Wrapper = styled.div`
     width: 100%;
 `;
 
-const ModalStudyCommentContainer = ({ commentSendRequest, CommentMakeArray, CommentReceive,postId }) => {
+const ModalStudyCommentContainer = ({ commentSendRequest, CommentMakeArray, CommentReceive, postId, username }) => {
     return (
         <Wrapper>
-            ModalStudyCommentContainer
             <ModalStudyCommentList
                 commentSendRequest={commentSendRequest}
                 CommentMakeArray={CommentMakeArray}
                 CommentReceive={CommentReceive}
                 postId={postId}
+                username={username}
             />
         </Wrapper>
     )
