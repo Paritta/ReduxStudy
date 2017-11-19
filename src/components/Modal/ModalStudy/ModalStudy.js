@@ -91,7 +91,9 @@ export class ModalStudy extends React.Component {
                             <ModalBoxLeftHeader />
                         </ModalBoxLeft>
                         <ModalBoxRight>
-                            <ModalStudyCommentContainer />
+                            <ModalStudyCommentContainer
+                                postId={Props.postId}
+                            />
                         </ModalBoxRight>
                     </AnimationWrapper>
                 </Wrapper>

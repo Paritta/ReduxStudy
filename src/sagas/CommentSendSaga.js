@@ -4,7 +4,11 @@ import { getFirebase } from "react-redux-firebase";
 function* CommentSend (action) {
     try {
         const data = yield getFirebase()
-            .push("comment", action.payload.comment);
+            .push("comment", action.payload);
+
+        console.log(data.key);
+        console.log(action.payload);
+
         yield put({ type: "comment/comment_send_Success" });
     } catch (error) {
         yield put({ type: "comment/comment_send_Failure", payload: error })

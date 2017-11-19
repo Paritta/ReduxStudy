@@ -2,6 +2,8 @@ import React from "react";
 import ModalStudyComment from "../ModalStudyComment/ModalStudyComment";
 import styled from "styled-components";
 import ModalStudyCommentListForm from "./ModalStudyCommentListForm";
+import { firebaseConnect, pathToJS } from "react-redux-firebase";
+import { connect } from "react-redux";
 
 const propTypes = {
 };
@@ -30,8 +32,13 @@ const ModalStudyCommentListHeader = styled.div`
 
 export class ModalStudyCommentList extends React.Component {
    submit = value => {
-       console.log(value);
-       this.props.commentSendRequest(value);
+       const comment = {
+           comment: value.comment,
+           NickName: this.props.profile.username,
+           postId: this.props.postId
+       };
+
+       this.props.commentSendRequest(comment, this.props.postId);
    };
 
     render () {
@@ -52,4 +59,10 @@ export class ModalStudyCommentList extends React.Component {
 ModalStudyCommentList.propTypes = propTypes;
 ModalStudyCommentList.defaultTypes = defaultTypes;
 
-export default ModalStudyCommentList;
+const WrappedModalStudyCommentList = firebaseConnect()(ModalStudyCommentList);
+
+export default connect(
+    ({ firebase }) => ({
+        profile: pathToJS(firebase, "profile")
+    })
+)(WrappedModalStudyCommentList);
