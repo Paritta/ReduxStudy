@@ -16,6 +16,7 @@ const initialState = {
 
 const reducer = handleActions({
     [COMMENT_MAKE_ARRAY_REQUEST]: (state) => {
+        console.log("1");
         return {
             ...state,
             pending: true

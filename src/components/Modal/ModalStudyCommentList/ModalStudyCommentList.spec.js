@@ -14,7 +14,9 @@ const store = mockStore(initialState);
 it("Layout render correctly", () => {
     const tree = ReactTestRenderer.create(
         <Provider store={store}>
-            <ModalStudyCommentList />
+            <ModalStudyCommentList
+                commentMakeArrayRequest={() => {}}
+            />
         </Provider>
     );
     expect(tree.toJSON()).toMatchSnapshot();

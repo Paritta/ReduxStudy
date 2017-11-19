@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import ModalStudyCommentList from "../../components/Modal/ModalStudyCommentList/ModalStudyCommentList";
 import styled from "styled-components";
 import { commentSendRequest } from "../../modules/CommentSend";
+import { getCommentMakeArray } from "../../selector";
 
 const propTypes = {
 };
@@ -15,12 +16,13 @@ const Wrapper = styled.div`
     width: 100%;
 `;
 
-const ModalStudyCommentContainer = ({ commentSendRequest, postId }) => {
+const ModalStudyCommentContainer = ({ commentSendRequest, CommentMakeArray, postId }) => {
     return (
         <Wrapper>
             ModalStudyCommentContainer
             <ModalStudyCommentList
                 commentSendRequest={commentSendRequest}
+                CommentMakeArray={CommentMakeArray}
                 postId={postId}
             />
         </Wrapper>
@@ -31,6 +33,6 @@ ModalStudyCommentContainer.propTypes = propTypes;
 ModalStudyCommentContainer.defaultTypes = defaultTypes;
 
 export default connect(
-    null,
+    state => ({ CommentMakeArray: getCommentMakeArray(state) }),
     { commentSendRequest }
 )(ModalStudyCommentContainer);
