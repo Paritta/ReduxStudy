@@ -9,6 +9,9 @@ function* CommentSend (action) {
         console.log(data.key);
         console.log(action.payload);
 
+        yield getFirebase()
+            .push("posts/"+action.payload.postId+"/comments", data.key);
+
         yield put({ type: "comment/comment_send_Success" });
     } catch (error) {
         yield put({ type: "comment/comment_send_Failure", payload: error })
