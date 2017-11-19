@@ -4,6 +4,7 @@ import { fadeIn } from 'react-animations';
 import PropTypes from "prop-types";
 import ModalStudyAsset from "../../../asset/ModalStudyAsset.jpeg";
 import ModalStudyCommentContainer from "../../../containers/modalcontainers/ModalStudyCommentContainer";
+import ModalBoxLeftPage from "../ModalBoxLeftPage/ModalBoxLeftPage";
 
 const propTypes = {
     Modal: PropTypes.object,
@@ -41,7 +42,7 @@ const ModalBoxLeft = styled.div`
     border: 1px solid rgba(0, 0, 0, 0.3);
     
     width: 58%;
-    height: 900px;
+    height: 800px;
 `;
 
 const ModalBoxLeftHeader = styled.div`
@@ -89,6 +90,9 @@ export class ModalStudy extends React.Component {
                     <AnimationWrapper>
                         <ModalBoxLeft>
                             <ModalBoxLeftHeader />
+                            <ModalBoxLeftPage
+                                PageData={Props}
+                            />
                         </ModalBoxLeft>
                         <ModalBoxRight>
                             <ModalStudyCommentContainer
