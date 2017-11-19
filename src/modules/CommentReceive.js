@@ -4,9 +4,9 @@ const COMMENT_RECEIVE_REQUEST = "comment/comment_receive_Request";
 const COMMENT_RECEIVE_SUCCESS = "comment/comment_receive_Success";
 const COMMENT_RECEIVE_FAILURE = "comment/comment_receive_Failure";
 
-export const commentRecieveRequest = createAction(COMMENT_RECEIVE_REQUEST);
-export const commentRecieveSuccess = createAction(COMMENT_RECEIVE_SUCCESS);
-export const commentRecieveFailure = createAction(COMMENT_RECEIVE_FAILURE);
+export const commentReceiveRequest = createAction(COMMENT_RECEIVE_REQUEST);
+export const commentReceiveSuccess = createAction(COMMENT_RECEIVE_SUCCESS);
+export const commentReceiveFailure = createAction(COMMENT_RECEIVE_FAILURE);
 
 const initialState = {
     pending: false,

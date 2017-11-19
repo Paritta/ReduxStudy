@@ -5,6 +5,7 @@ import ModalStudyCommentListForm from "./ModalStudyCommentListForm";
 import { firebaseConnect, pathToJS } from "react-redux-firebase";
 import { connect } from "react-redux";
 import { commentMakeArrayRequest } from "../../../modules/CommentMakeArray";
+import { commentReceiveRequest } from "../../../modules/CommentReceive";
 
 const propTypes = {
 };
@@ -34,6 +35,7 @@ const ModalStudyCommentListHeader = styled.div`
 export class ModalStudyCommentList extends React.Component {
     componentDidMount () {
         this.props.commentMakeArrayRequest(this.props.postId);
+        this.props.commentReceiveRequest();
     };
 
    submit = value => {
@@ -47,11 +49,23 @@ export class ModalStudyCommentList extends React.Component {
    };
 
     render () {
+        const { CommentMakeArray, CommentReceive } = this.props;
+
         return (
             <Wrapper>
-                <ModalStudyCommentListHeader>Header</ModalStudyCommentListHeader>
-                <ModalStudyComment />
-                    ModalStudyCommentList
+                <ModalStudyCommentListHeader>
+                    Header
+                </ModalStudyCommentListHeader>
+                {
+                    !CommentMakeArray.pending && CommentMakeArray.data.length !== 0 &&
+                    CommentMakeArray.data["CommentsList"].map((CommentId, key) =>
+                        <ModalStudyComment
+                            CommentId={CommentId}
+                            key={key}
+                            CommentReceive={CommentReceive.data}
+                        />
+                    )
+                }
                 <hr />
                 <ModalStudyCommentListForm
                     onSubmit={this.submit}
@@ -59,7 +73,7 @@ export class ModalStudyCommentList extends React.Component {
             </Wrapper>
         )
     }
-};
+}
 
 ModalStudyCommentList.propTypes = propTypes;
 ModalStudyCommentList.defaultTypes = defaultTypes;
@@ -70,5 +84,5 @@ export default connect(
     ({ firebase }) => ({
         profile: pathToJS(firebase, "profile")
     }),
-    { commentMakeArrayRequest }
+    { commentMakeArrayRequest, commentReceiveRequest }
 )(WrappedModalStudyCommentList);

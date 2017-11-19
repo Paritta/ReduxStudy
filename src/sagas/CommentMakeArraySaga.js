@@ -16,10 +16,10 @@ function* CommentMakeArray (action) {
         const CommentsList = [];
 
         for(let key in CommentsObject.comments) {
-            CommentsList.push(key);
+            CommentsList.push(CommentsObject.comments[key]);
         }
 
-        yield put({ type: "comment/comment_make_array_Success", payload: CommentsList});
+        yield put({ type: "comment/comment_make_array_Success", payload: { "CommentsList": CommentsList, "CommentsObject": CommentsObject}});
     } catch (error) {
         yield put({ type: "comment/comment_make_array_Failure", payload: error })
     }

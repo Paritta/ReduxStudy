@@ -3,15 +3,15 @@ import { getFirebase } from "react-redux-firebase";
 
 function* CommentReceive (action) {
     try {
-        const data = yield getFirebase()
+        const Comment = yield getFirebase()
             .database()
-            .ref("posts")
+            .ref("comment")
             .once("value")
             .then(res => {
                 return res.val();
             });
 
-        yield put({ type: "comment/comment_receive_Success" });
+        yield put({ type: "comment/comment_receive_Success", payload:  Comment});
     } catch (error) {
         yield put({ type: "comment/comment_receive_Failure", payload: error })
     }

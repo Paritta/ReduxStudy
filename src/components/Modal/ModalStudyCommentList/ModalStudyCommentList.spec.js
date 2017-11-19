@@ -12,10 +12,17 @@ const initialState = {};
 const store = mockStore(initialState);
 
 it("Layout render correctly", () => {
+    const CommentMakeArray = {
+        pending: false,
+        data: []
+    };
+
     const tree = ReactTestRenderer.create(
         <Provider store={store}>
             <ModalStudyCommentList
+                commentReceiveRequest={() => {}}
                 commentMakeArrayRequest={() => {}}
+                CommentMakeArray={CommentMakeArray}
             />
         </Provider>
     );

@@ -79,10 +79,6 @@ exports[`Layout render correctly 1`] = `
   >
     Header
   </div>
-  <div>
-    ModalStudyComment
-  </div>
-  ModalStudyCommentList
   <hr />
   <div
     className="c2"
