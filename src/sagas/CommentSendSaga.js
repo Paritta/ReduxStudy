@@ -3,12 +3,11 @@ import { getFirebase } from "react-redux-firebase";
 
 function* CommentSend (action) {
     try {
+        // comment 추가
         const data = yield getFirebase()
             .push("comment", action.payload);
 
-        console.log(data.key);
-        console.log(action.payload);
-
+        // 해당 포스트에 comment id push
         yield getFirebase()
             .push("posts/"+action.payload.postId+"/comments", data.key);
 
@@ -19,7 +18,6 @@ function* CommentSend (action) {
 }
 
 export function* watchCommentSend () {
-    console.log("1");
     yield takeEvery("comment/comment_send_Request", CommentSend);
 }
 
