@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import ModalStudyComment from "../ModalStudyComment/ModalStudyComment";
 import styled from "styled-components";
 import ModalStudyCommentListForm from "./ModalStudyCommentListForm";
@@ -13,7 +12,6 @@ const defaultTypes = {
 const Wrapper = styled.div`
     position: relative;
     
-    border: 2px dotted blue;
     height: 100%;
     width: 100%;
 `;
@@ -30,16 +28,25 @@ const ModalStudyCommentListHeader = styled.div`
     background: palevioletred;
 `;
 
-export const ModalStudyCommentList = () => {
-    return (
+export class ModalStudyCommentList extends React.Component {
+   submit = value => {
+       console.log(value);
+       this.props.commentSendRequest(value);
+   };
+
+    render () {
+        return (
             <Wrapper>
                 <ModalStudyCommentListHeader>Header</ModalStudyCommentListHeader>
                 <ModalStudyComment />
-                ModalStudyCommentList
+                    ModalStudyCommentList
                 <hr />
-                <ModalStudyCommentListForm />
+                <ModalStudyCommentListForm
+                    onSubmit={this.submit}
+                />
             </Wrapper>
-    )
+        )
+    }
 };
 
 ModalStudyCommentList.propTypes = propTypes;

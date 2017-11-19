@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 import ModalStudyCommentList from "../../components/Modal/ModalStudyCommentList/ModalStudyCommentList";
 import styled from "styled-components";
+import { commentSendRequest } from "../../modules/CommentSend";
 
 const propTypes = {
 };
@@ -11,17 +11,15 @@ const defaultTypes = {
 };
 
 const Wrapper = styled.div`
-    border: 2px dotted blue;
-    
     height: 100%;
     width: 100%;
 `;
 
-const ModalStudyCommentContainer = () => {
+const ModalStudyCommentContainer = ({ commentSendRequest }) => {
     return (
         <Wrapper>
             ModalStudyCommentContainer
-            <ModalStudyCommentList />
+            <ModalStudyCommentList commentSendRequest={commentSendRequest} />
         </Wrapper>
     )
 };
@@ -30,4 +28,6 @@ ModalStudyCommentContainer.propTypes = propTypes;
 ModalStudyCommentContainer.defaultTypes = defaultTypes;
 
 export default connect(
+    null,
+    { commentSendRequest }
 )(ModalStudyCommentContainer);

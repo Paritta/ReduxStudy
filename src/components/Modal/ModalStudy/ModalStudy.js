@@ -41,7 +41,7 @@ const ModalBoxLeft = styled.div`
     border: 1px solid rgba(0, 0, 0, 0.3);
     
     width: 58%;
-    height: 800px;
+    height: 900px;
 `;
 
 const ModalBoxLeftHeader = styled.div`
@@ -49,11 +49,11 @@ const ModalBoxLeftHeader = styled.div`
     top: 0;
     left: 0;
     
-    background: url(${ModalStudyAsset}) center center;
+    background: url(${ModalStudyAsset}) left center;
     background-size: cover;
     
     width: 100%;
-    height: 30%;
+    height: 60%;
 `;
 
 const ModalBoxRight = styled.div`
