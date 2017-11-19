@@ -11,7 +11,9 @@ const mockStore = configureStore(middlewares);
 const initialState = {};
 const store = mockStore(initialState);
 const Modal = {
-    modalProps: {}
+    modalProps: {
+        postId: "1"
+    }
 };
 
 it("ModalSignUp render correctly", () => {
@@ -19,7 +21,7 @@ it("ModalSignUp render correctly", () => {
     const tree = ReactTestRenderer.create(
         <Provider store={store}>
             <ModalStudy
-                Modal={Modal}
+                Modal={ Modal }
             />
         </Provider>
     );
