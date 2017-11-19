@@ -22,6 +22,7 @@ const FilterItem = styled.div`
     
     border-radius: 100%;
     background: ${oc.gray[3]};
+    color: white;
     
     &:hover {
         background: ${oc.gray[2]};
@@ -32,6 +33,7 @@ const FilterItem = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     
     cursor: pointer;
 `;
@@ -56,6 +58,7 @@ export const Filter = ({ filterMaterial, filterNursing, filterInformation, filte
                                 filterMaterial("filter_Material")
                             }}>
                             <FaRecycle size={70} color="white"/>
+                            신소재 공학과
                         </FilterItem>
                     </FilterBox>
                     <FilterBox>
@@ -64,6 +67,7 @@ export const Filter = ({ filterMaterial, filterNursing, filterInformation, filte
                             filterNursing("filter_Nursing")
                         }}>
                             <FaHeartbeat size={70} color="white"/>
+                            간호학과
                         </FilterItem>
                     </FilterBox>
                     <FilterBox>
@@ -72,6 +76,7 @@ export const Filter = ({ filterMaterial, filterNursing, filterInformation, filte
                                 filterInformation("filter_Information")
                             }}>
                             <FaApple size={70} color="white"/>
+                            정보통신학과
                         </FilterItem>
                     </FilterBox>
                     <FilterBox>
@@ -80,6 +85,7 @@ export const Filter = ({ filterMaterial, filterNursing, filterInformation, filte
                             filterComputer("filter_Computer")
                         }}>
                             <FaFeed size={70} color="white"/>
+                            컴퓨터공학과
                         </FilterItem>
                     </FilterBox>
                     <FilterBox>
@@ -88,6 +94,7 @@ export const Filter = ({ filterMaterial, filterNursing, filterInformation, filte
                             filterChemical("filter_Chemical")
                         }}>
                             <FaFlask size={70} color="white"/>
+                            화학공학과
                         </FilterItem>
                     </FilterBox>
                 </FilterUl>

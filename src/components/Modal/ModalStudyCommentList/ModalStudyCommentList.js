@@ -31,6 +31,28 @@ const ModalStudyCommentListHeader = styled.div`
 `;
 
 export class ModalStudyCommentList extends React.Component {
+    componentDidMount () {
+        const CommentData = this.props.firebase
+            .database()
+            .ref("posts/"+this.props.postId+"/comments")
+            .once("value")
+            .then(res => {
+                return res.val()
+            });
+
+        const CommentDataList = [];
+
+        for (let key in CommentData) {
+            console.log(key);
+            console.log(CommentData[key]);
+            console.log("1");
+            CommentDataList.push(key)
+        };
+
+        console.log(Promise.resolve(CommentData));
+        console.log(CommentDataList);
+    };
+
    submit = value => {
        const comment = {
            comment: value.comment,

@@ -31,6 +31,7 @@ exports[`Card render correctly 1`] = `
   height: 150px;
   border-radius: 100%;
   background: #dee2e6;
+  color: white;
   -webkit-transition: background 1s ease;
   transition: background 1s ease;
   display: -webkit-box;
@@ -45,6 +46,9 @@ exports[`Card render correctly 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   cursor: pointer;
 }
 
@@ -85,6 +89,7 @@ exports[`Card render correctly 1`] = `
               />
             </g>
           </svg>
+          신소재 공학과
         </div>
       </li>
       <li
@@ -113,6 +118,7 @@ exports[`Card render correctly 1`] = `
               />
             </g>
           </svg>
+          간호학과
         </div>
       </li>
       <li
@@ -141,6 +147,7 @@ exports[`Card render correctly 1`] = `
               />
             </g>
           </svg>
+          정보통신학과
         </div>
       </li>
       <li
@@ -169,6 +176,7 @@ exports[`Card render correctly 1`] = `
               />
             </g>
           </svg>
+          컴퓨터공학과
         </div>
       </li>
       <li
@@ -197,6 +205,7 @@ exports[`Card render correctly 1`] = `
               />
             </g>
           </svg>
+          화학공학과
         </div>
       </li>
     </ul>
