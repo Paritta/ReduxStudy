@@ -220,6 +220,7 @@ exports[`ModalSignUp render correctly 1`] = `
           >
             <button
               className="c9"
+              onClick={[Function]}
             >
               <svg
                 fill="currentColor"

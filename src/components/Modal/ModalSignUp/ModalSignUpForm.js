@@ -90,7 +90,7 @@ const Span = styled.span`
     margin: 0 0 0 15px;
 `;
 
-export let ModalSignUpForm = ({ handleSubmit, hideModal }) => {
+export let ModalSignUpForm = ({ handleSubmit, hideModal, googleLogin }) => {
     return (
         <Wrapper>
             <form onSubmit={ handleSubmit }>
@@ -107,7 +107,9 @@ export let ModalSignUpForm = ({ handleSubmit, hideModal }) => {
                 <Button onClick={() => hideModal()}>나가기</Button>
             </form>
             <SocialLoginButtonWrapper>
-                <GoogleSocialLoginButton>
+                <GoogleSocialLoginButton
+                    onClick={() => googleLogin()}
+                >
                     <FaGoogle />
                     <Span>Sign in with Google</Span>
                 </GoogleSocialLoginButton>

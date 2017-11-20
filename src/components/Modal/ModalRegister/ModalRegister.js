@@ -80,11 +80,14 @@ export class ModalRegister extends React.Component {
         const uid = this.props.firebase.auth().currentUser.uid;
 
         const username = this.props.profile.username;
+        console.log(this.props.profile);
+
+        const display = username ? username : this.props.profile.displayName;
 
         const post = {
           values,
             author: uid,
-            username: username
+            username: display
         };
 
         console.log(values);
