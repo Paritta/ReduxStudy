@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import oc from "open-color";
 
 const propTypes = {
+    PageData: PropTypes.object.isRequired
 };
 
 const defaultTypes = {
+    Data: {}
 };
 
 const Wrapper = styled.div`
@@ -79,7 +82,6 @@ const Intro = styled.div`
 `;
 
 export const ModalBoxLeftPage = ({ PageData }) => {
-    console.log(PageData.data.author);
     const Data = PageData.data.values;
 
     return (

@@ -7,10 +7,18 @@ import ModalStudyCommentContainer from "../../../containers/modalcontainers/Moda
 import ModalBoxLeftPage from "../ModalBoxLeftPage/ModalBoxLeftPage";
 
 const propTypes = {
-    Modal: PropTypes.object,
+    Modal: PropTypes.shape({
+        modalProps: PropTypes.shape({
+            postId: PropTypes.string.isRequired,
+            data: PropTypes.shape({
+                username: PropTypes.string
+            })
+        })
+    }),
 };
 
 const defaultTypes = {
+    Modal: {}
 };
 
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -80,8 +88,6 @@ export class ModalStudy extends React.Component {
     render () {
         const { Modal }  = this.props;
         const Props = Modal.modalProps;
-
-        console.log(Props);
 
         return (
             <div>

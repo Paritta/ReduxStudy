@@ -94,6 +94,7 @@ export class ModalRegister extends React.Component {
             .push("posts", post)
             .then(()=> {
                 this.setState({ isLoading: false });
+                this.props.hideModal()
             })
             .catch((error) => {
                 this.setState({ isLoading: false, error: error });

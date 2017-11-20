@@ -5,6 +5,7 @@ exports[`Layout render correctly 1`] = `
   <div>
     <br />
     <br />
+    
   </div>
 </div>
 `;

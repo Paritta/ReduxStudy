@@ -9,18 +9,17 @@ const Wrapper = styled.div`
     bottom: 0;
     left: 0;
     
-    padding: 30px 0 10px 0;
+    width: 100%;
 `;
 
 const StyledField = styled(Field)`
     background-color: ${oc.gray[0]};
-    width: 300px;
+    width: 100%;
     height: 40px;
     font-size: 15px;
-    border: 2px solid white;
-    padding-left: 20px;
-    margin-bottom: 10px;
-    margin-left: 20px;
+    border: 1px solid white;
+    margin: 0;
+    padding: 0 0 0 20px;
 `;
 
 const Button = styled.button`
@@ -28,12 +27,9 @@ const Button = styled.button`
     color: white;
     
     font-size: 1em;
-    padding: 0.25em 1em;
-    
-    margin-left: 20px;
+    padding: 0.7em 1em;
     
     border: 2px solid palevioletred;
-    border-radius: 3px;
     
     transition: all 0.3s ease;
     
@@ -41,26 +37,40 @@ const Button = styled.button`
         background: ${oc.pink[4]};
         border: 2px solid ${oc.pink[4]};
     }
+    
+    flex: 1;
 `;
 
 const Container = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: baseline;
     justify-content: center;
-    margin-bottom: 40px;
     width: 100%;
 `;
 
-export let ModalStudyCommentListForm = ({ handleSubmit }) => {
+const ButtonWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+`;
+
+const Form = styled.form`
+    width: 100%;
+`;
+
+export let ModalStudyCommentListForm = ({ handleSubmit,hideModal }) => {
     return (
         <Wrapper>
-            <form onSubmit={ handleSubmit }>
+            <Form onSubmit={ handleSubmit }>
                 <Container>
-                    <StyledField name="comment" component="input" type="text" required placeholder="comment"/>
-                    <Button type="submit">전송</Button>
+                    <StyledField name="comment" component="input" type="text" required placeholder="댓글을 입력하세요 ..."/>
+                    <ButtonWrapper>
+                        <Button type="submit">전송</Button>
+                        <Button onClick={() => hideModal()}>나가기</Button>
+                    </ButtonWrapper>
                 </Container>
-            </form>
+            </Form>
         </Wrapper>
     )
 };

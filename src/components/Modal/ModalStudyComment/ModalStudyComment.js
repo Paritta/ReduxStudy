@@ -6,10 +6,12 @@ import { getCommentReceive } from "../../../selector";
 
 const propTypes = {
     CommentId: PropTypes.string.isRequired,
+    CommentReceive: PropTypes.object.isRequired,
 };
 
 const defaultTypes = {
-    CommentId: ""
+    CommentId: "",
+    CommentReceive: {}
 };
 
 export class ModalStudyComment extends React.Component {

@@ -11,19 +11,13 @@ exports[`Layout render correctly 1`] = `
   position: absolute;
   top: 0;
   left: 0;
-  height: 2%;
+  height: 5%;
   width: 100%;
-  background: palevioletred;
+  margin: 20px;
 }
 
 .c2 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 30px 0 10px 0;
-}
-
-.c3 {
+  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31,6 +25,49 @@ exports[`Layout render correctly 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+}
+
+.c3 {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  border: 4px solid #e9ecef;
+}
+
+.c4 {
+  position: absolute;
+  top: 18px;
+  left: 70px;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.c5 {
+  width: 100%;
+  background: black;
+  height: 2px;
+  position: absolute;
+}
+
+.c6 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.c7 {
+  width: 100%;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-align-items: baseline;
   -webkit-box-align: baseline;
   -ms-flex-align: baseline;
@@ -39,34 +76,44 @@ exports[`Layout render correctly 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin-bottom: 40px;
   width: 100%;
 }
 
-.c4 {
+.c9 {
   background-color: #f8f9fa;
-  width: 300px;
+  width: 100%;
   height: 40px;
   font-size: 15px;
-  border: 2px solid white;
-  padding-left: 20px;
-  margin-bottom: 10px;
-  margin-left: 20px;
+  border: 1px solid white;
+  margin: 0;
+  padding: 0 0 0 20px;
 }
 
-.c5 {
+.c10 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c11 {
   background: palevioletred;
   color: white;
   font-size: 1em;
-  padding: 0.25em 1em;
-  margin-left: 20px;
+  padding: 0.7em 1em;
   border: 2px solid palevioletred;
-  border-radius: 3px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
-.c5:hover {
+.c11:hover {
   background: #f783ac;
   border: 2px solid #f783ac;
 }
@@ -77,37 +124,61 @@ exports[`Layout render correctly 1`] = `
   <div
     className="c1"
   >
-    Header
-  </div>
-  <hr />
-  <div
-    className="c2"
-  >
-    <form
-      onSubmit={[Function]}
+    <div
+      className="c2"
     >
       <div
         className="c3"
+      />
+      <span
+        className="c4"
+      >
+        작성자: 
+      </span>
+    </div>
+  </div>
+  <div
+    className="c5"
+  />
+  <div
+    className="c6"
+  >
+    <form
+      className="c7"
+      onSubmit={[Function]}
+    >
+      <div
+        className="c8"
       >
         <input
-          className="c4"
+          className="c9"
           name="comment"
           onBlur={[Function]}
           onChange={[Function]}
           onDragStart={[Function]}
           onDrop={[Function]}
           onFocus={[Function]}
-          placeholder="comment"
+          placeholder="댓글을 입력하세요 ..."
           required={true}
           type="text"
           value=""
         />
-        <button
-          className="c5"
-          type="submit"
+        <div
+          className="c10"
         >
-          전송
-        </button>
+          <button
+            className="c11"
+            type="submit"
+          >
+            전송
+          </button>
+          <button
+            className="c11"
+            onClick={[Function]}
+          >
+            나가기
+          </button>
+        </div>
       </div>
     </form>
   </div>

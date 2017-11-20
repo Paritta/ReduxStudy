@@ -4,8 +4,24 @@ import { ModalBoxLeftPage } from "./ModalBoxLeftPage";
 import "jest-styled-components";
 
 it("Component render correctly", () => {
+    const PageData= {
+       data: {
+           author: "",
+           values: {
+               Category: "",
+               Number: 0,
+               StudyTitle: "",
+               Introduction: "",
+               Location: "",
+               Time: "",
+           }
+       }
+    };
+
     const tree = ReactTestRenderer.create(
-        <ModalBoxLeftPage />
+        <ModalBoxLeftPage
+            PageData={PageData}
+        />
     );
     expect(tree.toJSON()).toMatchSnapshot();
 });

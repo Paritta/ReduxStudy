@@ -6,12 +6,20 @@ import { firebaseConnect, pathToJS } from "react-redux-firebase";
 import { connect } from "react-redux";
 import { commentMakeArrayRequest } from "../../../modules/CommentMakeArray";
 import { commentReceiveRequest } from "../../../modules/CommentReceive";
+import { hideModal } from "../../../modules/Modal";
+import PropTypes from "prop-types";
 import oc from "open-color";
 
 const propTypes = {
+    commentReceiveRequest: PropTypes.func.isRequired,
+    commentMakeArrayRequest: PropTypes.func.isRequired,
+    hideModal : PropTypes.func.isRequired
 };
 
 const defaultTypes = {
+    commentMakeArrayRequest () {},
+    commentReceiveRequest () {},
+    hideModal () {}
 };
 
 const Wrapper = styled.div`
@@ -84,7 +92,7 @@ export class ModalStudyCommentList extends React.Component {
    };
 
     render () {
-        const { CommentMakeArray, CommentReceive, username } = this.props;
+        const { CommentMakeArray, CommentReceive, hideModal, username } = this.props;
 
         return (
             <Wrapper>
@@ -106,6 +114,7 @@ export class ModalStudyCommentList extends React.Component {
                     )
                 }
                 <ModalStudyCommentListForm
+                    hideModal={hideModal}
                     onSubmit={this.submit}
                 />
             </Wrapper>
@@ -122,5 +131,5 @@ export default connect(
     ({ firebase }) => ({
         profile: pathToJS(firebase, "profile")
     }),
-    { commentMakeArrayRequest, commentReceiveRequest }
+    { commentMakeArrayRequest, commentReceiveRequest, hideModal }
 )(WrappedModalStudyCommentList);

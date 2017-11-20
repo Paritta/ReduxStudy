@@ -1,7 +1,7 @@
 import { put, takeEvery } from "redux-saga/effects/";
 import { getFirebase } from "react-redux-firebase";
 
-function* fetchData () {
+export function* fetchData () {
     try {
         const data = yield getFirebase()
             .database()
@@ -13,8 +13,6 @@ function* fetchData () {
             });
 
         const TransformFetch = [];
-
-        console.log(data);
 
         for (let key in data) {
             const TransformFetchData = {
