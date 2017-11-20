@@ -13,6 +13,7 @@ function* CommentSend (action) {
 
         yield put({ type: "comment/comment_send_Success" });
     } catch (error) {
+        console.log(error);
         yield put({ type: "comment/comment_send_Failure", payload: error })
     }
 }

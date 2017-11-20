@@ -90,9 +90,12 @@ export class ModalStudyCommentList extends React.Component {
     };
 
    submit = value => {
+       const username = this.props.profile.username;
+       const display = username ? username : this.props.profile.displayName;
+
        const comment = {
            comment: value.comment,
-           NickName: this.props.profile.username,
+           NickName: display,
            postId: this.props.postId
        };
 
