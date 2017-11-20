@@ -1,6 +1,6 @@
 import React from "react";
 import styled, {keyframes} from "styled-components";
-import { fadeIn } from 'react-animations';
+import { bounceInLeft } from 'react-animations';
 import ModalRegisterForm from "./ModalRegisterForm";
 import PropTypes from "prop-types";
 import { firebaseConnect, pathToJS } from "react-redux-firebase";
@@ -16,7 +16,7 @@ const defaultTypes = {
     hideModal() {},
 };
 
-const fadeInAnimation = keyframes`${fadeIn}`;
+const bounceInLeftAnimation = keyframes`${bounceInLeft}`;
 
 const Wrapper = styled.div`
     position: fixed;
@@ -59,7 +59,7 @@ const Dimmed = styled.div`
 `;
 
 const AnimationWrapper = styled.div`
-    animation: 1s ${fadeInAnimation};
+    animation: 0.5s ${bounceInLeftAnimation};
 `;
 
 const WrappedReactLoading = styled.div`
@@ -75,7 +75,6 @@ export class ModalRegister extends React.Component {
         isLoading: false,
         error: ""
     };
-
 
     submit = values => {
         const uid = this.props.firebase.auth().currentUser.uid;
@@ -107,23 +106,24 @@ export class ModalRegister extends React.Component {
         return (
             <div>
                 <Dimmed />
-                <Wrapper>
-                    <AnimationWrapper>
-                        <ModalHeader>스터디 등록</ModalHeader>
-                        <ModalBox>
-                            {!this.state.isLoading
-                            ?
-                            <ModalRegisterForm
-                                onSubmit={this.submit}
-                                hideModal={hideModal}/>
-                            :
-                            <WrappedReactLoading>
-                                <ReactLoading type="cylon" color="palevioletred"/>
-                            </WrappedReactLoading>
-                            }
-                        </ModalBox>
-                    </AnimationWrapper>
-                </Wrapper>
+                <AnimationWrapper>
+                    <Wrapper>
+                            <ModalHeader>스터디 등록</ModalHeader>
+                            <ModalBox>
+                                {!this.state.isLoading
+                                ?
+                                <ModalRegisterForm
+                                    onSubmit={this.submit}
+                                    hideModal={hideModal}
+                                />
+                                :
+                                <WrappedReactLoading>
+                                    <ReactLoading type="cylon" color="palevioletred"/>
+                                </WrappedReactLoading>
+                                }
+                            </ModalBox>
+                    </Wrapper>
+                </AnimationWrapper>
             </div>
         )
     }

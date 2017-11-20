@@ -8,7 +8,7 @@ import { commentMakeArrayRequest } from "../../../modules/CommentMakeArray";
 import { commentReceiveRequest } from "../../../modules/CommentReceive";
 import { hideModal } from "../../../modules/Modal";
 import PropTypes from "prop-types";
-import oc from "open-color";
+import FaUser from "react-icons/lib/fa/user";
 
 const propTypes = {
     commentReceiveRequest: PropTypes.func.isRequired,
@@ -35,11 +35,10 @@ const ModalStudyCommentListHeader = styled.div`
     top: 0;
     left: 0;
     
-    height: 5%;
+    height: 7%;
     width: 100%;
     
-    margin: 20px;
-    
+    background: palevioletred;
 `;
 
 const ModalStudyCommentListHeaderWrapper = styled.div`
@@ -50,11 +49,20 @@ const ModalStudyCommentListHeaderWrapper = styled.div`
 `;
 
 const ModalStudyCommentListHeaderIcon = styled.div`
-    height: 50px;
-    width: 50px;
+    height: 35px;
+    width: 35px;
    
     border-radius: 100%;
-    border: 4px solid ${oc.gray[2]};
+    
+    background: white;
+    
+    position: relative;
+    top: 10px;
+    left: 20px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 const Span = styled.span`
@@ -65,14 +73,14 @@ const Span = styled.span`
     
     font-weight: 600;
     font-size: 1.2em;
+    
+    color: white;
 `;
 
-const Line = styled.div`
-    width: 100%;
-    background: black;
-    height: 2px;
-    
+const ModalStudyCommentWrapper = styled.div`
     position: absolute;
+    width: 100%;
+    top: 7%;
 `;
 
 export class ModalStudyCommentList extends React.Component {
@@ -98,21 +106,24 @@ export class ModalStudyCommentList extends React.Component {
             <Wrapper>
                 <ModalStudyCommentListHeader>
                     <ModalStudyCommentListHeaderWrapper>
-                        <ModalStudyCommentListHeaderIcon />
-                        <Span>작성자: {username}</Span>
+                        <ModalStudyCommentListHeaderIcon>
+                            <FaUser size={25} color="palevioletred"/>
+                        </ModalStudyCommentListHeaderIcon>
+                        <Span>{username}</Span>
                     </ModalStudyCommentListHeaderWrapper>
                 </ModalStudyCommentListHeader>
-                <Line />
-                {
-                    !CommentMakeArray.pending && CommentMakeArray.data.length !== 0 &&
-                    CommentMakeArray.data["CommentsList"].map((CommentId, key) =>
-                        <ModalStudyComment
-                            CommentId={CommentId}
-                            key={key}
-                            CommentReceive={CommentReceive.data}
-                        />
-                    )
-                }
+                <ModalStudyCommentWrapper>
+                    {
+                        !CommentMakeArray.pending && CommentMakeArray.data.length !== 0 &&
+                        CommentMakeArray.data["CommentsList"].map((CommentId, key) =>
+                            <ModalStudyComment
+                                CommentId={CommentId}
+                                key={key}
+                                CommentReceive={CommentReceive.data}
+                            />
+                        )
+                    }
+                </ModalStudyCommentWrapper>
                 <ModalStudyCommentListForm
                     hideModal={hideModal}
                     onSubmit={this.submit}

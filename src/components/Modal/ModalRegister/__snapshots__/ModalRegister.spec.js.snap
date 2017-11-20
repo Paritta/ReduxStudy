@@ -12,6 +12,11 @@ exports[`Component render correctly 1`] = `
 }
 
 .c1 {
+  -webkit-animation: 0.5s ksDKZH;
+  animation: 0.5s ksDKZH;
+}
+
+.c2 {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -22,11 +27,6 @@ exports[`Component render correctly 1`] = `
   overflow: hidden;
   z-index: 10;
   width: 700px;
-}
-
-.c2 {
-  -webkit-animation: 1s eMLfYp;
-  animation: 1s eMLfYp;
 }
 
 .c3 {

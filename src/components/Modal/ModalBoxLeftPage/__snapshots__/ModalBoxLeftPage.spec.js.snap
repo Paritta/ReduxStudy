@@ -47,6 +47,10 @@ exports[`Component render correctly 1`] = `
 }
 
 .c6 {
+  padding-left: 5px;
+}
+
+.c7 {
   font-weight: 500;
   font-size: 0.9em;
   border-radius: 5px;
@@ -87,12 +91,58 @@ exports[`Component render correctly 1`] = `
   <div
     className="c5"
   >
-    
+    <svg
+      fill="currentColor"
+      height={25}
+      preserveAspectRatio="xMidYMid meet"
+      style={
+        Object {
+          "color": "Black",
+          "verticalAlign": "middle",
+        }
+      }
+      viewBox="0 0 40 40"
+      width={25}
+    >
+      <g>
+        <path
+          d="m20 19.1q1.7 0 2.9-1.2t1.2-2.9-1.2-2.9-2.9-1.2-2.9 1.2-1.2 2.9 1.2 2.9 2.9 1.2z m0-15.7q4.8 0 8.2 3.4t3.4 8.2q0 2.4-1.2 5.5t-2.9 5.9-3.4 5.1-2.8 3.8l-1.3 1.3q-0.5-0.5-1.2-1.4t-2.9-3.6-3.5-5.2-2.8-5.8-1.2-5.6q0-4.8 3.4-8.2t8.2-3.4z"
+        />
+      </g>
+    </svg>
+    <span
+      className="c6"
+    >
+      
+    </span>
   </div>
   <div
-    className="c6"
+    className="c7"
   >
-    
+    <svg
+      fill="currentColor"
+      height={25}
+      preserveAspectRatio="xMidYMid meet"
+      style={
+        Object {
+          "color": "Black",
+          "verticalAlign": "middle",
+        }
+      }
+      viewBox="0 0 40 40"
+      width={25}
+    >
+      <g>
+        <path
+          d="m20.9 11.6v8.8l7.5 4.4-1.3 2.2-8.7-5.4v-10h2.5z m-0.9 21.8q5.5 0 9.4-4t4-9.4-4-9.4-9.4-4-9.4 4-4 9.4 4 9.4 9.4 4z m0-30q6.9 0 11.8 4.8t4.8 11.8-4.8 11.8-11.8 4.8-11.8-4.8-4.8-11.8 4.8-11.8 11.8-4.8z"
+        />
+      </g>
+    </svg>
+    <span
+      className="c6"
+    >
+      
+    </span>
   </div>
 </div>
 `;

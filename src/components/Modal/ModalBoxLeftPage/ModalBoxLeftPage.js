@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import oc from "open-color";
+import MdAccessTime from 'react-icons/lib/md/access-time'
+import MdLocationOn from 'react-icons/lib/md/location-on'
 
 const propTypes = {
     PageData: PropTypes.object.isRequired
@@ -81,6 +83,10 @@ const Intro = styled.div`
     font-size: 1.5em;
 `;
 
+const Span = styled.span`
+    padding-left: 5px;
+`;
+
 export const ModalBoxLeftPage = ({ PageData }) => {
     const Data = PageData.data.values;
 
@@ -101,10 +107,16 @@ export const ModalBoxLeftPage = ({ PageData }) => {
                 {Data.Introduction}
             </Intro>
             <SideLocation>
-                {Data.Location}
+                <MdLocationOn size={25} color="Black"/>
+                <Span>
+                    {Data.Location}
+                </Span>
             </SideLocation>
             <SideTime>
-                {Data.Time}
+                <MdAccessTime size={25} color="Black"/>
+                <Span>
+                    {Data.Time}
+                </Span>
             </SideTime>
         </Wrapper>
     )
