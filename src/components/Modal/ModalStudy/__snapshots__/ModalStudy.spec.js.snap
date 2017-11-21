@@ -1,0 +1,228 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalStudy render correctly 1`] = `
+.c0 {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 5;
+  background: rgba(0,0,0,0.3);
+}
+
+.c1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  overflow: hidden;
+  z-index: 10;
+  width: 70%;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-animation: 1s eMLfYp;
+  animation: 1s eMLfYp;
+}
+
+.c3 {
+  position: relative;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.3);
+  width: 58%;
+  height: 800px;
+}
+
+.c4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(ModalStudyAsset.jpeg) left center;
+  background-size: cover;
+  width: 100%;
+  height: 60%;
+}
+
+.c5 {
+  position: absolute;
+  top: 60%;
+  height: 40%;
+  width: 100%;
+}
+
+.c6 {
+  margin: 30px 0 15px 0;
+}
+
+.c7 {
+  font-weight: 500;
+  font-size: 0.9em;
+  border-radius: 5px;
+  height: 20px;
+  width: 20px;
+  background: #e9ecef;
+  color: black;
+  padding: 5px 10px 5px 10px;
+  margin: 9px 9px 9px 0;
+}
+
+.c8 {
+  font-weight: 700;
+  font-size: 2.5em;
+}
+
+.c9 {
+  margin: 50px;
+  font-weight: 300;
+  font-size: 1.5em;
+}
+
+.c10 {
+  font-weight: 500;
+  font-size: 0.9em;
+  border-radius: 5px;
+  display: inline-block;
+  background: #e9ecef;
+  color: black;
+  padding: 5px 10px 5px 10px;
+  margin: 9px 9px 9px 0;
+}
+
+.c11 {
+  padding-left: 5px;
+}
+
+.c12 {
+  font-weight: 500;
+  font-size: 0.9em;
+  border-radius: 5px;
+  display: inline-block;
+  background: #e9ecef;
+  color: black;
+  padding: 5px 10px 5px 10px;
+  margin: 9px 9px 9px 0;
+}
+
+.c13 {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.3);
+  width: 35%;
+}
+
+<div>
+  <div
+    className="c0"
+  />
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    >
+      <div
+        className="c3"
+      >
+        <div
+          className="c4"
+        />
+        <div
+          className="c5"
+        >
+          <div
+            className="c6"
+          >
+            <span
+              className="c7"
+            >
+              
+            </span>
+            <span
+              className="c7"
+            >
+              8명
+            </span>
+          </div>
+          <div
+            className="c8"
+          >
+            웹 해킹
+          </div>
+          <div
+            className="c9"
+          />
+          <div
+            className="c10"
+          >
+            <svg
+              fill="currentColor"
+              height={25}
+              preserveAspectRatio="xMidYMid meet"
+              style={
+                Object {
+                  "color": "Black",
+                  "verticalAlign": "middle",
+                }
+              }
+              viewBox="0 0 40 40"
+              width={25}
+            >
+              <g>
+                <path
+                  d="m20 19.1q1.7 0 2.9-1.2t1.2-2.9-1.2-2.9-2.9-1.2-2.9 1.2-1.2 2.9 1.2 2.9 2.9 1.2z m0-15.7q4.8 0 8.2 3.4t3.4 8.2q0 2.4-1.2 5.5t-2.9 5.9-3.4 5.1-2.8 3.8l-1.3 1.3q-0.5-0.5-1.2-1.4t-2.9-3.6-3.5-5.2-2.8-5.8-1.2-5.6q0-4.8 3.4-8.2t8.2-3.4z"
+                />
+              </g>
+            </svg>
+            <span
+              className="c11"
+            >
+              중앙도서관 하늘 정원
+            </span>
+          </div>
+          <div
+            className="c12"
+          >
+            <svg
+              fill="currentColor"
+              height={25}
+              preserveAspectRatio="xMidYMid meet"
+              style={
+                Object {
+                  "color": "Black",
+                  "verticalAlign": "middle",
+                }
+              }
+              viewBox="0 0 40 40"
+              width={25}
+            >
+              <g>
+                <path
+                  d="m20.9 11.6v8.8l7.5 4.4-1.3 2.2-8.7-5.4v-10h2.5z m-0.9 21.8q5.5 0 9.4-4t4-9.4-4-9.4-9.4-4-9.4 4-4 9.4 4 9.4 9.4 4z m0-30q6.9 0 11.8 4.8t4.8 11.8-4.8 11.8-11.8 4.8-11.8-4.8-4.8-11.8 4.8-11.8 11.8-4.8z"
+                />
+              </g>
+            </svg>
+            <span
+              className="c11"
+            >
+              매주 월요일 7시
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="c13"
+      />
+    </div>
+  </div>
+</div>
+`;

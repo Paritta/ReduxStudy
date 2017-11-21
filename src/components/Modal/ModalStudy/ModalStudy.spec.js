@@ -10,6 +10,7 @@ const mockStore = configureStore(middlewares);
 
 const initialState = {};
 const store = mockStore(initialState);
+
 const Modal = {
     modalProps: {
         postId: "",
@@ -17,7 +18,7 @@ const Modal = {
             username: "",
             values: {
                 Category: "",
-                ntroduction: "웹 해킹 스터디",
+                introduction: "웹 해킹 스터디",
                 Location: "중앙도서관 하늘 정원",
                 Number: "8명",
                 StudyTitle: "웹 해킹",
@@ -29,7 +30,6 @@ const Modal = {
 };
 
 it("ModalStudy render correctly", () => {
-
     const tree = ReactTestRenderer.create(
         <Provider store={store}>
             <ModalStudy

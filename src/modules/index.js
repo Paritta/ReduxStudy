@@ -7,6 +7,7 @@ import Fetch from "./Fetch";
 import CommentReceive from "./CommentReceive";
 import CommentMakeArray from "./CommentMakeArray";
 import Reloading from "./Reloading";
+import Animate from "./Animate";
 
 export default combineReducers({
     Modal,
@@ -15,6 +16,7 @@ export default combineReducers({
     CommentReceive,
     CommentMakeArray,
     Reloading,
+    Animate,
     form: formReducer,
     firebase: firebaseStateReducer,
 });

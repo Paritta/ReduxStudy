@@ -111,7 +111,7 @@ export class ModalStudy extends React.Component {
             </div>
         )
     }
-};
+}
 
 ModalStudy.propTypes = propTypes;
 ModalStudy.defaultTypes = defaultTypes;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled, {keyframes} from "styled-components";
-import { bounceInLeft } from 'react-animations';
+import { bounceInLeft, bounceOutRight } from 'react-animations';
 import ModalRegisterForm from "./ModalRegisterForm";
 import PropTypes from "prop-types";
 import { firebaseConnect, pathToJS } from "react-redux-firebase";
@@ -10,13 +10,20 @@ import ReactLoading from "react-loading";
 const propTypes = {
     Modal: PropTypes.object,
     hideModal: PropTypes.func,
+    Animate: PropTypes.object,
+    AnimateTurn: PropTypes.func,
+    AnimateDown: PropTypes.func
 };
 
 const defaultTypes = {
+    Modal: {},
     hideModal() {},
+    Animate: {},
+    AnimateTurn() {},
 };
 
 const bounceInLeftAnimation = keyframes`${bounceInLeft}`;
+const bounceOutRightAnimation = keyframes`${bounceOutRight}`;
 
 const Wrapper = styled.div`
     position: fixed;
@@ -62,6 +69,10 @@ const AnimationWrapper = styled.div`
     animation: 0.5s ${bounceInLeftAnimation};
 `;
 
+const AnimationOutWrapper = styled.div`
+    animation: 0.5s ${props => props.AnimateOut ? bounceOutRightAnimation : ""};
+`;
+
 const WrappedReactLoading = styled.div`
     display: flex;
     align-items: center;
@@ -73,7 +84,7 @@ const WrappedReactLoading = styled.div`
 export class ModalRegister extends React.Component {
     state = {
         isLoading: false,
-        error: ""
+        error: "",
     };
 
     submit = values => {
@@ -100,30 +111,37 @@ export class ModalRegister extends React.Component {
             })
     };
 
+
     render () {
-        const { hideModal } = this.props;
+        const { hideModal, animateTurn, animateDown, Animate } = this.props;
 
         return (
             <div>
                 <Dimmed />
-                <AnimationWrapper>
-                    <Wrapper>
+                <AnimationOutWrapper
+                    AnimateOut={Animate.AnimateOut}
+                >
+                    <AnimationWrapper>
+                        <Wrapper>
                             <ModalHeader>스터디 등록</ModalHeader>
                             <ModalBox>
                                 {!this.state.isLoading
-                                ?
-                                <ModalRegisterForm
-                                    onSubmit={this.submit}
-                                    hideModal={hideModal}
-                                />
-                                :
-                                <WrappedReactLoading>
-                                    <ReactLoading type="cylon" color="palevioletred"/>
-                                </WrappedReactLoading>
+                                    ?
+                                    <ModalRegisterForm
+                                        onSubmit={this.submit}
+                                        hideModal={hideModal}
+                                        animateTurn={animateTurn}
+                                        animateDown={animateDown}
+                                    />
+                                    :
+                                    <WrappedReactLoading>
+                                        <ReactLoading type="cylon" color="palevioletred"/>
+                                    </WrappedReactLoading>
                                 }
                             </ModalBox>
-                    </Wrapper>
-                </AnimationWrapper>
+                        </Wrapper>
+                    </AnimationWrapper>
+                </AnimationOutWrapper>
             </div>
         )
     }

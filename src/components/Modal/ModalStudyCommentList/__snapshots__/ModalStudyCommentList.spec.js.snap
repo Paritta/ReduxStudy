@@ -147,7 +147,7 @@ transition:all 0.3s easeo .c11:hover {
           preserveAspectRatio="xMidYMid meet"
           style={
             Object {
-              "color": "palevioletred",
+              "color": "gray",
               "verticalAlign": "middle",
             }
           }
