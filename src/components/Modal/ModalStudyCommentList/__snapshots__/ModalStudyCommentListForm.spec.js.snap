@@ -20,10 +20,6 @@ exports[`Layout render correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -39,6 +35,7 @@ exports[`Layout render correctly 1`] = `
   border: 1px solid white;
   margin: 0;
   padding: 0 0 0 20px;
+  border-radius: 0;
 }
 
 .c4 {
@@ -58,14 +55,13 @@ exports[`Layout render correctly 1`] = `
   font-size: 1em;
   padding: 0.7em 1em;
   border: 2px solid palevioletred;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  border-radius: 0;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
 
-.c5:hover {
+transition:all 0.3s easeo .c5:hover {
   background: #f783ac;
   border: 2px solid #f783ac;
 }

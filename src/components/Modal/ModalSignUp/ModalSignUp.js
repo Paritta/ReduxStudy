@@ -80,25 +80,6 @@ export class ModalSignUp extends React.Component {
         })
     };
 
-    state = {
-        isLoading: false
-    }
-
-    googleLogin = loginData => {
-        this.setState({ isLoading: true })
-        return this.props.firebase
-            .login({ provider: 'google' })
-            .then(() => {
-                this.setState({ isLoading: false })
-                // this is where you can redirect to another route
-            })
-            .catch((error) => {
-                this.setState({ isLoading: false })
-                console.log('there was an error', error)
-                console.log('error prop:', this.props.authError) // thanks to connect
-            })
-    }
-
     render () {
         const { hideModal } = this.props;
 

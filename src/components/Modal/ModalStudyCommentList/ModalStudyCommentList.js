@@ -12,9 +12,9 @@ import FaUser from "react-icons/lib/fa/user";
 import oc from "open-color";
 
 const propTypes = {
-    commentReceiveRequest: PropTypes.func.isRequired,
-    commentMakeArrayRequest: PropTypes.func.isRequired,
-    hideModal : PropTypes.func.isRequired
+    commentReceiveRequest: PropTypes.func,
+    commentMakeArrayRequest: PropTypes.func,
+    hideModal : PropTypes.func
 };
 
 const defaultTypes = {

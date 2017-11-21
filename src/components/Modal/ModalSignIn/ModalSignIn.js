@@ -10,13 +10,16 @@ import ReactLoading from "react-loading";
 const propTypes = {
     Modal: PropTypes.object,
     hideModal: PropTypes.func,
+    googleLogin: PropTypes.func,
     firebase: PropTypes.shape({
-        login: PropTypes.func.isRequired
+        login: PropTypes.func
     })
 };
 
 const defaultTypes = {
-    hideModal() {},
+    Modal: {},
+    googleLogin() {},
+    hideModal() {}
 };
 
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -102,6 +105,21 @@ export class ModalSignIn extends React.Component {
             })
     };
 
+    googleLogin = loginData => {
+        this.setState({ isLoading: true });
+        return this.props.firebase
+            .login({ provider: 'google' })
+            .then(() => {
+                this.setState({ isLoading: false })
+                // this is where you can redirect to another route
+            })
+            .catch((error) => {
+                this.setState({ isLoading: false });
+                console.log('there was an error', error);
+                console.log('error prop:', this.props.authError) // thanks to connect
+            })
+    };
+
     render () {
         const { hideModal } = this.props;
 
@@ -115,6 +133,7 @@ export class ModalSignIn extends React.Component {
                         {!this.state.isLoading?
                                 <ModalSignInForm
                                     hideModal={hideModal}
+                                    googleLogin={this.googleLogin}
                                     onSubmit={this.submit}
                                 />
                             :

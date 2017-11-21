@@ -2,9 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import { Field, reduxForm } from "redux-form";
 import oc from "open-color";
-import FaGoogle from "react-icons/lib/fa/google";
-import FaFacebook from "react-icons/lib/fa/facebook";
-import FaTwitter from "react-icons/lib/fa/twitter";
+import PropTypes from "prop-types";
+
+const propTypes = {
+    handleSubmit: PropTypes.func,
+    hideModal: PropTypes.func,
+};
+
+const defaultTypes = {
+    handleSubmit() {},
+    hideModal() {},
+};
 
 const Wrapper = styled.div`
     padding: 30px 0 10px 0;
@@ -39,58 +47,7 @@ const Button = styled.button`
     }
 `;
 
-const SocialLoginButtonWrapper = styled.div`
-    padding: 10px 60px ;
-    margin: 0;
-`;
-
-const SocialLoginButton = styled.button`
-    color: white;
-    
-    font-size: 1em;
-    margin: 5px 0;
-    padding: 0.5em 12em 0.5em 1em;
-    
-    transition: all 0.3s ease;
-`;
-
-const GoogleSocialLoginButton = SocialLoginButton.extend`
-    background: red;
-    border: 2px solid red;
-    
-    &:hover {
-        background: ${oc.red[4]};
-        border: 2px solid ${oc.red[4]};
-    }
-`;
-
-const FacebookSocialLoginButton = SocialLoginButton.extend`
-    background: royalblue;
-    border: 2px solid royalblue;
-    padding: 0.5em 11.3em 0.5em 0.5em;
-    
-    &:hover {
-        background: ${oc.blue[4]};
-        border: 2px solid ${oc.blue[4]};
-    }
-`;
-
-const TwitterSocialLoginButton = SocialLoginButton.extend`
-    background: skyblue;
-    border: 2px solid skyblue;
-    
-    &:hover {
-        background: ${oc.blue[2]};
-        border: 2px solid ${oc.blue[2]};
-    }
-`;
-
-const Span = styled.span`
-    padding: 0;
-    margin: 0 0 0 15px;
-`;
-
-export let ModalSignUpForm = ({ handleSubmit, hideModal, googleLogin }) => {
+export let ModalSignUpForm = ({ handleSubmit, hideModal }) => {
     return (
         <Wrapper>
             <form onSubmit={ handleSubmit }>
@@ -106,25 +63,12 @@ export let ModalSignUpForm = ({ handleSubmit, hideModal, googleLogin }) => {
                 <Button type="submit">회원 가입</Button>
                 <Button onClick={() => hideModal()}>나가기</Button>
             </form>
-            <SocialLoginButtonWrapper>
-                <GoogleSocialLoginButton
-                    onClick={() => googleLogin()}
-                >
-                    <FaGoogle />
-                    <Span>Sign in with Google</Span>
-                </GoogleSocialLoginButton>
-                <FacebookSocialLoginButton>
-                    <FaFacebook />
-                    <Span>Sign in with Facebook</Span>
-                </FacebookSocialLoginButton>
-                <TwitterSocialLoginButton>
-                    <FaTwitter />
-                    <Span>Sign in with Twitter</Span>
-                </TwitterSocialLoginButton>
-            </SocialLoginButtonWrapper>
         </Wrapper>
     )
 };
+
+ModalSignUpForm.propTypes = propTypes;
+ModalSignUpForm.defaultTypes = defaultTypes;
 
 ModalSignUpForm = reduxForm({
     form: 'ModalSignUp'

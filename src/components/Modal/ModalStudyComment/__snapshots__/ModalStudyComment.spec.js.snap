@@ -2,7 +2,7 @@
 
 exports[`Layout render correctly 1`] = `
 .c0 {
-  height: 10%;
+  height: 15%;
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -12,12 +12,19 @@ exports[`Layout render correctly 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   position: relative;
-  padding: 10px 15px;
+  padding: 25px 25px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.c0:hover {
+  background: #ffdeeb;
+  border: 2px solid #ffdeeb;
 }
 
 .c1 {
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
   border-radius: 100%;
   background: #e9ecef;
   top: 10px;
@@ -44,11 +51,11 @@ exports[`Layout render correctly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding-left: 10px;
+  padding-left: 30px;
 }
 
 .c3 {
-  background: black;
+  background: #f1f3f5;
   height: 1px;
 }
 
