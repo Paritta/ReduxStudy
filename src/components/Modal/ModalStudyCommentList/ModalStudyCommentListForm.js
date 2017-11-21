@@ -20,6 +20,7 @@ const StyledField = styled(Field)`
     border: 1px solid white;
     margin: 0;
     padding: 0 0 0 20px;
+    border-radius: 0;
 `;
 
 const Button = styled.button`
@@ -30,8 +31,9 @@ const Button = styled.button`
     padding: 0.7em 1em;
     
     border: 2px solid palevioletred;
+    border-radius: 0;
     
-    transition: all 0.3s ease;
+    transition: all 0.3s easeo
     
     &:hover {
         background: ${oc.pink[4]};
@@ -44,7 +46,6 @@ const Button = styled.button`
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: baseline;
     justify-content: center;
     width: 100%;
 `;

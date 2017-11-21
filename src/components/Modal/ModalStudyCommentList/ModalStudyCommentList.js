@@ -9,6 +9,7 @@ import { commentReceiveRequest } from "../../../modules/CommentReceive";
 import { hideModal } from "../../../modules/Modal";
 import PropTypes from "prop-types";
 import FaUser from "react-icons/lib/fa/user";
+import oc from "open-color";
 
 const propTypes = {
     commentReceiveRequest: PropTypes.func.isRequired,
@@ -38,7 +39,7 @@ const ModalStudyCommentListHeader = styled.div`
     height: 7%;
     width: 100%;
     
-    background: palevioletred;
+    background: ${oc.gray[6]};
 `;
 
 const ModalStudyCommentListHeaderWrapper = styled.div`
