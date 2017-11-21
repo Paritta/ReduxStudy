@@ -111,7 +111,7 @@ export class ModalStudyCommentList extends React.Component {
                 <ModalStudyCommentListHeader>
                     <ModalStudyCommentListHeaderWrapper>
                         <ModalStudyCommentListHeaderIcon>
-                            <FaUser size={25} color="palevioletred"/>
+                            <FaUser size={25} color="gray"/>
                         </ModalStudyCommentListHeaderIcon>
                         <Span>{username}</Span>
                     </ModalStudyCommentListHeaderWrapper>

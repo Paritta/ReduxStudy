@@ -103,6 +103,7 @@ export class ModalSignIn extends React.Component {
             })
     };
 
+    // 구글 로그인
     googleLogin = loginData => {
         this.setState({ isLoading: true });
         return this.props.firebase
@@ -118,6 +119,7 @@ export class ModalSignIn extends React.Component {
             })
     };
 
+    // 페이스북 로그인
     facebookLogin = loginData => {
         this.setState({ isLoading: true });
         return this.props.firebase

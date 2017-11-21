@@ -4,7 +4,6 @@ import { Field, reduxForm } from "redux-form";
 import oc from "open-color";
 import FaGoogle from "react-icons/lib/fa/google";
 import FaFacebook from "react-icons/lib/fa/facebook";
-import FaTwitter from "react-icons/lib/fa/twitter";
 import PropTypes from "prop-types";
 
 const propTypes = {
@@ -96,16 +95,6 @@ const FacebookSocialLoginButton = SocialLoginButton.extend`
     }
 `;
 
-const TwitterSocialLoginButton = SocialLoginButton.extend`
-    background: skyblue;
-    border: 2px solid skyblue;
-    
-    &:hover {
-        background: ${oc.blue[2]};
-        border: 2px solid ${oc.blue[2]};
-    }
-`;
-
 export let ModalSignInForm = ({ handleSubmit, hideModal, googleLogin, facebookLogin }) => {
     return (
         <Wrapper>
@@ -132,10 +121,6 @@ export let ModalSignInForm = ({ handleSubmit, hideModal, googleLogin, facebookLo
                     <FaFacebook />
                     <Span>Sign in with Facebook</Span>
                 </FacebookSocialLoginButton>
-                <TwitterSocialLoginButton>
-                    <FaTwitter />
-                    <Span>Sign in with Twitter</Span>
-                </TwitterSocialLoginButton>
             </SocialLoginButtonWrapper>
         </Wrapper>
     )
