@@ -104,7 +104,7 @@ const TwitterSocialLoginButton = SocialLoginButton.extend`
     }
 `;
 
-export let ModalSignInForm = ({ handleSubmit, hideModal, googleLogin }) => {
+export let ModalSignInForm = ({ handleSubmit, hideModal, googleLogin, facebookLogin }) => {
     return (
         <Wrapper>
             <form onSubmit={ handleSubmit }>
@@ -124,7 +124,9 @@ export let ModalSignInForm = ({ handleSubmit, hideModal, googleLogin }) => {
                     <FaGoogle />
                     <Span>Sign in with Google</Span>
                 </GoogleSocialLoginButton>
-                <FacebookSocialLoginButton>
+                <FacebookSocialLoginButton
+                    onClick={() => facebookLogin()}
+                >
                     <FaFacebook />
                     <Span>Sign in with Facebook</Span>
                 </FacebookSocialLoginButton>
