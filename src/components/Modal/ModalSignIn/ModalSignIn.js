@@ -10,7 +10,6 @@ import ReactLoading from "react-loading";
 const propTypes = {
     Modal: PropTypes.object,
     hideModal: PropTypes.func,
-    googleLogin: PropTypes.func,
     firebase: PropTypes.shape({
         login: PropTypes.func
     })
@@ -18,7 +17,6 @@ const propTypes = {
 
 const defaultTypes = {
     Modal: {},
-    googleLogin() {},
     hideModal() {}
 };
 

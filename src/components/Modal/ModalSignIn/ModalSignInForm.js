@@ -11,12 +11,14 @@ const propTypes = {
     handleSubmit: PropTypes.func,
     hideModal: PropTypes.func,
     googleLogin: PropTypes.func,
+    facebookLogin: PropTypes.func,
 };
 
 const defaultTypes = {
     handleSubmit() {},
     hideModal() {},
     googleLogin() {},
+    facebookLogin() {},
 };
 
 const Wrapper = styled.div`

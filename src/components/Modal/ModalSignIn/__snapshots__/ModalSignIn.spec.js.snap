@@ -236,6 +236,7 @@ exports[`ModalSignIn render correctly 1`] = `
             </button>
             <button
               className="c11"
+              onClick={[Function]}
             >
               <svg
                 fill="currentColor"
