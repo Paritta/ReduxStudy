@@ -8,21 +8,21 @@ import { getModal } from "../../selector";
 
 const propTypes = {
     hideModal: PropTypes.func,
-    profile: PropTypes.object
+    auth: PropTypes.object
 };
 
 const defaultTypes = {
     hideModal() {},
-    profile: {}
+    auth: {}
 };
 
-const ModalStudyContainer = ({ Modal, hideModal, profile }) => {
+const ModalStudyContainer = ({ Modal, hideModal, auth }) => {
     return (
         <div>
             <ModalStudy
                 Modal={Modal}
                 hideModal={hideModal}
-                profile={profile}
+                auth={auth}
             />
         </div>
     )
@@ -34,7 +34,7 @@ ModalStudyContainer.defaultTypes = defaultTypes;
 export default connect(
     state => ({
         Modal: getModal(state),
-        profile: pathToJS(state.firebase, "profile")
+        auth: pathToJS(state.firebase, "auth")
     }),
     { hideModal }
 )(ModalStudyContainer);

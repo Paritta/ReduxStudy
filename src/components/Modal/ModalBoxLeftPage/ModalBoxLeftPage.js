@@ -7,12 +7,12 @@ import MdLocationOn from 'react-icons/lib/md/location-on'
 
 const propTypes = {
     Data: PropTypes.object,
-    profile: PropTypes.object
+    auth: PropTypes.object
 };
 
 const defaultTypes = {
     Data: {},
-    profile: {}
+    auth: {}
 };
 
 const Wrapper = styled.div`
@@ -112,8 +112,10 @@ const Button = styled.button`
     }
 `;
 
-export const ModalBoxLeftPage = ({ PageData, profile }) => {
+export const ModalBoxLeftPage = ({ PageData, auth }) => {
     const Data = PageData.data.values;
+    const author  = PageData.data.author;
+    console.log(auth);
 
     return (
         <div>
@@ -146,7 +148,7 @@ export const ModalBoxLeftPage = ({ PageData, profile }) => {
                 </SideTime>
             </Wrapper>
             {
-                profile !== null && <Button> 글 내리기 </Button>
+                auth !== null && <Button> 글 내리기 </Button>
             }
         </div>
     )

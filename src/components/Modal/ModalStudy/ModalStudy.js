@@ -15,12 +15,12 @@ const propTypes = {
             })
         })
     }),
-    profile: PropTypes.object
+    auth: PropTypes.object
 };
 
 const defaultTypes = {
     Modal: {},
-    profile: {}
+    auth: {}
 };
 
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -88,7 +88,7 @@ const Dimmed = styled.div`
 
 export class ModalStudy extends React.Component {
     render () {
-        const { Modal, profile }  = this.props;
+        const { Modal, auth }  = this.props;
         const Props = Modal.modalProps;
 
         return (
@@ -100,7 +100,7 @@ export class ModalStudy extends React.Component {
                             <ModalBoxLeftHeader />
                             <ModalBoxLeftPage
                                 PageData={Props}
-                                profile={profile}
+                                auth={auth}
                             />
                         </ModalBoxLeft>
                         <ModalBoxRight>
