@@ -12,7 +12,8 @@ const propTypes = {
     hideModal: PropTypes.func,
     Animate: PropTypes.object,
     AnimateTurn: PropTypes.func,
-    AnimateDown: PropTypes.func
+    AnimateDown: PropTypes.func,
+    firebase: PropTypes.object
 };
 
 const defaultTypes = {
@@ -20,10 +21,20 @@ const defaultTypes = {
     hideModal() {},
     Animate: {},
     AnimateTurn() {},
+    AnimateDown() {}
 };
 
 const bounceInLeftAnimation = keyframes`${bounceInLeft}`;
 const bounceOutRightAnimation = keyframes`${bounceOutRight}`;
+
+const AnimationWrapper = styled.div`
+    animation: 0.5s ${bounceInLeftAnimation};
+`;
+
+const AnimationOutWrapper = styled.div`
+    animation: 0.5s ${props => props.AnimateOut ? bounceOutRightAnimation : ""};
+`;
+
 
 const Wrapper = styled.div`
     position: fixed;
@@ -65,14 +76,6 @@ const Dimmed = styled.div`
     background: rgba(0, 0, 0, 0.3);
 `;
 
-const AnimationWrapper = styled.div`
-    animation: 0.5s ${bounceInLeftAnimation};
-`;
-
-const AnimationOutWrapper = styled.div`
-    animation: 0.5s ${props => props.AnimateOut ? bounceOutRightAnimation : ""};
-`;
-
 const WrappedReactLoading = styled.div`
     display: flex;
     align-items: center;
@@ -93,7 +96,7 @@ export class ModalRegister extends React.Component {
         const display = username ? username : this.props.profile.displayName;
 
         const post = {
-          values,
+            values,
             author: uid,
             username: display
         };

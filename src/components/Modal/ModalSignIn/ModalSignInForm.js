@@ -9,15 +9,19 @@ import PropTypes from "prop-types";
 const propTypes = {
     handleSubmit: PropTypes.func,
     hideModal: PropTypes.func,
+    AnimateTurn: PropTypes.func,
+    AnimateDown: PropTypes.func,
     googleLogin: PropTypes.func,
-    facebookLogin: PropTypes.func,
+    facebookLogin: PropTypes.func
 };
 
 const defaultTypes = {
     handleSubmit() {},
     hideModal() {},
+    AnimateTurn() {},
+    AnimateDown() {},
     googleLogin() {},
-    facebookLogin() {},
+    facebookLogin() {}
 };
 
 const Wrapper = styled.div`
@@ -95,35 +99,45 @@ const FacebookSocialLoginButton = SocialLoginButton.extend`
     }
 `;
 
-export let ModalSignInForm = ({ handleSubmit, hideModal, googleLogin, facebookLogin }) => {
-    return (
-        <Wrapper>
-            <form onSubmit={ handleSubmit }>
-                <div>
-                    <StyledField name="email" component="input" type="text" required placeholder="email"/>
-                </div>
-                <div>
-                    <StyledField name="password" component="input" type="password" required placeholder="password"/>
-                </div>
-                <Button type="submit">로그인</Button>
-                <Button onClick={() => hideModal()}>나가기</Button>
-            </form>
-            <SocialLoginButtonWrapper>
-                <GoogleSocialLoginButton
-                    onClick={() => googleLogin()}
-                >
-                    <FaGoogle />
-                    <Span>Sign in with Google</Span>
-                </GoogleSocialLoginButton>
-                <FacebookSocialLoginButton
-                    onClick={() => facebookLogin()}
-                >
-                    <FaFacebook />
-                    <Span>Sign in with Facebook</Span>
-                </FacebookSocialLoginButton>
-            </SocialLoginButtonWrapper>
-        </Wrapper>
-    )
+export class ModalSignInForm extends React.Component {
+    hideAnimate () {
+        this.props.animateTurn();
+        setTimeout(this.props.hideModal, 500);
+        setTimeout(this.props.animateDown, 510);
+    }
+
+    render () {
+        const { handleSubmit, hideModal, googleLogin, facebookLogin } = this.props;
+
+        return (
+            <Wrapper>
+                <form onSubmit={ handleSubmit }>
+                    <div>
+                        <StyledField name="email" component="input" type="text" required placeholder="email"/>
+                    </div>
+                    <div>
+                        <StyledField name="password" component="input" type="password" required placeholder="password"/>
+                    </div>
+                    <Button type="submit">로그인</Button>
+                    <Button onClick={() => this.hideAnimate()}>나가기</Button>
+                </form>
+                <SocialLoginButtonWrapper>
+                    <GoogleSocialLoginButton
+                        onClick={() => googleLogin()}
+                    >
+                        <FaGoogle />
+                        <Span>Sign in with Google</Span>
+                    </GoogleSocialLoginButton>
+                    <FacebookSocialLoginButton
+                        onClick={() => facebookLogin()}
+                    >
+                        <FaFacebook />
+                        <Span>Sign in with Facebook</Span>
+                    </FacebookSocialLoginButton>
+                </SocialLoginButtonWrapper>
+            </Wrapper>
+        )
+    }
 };
 
 ModalSignInForm.propTypes = propTypes;

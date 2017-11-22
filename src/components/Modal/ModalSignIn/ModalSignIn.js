@@ -1,6 +1,6 @@
 import React from "react";
 import styled, {keyframes} from "styled-components";
-import { fadeIn } from 'react-animations';
+import { bounceInLeft, bounceOutRight } from 'react-animations';
 import PropTypes from "prop-types";
 import ModalSignInForm from "./ModalSignInForm";
 import { pathToJS, firebaseConnect } from "react-redux-firebase";
@@ -10,17 +10,31 @@ import ReactLoading from "react-loading";
 const propTypes = {
     Modal: PropTypes.object,
     hideModal: PropTypes.func,
-    firebase: PropTypes.shape({
-        login: PropTypes.func
-    })
+    Animate: PropTypes.object,
+    AnimateTurn: PropTypes.func,
+    AnimateDown: PropTypes.func,
+    firebase: PropTypes.object
 };
 
 const defaultTypes = {
     Modal: {},
-    hideModal() {}
+    hideModal() {},
+    Animate: {},
+    AnimateTurn() {},
+    AnimateDown() {}
 };
 
-const fadeInAnimation = keyframes`${fadeIn}`;
+const bounceInLeftAnimation = keyframes`${bounceInLeft}`;
+const bounceOutRightAnimation = keyframes`${bounceOutRight}`;
+
+const AnimationWrapper = styled.div`
+    animation: 0.5s ${bounceInLeftAnimation};
+`;
+
+const AnimationOutWrapper = styled.div`
+    animation: 0.5s ${props => props.AnimateOut ? bounceOutRightAnimation : ""};
+`;
+
 
 const Wrapper = styled.div`
     position: fixed;
@@ -34,12 +48,6 @@ const Wrapper = styled.div`
     z-index: 10;
     
     width: 550px;
-    
-    animation: 1s ${fadeInAnimation};
-`;
-
-const AnimationWrapper = styled.div`
-    animation: 1s ${fadeInAnimation};
 `;
 
 const ModalHeader = styled.div`
@@ -136,30 +144,36 @@ export class ModalSignIn extends React.Component {
     };
 
     render () {
-        const { hideModal } = this.props;
+        const { hideModal, animateTurn, animateDown, Animate } = this.props;
 
         return (
             <div>
                 <Dimmed />
-                <Wrapper>
+                <AnimationOutWrapper
+                    AnimateOut={Animate.AnimateOut}
+                >
                     <AnimationWrapper>
-                        <ModalHeader>로그인</ModalHeader>
-                        <ModalBox>
-                        {!this.state.isLoading?
-                                <ModalSignInForm
-                                    hideModal={hideModal}
-                                    googleLogin={this.googleLogin}
-                                    facebookLogin={this.facebookLogin}
-                                    onSubmit={this.submit}
-                                />
-                            :
-                            <WrappedReactLoading>
-                                <ReactLoading type="cylon" color="palevioletred"/>
-                            </WrappedReactLoading>
-                        }
-                        </ModalBox>
+                        <Wrapper>
+                                <ModalHeader>로그인</ModalHeader>
+                                <ModalBox>
+                                {!this.state.isLoading?
+                                        <ModalSignInForm
+                                            hideModal={hideModal}
+                                            animateTurn={animateTurn}
+                                            animateDown={animateDown}
+                                            googleLogin={this.googleLogin}
+                                            facebookLogin={this.facebookLogin}
+                                            onSubmit={this.submit}
+                                        />
+                                    :
+                                    <WrappedReactLoading>
+                                        <ReactLoading type="cylon" color="palevioletred"/>
+                                    </WrappedReactLoading>
+                                }
+                                </ModalBox>
+                        </Wrapper>
                     </AnimationWrapper>
-                </Wrapper>
+                </AnimationOutWrapper>
             </div>
         )
     }
