@@ -107,7 +107,7 @@ export class ModalSignInForm extends React.Component {
     }
 
     render () {
-        const { handleSubmit, hideModal, googleLogin, facebookLogin } = this.props;
+        const { handleSubmit, googleLogin, facebookLogin } = this.props;
 
         return (
             <Wrapper>

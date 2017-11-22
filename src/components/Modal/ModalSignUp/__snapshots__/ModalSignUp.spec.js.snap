@@ -12,6 +12,16 @@ exports[`ModalSignUp render correctly 1`] = `
 }
 
 .c1 {
+  -webkit-animation: 0.5s;
+  animation: 0.5s;
+}
+
+.c2 {
+  -webkit-animation: 0.5s ksDKZH;
+  animation: 0.5s ksDKZH;
+}
+
+.c3 {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -24,12 +34,7 @@ exports[`ModalSignUp render correctly 1`] = `
   width: 550px;
 }
 
-.c2 {
-  -webkit-animation: 1s eMLfYp;
-  animation: 1s eMLfYp;
-}
-
-.c3 {
+.c4 {
   font-style: normal;
   font-weight: 400;
   color: white;
@@ -37,17 +42,17 @@ exports[`ModalSignUp render correctly 1`] = `
   background: palevioletred;
 }
 
-.c4 {
+.c5 {
   background: white;
   border: 1px solid rgba(0,0,0,0.3);
   padding: 15px;
 }
 
-.c5 {
+.c6 {
   padding: 30px 0 10px 0;
 }
 
-.c6 {
+.c7 {
   background-color: #f8f9fa;
   width: 400px;
   height: 40px;
@@ -57,7 +62,7 @@ exports[`ModalSignUp render correctly 1`] = `
   margin-bottom: 10px;
 }
 
-.c7 {
+.c8 {
   background: palevioletred;
   color: white;
   font-size: 1em;
@@ -69,7 +74,7 @@ exports[`ModalSignUp render correctly 1`] = `
   transition: all 0.3s ease;
 }
 
-.c7:hover {
+.c8:hover {
   background: #f783ac;
   border: 2px solid #f783ac;
 }
@@ -87,75 +92,79 @@ exports[`ModalSignUp render correctly 1`] = `
       <div
         className="c3"
       >
-        회원가입
-      </div>
-      <div
-        className="c4"
-      >
+        <div
+          className="c4"
+        >
+          회원가입
+        </div>
         <div
           className="c5"
         >
-          <form
-            onSubmit={[Function]}
+          <div
+            className="c6"
           >
-            <div>
-              <input
-                className="c6"
-                name="email"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onDragStart={[Function]}
-                onDrop={[Function]}
-                onFocus={[Function]}
-                placeholder="email"
-                required={true}
-                type="text"
-                value=""
-              />
-            </div>
-            <div>
-              <input
-                className="c6"
-                name="Nickname"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onDragStart={[Function]}
-                onDrop={[Function]}
-                onFocus={[Function]}
-                placeholder="Nickname"
-                required={true}
-                type="text"
-                value=""
-              />
-            </div>
-            <div>
-              <input
-                className="c6"
-                name="password"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onDragStart={[Function]}
-                onDrop={[Function]}
-                onFocus={[Function]}
-                placeholder="password"
-                required={true}
-                type="password"
-                value=""
-              />
-            </div>
-            <button
-              className="c7"
-              type="submit"
+            <form
+              onSubmit={[Function]}
             >
-              회원 가입
-            </button>
-            <button
-              className="c7"
-              onClick={[Function]}
-            >
-              나가기
-            </button>
-          </form>
+              <div>
+                <input
+                  className="c7"
+                  name="email"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onDragStart={[Function]}
+                  onDrop={[Function]}
+                  onFocus={[Function]}
+                  placeholder="email"
+                  required={true}
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div>
+                <input
+                  className="c7"
+                  name="Nickname"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onDragStart={[Function]}
+                  onDrop={[Function]}
+                  onFocus={[Function]}
+                  placeholder="Nickname"
+                  required={true}
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div>
+                <input
+                  className="c7"
+                  name="password"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onDragStart={[Function]}
+                  onDrop={[Function]}
+                  onFocus={[Function]}
+                  placeholder="password"
+                  required={true}
+                  type="password"
+                  value=""
+                />
+              </div>
+              <button
+                className="c8"
+                type="submit"
+              >
+                회원 가입
+              </button>
+              <button
+                className="c8"
+                onClick={[Function]}
+              >
+                나가기
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

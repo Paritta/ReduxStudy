@@ -35,7 +35,6 @@ const AnimationOutWrapper = styled.div`
     animation: 0.5s ${props => props.AnimateOut ? bounceOutRightAnimation : ""};
 `;
 
-
 const Wrapper = styled.div`
     position: fixed;
     top: 50%;

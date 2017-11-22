@@ -18,7 +18,8 @@ const defaultTypes = {
     Modal: {},
     hideModal() {},
     Animate: {},
-    animateTurn() {}
+    animateTurn() {},
+    animateDown() {}
 };
 
 const ModalRegisterContainer = ({ hideModal, animateTurn, animateDown, Animate }) => {

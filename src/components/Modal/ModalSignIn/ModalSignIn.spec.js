@@ -12,9 +12,15 @@ const initialState = {};
 const store = mockStore(initialState);
 
 it("ModalSignIn render correctly", () => {
+    const Animate = {
+        AnimateOut: ""
+    };
+
     const tree = ReactTestRenderer.create(
         <Provider store={store}>
-            <ModalSignIn />
+            <ModalSignIn
+                Animate={Animate}
+            />
         </Provider>
     );
     expect(tree.toJSON()).toMatchSnapshot();

@@ -1,6 +1,6 @@
 import React from "react";
 import styled, {keyframes} from "styled-components";
-import { fadeIn } from 'react-animations';
+import { bounceInLeft, bounceOutRight } from 'react-animations';
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import ModalSignUpForm from "./ModalSignUpForm";
@@ -9,16 +9,30 @@ import { firebaseConnect, pathToJS } from "react-redux-firebase";
 const propTypes = {
     Modal: PropTypes.object,
     hideModal: PropTypes.func,
-    firebase: PropTypes.shape({
-        login: PropTypes.func.isRequired
-    })
+    Animate: PropTypes.object,
+    AnimateTurn: PropTypes.func,
+    AnimateDown: PropTypes.func,
+    firebase: PropTypes.object
 };
 
 const defaultTypes = {
+    Modal: {},
     hideModal() {},
+    Animate: {},
+    AnimateTurn() {},
+    AnimateDown() {}
 };
 
-const fadeInAnimation = keyframes`${fadeIn}`;
+const bounceInLeftAnimation = keyframes`${bounceInLeft}`;
+const bounceOutRightAnimation = keyframes`${bounceOutRight}`;
+
+const AnimationWrapper = styled.div`
+    animation: 0.5s ${bounceInLeftAnimation};
+`;
+
+const AnimationOutWrapper = styled.div`
+    animation: 0.5s ${props => props.AnimateOut ? bounceOutRightAnimation : ""};
+`;
 
 const Wrapper = styled.div`
     position: fixed;
@@ -32,10 +46,6 @@ const Wrapper = styled.div`
     z-index: 10;
     
     width: 550px;
-`;
-
-const AnimationWrapper = styled.div`
-    animation: 1s ${fadeInAnimation};
 `;
 
 const ModalHeader = styled.div`
@@ -81,23 +91,29 @@ export class ModalSignUp extends React.Component {
     };
 
     render () {
-        const { hideModal } = this.props;
+        const { hideModal, animateTurn, animateDown, Animate } = this.props;
 
         return (
             <div>
                 <Dimmed />
-                    <Wrapper>
-                        <AnimationWrapper>
-                        <ModalHeader>회원가입</ModalHeader>
-                        <ModalBox>
-                            <ModalSignUpForm
-                                onSubmit={this.submit}
-                                googleLogin={this.googleLogin}
-                                hideModal={hideModal}
-                            />
-                        </ModalBox>
-                        </AnimationWrapper>
-                    </Wrapper>
+                <AnimationOutWrapper
+                    AnimateOut={Animate.AnimateOut}
+                >
+                    <AnimationWrapper>
+                        <Wrapper>
+                            <ModalHeader>회원가입</ModalHeader>
+                            <ModalBox>
+                                <ModalSignUpForm
+                                    onSubmit={this.submit}
+                                    googleLogin={this.googleLogin}
+                                    hideModal={hideModal}
+                                    animateTurn={animateTurn}
+                                    animateDown={animateDown}
+                                />
+                            </ModalBox>
+                        </Wrapper>
+                    </AnimationWrapper>
+                </AnimationOutWrapper>
             </div>
         )
     }

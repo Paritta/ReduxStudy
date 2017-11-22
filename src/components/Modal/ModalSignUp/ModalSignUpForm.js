@@ -47,25 +47,35 @@ const Button = styled.button`
     }
 `;
 
-export let ModalSignUpForm = ({ handleSubmit, hideModal }) => {
-    return (
-        <Wrapper>
-            <form onSubmit={ handleSubmit }>
-                <div>
-                    <StyledField name="email" component="input" type="text" required placeholder="email"/>
-                </div>
-                <div>
-                    <StyledField name="Nickname" component="input" type="text" required placeholder="Nickname"/>
-                </div>
-                <div>
-                    <StyledField name="password" component="input" type="password" required placeholder="password"/>
-                </div>
-                <Button type="submit">회원 가입</Button>
-                <Button onClick={() => hideModal()}>나가기</Button>
-            </form>
-        </Wrapper>
-    )
-};
+export class ModalSignUpForm extends React.Component {
+    hideAnimate () {
+        this.props.animateTurn();
+        setTimeout(this.props.hideModal, 500);
+        setTimeout(this.props.animateDown, 600);
+    }
+
+    render () {
+        const { handleSubmit } = this.props;
+
+        return (
+            <Wrapper>
+                <form onSubmit={ handleSubmit }>
+                    <div>
+                        <StyledField name="email" component="input" type="text" required placeholder="email"/>
+                    </div>
+                    <div>
+                        <StyledField name="Nickname" component="input" type="text" required placeholder="Nickname"/>
+                    </div>
+                    <div>
+                        <StyledField name="password" component="input" type="password" required placeholder="password"/>
+                    </div>
+                    <Button type="submit">회원 가입</Button>
+                    <Button onClick={() => this.hideAnimate()}>나가기</Button>
+                </form>
+            </Wrapper>
+        )
+    }
+}
 
 ModalSignUpForm.propTypes = propTypes;
 ModalSignUpForm.defaultTypes = defaultTypes;
