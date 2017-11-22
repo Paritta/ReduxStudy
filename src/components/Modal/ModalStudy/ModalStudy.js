@@ -15,12 +15,14 @@ const propTypes = {
             })
         })
     }),
-    auth: PropTypes.object
+    auth: PropTypes.object,
+    postDeleteRequest: PropTypes.func
 };
 
 const defaultTypes = {
     Modal: {},
-    auth: {}
+    auth: {},
+    postDeleteRequest() {}
 };
 
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -88,7 +90,7 @@ const Dimmed = styled.div`
 
 export class ModalStudy extends React.Component {
     render () {
-        const { Modal, auth }  = this.props;
+        const { Modal, auth, postDeleteRequest }  = this.props;
         const Props = Modal.modalProps;
 
         return (
@@ -101,6 +103,7 @@ export class ModalStudy extends React.Component {
                             <ModalBoxLeftPage
                                 PageData={Props}
                                 auth={auth}
+                                postDeleteRequest={postDeleteRequest}
                             />
                         </ModalBoxLeft>
                         <ModalBoxRight>

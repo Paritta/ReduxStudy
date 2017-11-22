@@ -1,4 +1,4 @@
-import { put, takeEvery, all } from "redux-saga/effects/";
+import { put, takeEvery } from "redux-saga/effects/";
 import { getFirebase } from "react-redux-firebase";
 
 function* CommentReceive (action) {
@@ -11,7 +11,6 @@ function* CommentReceive (action) {
                 return res.val();
             });
 
-        yield put({ type: "comment/comment_make_array_Success"});
         const CommentsObject = yield getFirebase()
             .database()
             .ref("posts/"+action.payload)
@@ -39,8 +38,6 @@ function* CommentReceive (action) {
 }
 
 export function* watchCommentReceive () {
-    yield all([
-        takeEvery("comment/comment_receive_Request", CommentReceive)
-    ])
+    yield takeEvery("comment/comment_receive_Request", CommentReceive)
 }
 
