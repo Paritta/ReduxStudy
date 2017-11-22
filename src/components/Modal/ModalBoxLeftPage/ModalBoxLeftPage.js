@@ -118,6 +118,8 @@ export const ModalBoxLeftPage = ({ PageData, auth, postDeleteRequest }) => {
     const Data = PageData.data.values;
     const author  = PageData.data.author;
 
+    console.log(PageData);
+
     return (
         <div>
             <Wrapper>
@@ -151,7 +153,7 @@ export const ModalBoxLeftPage = ({ PageData, auth, postDeleteRequest }) => {
             {
                 auth !== null && auth.uid === author &&
                 <Button
-                    onClick={() => postDeleteRequest()}
+                    onClick={() => postDeleteRequest(PageData.postId)}
                 >
                     글 내리기
                 </Button>

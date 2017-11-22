@@ -16,6 +16,7 @@ const Wrapper = styled.div`
     position: relative;
     width: 100%;
     padding: 100px;
+    text-align: left;
 `;
 
 const WrappedReactLoading = styled.div`
