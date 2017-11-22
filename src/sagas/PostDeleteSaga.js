@@ -3,7 +3,7 @@ import { getFirebase } from "react-redux-firebase";
 
 function* PostDelete (action) {
     try {
-        // 댓글 Id 배열 생
+        // 댓글 Id 배열 생성
         const CommentsObject = yield getFirebase()
             .database()
             .ref("posts/"+action.payload)
@@ -20,8 +20,6 @@ function* PostDelete (action) {
 
         // 포스트에 달린 댓글 모두 삭제
         for(let i = 0; i < CommentsList.length; i++) {
-            console.log(CommentsList[i]);
-
             yield getFirebase()
                 .database()
                 .ref("comment/" + CommentsList[i])

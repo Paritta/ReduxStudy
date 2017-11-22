@@ -1,11 +1,11 @@
 import { put, takeEvery } from "redux-saga/effects/";
 import { getFirebase } from "react-redux-firebase";
 
-export function* fetchData () {
+export function* fetchData (action) {
     try {
         const data = yield getFirebase()
             .database()
-            .ref("posts")
+            .ref("posts/")
             .limitToLast(10)
             .once("value")
             .then(res => {

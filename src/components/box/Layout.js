@@ -5,11 +5,19 @@ import PropTypes from "prop-types";
 import ReactLoading from "react-loading";
 
 const propTypes = {
+    Fetch: PropTypes.object,
+    Filter: PropTypes.object,
     showModal: PropTypes.func,
+    hideModal: PropTypes.func,
+    fetchRequest: PropTypes.func
 };
 
 const defaultTypes = {
-    showModal () {},
+    Fetch: {},
+    Filter: {},
+    showModal() {},
+    hideModal() {},
+    fetchRequest() {}
 };
 
 const Wrapper = styled.div`
@@ -37,7 +45,7 @@ const Item = styled.div`
 
 export class Layout extends React.Component {
     componentDidMount () {
-        this.props.fetchRequest()
+        this.props.fetchRequest();
     }
 
     componentWillReceiveProps(nextProps) {

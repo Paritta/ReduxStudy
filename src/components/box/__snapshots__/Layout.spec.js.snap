@@ -5,6 +5,7 @@ exports[`Layout render correctly 1`] = `
   position: relative;
   width: 100%;
   padding: 100px;
+  text-align: left;
 }
 
 <div>

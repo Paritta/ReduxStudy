@@ -18,9 +18,15 @@ it("Component render correctly", () => {
        }
     };
 
+    const auth = {
+        uid: {
+        }
+    };
+
     const tree = ReactTestRenderer.create(
         <ModalBoxLeftPage
             PageData={PageData}
+            auth={auth}
         />
     );
     expect(tree.toJSON()).toMatchSnapshot();

@@ -61,26 +61,6 @@ exports[`Component render correctly 1`] = `
   margin: 9px 9px 9px 0;
 }
 
-.c8 {
-  position: absolute;
-  top: 62%;
-  right: 2%;
-  background: white;
-  color: palevioletred;
-  font-size: 1em;
-  padding: 0.6em 0.8em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-.c8:hover {
-  background: #f783ac;
-  border: 2px solid #f783ac;
-  color: white;
-}
-
 <div>
   <div
     className="c0"
@@ -166,10 +146,5 @@ exports[`Component render correctly 1`] = `
       </span>
     </div>
   </div>
-  <button
-    className="c8"
-  >
-     글 내리기 
-  </button>
 </div>
 `;

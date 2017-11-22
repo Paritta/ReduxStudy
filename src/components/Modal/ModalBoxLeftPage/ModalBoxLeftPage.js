@@ -118,8 +118,6 @@ export const ModalBoxLeftPage = ({ PageData, auth, postDeleteRequest }) => {
     const Data = PageData.data.values;
     const author  = PageData.data.author;
 
-    console.log(PageData);
-
     return (
         <div>
             <Wrapper>

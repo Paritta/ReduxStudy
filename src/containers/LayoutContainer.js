@@ -5,25 +5,30 @@ import { showModal, hideModal } from "../modules/Modal";
 import { fetchRequest } from "../modules/Fetch";
 import PropTypes from "prop-types";
 import { getFetch } from "../selector";
+import { getFilter } from "../selector";
 
 const propTypes = {
-    Fetch: PropTypes.object.isRequired,
-    showModal: PropTypes.func.isRequired,
-    hideModal: PropTypes.func.isRequired,
-    fetchRequest: PropTypes.func.isRequired
+    Fetch: PropTypes.object,
+    Filter: PropTypes.object,
+    showModal: PropTypes.func,
+    hideModal: PropTypes.func,
+    fetchRequest: PropTypes.func
 };
 
 const defaultTypes = {
+    Fetch: {},
+    Filter: {},
     showModal() {},
     hideModal() {},
     fetchRequest() {}
 };
 
-function LayoutContainer({ Fetch, showModal, hideModal, fetchRequest }) {
+function LayoutContainer({ Fetch, Filter, showModal, hideModal, fetchRequest }) {
     return (
         <div>
             <Layout
                 Fetch={Fetch}
+                Filter={Filter}
                 showModal={showModal}
                 hideModal={hideModal}
                 fetchRequest={fetchRequest}/>
@@ -35,6 +40,9 @@ LayoutContainer.propTypes = propTypes;
 LayoutContainer.defaultTypes = defaultTypes;
 
 export default connect(
-    state => ({ Fetch: getFetch(state) }) ,
+    state => ({
+        Fetch: getFetch(state),
+        Filter: getFilter(state)
+    }),
     { showModal, hideModal, fetchRequest }
 )(LayoutContainer);

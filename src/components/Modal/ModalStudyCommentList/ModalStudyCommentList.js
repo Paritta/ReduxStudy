@@ -82,9 +82,19 @@ const ModalStudyCommentWrapper = styled.div`
 `;
 
 export class ModalStudyCommentList extends React.Component {
+    state = {
+        PostUpdate: false
+    };
+
     componentDidMount () {
         this.props.commentReceiveRequest(this.props.postId);
     };
+
+    componentDidUpdate (prevProps, prevState) {
+        if(prevState.PostUpdate !== this.state.PostUpdate) {
+            this.props.commentReceiveRequest(this.props.postId);
+        }
+    }
 
    submit = value => {
        const username = this.props.profile.username;
@@ -95,6 +105,9 @@ export class ModalStudyCommentList extends React.Component {
            NickName: display,
            postId: this.props.postId
        };
+
+       this.setState({ PostUpdate: !this.state.PostUpdate});
+       console.log(this.state.PostUpdate);
 
        this.props.commentSendRequest(comment, this.props.postId);
    };

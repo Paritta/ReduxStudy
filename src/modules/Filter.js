@@ -13,33 +13,33 @@ export const filterComputer = createAction(FILTER_COMPUTER);
 export const filterChemical = createAction(FILTER_CHEMICAL);
 
 const initialState = {
-    defaultFilter: "filter_Material"
+    Filter: "filter_Material"
 };
 
 const reducer = handleActions({
     [FILTER_MATERIAL]: (state, action) => {
         return {
-            defaultFilter: action.payload
+            Filter: action.payload
         }
     },
     [FILTER_NURSING]: (state, action) => {
         return {
-            defaultFilter: action.payload
+            Filter: action.payload
         }
     },
     [FILTER_INFORMATION]: (state, action) => {
         return {
-            defaultFilter: action.payload
+            Filter: action.payload
         }
     },
     [FILTER_COMPUTER]: (state, action) => {
         return {
-            defaultFilter: action.payload
+            Filter: action.payload
         }
     },
     [FILTER_CHEMICAL]: (state, action) => {
         return {
-            defaultFilter: action.payload
+            Filter: action.payload
         }
     },
 }, initialState);
