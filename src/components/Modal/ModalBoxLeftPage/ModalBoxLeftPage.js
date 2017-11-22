@@ -6,11 +6,13 @@ import MdAccessTime from 'react-icons/lib/md/access-time'
 import MdLocationOn from 'react-icons/lib/md/location-on'
 
 const propTypes = {
-    PageData: PropTypes.object.isRequired
+    Data: PropTypes.object,
+    profile: PropTypes.object
 };
 
 const defaultTypes = {
-    Data: {}
+    Data: {},
+    profile: {}
 };
 
 const Wrapper = styled.div`
@@ -87,38 +89,66 @@ const Span = styled.span`
     padding-left: 5px;
 `;
 
-export const ModalBoxLeftPage = ({ PageData }) => {
+const Button = styled.button`
+    position: absolute;
+    top: 62%;
+    right: 2%;
+    
+    background: white;
+    color: palevioletred;
+    
+    font-size: 1em;
+    padding: 0.6em 0.8em;
+    
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    
+    transition: all 0.3s ease;
+    
+    &:hover {
+        background: ${oc.pink[4]};
+        border: 2px solid ${oc.pink[4]};
+        color: white;
+    }
+`;
+
+export const ModalBoxLeftPage = ({ PageData, profile }) => {
     const Data = PageData.data.values;
 
     return (
-        <Wrapper>
-            <HeaderSideWrapper>
-                <HeaderSide>
-                    {Data.Category}
-                </HeaderSide>
-                <HeaderSide>
-                    {Data.Number}
-                </HeaderSide>
-            </HeaderSideWrapper>
-            <Header>
-                {Data.StudyTitle}
-            </Header>
-            <Intro>
-                {Data.Introduction}
-            </Intro>
-            <SideLocation>
-                <MdLocationOn size={25} color="Black"/>
-                <Span>
+        <div>
+            <Wrapper>
+                <HeaderSideWrapper>
+                    <HeaderSide>
+                        {Data.Category}
+                    </HeaderSide>
+                    <HeaderSide>
+                        {Data.Number}
+                    </HeaderSide>
+                </HeaderSideWrapper>
+                <Header>
+                    {Data.StudyTitle}
+                </Header>
+                <Intro>
+                    {Data.Introduction}
+                </Intro>
+                <SideLocation>
+                    <MdLocationOn size={25} color="Black"/>
+                    <Span>
                     {Data.Location}
                 </Span>
-            </SideLocation>
-            <SideTime>
-                <MdAccessTime size={25} color="Black"/>
-                <Span>
+                </SideLocation>
+                <SideTime>
+                    <MdAccessTime size={25} color="Black"/>
+                    <Span>
                     {Data.Time}
                 </Span>
-            </SideTime>
-        </Wrapper>
+                </SideTime>
+            </Wrapper>
+            {
+                profile !== null && <Button> 글 내리기 </Button>
+            }
+        </div>
     )
 };
 

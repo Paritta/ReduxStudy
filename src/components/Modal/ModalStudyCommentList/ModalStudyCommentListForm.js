@@ -33,7 +33,7 @@ const Button = styled.button`
     border: 2px solid palevioletred;
     border-radius: 0;
     
-    transition: all 0.3s easeo
+    transition: all 0.3s ease;
     
     &:hover {
         background: ${oc.pink[4]};

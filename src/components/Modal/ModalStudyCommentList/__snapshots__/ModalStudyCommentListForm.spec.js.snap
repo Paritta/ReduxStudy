@@ -56,12 +56,14 @@ exports[`Layout render correctly 1`] = `
   padding: 0.7em 1em;
   border: 2px solid palevioletred;
   border-radius: 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
 
-transition:all 0.3s easeo .c5:hover {
+.c5:hover {
   background: #f783ac;
   border: 2px solid #f783ac;
 }

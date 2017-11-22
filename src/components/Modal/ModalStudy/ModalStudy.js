@@ -15,10 +15,12 @@ const propTypes = {
             })
         })
     }),
+    profile: PropTypes.object
 };
 
 const defaultTypes = {
-    Modal: {}
+    Modal: {},
+    profile: {}
 };
 
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -86,7 +88,7 @@ const Dimmed = styled.div`
 
 export class ModalStudy extends React.Component {
     render () {
-        const { Modal }  = this.props;
+        const { Modal, profile }  = this.props;
         const Props = Modal.modalProps;
 
         return (
@@ -98,6 +100,7 @@ export class ModalStudy extends React.Component {
                             <ModalBoxLeftHeader />
                             <ModalBoxLeftPage
                                 PageData={Props}
+                                profile={profile}
                             />
                         </ModalBoxLeft>
                         <ModalBoxRight>
