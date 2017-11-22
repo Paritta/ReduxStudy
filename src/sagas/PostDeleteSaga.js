@@ -3,6 +3,32 @@ import { getFirebase } from "react-redux-firebase";
 
 function* PostDelete (action) {
     try {
+        // 댓글 Id 배열 생
+        const CommentsObject = yield getFirebase()
+            .database()
+            .ref("posts/"+action.payload)
+            .once("value")
+            .then(res => {
+                return res.val();
+            });
+
+        const CommentsList = [];
+
+        for(let key in CommentsObject.comments) {
+            CommentsList.push(CommentsObject.comments[key]);
+        }
+
+        // 포스트에 달린 댓글 모두 삭제
+        for(let i = 0; i < CommentsList.length; i++) {
+            console.log(CommentsList[i]);
+
+            yield getFirebase()
+                .database()
+                .ref("comment/" + CommentsList[i])
+                .remove();
+        }
+
+        // 댓글 삭제 후, 포스트 삭제
         yield getFirebase()
             .database()
             .ref("posts/"+action.payload)
