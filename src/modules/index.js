@@ -5,7 +5,6 @@ import Modal from "./Modal";
 import Filter from "./Filter";
 import Fetch from "./Fetch";
 import CommentReceive from "./CommentReceive";
-import CommentMakeArray from "./CommentMakeArray";
 import Reloading from "./Reloading";
 import Animate from "./Animate";
 
@@ -14,7 +13,6 @@ export default combineReducers({
     Filter,
     Fetch,
     CommentReceive,
-    CommentMakeArray,
     Reloading,
     Animate,
     form: formReducer,

@@ -105,7 +105,7 @@ export class ModalRegisterForm extends React.Component {
             </Wrapper>
         )
     }
-};
+}
 
 ModalRegisterForm.propTypes = propTypes;
 ModalRegisterForm.defaultTypes = defaultTypes;

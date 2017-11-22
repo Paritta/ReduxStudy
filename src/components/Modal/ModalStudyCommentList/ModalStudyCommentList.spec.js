@@ -12,7 +12,7 @@ const initialState = {};
 const store = mockStore(initialState);
 
 it("Layout render correctly", () => {
-    const CommentMakeArray = {
+    const CommentReceive = {
         pending: false,
         data: []
     };
@@ -21,8 +21,7 @@ it("Layout render correctly", () => {
         <Provider store={store}>
             <ModalStudyCommentList
                 commentReceiveRequest={() => {}}
-                commentMakeArrayRequest={() => {}}
-                CommentMakeArray={CommentMakeArray}
+                CommentReceive={CommentReceive}
             />
         </Provider>
     );

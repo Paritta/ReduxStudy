@@ -8,12 +8,12 @@ import styled from "styled-components";
 import oc from "open-color";
 
 const propTypes = {
-    CommentId: PropTypes.string.isRequired,
-    CommentReceive: PropTypes.object.isRequired,
+    Comment: PropTypes.object,
+    CommentReceive: PropTypes.object,
 };
 
 const defaultTypes = {
-    CommentId: "",
+    Comment: {},
     CommentReceive: {}
 };
 
@@ -43,7 +43,7 @@ const CommentWrapper = styled.div`
     padding-left: 30px;
 `;
 
-const Comment = styled.div`
+const CommentString = styled.div`
     font-size: 15px;
     font-weight: 400;
 `;
@@ -78,7 +78,7 @@ const Line = styled.div`
 
 export class ModalStudyComment extends React.Component {
     render () {
-        const { CommentReceive } = this.props;
+        const { CommentReceive, Comment } = this.props;
 
         return (
             <div>
@@ -90,14 +90,14 @@ export class ModalStudyComment extends React.Component {
                     {
                         !CommentReceive.pending && CommentReceive.data.length !== 0 &&
                         <NickName>
-                            { CommentReceive.data[this.props.CommentId].NickName }
+                            {Comment.NickName}
                         </NickName>
                     }
                     {
                         !CommentReceive.pending && CommentReceive.data.length !== 0 &&
-                        <Comment>
-                            { CommentReceive.data[this.props.CommentId].comment }
-                        </Comment>
+                        <CommentString>
+                            {Comment.comment}
+                        </CommentString>
                     }
                 </CommentWrapper>
             </Wrapper>

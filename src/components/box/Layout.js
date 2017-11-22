@@ -64,7 +64,6 @@ export class Layout extends React.Component {
                                     })}}
                                 key={key}
                             >
-                                {console.log(item)}
                                 <Card
                                     item={item}
                                 />

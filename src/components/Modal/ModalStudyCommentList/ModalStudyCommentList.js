@@ -4,7 +4,6 @@ import styled from "styled-components";
 import ModalStudyCommentListForm from "./ModalStudyCommentListForm";
 import { firebaseConnect, pathToJS } from "react-redux-firebase";
 import { connect } from "react-redux";
-import { commentMakeArrayRequest } from "../../../modules/CommentMakeArray";
 import { commentReceiveRequest } from "../../../modules/CommentReceive";
 import { hideModal } from "../../../modules/Modal";
 import PropTypes from "prop-types";
@@ -13,12 +12,10 @@ import oc from "open-color";
 
 const propTypes = {
     commentReceiveRequest: PropTypes.func,
-    commentMakeArrayRequest: PropTypes.func,
     hideModal : PropTypes.func
 };
 
 const defaultTypes = {
-    commentMakeArrayRequest () {},
     commentReceiveRequest () {},
     hideModal () {}
 };
@@ -86,8 +83,7 @@ const ModalStudyCommentWrapper = styled.div`
 
 export class ModalStudyCommentList extends React.Component {
     componentDidMount () {
-        this.props.commentMakeArrayRequest(this.props.postId);
-        this.props.commentReceiveRequest();
+        this.props.commentReceiveRequest(this.props.postId);
     };
 
    submit = value => {
@@ -104,7 +100,7 @@ export class ModalStudyCommentList extends React.Component {
    };
 
     render () {
-        const { CommentMakeArray, CommentReceive, hideModal, username } = this.props;
+        const { CommentReceive, hideModal, username } = this.props;
 
         return (
             <Wrapper>
@@ -118,10 +114,10 @@ export class ModalStudyCommentList extends React.Component {
                 </ModalStudyCommentListHeader>
                 <ModalStudyCommentWrapper>
                     {
-                        !CommentMakeArray.pending && CommentMakeArray.data.length !== 0 &&
-                        CommentMakeArray.data["CommentsList"].map((CommentId, key) =>
+                        !CommentReceive.pending && CommentReceive.data.length !== 0 &&
+                        CommentReceive.data.map((Comment, key) =>
                             <ModalStudyComment
-                                CommentId={CommentId}
+                                Comment={Comment}
                                 key={key}
                                 CommentReceive={CommentReceive.data}
                             />
@@ -146,5 +142,5 @@ export default connect(
     ({ firebase }) => ({
         profile: pathToJS(firebase, "profile")
     }),
-    { commentMakeArrayRequest, commentReceiveRequest, hideModal }
+    { commentReceiveRequest, hideModal }
 )(WrappedModalStudyCommentList);
