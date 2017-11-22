@@ -4,8 +4,17 @@ import "jest-styled-components";
 import ReactTestRenderer from "react-test-renderer";
 
 it("Card render correctly", () => {
+    const item = {
+        data: {
+            values: {
+            }
+        }
+    };
+
     const tree = ReactTestRenderer.create(
-        <Card />
+        <Card
+            item={item}
+        />
     );
     expect(tree.toJSON()).toMatchSnapshot();
 });

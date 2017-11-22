@@ -10,12 +10,11 @@ const defaultTypes = {
 };
 
 const Wrapper = styled.div`
-    display: inline-block;
-    
     margin: 0;
     padding: 0;
     
-    border-radius: 15px;
+    width: 450px;
+    border-radius: 10px 10px 0 0;
     overflow: hidden;
 `;
 
@@ -47,12 +46,31 @@ const Info =styled.div`
     width: 450px;
     height: 100px;
     
-    background: pink;
+    background: hsla(0, 72%, 0%, 0.4);
     
     z-index: 10;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 `;
 
-export const Card = () => {
+const Title = styled.div`
+    font-size: 40px;
+    font-weight: 500;
+    color: white;
+`;
+
+const LocationDiv = styled.div`   
+    font-size: 22px;
+    font-weight: 400;
+    color: white;
+`;
+
+export const Card = ({ item }) => {
+    const { StudyTitle, Location } = item.data.values;
+
     return (
         <div>
             <Wrapper>
@@ -60,7 +78,14 @@ export const Card = () => {
                     <FaCameraRetro/>
                 </View>
             </Wrapper>
-            <Info/>
+            <Info>
+                <Title>
+                    { StudyTitle }
+                </Title>
+                <LocationDiv>
+                    { Location }
+                </LocationDiv>
+            </Info>
         </div>
     );
 };

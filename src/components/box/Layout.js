@@ -14,11 +14,7 @@ const defaultTypes = {
 
 const Wrapper = styled.div`
     position: relative;
-    
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    
+    width: 100%;
     padding: 100px;
 `;
 
@@ -34,11 +30,8 @@ const WrappedReactLoading = styled.div`
 
 const Item = styled.div`
     display: inline-block;
+    width: 33.3%;
     margin-bottom: 40px;
-`;
-
-const BreakLine = styled.div`
-    width: 100%;
 `;
 
 export class Layout extends React.Component {
@@ -71,9 +64,7 @@ export class Layout extends React.Component {
                                     })}}
                                 key={key}
                             >
-                                {
-                                    key%3===2 ? "" : <BreakLine />
-                                }
+                                {console.log(item)}
                                 <Card
                                     item={item}
                                 />
