@@ -115,7 +115,6 @@ const Button = styled.button`
 export const ModalBoxLeftPage = ({ PageData, auth }) => {
     const Data = PageData.data.values;
     const author  = PageData.data.author;
-    console.log(auth);
 
     return (
         <div>
@@ -148,7 +147,7 @@ export const ModalBoxLeftPage = ({ PageData, auth }) => {
                 </SideTime>
             </Wrapper>
             {
-                auth !== null && <Button> 글 내리기 </Button>
+                auth !== null && auth.uid === author && <Button> 글 내리기 </Button>
             }
         </div>
     )
