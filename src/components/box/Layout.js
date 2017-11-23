@@ -23,8 +23,10 @@ const defaultTypes = {
 const Wrapper = styled.div`
     position: relative;
     width: 100%;
-    padding: 100px;
+    padding: 40px;
     text-align: left;
+    
+    margin-top: 100px;
 `;
 
 const WrappedReactLoading = styled.div`
