@@ -35,6 +35,8 @@ function* PostDelete (action) {
         yield put({ type: "post/post_delete_Success" });
         // 모달 내리기
         yield put({ type: "Modal/hide_Modal" });
+        // 데이터 리로드
+        yield put({ type: "fetch/fetch_Request" });
     } catch (error) {
         yield put({ type: "post/post_delete_Failure", payload: error })
     }

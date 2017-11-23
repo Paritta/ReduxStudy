@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { hideModal } from "../../modules/Modal";
 import { animateTurn, animateDown } from "../../modules/Animate";
+import {  fetchRequest } from "../../modules/Fetch";
 import ModalRegister from "../../components/Modal/ModalRegister/ModalRegister";
 import PropTypes from "prop-types";
 import { getModal, getAniamte } from "../../selector";
@@ -22,7 +23,7 @@ const defaultTypes = {
     animateDown() {},
 };
 
-const ModalRegisterContainer = ({ hideModal, animateTurn, animateDown, Animate }) => {
+const ModalRegisterContainer = ({ hideModal, animateTurn, animateDown, Animate, fetchRequest }) => {
     return (
         <div>
             <ModalRegister
@@ -30,6 +31,7 @@ const ModalRegisterContainer = ({ hideModal, animateTurn, animateDown, Animate }
                 animateTurn={animateTurn}
                 animateDown={animateDown}
                 Animate={Animate}
+                fetchRequest={fetchRequest}
             />
         </div>
     )
@@ -43,5 +45,5 @@ export default connect(
         Modal: getModal(state),
         Animate: getAniamte(state)
     }),
-    { hideModal, animateTurn, animateDown }
+    { hideModal, animateTurn, animateDown, fetchRequest }
 )(ModalRegisterContainer);
