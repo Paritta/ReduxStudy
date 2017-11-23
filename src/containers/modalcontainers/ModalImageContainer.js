@@ -5,23 +5,31 @@ import { animateTurn, animateDown } from "../../modules/Animate";
 import ModalImage from "../../components/Modal/ModalImage/ModalImage";
 import PropTypes from "prop-types";
 import { getModal, getAniamte } from "../../selector";
+import { firebaseConnect, dataToJS } from 'react-redux-firebase';
+import { compose } from "redux";
 
 const propTypes = {
     Modal: PropTypes.object,
     hideModal: PropTypes.func,
     Animate: PropTypes.object,
     animateTurn: PropTypes.func,
-    animateDown: PropTypes.func
+    animateDown: PropTypes.func,
+    firebase: PropTypes.object,
+    uploadFiles: PropTypes.object,
 };
 
 const defaultTypes = {
     Modal: {},
     hideModal() {},
     Animate: {},
-    animateTurn() {}
+    animateTurn() {},
+    firebase: {},
+    uploadFiles: {},
 };
 
-const ModalImageContainer = ({ hideModal, animateTurn, animateDown, Animate }) => {
+const filesPath = "/posts";
+
+const ModalImageContainer = ({ hideModal, animateTurn, animateDown, Animate, firebase, uploadFiles }) => {
     return (
         <div>
             <ModalImage
@@ -29,6 +37,8 @@ const ModalImageContainer = ({ hideModal, animateTurn, animateDown, Animate }) =
                 animateTurn={animateTurn}
                 animateDown={animateDown}
                 Animate={Animate}
+                firebase={firebase}
+                uploadFiles={uploadFiles}
             />
         </div>
     )
@@ -37,10 +47,16 @@ const ModalImageContainer = ({ hideModal, animateTurn, animateDown, Animate }) =
 ModalImageContainer.propTypes = propTypes;
 ModalImageContainer.defaultTypes = defaultTypes;
 
-export default connect(
-    state => ({
-        Modal: getModal(state),
-        Animate: getAniamte(state)
-    }),
-    { hideModal, animateTurn, animateDown }
-)(ModalImageContainer);
+export default compose(
+    firebaseConnect([
+        filesPath
+    ]),
+    connect(
+        state => ({
+            Modal: getModal(state),
+            Animate: getAniamte(state),
+            uploadFiles: dataToJS(state.firebase, filesPath)
+        }),
+        { hideModal, animateTurn, animateDown }
+    )
+)(ModalImageContainer)

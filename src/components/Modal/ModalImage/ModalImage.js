@@ -2,6 +2,7 @@ import React from "react";
 import styled, {keyframes} from "styled-components";
 import { bounceInLeft, bounceOutRight } from 'react-animations';
 import PropTypes from "prop-types";
+import Dropzone from 'react-dropzone';
 import ReactLoading from "react-loading";
 
 const propTypes = {
@@ -80,10 +81,18 @@ const WrappedReactLoading = styled.div`
     padding: 80px 0;
 `;
 
+const filesPath = "";
+
 export class ModalImage extends React.Component {
     state = {
         isLoading: false,
         error: "",
+    };
+
+    onFilesDrop = (files) => {
+        // Uploads files and push's objects containing metadata to database at dbPath
+        // uploadFiles(storagePath, files, dbPath)
+        this.props.firebase.uploadFiles(filesPath, files, filesPath)
     };
 
     render () {

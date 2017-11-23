@@ -128,7 +128,7 @@ export class ModalStudy extends React.Component {
                         <ModalBoxLeft>
                             <ModalBoxLeftHeader>
                                 <ImageRegister
-                                    onClick={() => showModal({modalType: "MODAL_IMAGE"})}
+                                    onClick={() => showModal({ modalType: "MODAL_IMAGE" })}
                                 >
                                     사진 등록
                                 </ImageRegister>
