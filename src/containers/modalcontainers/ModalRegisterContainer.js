@@ -11,7 +11,7 @@ const propTypes = {
     hideModal: PropTypes.func,
     Animate: PropTypes.object,
     animateTurn: PropTypes.func,
-    animateDown: PropTypes.func
+    animateDown: PropTypes.func,
 };
 
 const defaultTypes = {
@@ -19,7 +19,7 @@ const defaultTypes = {
     hideModal() {},
     Animate: {},
     animateTurn() {},
-    animateDown() {}
+    animateDown() {},
 };
 
 const ModalRegisterContainer = ({ hideModal, animateTurn, animateDown, Animate }) => {

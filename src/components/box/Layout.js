@@ -48,9 +48,6 @@ export class Layout extends React.Component {
         this.props.fetchRequest();
     }
 
-    componentWillReceiveProps(nextProps) {
-    }
-
     render () {
         const { Fetch, showModal } = this.props;
         const Pending = Fetch.pending;

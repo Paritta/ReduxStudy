@@ -67,6 +67,9 @@ const CommentWrapper = styled.div`
     position: absolute;
     width: 100%;
     top: 7%;
+    bottom: 11%;
+    
+    overflow: scroll;
 `;
 
 const NickName = styled.span`

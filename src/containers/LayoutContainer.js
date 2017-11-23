@@ -4,8 +4,7 @@ import { connect } from "react-redux";
 import { showModal, hideModal } from "../modules/Modal";
 import { fetchRequest } from "../modules/Fetch";
 import PropTypes from "prop-types";
-import { getFetch } from "../selector";
-import { getFilter } from "../selector";
+import { getFetch, getFilter } from "../selector";
 
 const propTypes = {
     Fetch: PropTypes.object,
@@ -31,7 +30,8 @@ function LayoutContainer({ Fetch, Filter, showModal, hideModal, fetchRequest }) 
                 Filter={Filter}
                 showModal={showModal}
                 hideModal={hideModal}
-                fetchRequest={fetchRequest}/>
+                fetchRequest={fetchRequest}
+            />
         </div>
     )
 }
