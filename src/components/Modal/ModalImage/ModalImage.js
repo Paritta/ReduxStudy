@@ -1,10 +1,7 @@
 import React from "react";
 import styled, {keyframes} from "styled-components";
 import { bounceInLeft, bounceOutRight } from 'react-animations';
-import ModalRegisterForm from "./ModalRegisterForm";
 import PropTypes from "prop-types";
-import { firebaseConnect, pathToJS } from "react-redux-firebase";
-import { connect } from "react-redux";
 import ReactLoading from "react-loading";
 
 const propTypes = {
@@ -83,36 +80,11 @@ const WrappedReactLoading = styled.div`
     padding: 80px 0;
 `;
 
-export class ModalRegister extends React.Component {
+export class ModalImage extends React.Component {
     state = {
         isLoading: false,
         error: "",
     };
-
-    submit = values => {
-        const uid = this.props.firebase.auth().currentUser.uid;
-        const username = this.props.profile.username;
-        const display = username ? username : this.props.profile.displayName;
-
-        const post = {
-            values,
-            author: uid,
-            username: display
-        };
-
-        console.log(values);
-        this.setState({ isLoading: true });
-        this.props.firebase
-            .push("posts", post)
-            .then(()=> {
-                this.setState({ isLoading: false });
-                this.props.hideModal()
-            })
-            .catch((error) => {
-                this.setState({ isLoading: false, error: error });
-            });
-    };
-
 
     render () {
         const { hideModal, animateTurn, animateDown, Animate } = this.props;
@@ -125,16 +97,11 @@ export class ModalRegister extends React.Component {
                 >
                     <AnimationWrapper>
                         <Wrapper>
-                            <ModalHeader>스터디 등록</ModalHeader>
+                            <ModalHeader>이미지 등록</ModalHeader>
                             <ModalBox>
                                 {!this.state.isLoading
                                     ?
-                                    <ModalRegisterForm
-                                        onSubmit={this.submit}
-                                        hideModal={hideModal}
-                                        animateTurn={animateTurn}
-                                        animateDown={animateDown}
-                                    />
+                                    <span>이미지 등록</span>
                                     :
                                     <WrappedReactLoading>
                                         <ReactLoading type="cylon" color="palevioletred"/>
@@ -149,13 +116,7 @@ export class ModalRegister extends React.Component {
     }
 }
 
-ModalRegister.propTypes = propTypes;
-ModalRegister.defaultTypes = defaultTypes;
+ModalImage.propTypes = propTypes;
+ModalImage.defaultTypes = defaultTypes;
 
-const WrappedModalRegister = firebaseConnect()(ModalRegister);
-
-export default connect(
-    ({ firebase }) => ({
-        profile: pathToJS(firebase, "profile")
-    })
-)(WrappedModalRegister);
+export default ModalImage;

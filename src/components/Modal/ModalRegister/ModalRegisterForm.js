@@ -60,7 +60,6 @@ const Button = styled.button`
     }
 `;
 
-
 // 스터디 제목, 카테고리, 장소, 스터디 시간, 모집 명수, 스터디 소개
 export class ModalRegisterForm extends React.Component {
     hideAnimate () {

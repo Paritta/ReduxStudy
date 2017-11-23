@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import ModalStudyAsset from "../../../asset/ModalStudyAsset.jpeg";
 import ModalStudyCommentContainer from "../../../containers/modalcontainers/ModalStudyCommentContainer";
 import ModalBoxLeftPage from "../ModalBoxLeftPage/ModalBoxLeftPage";
+import oc from "open-color";
 
 const propTypes = {
     Modal: PropTypes.shape({
@@ -16,12 +17,14 @@ const propTypes = {
         })
     }),
     auth: PropTypes.object,
+    showModal: PropTypes.func,
     postDeleteRequest: PropTypes.func
 };
 
 const defaultTypes = {
     Modal: {},
     auth: {},
+    showModal() {},
     postDeleteRequest() {}
 };
 
@@ -88,9 +91,33 @@ const Dimmed = styled.div`
     background: rgba(0, 0, 0, 0.3);
 `;
 
+const ImageRegister = styled.button`
+    position: absolute;
+    
+    top: 3%;
+    right: 3%;
+    
+    font-weight: 400;
+    font-size: 1.2em;
+    
+    padding: 0.25em 1em;
+    
+    background: palevioletred;
+    color: white;
+    
+    border: 2px solid palevioletred;
+    
+    transition: all 1s ease;
+    
+    &:hover {
+        background: ${oc.pink[4]};
+    border: 2px solid ${oc.pink[4]};
+    }
+`;
+
 export class ModalStudy extends React.Component {
     render () {
-        const { Modal, auth, postDeleteRequest }  = this.props;
+        const { Modal, showModal, auth, postDeleteRequest }  = this.props;
         const Props = Modal.modalProps;
 
         return (
@@ -99,7 +126,13 @@ export class ModalStudy extends React.Component {
                 <Wrapper>
                     <AnimationWrapper>
                         <ModalBoxLeft>
-                            <ModalBoxLeftHeader />
+                            <ModalBoxLeftHeader>
+                                <ImageRegister
+                                    onClick={() => showModal({modalType: "MODAL_IMAGE"})}
+                                >
+                                    사진 등록
+                                </ImageRegister>
+                            </ModalBoxLeftHeader>
                             <ModalBoxLeftPage
                                 PageData={Props}
                                 auth={auth}

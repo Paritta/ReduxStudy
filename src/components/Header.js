@@ -92,11 +92,10 @@ export class Header extends React.Component {
             </div>
         )
     }
-};
+}
 
 Header.propTypes = propTypes;
 Header.defaultTypes = defaultTypes;
-
 
 const WrappedHeader = firebaseConnect()(Header);
 

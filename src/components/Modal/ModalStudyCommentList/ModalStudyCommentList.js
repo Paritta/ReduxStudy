@@ -27,7 +27,7 @@ const Wrapper = styled.div`
     width: 100%;
 `;
 
-const ModalStudyCommentListHeader = styled.div`
+const Header = styled.div`
     position: absolute;
     
     top: 0;
@@ -39,14 +39,14 @@ const ModalStudyCommentListHeader = styled.div`
     background: ${oc.gray[6]};
 `;
 
-const ModalStudyCommentListHeaderWrapper = styled.div`
+const HeaderWrapper = styled.div`
     position: relative;
     
     display: flex;
     flex-direction: row;
 `;
 
-const ModalStudyCommentListHeaderIcon = styled.div`
+const HeaderIcon = styled.div`
     height: 35px;
     width: 35px;
    
@@ -63,7 +63,13 @@ const ModalStudyCommentListHeaderIcon = styled.div`
     align-items: center;
 `;
 
-const Span = styled.span`
+const CommentWrapper = styled.div`
+    position: absolute;
+    width: 100%;
+    top: 7%;
+`;
+
+const NickName = styled.span`
     position: absolute;
     
     top: 18px;
@@ -73,12 +79,6 @@ const Span = styled.span`
     font-size: 1.2em;
     
     color: white;
-`;
-
-const ModalStudyCommentWrapper = styled.div`
-    position: absolute;
-    width: 100%;
-    top: 7%;
 `;
 
 export class ModalStudyCommentList extends React.Component {
@@ -117,15 +117,15 @@ export class ModalStudyCommentList extends React.Component {
 
         return (
             <Wrapper>
-                <ModalStudyCommentListHeader>
-                    <ModalStudyCommentListHeaderWrapper>
-                        <ModalStudyCommentListHeaderIcon>
+                <Header>
+                    <HeaderWrapper>
+                        <HeaderIcon>
                             <FaUser size={25} color="gray"/>
-                        </ModalStudyCommentListHeaderIcon>
-                        <Span>{username}</Span>
-                    </ModalStudyCommentListHeaderWrapper>
-                </ModalStudyCommentListHeader>
-                <ModalStudyCommentWrapper>
+                        </HeaderIcon>
+                        <NickName>{username}</NickName>
+                    </HeaderWrapper>
+                </Header>
+                <CommentWrapper>
                     {
                         !CommentReceive.pending && CommentReceive.data.length !== 0 &&
                         CommentReceive.data.map((Comment, key) =>
@@ -136,7 +136,7 @@ export class ModalStudyCommentList extends React.Component {
                             />
                         )
                     }
-                </ModalStudyCommentWrapper>
+                </CommentWrapper>
                 <ModalStudyCommentListForm
                     hideModal={hideModal}
                     onSubmit={this.submit}
