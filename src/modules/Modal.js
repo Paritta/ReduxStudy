@@ -1,7 +1,7 @@
 import { createAction, handleActions } from "redux-actions";
 
-const SHOW_MODAL = "modal/show_Modal";
-const HIDE_MODAL = "modal/hide_Modal";
+const SHOW_MODAL = "Modal/show_Modal";
+const HIDE_MODAL = "Modal/hide_Modal";
 
 export const showModal = createAction(SHOW_MODAL);
 export const hideModal = createAction(HIDE_MODAL);

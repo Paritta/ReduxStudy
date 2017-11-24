@@ -1,13 +1,14 @@
 import React from "react";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import { connect } from "react-redux";
 import { showModal, hideModal } from "../modules/Modal";
 import PropTypes from "prop-types";
+import { getModal } from "../selector";
 
 const propTypes = {
-    Modal: PropTypes.object,
-    showModal: PropTypes.func,
-    hideModal: PropTypes.func,
+    Modal: PropTypes.object.isRequired,
+    showModal: PropTypes.func.isRequired,
+    hideModal: PropTypes.func.isRequired,
 };
 
 const defaultTypes = {
@@ -30,6 +31,6 @@ HeaderContainer.propTypes = propTypes;
 HeaderContainer.defaultTypes = defaultTypes;
 
 export default connect(
-    state => ({ Modal: state.Modal }) ,
+    state => ({ Modal: getModal(state) }) ,
     { showModal, hideModal }
 )(HeaderContainer);

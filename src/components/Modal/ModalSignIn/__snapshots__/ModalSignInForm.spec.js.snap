@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalSignInForm render correctly 1`] = `
+.c0 {
+  padding: 30px 0 10px 0;
+}
+
+.c1 {
+  background-color: #f8f9fa;
+  width: 400px;
+  height: 40px;
+  font-size: 15px;
+  border: 2px solid white;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.c2 {
+  background: palevioletred;
+  color: white;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.c2:hover {
+  background: #f783ac;
+  border: 2px solid #f783ac;
+}
+
+.c3 {
+  padding: 10px 60px;
+  margin: 0;
+}
+
+.c4 {
+  color: white;
+  font-size: 1em;
+  margin: 5px 0;
+  padding: 0.5em 12em 0.5em 1em;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background: red;
+  border: 2px solid red;
+}
+
+.c4:hover {
+  background: #ff8787;
+  border: 2px solid #ff8787;
+}
+
+.c5 {
+  padding: 0;
+  margin: 0 0 0 15px;
+}
+
+.c6 {
+  color: white;
+  font-size: 1em;
+  margin: 5px 0;
+  padding: 0.5em 12em 0.5em 1em;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background: royalblue;
+  border: 2px solid royalblue;
+  padding: 0.5em 11.3em 0.5em 0.5em;
+}
+
+.c6:hover {
+  background: #4dadf7;
+  border: 2px solid #4dadf7;
+}
+
+<div
+  className="c0"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div>
+      <input
+        className="c1"
+        name="email"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        placeholder="email"
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <div>
+      <input
+        className="c1"
+        name="password"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        placeholder="password"
+        required={true}
+        type="password"
+        value=""
+      />
+    </div>
+    <button
+      className="c2"
+      type="submit"
+    >
+      로그인
+    </button>
+    <button
+      className="c2"
+      onClick={[Function]}
+    >
+      나가기
+    </button>
+  </form>
+  <div
+    className="c3"
+  >
+    <button
+      className="c4"
+      onClick={[Function]}
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        preserveAspectRatio="xMidYMid meet"
+        style={
+          Object {
+            "color": undefined,
+            "verticalAlign": "middle",
+          }
+        }
+        viewBox="0 0 40 40"
+        width="1em"
+      >
+        <g>
+          <path
+            d="m20.1 17.5h16.2q0.3 1.5 0.3 2.9 0 4.8-2 8.7t-5.8 5.9-8.7 2.1q-3.5 0-6.6-1.3t-5.5-3.7-3.7-5.4-1.3-6.7 1.3-6.7 3.7-5.4 5.5-3.7 6.6-1.3q6.7 0 11.5 4.4l-4.6 4.5q-2.8-2.6-6.9-2.6-2.8 0-5.3 1.4t-3.9 4-1.4 5.4 1.4 5.4 3.9 4 5.3 1.4q2 0 3.6-0.5t2.7-1.3 1.8-1.9 1.2-1.9 0.5-1.8h-9.8v-5.9z"
+          />
+        </g>
+      </svg>
+      <span
+        className="c5"
+      >
+        Sign in with Google
+      </span>
+    </button>
+    <button
+      className="c6"
+      onClick={[Function]}
+    >
+      <svg
+        fill="currentColor"
+        height="1em"
+        preserveAspectRatio="xMidYMid meet"
+        style={
+          Object {
+            "color": undefined,
+            "verticalAlign": "middle",
+          }
+        }
+        viewBox="0 0 40 40"
+        width="1em"
+      >
+        <g>
+          <path
+            d="m29.4 0.3v5.9h-3.5q-1.9 0-2.6 0.8t-0.7 2.4v4.2h6.6l-0.9 6.6h-5.7v16.9h-6.8v-16.9h-5.7v-6.6h5.7v-4.9q0-4.1 2.3-6.4t6.2-2.3q3.3 0 5.1 0.3z"
+          />
+        </g>
+      </svg>
+      <span
+        className="c5"
+      >
+        Sign in with Facebook
+      </span>
+    </button>
+  </div>
+</div>
+`;

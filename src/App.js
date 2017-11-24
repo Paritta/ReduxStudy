@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import Banner from "./components/Banner";
+import Banner from "./components/Banner/Banner";
+import Slider from "./components/Slider/Slider";
+import Footer from "./components/Footer/Footer";
 import HeaderContainer from "./containers/HeaderContainer";
-import ModalRootContainer from "./containers/ModalRootContainer";
-import Filter from './components/Filter';
+import ModalRootContainer from "./containers/modalcontainers/ModalRootContainer";
+import FilterContainer from "./containers/FilterContainer";
+import LayoutContainer from "./containers/LayoutContainer";
 
 class App extends Component {
   render() {
@@ -12,7 +15,10 @@ class App extends Component {
           <HeaderContainer />
           <Banner />
           <ModalRootContainer />
-          <Filter />
+          <Slider />
+          <FilterContainer />
+          <LayoutContainer />
+          <Footer />
       </div>
     );
   }
