@@ -13,8 +13,8 @@ const Wrapper = styled.div`
     height: 50vh;
     
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 `;
 
 const Span= styled.div`
@@ -23,17 +23,20 @@ const Span= styled.div`
     font-size: 5em;
 `;
 
-export const Slider = () => {
-    return (
-        <Wrapper>
-            <Span>
-               슬라이드 기능 준비 중 ...
-            </Span>
-        </Wrapper>
-    )
-};
+export class Carousel extends React.Component {
+    render () {
 
-Slider.propTypes = propTypes;
-Slider.defaultTypes = defaultTypes;
+        return (
+            <Wrapper>
+                <Span>
+                    슬라이드 준비 중 ...
+                </Span>
+            </Wrapper>
+        )
+    }
+}
 
-export default Slider;
+Carousel.propTypes = propTypes;
+Carousel.defaultTypes = defaultTypes;
+
+export default Carousel;

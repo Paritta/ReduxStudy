@@ -1,5 +1,5 @@
 import React from "react";
-import { Slider } from "./Slider";
+import { Slider } from "./Carousel";
 import "jest-styled-components";
 import ReactTestRenderer from "react-test-renderer";
 
