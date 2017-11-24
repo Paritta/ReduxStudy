@@ -1,16 +1,23 @@
-import { put, takeEvery } from "redux-saga/effects/";
+import { put, call, takeEvery } from "redux-saga/effects/";
 import { getFirebase } from "react-redux-firebase";
+
+export function* GetFirebase() {
+    const get = yield getFirebase()
+        .database()
+        .ref("posts/")
+        .limitToLast(10)
+        .once("value")
+        .then(res => {
+            console.log(res.val());
+            return res.val();
+        });
+
+    return get;
+}
 
 export function* fetchData (action) {
     try {
-        const data = yield getFirebase()
-            .database()
-            .ref("posts/")
-            .limitToLast(10)
-            .once("value")
-            .then(res => {
-                return res.val();
-            });
+        const data = yield call(GetFirebase);
 
         const TransformFetch = [];
 

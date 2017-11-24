@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import background from "../asset/background.jpg"
+import background from "../../asset/background.jpg"
 
 const BannerBackground = styled.div`
     background: url(${background}) left bottom;

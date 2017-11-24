@@ -1,5 +1,5 @@
 import React from "react";
-import Filter from "../components/Filter";
+import Filter from "../components/Filter/Filter";
 import { connect } from "react-redux";
 import { filterMaterial, filterNursing, filterInformation, filterComputer, filterChemical } from "../modules/Filter";
 import PropTypes from "prop-types";

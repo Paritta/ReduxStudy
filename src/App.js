@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Banner from "./components/Banner";
+import Banner from "./components/Banner/Banner";
 import HeaderContainer from "./containers/HeaderContainer";
 import ModalRootContainer from "./containers/modalcontainers/ModalRootContainer";
 import FilterContainer from "./containers/FilterContainer";

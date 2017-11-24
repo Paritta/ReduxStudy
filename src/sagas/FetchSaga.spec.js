@@ -1,6 +1,6 @@
 import React from "react";
-import { watchFetchData, fetchData } from "./FetchSaga";
-import { takeEvery } from "redux-saga/effects";
+import { watchFetchData, fetchData, GetFirebase } from "./FetchSaga";
+import { takeEvery, call, put } from "redux-saga/effects";
 
 it("handle Fetch Saga", () => {
     const gen = watchFetchData();
@@ -8,7 +8,16 @@ it("handle Fetch Saga", () => {
         takeEvery("fetch/fetch_Request", fetchData)
     );
 
-    expect(gen.next().value).toEqual(
+    const genFetchData = fetchData();
+    expect(genFetchData.next().value).toEqual(
+         call(GetFirebase)
+    );
 
-    )
+    expect(genFetchData.next().value).toEqual(
+         put({ type: "fetch/fetch_Success", payload: [] })
+    );
+
+    // expect(genFetchData.error("error").value).toEqual(
+    //     put({ type: "fetch/fetch_Success", payload: [] })
+    // );
 });

@@ -1,16 +1,33 @@
-import { put, takeEvery } from "redux-saga/effects/";
+import { put, takeEvery, call } from "redux-saga/effects/";
 import { getFirebase } from "react-redux-firebase";
 
-function* CommentSend (action) {
+export function* GetFireBase(action) {
+    // comment 추가
+    const data = yield getFirebase()
+        .push("comment", action.payload);
+
+    return data;
+}
+
+export function* PushFireBase(action, data) {
+    // // 해당 포스트에 comment id push
+    yield getFirebase()
+        .push("posts/"+action.payload.postId+"/comments", data.key);
+}
+
+export function* CommentSend (action) {
     try {
-        // comment 추가
-        const data = yield getFirebase()
-            .push("comment", action.payload);
+        // // comment 추가
+        // const data = yield getFirebase()
+        //     .push("comment", action.payload);
+        //
+        // // 해당 포스트에 comment id push
+        // yield getFirebase()
+        //     .push("posts/"+action.payload.postId+"/comments", data.key);
+        const data = yield call(GetFireBase, action);
 
-        // 해당 포스트에 comment id push
-        yield getFirebase()
-            .push("posts/"+action.payload.postId+"/comments", data.key);
-
+        const arg = [action, data];
+        yield call(PushFireBase, ...arg);
         yield put({ type: "comment/comment_send_Success" });
     } catch (error) {
         console.log(error);

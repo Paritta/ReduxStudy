@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../components/box/Layout";
+import Layout from "../components/Body/Layout";
 import { connect } from "react-redux";
 import { showModal, hideModal } from "../modules/Modal";
 import { fetchRequest } from "../modules/Fetch";
