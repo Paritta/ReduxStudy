@@ -10,6 +10,7 @@ import FaRecycle from "react-icons/lib/fa/recycle";
 const Wrapper = styled.div`
     text-align: left;
     margin: 50px 0;
+    background: ${oc.pink[2]};
 `;
 
 const FilterBox = styled.li`
@@ -45,6 +46,8 @@ const FilterUl = styled.ul`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
+    height: 50vh;
 `;
 
 export const Filter = ({ filterMaterial, filterNursing, filterInformation, filterComputer, filterChemical }) => {
