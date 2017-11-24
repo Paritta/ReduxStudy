@@ -1,10 +1,10 @@
 import React from "react";
-import Layout from "../components/Body/Layout";
+import Layout from "../../components/Body/Layout";
 import { connect } from "react-redux";
-import { showModal, hideModal } from "../modules/Modal";
-import { fetchRequest } from "../modules/Fetch";
+import { showModal, hideModal } from "../../modules/Modal";
+import { fetchRequest } from "../../modules/Fetch";
 import PropTypes from "prop-types";
-import { getFetch, getFilter } from "../selector";
+import { getFetch, getFilter } from "../../selector";
 
 const propTypes = {
     Fetch: PropTypes.object,

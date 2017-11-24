@@ -50,7 +50,8 @@ const FilterUl = styled.ul`
 `;
 
 const Span = styled.span`
-    padding-top: 10px
+    padding-top: 15px;
+    text-size: 1.5em;
 `;
 
 export const Filter = ({ filterMaterial, filterNursing, filterInformation, filterComputer, filterChemical }) => {

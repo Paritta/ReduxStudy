@@ -35,6 +35,7 @@ exports[`Component render correctly 1`] = `
 }
 
 .c4 {
+  font-family: 'Hanna',fantasy;
   font-style: normal;
   font-weight: 400;
   color: white;

@@ -53,6 +53,21 @@ const MenuItem = styled.button`
     }
 `;
 
+const MenuAbout = styled.button`
+    background: white;
+    font-weight: 500;
+    font-size: 0.9em;
+    border: 2px solid white;
+    
+    margin: 15px 0 15px 20px;
+    
+    &:hover {
+        color: ${oc.gray[5]};
+    }
+    
+    text-align: left;
+`;
+
 export class Header extends React.Component {
     handleLogOut () {
         this.props.firebase.logout();
@@ -66,6 +81,9 @@ export class Header extends React.Component {
                 <Wrapper>
                     {profile&&
                         <div>
+                            <MenuAbout>
+                                About
+                            </MenuAbout>
                             <MenuItem
                                 onClick={() => this.handleLogOut()}>
                                 로그 아웃
@@ -78,6 +96,9 @@ export class Header extends React.Component {
                     }
                     {!profile&&
                         <span>
+                            <MenuAbout>
+                                About
+                            </MenuAbout>
                             <MenuItem
                                 onClick={() => onShowModal({modalType: "MODAL_SIGNUP"})}>
                                 회원가입

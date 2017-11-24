@@ -1,9 +1,9 @@
 import React from "react";
-import Filter from "../components/Filter/Filter";
+import Filter from "../../components/Filter/Filter";
 import { connect } from "react-redux";
-import { filterMaterial, filterNursing, filterInformation, filterComputer, filterChemical } from "../modules/Filter";
+import { filterMaterial, filterNursing, filterInformation, filterComputer, filterChemical } from "../../modules/Filter";
 import PropTypes from "prop-types";
-import { getFilter } from "../selector";
+import { getFilter } from "../../selector";
 
 const propTypes = {
     filterMaterial: PropTypes.func.isRequired,

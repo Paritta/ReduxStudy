@@ -26,6 +26,7 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.div`
+    font-family: 'Hanna', fantasy;
     font-weight: 700;
     font-size: 2.5em;
 `;
@@ -83,7 +84,8 @@ const SideLocation = styled.div`
 const Intro = styled.div`
     margin: 50px;
     
-    font-weight: 300;
+    font-family: 'Hanna', fantasy;
+    font-weight: 200;
     font-size: 1.5em;
 `;
 

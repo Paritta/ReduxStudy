@@ -53,6 +53,7 @@ exports[`Layout render correctly 1`] = `
   position: absolute;
   top: 18px;
   left: 70px;
+  font-family: 'Hanna',fantasy;
   font-weight: 600;
   font-size: 1.2em;
   color: white;
@@ -62,6 +63,8 @@ exports[`Layout render correctly 1`] = `
   position: absolute;
   width: 100%;
   top: 7%;
+  bottom: 11%;
+  overflow: scroll;
 }
 
 .c6 {

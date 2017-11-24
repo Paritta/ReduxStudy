@@ -3,8 +3,7 @@
 exports[`Card render correctly 1`] = `
 .c0 {
   text-align: left;
-  margin: 50px 0;
-  background: #f783ac;
+  background: #f1f3f5;
 }
 
 .c1 {
@@ -21,6 +20,11 @@ exports[`Card render correctly 1`] = `
   -webkit-justify-content: space-around;
   -ms-flex-pack: space-around;
   justify-content: space-around;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 50vh;
 }
 
 .c2 {
@@ -28,13 +32,14 @@ exports[`Card render correctly 1`] = `
 }
 
 .c3 {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   border-radius: 100%;
-  background: #dee2e6;
-  color: white;
-  -webkit-transition: background 1s ease;
-  transition: background 1s ease;
+  background: white;
+  color: #868e96;
+  -webkit-transition: -webkit-transform 1s ease;
+  -webkit-transition: transform 1s ease;
+  transition: transform 1s ease;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -54,7 +59,14 @@ exports[`Card render correctly 1`] = `
 }
 
 .c3:hover {
-  background: #e9ecef;
+  -webkit-transform: translateY(-15px);
+  -ms-transform: translateY(-15px);
+  transform: translateY(-15px);
+}
+
+.c4 {
+  padding-top: 15px;
+  text-size: 1.5em;
 }
 
 <div>
@@ -73,16 +85,16 @@ exports[`Card render correctly 1`] = `
         >
           <svg
             fill="currentColor"
-            height={70}
+            height={100}
             preserveAspectRatio="xMidYMid meet"
             style={
               Object {
-                "color": "white",
+                "color": "black",
                 "verticalAlign": "middle",
               }
             }
             viewBox="0 0 40 40"
-            width={70}
+            width={100}
           >
             <g>
               <path
@@ -90,7 +102,11 @@ exports[`Card render correctly 1`] = `
               />
             </g>
           </svg>
-          신소재 공학과
+          <span
+            className="c4"
+          >
+            신소재 공학과
+          </span>
         </div>
       </li>
       <li
@@ -102,16 +118,16 @@ exports[`Card render correctly 1`] = `
         >
           <svg
             fill="currentColor"
-            height={70}
+            height={100}
             preserveAspectRatio="xMidYMid meet"
             style={
               Object {
-                "color": "white",
+                "color": "black",
                 "verticalAlign": "middle",
               }
             }
             viewBox="0 0 40 40"
-            width={70}
+            width={100}
           >
             <g>
               <path
@@ -119,7 +135,11 @@ exports[`Card render correctly 1`] = `
               />
             </g>
           </svg>
-          간호학과
+          <span
+            className="c4"
+          >
+            간호학과
+          </span>
         </div>
       </li>
       <li
@@ -131,16 +151,16 @@ exports[`Card render correctly 1`] = `
         >
           <svg
             fill="currentColor"
-            height={70}
+            height={100}
             preserveAspectRatio="xMidYMid meet"
             style={
               Object {
-                "color": "white",
+                "color": "black",
                 "verticalAlign": "middle",
               }
             }
             viewBox="0 0 40 40"
-            width={70}
+            width={100}
           >
             <g>
               <path
@@ -148,7 +168,11 @@ exports[`Card render correctly 1`] = `
               />
             </g>
           </svg>
-          정보통신학과
+          <span
+            className="c4"
+          >
+            정보통신학과
+          </span>
         </div>
       </li>
       <li
@@ -160,16 +184,16 @@ exports[`Card render correctly 1`] = `
         >
           <svg
             fill="currentColor"
-            height={70}
+            height={100}
             preserveAspectRatio="xMidYMid meet"
             style={
               Object {
-                "color": "white",
+                "color": "black",
                 "verticalAlign": "middle",
               }
             }
             viewBox="0 0 40 40"
-            width={70}
+            width={100}
           >
             <g>
               <path
@@ -177,7 +201,11 @@ exports[`Card render correctly 1`] = `
               />
             </g>
           </svg>
-          컴퓨터공학과
+          <span
+            className="c4"
+          >
+            컴퓨터공학과
+          </span>
         </div>
       </li>
       <li
@@ -189,16 +217,16 @@ exports[`Card render correctly 1`] = `
         >
           <svg
             fill="currentColor"
-            height={70}
+            height={100}
             preserveAspectRatio="xMidYMid meet"
             style={
               Object {
-                "color": "white",
+                "color": "black",
                 "verticalAlign": "middle",
               }
             }
             viewBox="0 0 40 40"
-            width={70}
+            width={100}
           >
             <g>
               <path
@@ -206,7 +234,11 @@ exports[`Card render correctly 1`] = `
               />
             </g>
           </svg>
-          화학공학과
+          <span
+            className="c4"
+          >
+            화학공학과
+          </span>
         </div>
       </li>
     </ul>

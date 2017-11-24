@@ -50,6 +50,7 @@ const Wrapper = styled.div`
 `;
 
 const ModalHeader = styled.div`
+    font-family: 'Hanna', fantasy;
     font-style: normal;
     font-weight: 400;
     color: white;

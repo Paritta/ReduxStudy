@@ -29,8 +29,8 @@ const Wrapper = styled.div`
     padding: 25px 25px;
     
     &:hover {
-        background: ${oc.pink[1]};
-        border: 2px solid ${oc.pink[1]};
+        background: ${oc.gray[1]};
+        border: 2px solid ${oc.gray[1]};
     }
     
     transition: all 0.5s ease;
@@ -49,6 +49,7 @@ const CommentString = styled.div`
 `;
 
 const NickName = styled.div`
+    font-family: 'Hanna', fantasy;
     font-size: 18px;
     font-weight: 500;
     text-align: left;

@@ -78,6 +78,7 @@ const NickName = styled.span`
     top: 18px;
     left: 70px;
     
+    font-family: 'Hanna', fantasy;
     font-weight: 600;
     font-size: 1.2em;
     

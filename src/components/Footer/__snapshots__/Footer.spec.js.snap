@@ -9,13 +9,39 @@ exports[`Card render correctly 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   background: #e9ecef;
-  height: 20vh;
+  height: 50vh;
+}
+
+.c1 {
+  width: 300px;
+  min-width: 200px;
 }
 
 <div
   className="c0"
 >
-  Footer
+  <div
+    className="c1"
+  >
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam cumque deleniti eius, incidunt labore laudantium maiores modi reiciendis sequi totam! Facere, quidem quod. A accusantium asperiores, illum libero voluptas voluptate?
+    </div>
+  </div>
+  <div
+    className="c1"
+  >
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam cumque deleniti eius, incidunt labore laudantium maiores modi reiciendis sequi totam! Facere, quidem quod. A accusantium asperiores, illum libero voluptas voluptate?
+    </div>
+  </div>
 </div>
 `;

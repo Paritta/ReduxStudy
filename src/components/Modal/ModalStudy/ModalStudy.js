@@ -3,7 +3,7 @@ import styled, {keyframes} from "styled-components";
 import { fadeIn } from 'react-animations';
 import PropTypes from "prop-types";
 import ModalStudyAsset from "../../../asset/ModalStudyAsset.jpeg";
-import ModalStudyCommentContainer from "../../../containers/modalcontainers/ModalStudyCommentContainer";
+import ModalStudyCommentContainer from "../../../containers/ModalContainers/ModalStudyCommentContainer";
 import ModalBoxLeftPage from "../ModalBoxLeftPage/ModalBoxLeftPage";
 import oc from "open-color";
 

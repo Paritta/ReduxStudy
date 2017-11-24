@@ -4,9 +4,9 @@ exports[`Layout render correctly 1`] = `
 .c0 {
   position: relative;
   width: 100%;
-  padding: 40px;
+  height: 100vh;
+  padding: 0 40px;
   text-align: left;
-  margin-top: 100px;
 }
 
 <div>

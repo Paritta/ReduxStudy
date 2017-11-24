@@ -28,7 +28,8 @@ export const Footer = () => {
     return (
         <Wrapper>
             <Item>
-                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam cumque deleniti eius, incidunt
+                <div>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam cumque deleniti eius, incidunt
                     labore laudantium maiores modi reiciendis sequi totam! Facere, quidem quod. A accusantium
                     asperiores, illum libero voluptas voluptate?
                 </div>

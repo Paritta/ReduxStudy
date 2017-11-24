@@ -57,12 +57,14 @@ const Info =styled.div`
 `;
 
 const Title = styled.div`
+    font-family: 'Hanna', fantasy;
     font-size: 40px;
     font-weight: 500;
     color: white;
 `;
 
 const LocationDiv = styled.div`   
+    font-family: 'Hanna', fantasy;
     font-size: 22px;
     font-weight: 400;
     color: white;
