@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout render correctly 1`] = `
+.c0 {
+  position: relative;
+  width: 100%;
+  padding: 40px;
+  text-align: left;
+  margin-top: 100px;
+}
+
+<div>
+  <div
+    className="c0"
+  />
+</div>
+`;
