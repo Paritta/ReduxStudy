@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { hideModal } from "../../modules/Modal";
 import { animateTurn, animateDown } from "../../modules/Animate";
+import { imageReceiveRequest } from "../../modules/ImageReceive";
 import ModalImage from "../../components/Modal/ModalImage/ModalImage";
 import PropTypes from "prop-types";
 import { getModal, getAniamte } from "../../selector";
@@ -16,6 +17,7 @@ const propTypes = {
     animateDown: PropTypes.func,
     firebase: PropTypes.object,
     uploadedFiles: PropTypes.object,
+    imageReceiveRequest: PropTypes.func,
 };
 
 const defaultTypes = {
@@ -25,11 +27,12 @@ const defaultTypes = {
     animateTurn() {},
     firebase: {},
     uploadedFiles: {},
+    imageReceiveRequest() {},
 };
 
 const filesPath = "/posts";
 
-const ModalImageContainer = ({ hideModal, animateTurn, animateDown, Animate, firebase, uploadedFiles, Modal }) => {
+const ModalImageContainer = ({ hideModal, animateTurn, animateDown, Animate, firebase, uploadedFiles, Modal, imageReceiveRequest }) => {
     return (
         <div>
             <ModalImage
@@ -40,6 +43,7 @@ const ModalImageContainer = ({ hideModal, animateTurn, animateDown, Animate, fir
                 firebase={firebase}
                 uploadedFiles={uploadedFiles}
                 Modal={Modal}
+                imageReceiveRequest={imageReceiveRequest}
             />
         </div>
     )
@@ -58,6 +62,6 @@ export default compose(
             Animate: getAniamte(state),
             uploadedFiles: dataToJS(state.firebase, filesPath)
         }),
-        { hideModal, animateTurn, animateDown }
+        { hideModal, animateTurn, animateDown, imageReceiveRequest }
     )
 )(ModalImageContainer)

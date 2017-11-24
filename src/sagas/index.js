@@ -3,13 +3,15 @@ import { watchFetchData } from "./FetchSaga";
 import { watchCommentSend } from "./CommentSendSaga";
 import { watchCommentReceive } from "./CommentReceiveSaga";
 import { watchPostDelete } from "./PostDeleteSaga";
+import { watchImageSend } from "./ImageReceiveSaga";
 
 export default function* rootSaga () {
     yield all([
         watchCommentSend(),
         watchFetchData(),
         watchCommentReceive(),
-        watchPostDelete()
+        watchPostDelete(),
+        watchImageSend(),
     ])
 }
 

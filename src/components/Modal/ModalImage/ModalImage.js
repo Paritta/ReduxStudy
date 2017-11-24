@@ -13,6 +13,7 @@ const propTypes = {
     AnimateTurn: PropTypes.func,
     AnimateDown: PropTypes.func,
     firebase: PropTypes.object,
+    imageReceiveRequest: PropTypes.func,
 };
 
 const defaultTypes = {
@@ -21,6 +22,7 @@ const defaultTypes = {
     Animate: {},
     AnimateTurn() {},
     AnimateDown() {},
+    imageReceiveRequest() {},
 };
 
 const bounceInLeftAnimation = keyframes`${bounceInLeft}`;
@@ -130,9 +132,18 @@ export class ModalImage extends React.Component {
         // uploadFiles(storagePath, files, dbPath)
         this.props.firebase.uploadFiles(filesPath, files, filesPath)
             .then(data => {
-                // const Url = data[0].File.downloadURL;
-                // const Path = data[0].File.fullPath;
-                //
+                const Url = data[0].File.downloadURL;
+                const Path = data[0].File.fullPath;
+                const PostId = this.props.Modal.modalProps;
+
+                const ImageArg = {
+                    PostId: PostId,
+                    Url: Url,
+                    Path: Path
+                };
+                this.props.imageReceiveRequest(ImageArg);
+                // dispatch
+
                 // console.log(Url);
                 // console.log(Path);
                 //
