@@ -5,13 +5,17 @@ import { showModal, hideModal } from "../../modules/Modal";
 import { fetchRequest } from "../../modules/Fetch";
 import PropTypes from "prop-types";
 import { getFetch, getFilter } from "../../selector";
+import { firebaseConnect, dataToJS } from 'react-redux-firebase';
+import { compose } from "redux";
 
 const propTypes = {
     Fetch: PropTypes.object,
     Filter: PropTypes.object,
     showModal: PropTypes.func,
     hideModal: PropTypes.func,
-    fetchRequest: PropTypes.func
+    fetchRequest: PropTypes.func,
+    firebase: PropTypes.object,
+    uploadedFiles: PropTypes.object,
 };
 
 const defaultTypes = {
@@ -19,10 +23,14 @@ const defaultTypes = {
     Filter: {},
     showModal() {},
     hideModal() {},
-    fetchRequest() {}
+    fetchRequest() {},
+    firebase: {},
+    uploadedFiles: {},
 };
 
-function LayoutContainer({ Fetch, Filter, showModal, hideModal, fetchRequest }) {
+const filesPath = "/posts";
+
+function LayoutContainer({ Fetch, Filter, showModal, hideModal, fetchRequest, firebase, uploadedFiles }) {
     return (
         <div>
             <Layout
@@ -31,6 +39,8 @@ function LayoutContainer({ Fetch, Filter, showModal, hideModal, fetchRequest }) 
                 showModal={showModal}
                 hideModal={hideModal}
                 fetchRequest={fetchRequest}
+                firebase={firebase}
+                uploadedFiles={uploadedFiles}
             />
         </div>
     )
@@ -39,10 +49,16 @@ function LayoutContainer({ Fetch, Filter, showModal, hideModal, fetchRequest }) 
 LayoutContainer.propTypes = propTypes;
 LayoutContainer.defaultTypes = defaultTypes;
 
-export default connect(
-    state => ({
-        Fetch: getFetch(state),
-        Filter: getFilter(state)
-    }),
-    { showModal, hideModal, fetchRequest }
+export default compose(
+    firebaseConnect([
+        filesPath
+    ]),
+    connect (
+        state => ({
+            Fetch: getFetch(state),
+            Filter: getFilter(state),
+            uploadedFiles: dataToJS(state.firebase, filesPath)
+        }),
+        { showModal, hideModal, fetchRequest }
+    )
 )(LayoutContainer);

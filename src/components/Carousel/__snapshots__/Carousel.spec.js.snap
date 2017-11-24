@@ -8,14 +8,14 @@ exports[`Card render correctly 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .c1 {
@@ -30,7 +30,7 @@ exports[`Card render correctly 1`] = `
   <div
     className="c1"
   >
-    슬라이드 기능 준비 중 ...
+    슬라이드 준비 중 ...
   </div>
 </div>
 `;

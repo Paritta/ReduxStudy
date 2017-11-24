@@ -15,7 +15,7 @@ const propTypes = {
     animateTurn: PropTypes.func,
     animateDown: PropTypes.func,
     firebase: PropTypes.object,
-    uploadFiles: PropTypes.object,
+    uploadedFiles: PropTypes.object,
 };
 
 const defaultTypes = {
@@ -24,12 +24,12 @@ const defaultTypes = {
     Animate: {},
     animateTurn() {},
     firebase: {},
-    uploadFiles: {},
+    uploadedFiles: {},
 };
 
 const filesPath = "/posts";
 
-const ModalImageContainer = ({ hideModal, animateTurn, animateDown, Animate, firebase, uploadFiles }) => {
+const ModalImageContainer = ({ hideModal, animateTurn, animateDown, Animate, firebase, uploadedFiles, Modal }) => {
     return (
         <div>
             <ModalImage
@@ -38,7 +38,8 @@ const ModalImageContainer = ({ hideModal, animateTurn, animateDown, Animate, fir
                 animateDown={animateDown}
                 Animate={Animate}
                 firebase={firebase}
-                uploadFiles={uploadFiles}
+                uploadedFiles={uploadedFiles}
+                Modal={Modal}
             />
         </div>
     )
@@ -51,11 +52,11 @@ export default compose(
     firebaseConnect([
         filesPath
     ]),
-    connect(
+    connect (
         state => ({
             Modal: getModal(state),
             Animate: getAniamte(state),
-            uploadFiles: dataToJS(state.firebase, filesPath)
+            uploadedFiles: dataToJS(state.firebase, filesPath)
         }),
         { hideModal, animateTurn, animateDown }
     )

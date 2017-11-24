@@ -119,6 +119,7 @@ export class ModalStudy extends React.Component {
     render () {
         const { Modal, showModal, auth, postDeleteRequest }  = this.props;
         const Props = Modal.modalProps;
+        const author = Props.data.author;
 
         return (
             <div>
@@ -127,11 +128,17 @@ export class ModalStudy extends React.Component {
                     <AnimationWrapper>
                         <ModalBoxLeft>
                             <ModalBoxLeftHeader>
-                                <ImageRegister
-                                    onClick={() => showModal({ modalType: "MODAL_IMAGE" })}
-                                >
-                                    사진 등록
-                                </ImageRegister>
+                                {
+                                    auth !== null && auth.uid === author &&
+                                    <ImageRegister
+                                        onClick={() => showModal({
+                                            modalType: "MODAL_IMAGE",
+                                            modalProps: Props.postId
+                                        })}
+                                    >
+                                        사진 등록
+                                    </ImageRegister>
+                                }
                             </ModalBoxLeftHeader>
                             <ModalBoxLeftPage
                                 PageData={Props}
