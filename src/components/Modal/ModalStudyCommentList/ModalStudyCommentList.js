@@ -118,6 +118,7 @@ export class ModalStudyCommentList extends React.Component {
 
     render () {
         const { CommentReceive, hideModal, username } = this.props;
+        console.log(CommentReceive);
 
         return (
             <Wrapper>

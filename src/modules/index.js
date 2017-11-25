@@ -5,6 +5,7 @@ import Modal from "./Modal/Modal";
 import Filter from "./Feature/Filter";
 import Fetch from "./Post/PostFetch";
 import CommentReceive from "./Comment/CommentReceive";
+import CommentDelete from "./Comment/CommentDelete";
 import Reloading from "./Feature/Reloading";
 import Animate from "./Feature/Animate";
 import PostDelete from "./Post/PostDelete";
@@ -16,6 +17,7 @@ export default combineReducers({
     Filter,
     Fetch,
     CommentReceive,
+    CommentDelete,
     Reloading,
     Animate,
     PostDelete,

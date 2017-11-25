@@ -1,6 +1,6 @@
 import { commentSendRequest, commentSendSuccess, commentSendFailure} from "./CommentSend";
 
-describe("CommentFetch reducer", () => {
+describe("CommentSend reducer", () => {
     it("should handle COMMENT_SEND_REQUEST", () => {
         const nextState = commentSendRequest();
         expect(nextState).toEqual({

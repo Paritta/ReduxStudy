@@ -25,10 +25,15 @@ function* CommentReceive (action) {
             CommentsList.push(CommentsObject.comments[key]);
         }
 
+        console.log(CommentsList);
+
         const CommentArray = [];
 
         for(let i = 0; i < CommentsList.length; i++) {
-            CommentArray.push(Comment[CommentsList[i]]);
+            const CommentEle = Comment[CommentsList[i]];
+            CommentEle["CommentId"] = CommentsList[i];
+
+            CommentArray.push(CommentEle);
         }
 
         yield put({ type: "comment/comment_receive_Success", payload:  CommentArray});

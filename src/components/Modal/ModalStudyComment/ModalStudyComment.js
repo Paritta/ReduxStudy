@@ -77,6 +77,36 @@ const Line = styled.div`
     height: 1px;
 `;
 
+const DeleteMark = styled.div`
+    position: absolute;
+    top: 30%;
+    right: 23%;
+    
+    opacity: 0.3;
+    
+    &:hover {
+        opacity: 1;
+    }
+    
+    &:before, &:after {
+      position: absolute;
+      left: 15px;
+      content: ' ';
+      height: 27px;
+      width: 2px;
+      background-color: #333;
+      cursor: pointer;
+    }
+    
+    &:before {
+      transform: rotate(45deg);
+    }
+    
+    &:after {
+      transform: rotate(-45deg);
+    }
+`;
+
 export class ModalStudyComment extends React.Component {
     render () {
         const { CommentReceive, Comment } = this.props;
@@ -84,6 +114,7 @@ export class ModalStudyComment extends React.Component {
         return (
             <div>
             <Wrapper>
+                <DeleteMark/>
                 <CommentIcon>
                     <FaUser size={25} color="white"/>
                 </CommentIcon>

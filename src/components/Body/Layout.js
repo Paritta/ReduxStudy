@@ -102,8 +102,6 @@ export class Layout extends React.Component {
         const { Fetch, showModal, imageReceiveRequest, ImageReceive } = this.props;
         const Pending = Fetch.pending;
 
-        console.log(Fetch);
-
         return (
             <div>
                 <Wrapper>
