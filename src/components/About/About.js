@@ -76,11 +76,12 @@ const Button = styled.button`
     animation: ${BtnAni} 4s ease infinite;
     position: absolute;
     bottom: 50px;
-    transform: (0, -50%);
+    right: 500px;
 `;
 
 const BtnLink = styled(Link)`
     text-decoration: none;
+    color: white;
 `;
 
 export const About = () => {

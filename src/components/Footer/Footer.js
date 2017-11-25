@@ -29,15 +29,18 @@ export const Footer = () => {
         <Wrapper>
             <Item>
                 <div>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam cumque deleniti eius, incidunt
-                    labore laudantium maiores modi reiciendis sequi totam! Facere, quidem quod. A accusantium
-                    asperiores, illum libero voluptas voluptate?
+                    Github:
+                </div>
+                <div>
+                    Email
+                </div>
+                <div>
+                    P.h
                 </div>
             </Item>
             <Item>
-                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam cumque deleniti eius, incidunt
-                    labore laudantium maiores modi reiciendis sequi totam! Facere, quidem quod. A accusantium
-                    asperiores, illum libero voluptas voluptate?
+                <div>
+                    P.h
                 </div>
             </Item>
         </Wrapper>

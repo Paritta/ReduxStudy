@@ -1,6 +1,5 @@
 import React from "react";
-import oc from "open-color";
-import styled, {keyframes} from "styled-components";
+import styled from "styled-components";
 import Card from "./Card";
 import PropTypes from "prop-types";
 import ReactLoading from "react-loading";
@@ -102,6 +101,8 @@ export class Layout extends React.Component {
     render () {
         const { Fetch, showModal, imageReceiveRequest, ImageReceive } = this.props;
         const Pending = Fetch.pending;
+
+        console.log(Fetch);
 
         return (
             <div>

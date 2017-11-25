@@ -7,6 +7,7 @@ export function* GetFirebase(action) {
     let RefData = {};
     let PgData = {};
 
+    // 첫 번째 페이지
     if(action.payload === 1) {
         PgData = yield getFirebase()
             .database()
