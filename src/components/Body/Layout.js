@@ -76,13 +76,13 @@ export class Layout extends React.Component {
                                         modalType: "MODAL_STUDY",
                                         modalProps: item
                                     })}}
-                                key={key}
                             >
                                 <Card
                                     item={item}
                                     postId={item.postId}
                                     imageReceiveRequest={imageReceiveRequest}
                                     ImageReceive={ImageReceive}
+                                    key={key}
                                 />
                             </Item>
                         )

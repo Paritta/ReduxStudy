@@ -99,7 +99,10 @@ export class Card extends React.Component {
         const { StudyTitle, Location } = item.data.values;
         const Pending = ImageReceive.pending;
         const ImageData = ImageReceive.data;
-        const ImageUrl = ImageReceive.data.Url;
+        let ImageUrl = false;
+        if(this.props.key !== undefined && ImageReceive.data.length !== 0 && ImageReceive.data !== undefined) {
+            ImageUrl = ImageReceive.data[this.props.key].Url;
+        }
         const PostImageKey = item.data.PostImageKey;
 
         return (
