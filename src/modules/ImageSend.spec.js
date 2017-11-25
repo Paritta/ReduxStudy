@@ -1,6 +1,6 @@
 import { imageSendRequest, imageSendSuccess, imageSendFailure } from "./ImageSend";
 
-describe("ImageReceive reducer", () => {
+describe("ImageSend reducer", () => {
     it("should handle IMAGE_SEND_REQUEST", () => {
         const nextState = imageSendRequest();
         expect(nextState).toEqual({

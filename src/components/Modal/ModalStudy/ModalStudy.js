@@ -18,14 +18,16 @@ const propTypes = {
     }),
     auth: PropTypes.object,
     showModal: PropTypes.func,
-    postDeleteRequest: PropTypes.func
+    postDeleteRequest: PropTypes.func,
+    imageReceiveRequest: PropTypes.func,
 };
 
 const defaultTypes = {
     Modal: {},
     auth: {},
     showModal() {},
-    postDeleteRequest() {}
+    postDeleteRequest() {},
+    imageReceiveRequest() {},
 };
 
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -116,6 +118,10 @@ const ImageRegister = styled.button`
 `;
 
 export class ModalStudy extends React.Component {
+    componentDidMount () {
+        this.props.imageReceiveRequest(this.props.Modal.modalProps.postId)
+    }
+
     render () {
         const { Modal, showModal, auth, postDeleteRequest }  = this.props;
         const modalProps = Modal.modalProps;
