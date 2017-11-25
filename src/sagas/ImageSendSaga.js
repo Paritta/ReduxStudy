@@ -23,14 +23,14 @@ export function* ImageSend (action) {
 
         const arg = [action, data];
         yield call(PushFireBase, ...arg);
-        yield put({ type: "image/image_receive_Success" });
+        yield put({ type: "image/image_send_Success" });
     } catch (error) {
-        yield put({ type: "image/image_receive_Failure", payload: error })
+        yield put({ type: "image/image_send_Failure", payload: error })
     }
 }
 
 export function* watchImageSend () {
-    yield takeEvery("image/image_receive_Request", ImageSend);
+    yield takeEvery("image/image_send_Request", ImageSend);
 }
 
 

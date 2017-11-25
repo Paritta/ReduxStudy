@@ -3,7 +3,7 @@ import { watchFetchData } from "./FetchSaga";
 import { watchCommentSend } from "./CommentSendSaga";
 import { watchCommentReceive } from "./CommentReceiveSaga";
 import { watchPostDelete } from "./PostDeleteSaga";
-import { watchImageSend } from "./ImageReceiveSaga";
+import { watchImageSend } from "./ImageSendSaga";
 
 export default function* rootSaga () {
     yield all([

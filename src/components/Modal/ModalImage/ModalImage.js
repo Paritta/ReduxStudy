@@ -13,7 +13,7 @@ const propTypes = {
     AnimateTurn: PropTypes.func,
     AnimateDown: PropTypes.func,
     firebase: PropTypes.object,
-    imageReceiveRequest: PropTypes.func,
+    imageSendRequest: PropTypes.func,
 };
 
 const defaultTypes = {
@@ -22,7 +22,7 @@ const defaultTypes = {
     Animate: {},
     AnimateTurn() {},
     AnimateDown() {},
-    imageReceiveRequest() {},
+    imageSendRequest() {},
 };
 
 const bounceInLeftAnimation = keyframes`${bounceInLeft}`;
@@ -126,7 +126,6 @@ export class ModalImage extends React.Component {
     onFilesDrop = (files) => {
         // 해당 포스트 경로에 사진을 저장한다
         const filesPath = `/posts/${this.props.Modal.modalProps}`;
-        // this.props.filePathStorage(this.props.Modal.modalProps);
 
         // Uploads files and push's objects containing metadata to database at dbPath
         // uploadFiles(storagePath, files, dbPath)
@@ -141,22 +140,7 @@ export class ModalImage extends React.Component {
                     Url: Url,
                     Path: Path
                 };
-                this.props.imageReceiveRequest(ImageArg);
-                // dispatch
-
-                // console.log(Url);
-                // console.log(Path);
-                //
-                // // 쓰기 쉽게 배열로 ...
-                // const UrlArr = [];
-                // UrlArr.push(Url);
-                // const PathArr = [];
-                // PathArr.push(Path);
-                //
-                // this.props.firebase
-                //     .push(`posts/${this.props.Modal.modalProps}/ImageUrl`, UrlArr);
-                // this.props.firebase
-                //     .push(`posts/${this.props.Modal.modalProps}/ImagePath`, PathArr);
+                this.props.imageSendRequest(ImageArg);
             });
 
 

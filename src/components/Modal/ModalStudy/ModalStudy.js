@@ -118,8 +118,8 @@ const ImageRegister = styled.button`
 export class ModalStudy extends React.Component {
     render () {
         const { Modal, showModal, auth, postDeleteRequest }  = this.props;
-        const Props = Modal.modalProps;
-        const author = Props.data.author;
+        const modalProps = Modal.modalProps;
+        const author = modalProps.data.author;
 
         return (
             <div>
@@ -129,11 +129,11 @@ export class ModalStudy extends React.Component {
                         <ModalBoxLeft>
                             <ModalBoxLeftHeader>
                                 {
-                                    auth !== null && auth.uid === author &&
+                                    auth !== null && auth.uid === author && !modalProps.data.PostImageKey &&
                                     <ImageRegister
                                         onClick={() => showModal({
                                             modalType: "MODAL_IMAGE",
-                                            modalProps: Props.postId
+                                            modalProps: modalProps.postId
                                         })}
                                     >
                                         사진 등록
@@ -141,15 +141,15 @@ export class ModalStudy extends React.Component {
                                 }
                             </ModalBoxLeftHeader>
                             <ModalBoxLeftPage
-                                PageData={Props}
+                                PageData={modalProps}
                                 auth={auth}
                                 postDeleteRequest={postDeleteRequest}
                             />
                         </ModalBoxLeft>
                         <ModalBoxRight>
                             <ModalStudyCommentContainer
-                                postId={Props.postId}
-                                username={Props.data.username}
+                                postId={modalProps.postId}
+                                username={modalProps.data.username}
                             />
                         </ModalBoxRight>
                     </AnimationWrapper>

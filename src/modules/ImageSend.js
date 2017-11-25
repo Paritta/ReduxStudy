@@ -1,12 +1,12 @@
 import { createAction, handleActions } from "redux-actions";
 
-const IMAGE_RECEIVE_REQUEST = "image/image_receive_Request";
-const IMAGE_RECEIVE_SUCCESS = "image/image_receive_Success";
-const IMAGE_RECEIVE_FAILURE = "image/image_receive_Failure";
+const IMAGE_SEND_REQUEST = "image/image_send_Request";
+const IMAGE_SEND_SUCCESS = "image/image_send_Success";
+const IMAGE_SEND_FAILURE = "image/image_send_Failure";
 
-export const imageReceiveRequest = createAction(IMAGE_RECEIVE_REQUEST);
-export const imageReceiveSuccess = createAction(IMAGE_RECEIVE_SUCCESS);
-export const imageReceiveFailure = createAction(IMAGE_RECEIVE_FAILURE);
+export const imageSendRequest = createAction(IMAGE_SEND_REQUEST);
+export const imageSendSuccess = createAction(IMAGE_SEND_SUCCESS);
+export const imageSendFailure = createAction(IMAGE_SEND_FAILURE);
 
 const initialState = {
     pending: false,
@@ -15,13 +15,13 @@ const initialState = {
 };
 
 const reducer = handleActions({
-    [IMAGE_RECEIVE_REQUEST]: (state) => {
+    [IMAGE_SEND_REQUEST]: (state) => {
         return {
             ...state,
             pending: true
         }
     },
-    [IMAGE_RECEIVE_SUCCESS]: (state, action) => {
+    [IMAGE_SEND_SUCCESS]: (state, action) => {
         console.log(action.payload);
         return {
             ...state,
@@ -29,7 +29,7 @@ const reducer = handleActions({
             data: action.payload
         }
     },
-    [IMAGE_RECEIVE_FAILURE]: (state, action) => {
+    [IMAGE_SEND_FAILURE]: (state, action) => {
         return {
             ...state,
             pending: false,

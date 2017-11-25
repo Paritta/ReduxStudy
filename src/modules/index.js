@@ -8,7 +8,7 @@ import CommentReceive from "./CommentReceive";
 import Reloading from "./Reloading";
 import Animate from "./Animate";
 import PostDelete from "./PostDelete";
-import ImageReceive from "./ImageReceive";
+import ImageSend from "./ImageSend";
 
 export default combineReducers({
     Modal,
@@ -18,7 +18,7 @@ export default combineReducers({
     Reloading,
     Animate,
     PostDelete,
-    ImageReceive,
+    ImageSend,
     form: formReducer,
     firebase: firebaseStateReducer,
 });
