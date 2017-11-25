@@ -141,10 +141,10 @@ export class ModalStudy extends React.Component {
         const author = modalProps.data.author;
         const Pending = ImageReceive.pending;
         const ImageData = ImageReceive.data;
-        const ImageUrl = ImageReceive.data.Url;
-
-        console.log(ImageReceive);
-        console.log(modalProps.data.PostImageKey);
+        let ImageUrl = false;
+        if(ImageReceive.data !== undefined) {
+            ImageUrl = ImageReceive.data[ImageReceive.data.length-1].Url;
+        }
 
         return (
             <div>

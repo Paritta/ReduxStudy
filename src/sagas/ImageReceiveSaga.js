@@ -10,32 +10,35 @@ export function* GetPostImageKey (action) {
             return res.val();
         });
 
-    return PostImageKey
+    // return PostImageKey
+    yield call(GetImage, PostImageKey)
 }
 
 export function* GetImage (PostImageKey) {
-    const ExtractPostImageKey = Object.values(PostImageKey)[0];
+    if (PostImageKey) {
+        const ExtractPostImageKey = Object.values(PostImageKey)[0];
 
-    const Image = yield getFirebase()
-        .database()
-        .ref(`Images/${ExtractPostImageKey}`)
-        .once("value")
-        .then(res => {
-            return res.val();
-        });
+        const Image = yield getFirebase()
+            .database()
+            .ref(`Images/${ExtractPostImageKey}`)
+            .once("value")
+            .then(res => {
+                return res.val();
+            });
 
-    return Image;
+        // return Image;
+        yield put({ type: "image/image_receive_Success", payload: Image });
+
+    } else {
+        yield put({ type: "image/image_receive_Failure" });
+    }
 }
 
 export function* ImageReceive (action) {
     try {
-        const PostImageKey = yield fork(GetPostImageKey, action);
-        const Image = yield fork(GetImage, PostImageKey);
-
-        yield put({ type: "image/image_receive_Success", payload: Image });
+        yield fork(GetPostImageKey, action);
     } catch (error) {
-        yield put({ type: "image/image_receive_Failure", payload: error })
-        console.log(error);
+        yield put({ type: "image/image_receive_Failure", payload: error });
     }
 }
 

@@ -92,7 +92,6 @@ const LocationDiv = styled.div`
 export class Card extends React.Component {
     componentDidMount () {
         this.props.imageReceiveRequest(this.props.postId)
-        console.log("1");
     }
 
     render () {
