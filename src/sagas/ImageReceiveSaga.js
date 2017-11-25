@@ -1,4 +1,4 @@
-import { put, takeEvery, call } from "redux-saga/effects/";
+import { put, takeEvery, call, fork } from "redux-saga/effects/";
 import { getFirebase } from "react-redux-firebase";
 
 export function* GetPostImageKey (action) {
@@ -29,8 +29,8 @@ export function* GetImage (PostImageKey) {
 
 export function* ImageReceive (action) {
     try {
-        const PostImageKey = yield call(GetPostImageKey, action);
-        const Image = yield call(GetImage, PostImageKey);
+        const PostImageKey = yield fork(GetPostImageKey, action);
+        const Image = yield fork(GetImage, PostImageKey);
 
         yield put({ type: "image/image_receive_Success", payload: Image });
     } catch (error) {

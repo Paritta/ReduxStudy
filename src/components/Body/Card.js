@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import oc from "open-color";
-import FaCameraRetro from "react-icons/lib/fa/camera-retro";
+import EmptyImage from "../../asset/EmptyImage.png";
 import PropTypes from "prop-types";
 import ReactLoading from "react-loading";
 
@@ -33,7 +33,8 @@ const View = styled.div`
     width: 450px;
     height: 250px;
     
-    background: ${oc.gray[1]};
+    background: url(${props => props.ImageUrl ? props.ImageUrl : EmptyImage}) center center;
+    background-size: ${props => props.ImageUrl ? 100 : 40}px;
     
     display: flex;
     align-items: center;
@@ -91,6 +92,7 @@ const LocationDiv = styled.div`
 export class Card extends React.Component {
     componentDidMount () {
         this.props.imageReceiveRequest(this.props.postId)
+        console.log("1");
     }
 
     render () {
@@ -99,14 +101,46 @@ export class Card extends React.Component {
         const Pending = ImageReceive.pending;
         const ImageData = ImageReceive.data;
         const ImageUrl = ImageReceive.data.Url;
+        const PostImageKey = item.data.PostImageKey;
 
         return (
             <div>
-                <Wrapper>
-                    <View>
-                        <FaCameraRetro/>
-                    </View>
-                </Wrapper>
+                {/* 이미지 로딩 */}
+                {
+                    Pending && ImageData.length === 0 &&
+                    <WrappedReactLoading>
+                        <ReactLoading type="cylon" color="palevioletred"/>
+                    </WrappedReactLoading>
+                }
+
+                {/* 이미지가 없을 때는 EmptyImage  */}
+                {
+                    PostImageKey === undefined &&
+                    <Wrapper>
+                        <View
+                            ImageUrl={false}
+                        >
+                            .
+                        </View>
+                    </Wrapper>
+                }
+
+                {/* 이미지가 있을 때는 ImageUrl, 이미지 등록 버튼 삭제 */}
+                {
+                    PostImageKey !== undefined &&
+                    <Wrapper>
+                        <View
+                            ImageUrl={ImageUrl}
+                        >
+                        </View>
+                    </Wrapper>
+                }
+                {/*<Wrapper>*/}
+                    {/*<View>*/}
+                        {/*<FaCameraRetro/>*/}
+                    {/*</View>*/}
+                {/*</Wrapper>*/}
+
                 <Info>
                     <Title>
                         { StudyTitle }

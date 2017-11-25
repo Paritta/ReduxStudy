@@ -22,10 +22,12 @@ const reducer = handleActions({
         }
     },
     [IMAGE_RECEIVE_SUCCESS]: (state, action) => {
+        console.log(state.data);
+
         return {
             ...state,
             pending: false,
-            data: action.payload
+            data: [...state.data, action.payload]
         }
     },
     [IMAGE_RECEIVE_FAILURE]: (state, action) => {

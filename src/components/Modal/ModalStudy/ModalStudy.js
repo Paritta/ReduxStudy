@@ -152,6 +152,7 @@ export class ModalStudy extends React.Component {
                 <Wrapper>
                     <AnimationWrapper>
                         <ModalBoxLeft>
+                            {/* 이미지 로딩 */}
                             {
                                 Pending && ImageData.length === 0 &&
                                 <WrappedReactLoading>
@@ -159,6 +160,7 @@ export class ModalStudy extends React.Component {
                                 </WrappedReactLoading>
                             }
 
+                            {/* 이미지가 없을 때는 EmptyImage  */}
                             {
                                 auth !== null && auth.uid === author && modalProps.data.PostImageKey === undefined &&
                                 <ModalBoxLeftHeader
@@ -175,6 +177,7 @@ export class ModalStudy extends React.Component {
                                 </ModalBoxLeftHeader>
                             }
 
+                            {/* 이미지가 있을 때는 ImageUrl, 이미지 등록 버튼 삭제 */}
                             {
                                 auth !== null && auth.uid === author && modalProps.data.PostImageKey !== undefined &&
                                 <ModalBoxLeftHeader
