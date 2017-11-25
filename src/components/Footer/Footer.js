@@ -59,6 +59,9 @@ export const Footer = () => {
                     인기 순위 Top 3
                 </div>
                 <div>
+                    스터디 신청하기
+                </div>
+                <div>
                     퍼포먼스 개선
                 </div>
             </Item>

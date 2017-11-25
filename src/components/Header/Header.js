@@ -71,6 +71,11 @@ const MenuAbout = styled.button`
 
 const StyledLink = styled(Link)`
     text-decoration: none;
+    color: black;
+    
+    &:hover {
+        color: ${oc.gray[5]};
+    }
 `;
 
 export class Header extends React.Component {
