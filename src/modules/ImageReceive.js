@@ -22,7 +22,6 @@ const reducer = handleActions({
         }
     },
     [IMAGE_RECEIVE_SUCCESS]: (state, action) => {
-        console.log(action.payload);
         return {
             ...state,
             pending: false,

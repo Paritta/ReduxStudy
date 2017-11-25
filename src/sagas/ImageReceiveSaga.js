@@ -32,8 +32,6 @@ export function* ImageReceive (action) {
         const PostImageKey = yield call(GetPostImageKey, action);
         const Image = yield call(GetImage, PostImageKey);
 
-        console.log(Image);
-
         yield put({ type: "image/image_receive_Success", payload: Image });
     } catch (error) {
         yield put({ type: "image/image_receive_Failure", payload: error })

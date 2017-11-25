@@ -2,10 +2,10 @@ import React from "react";
 import styled, {keyframes} from "styled-components";
 import { fadeIn } from 'react-animations';
 import PropTypes from "prop-types";
-import ModalStudyAsset from "../../../asset/ModalStudyAsset.jpeg";
 import ModalStudyCommentContainer from "../../../containers/ModalContainers/ModalStudyCommentContainer";
 import ModalBoxLeftPage from "../ModalBoxLeftPage/ModalBoxLeftPage";
 import oc from "open-color";
+import ReactLoading from "react-loading";
 
 const propTypes = {
     Modal: PropTypes.shape({
@@ -20,6 +20,7 @@ const propTypes = {
     showModal: PropTypes.func,
     postDeleteRequest: PropTypes.func,
     imageReceiveRequest: PropTypes.func,
+    ImageReceive: PropTypes.object,
 };
 
 const defaultTypes = {
@@ -28,6 +29,7 @@ const defaultTypes = {
     showModal() {},
     postDeleteRequest() {},
     imageReceiveRequest() {},
+    ImageReceive: {},
 };
 
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -67,7 +69,7 @@ const ModalBoxLeftHeader = styled.div`
     top: 0;
     left: 0;
     
-    background: url(${ModalStudyAsset}) left center;
+    background: url(${props => props.ImageUrl ? props.ImageUrl : oc.gray[1]}) center center;
     background-size: cover;
     
     width: 100%;
@@ -113,8 +115,18 @@ const ImageRegister = styled.button`
     
     &:hover {
         background: ${oc.pink[4]};
-    border: 2px solid ${oc.pink[4]};
+        border: 2px solid ${oc.pink[4]};
     }
+`;
+
+const WrappedReactLoading = styled.div`
+    transform: scale(2);
+    position: absolute;
+    
+    top: 15%;
+    left: 40%;
+    
+    padding: 80px 0;
 `;
 
 export class ModalStudy extends React.Component {
@@ -123,9 +135,12 @@ export class ModalStudy extends React.Component {
     }
 
     render () {
-        const { Modal, showModal, auth, postDeleteRequest }  = this.props;
+        const { Modal, showModal, auth, postDeleteRequest, ImageReceive }  = this.props;
         const modalProps = Modal.modalProps;
         const author = modalProps.data.author;
+        const Pending = ImageReceive.pending;
+        const ImageData = ImageReceive.data;
+        const ImageUrl = ImageReceive.data.Url;
 
         return (
             <div>
@@ -133,7 +148,11 @@ export class ModalStudy extends React.Component {
                 <Wrapper>
                     <AnimationWrapper>
                         <ModalBoxLeft>
-                            <ModalBoxLeftHeader>
+                            {
+                                !Pending && ImageData.length !== 0 ?
+                                <ModalBoxLeftHeader
+                                    ImageUrl={ImageUrl}
+                                >
                                 {
                                     auth !== null && auth.uid === author && !modalProps.data.PostImageKey &&
                                     <ImageRegister
@@ -145,7 +164,12 @@ export class ModalStudy extends React.Component {
                                         사진 등록
                                     </ImageRegister>
                                 }
-                            </ModalBoxLeftHeader>
+                                </ModalBoxLeftHeader>
+                                    :
+                                <WrappedReactLoading>
+                                    <ReactLoading type="cylon" color="palevioletred"/>
+                                </WrappedReactLoading>
+                            }
                             <ModalBoxLeftPage
                                 PageData={modalProps}
                                 auth={auth}

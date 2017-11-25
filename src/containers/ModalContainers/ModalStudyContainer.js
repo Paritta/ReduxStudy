@@ -6,7 +6,7 @@ import { postDeleteRequest } from "../../modules/PostDelete";
 import { imageReceiveRequest } from "../../modules/ImageReceive";
 import ModalStudy from "../../components/Modal/ModalStudy/ModalStudy";
 import PropTypes from "prop-types";
-import { getModal } from "../../selector";
+import { getModal, getImageReceive } from "../../selector";
 
 const propTypes = {
     showModal: PropTypes.func,
@@ -14,7 +14,7 @@ const propTypes = {
     postDeleteRequest: PropTypes.func,
     auth: PropTypes.object,
     imageReceiveRequest: PropTypes.func,
-
+    ImageReceive: PropTypes.object,
 };
 
 const defaultTypes = {
@@ -23,9 +23,10 @@ const defaultTypes = {
     postDeleteRequest() {},
     auth: {},
     imageReceiveRequest() {},
+    ImageReceive: {},
 };
 
-const ModalStudyContainer = ({ Modal, showModal, hideModal, auth, postDeleteRequest, imageReceiveRequest }) => {
+const ModalStudyContainer = ({ Modal, showModal, hideModal, auth, postDeleteRequest, imageReceiveRequest, ImageReceive }) => {
     return (
         <div>
             <ModalStudy
@@ -35,6 +36,7 @@ const ModalStudyContainer = ({ Modal, showModal, hideModal, auth, postDeleteRequ
                 auth={auth}
                 postDeleteRequest={postDeleteRequest}
                 imageReceiveRequest={imageReceiveRequest}
+                ImageReceive={ImageReceive}
             />
         </div>
     )
@@ -46,6 +48,7 @@ ModalStudyContainer.defaultTypes = defaultTypes;
 export default connect(
     state => ({
         Modal: getModal(state),
+        ImageReceive: getImageReceive(state),
         auth: pathToJS(state.firebase, "auth")
     }),
     { showModal, hideModal, postDeleteRequest, imageReceiveRequest }
