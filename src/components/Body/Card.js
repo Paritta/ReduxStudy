@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import oc from "open-color";
 import EmptyImage from "../../asset/EmptyImage.png";
 import PropTypes from "prop-types";
 import ReactLoading from "react-loading";

@@ -29,6 +29,8 @@ const reducer = handleActions({
         }
     },
     [FETCH_FAILURE]: (state, action) => {
+        console.log(action.error);
+
         return {
             ...state,
             pending: false,

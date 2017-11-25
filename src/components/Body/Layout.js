@@ -1,8 +1,11 @@
 import React from "react";
-import styled from "styled-components";
+import oc from "open-color";
+import styled, {keyframes} from "styled-components";
 import Card from "./Card";
 import PropTypes from "prop-types";
 import ReactLoading from "react-loading";
+import MdKeyboardArrowRight from "react-icons/lib/md/keyboard-arrow-right";
+import MdKeyboardArrowLeft from "react-icons/lib/md/keyboard-arrow-left";
 
 const propTypes = {
     Fetch: PropTypes.object,
@@ -51,9 +54,49 @@ const Item = styled.div`
     margin-top: 60px;
 `;
 
+const RightBtn = styled.div`
+    position: absolute;
+    
+    top: 50%;
+    left: 3%;
+    
+    transform: translate(-50%, -50%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    cursor: pointer;
+`;
+
+const LeftBtn = styled.div`
+    position: absolute;
+    
+    top: 50%;
+    right: 0%;
+    
+    transform: translate(-50%, -50%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    cursor: pointer;
+`;
+
 export class Layout extends React.Component {
+    state = {
+        PageNum: 1
+    };
+
     componentDidMount () {
-        this.props.fetchRequest();
+        this.props.fetchRequest(this.state.PageNum);
+    }
+
+    componentDidUpdate (prevProps, prevState) {
+        if(prevState.PageNum !== this.state.PageNum) {
+            this.props.fetchRequest(this.state.PageNum);
+        }
     }
 
     render () {
@@ -63,6 +106,25 @@ export class Layout extends React.Component {
         return (
             <div>
                 <Wrapper>
+                    {
+                        this.state.PageNum === 1 ?
+                            ""
+                            :
+                            <RightBtn
+                                onClick={() =>
+                                    this.setState({PageNum: this.state.PageNum-1})
+                                }
+                            >
+                                <MdKeyboardArrowLeft size={130} color="gray"/>
+                            </RightBtn>
+                    }
+                    <LeftBtn
+                        onClick={() =>
+                            this.setState({PageNum: this.state.PageNum+1})
+                        }
+                    >
+                        <MdKeyboardArrowRight size={130} color="gray"/>
+                    </LeftBtn>
                     {
                         Pending?
                         <WrappedReactLoading>
@@ -83,7 +145,6 @@ export class Layout extends React.Component {
                                     postId={item.postId}
                                     imageReceiveRequest={imageReceiveRequest}
                                     ImageReceive={ImageReceive}
-                                    key={key}
                                 />
                             </Item>
                         )

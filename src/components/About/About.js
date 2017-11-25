@@ -38,14 +38,6 @@ const Face = styled.div`
     border-radius: 100%;
 `;
 
-const Body = styled.div`
-    background: white;
-    height: 10vh;
-    
-    width: 100px;
-    height: 10vh;
-`;
-
 const BtnAni = keyframes`
     0% {
         bottom: 50px;
