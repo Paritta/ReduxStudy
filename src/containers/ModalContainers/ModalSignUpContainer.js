@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { hideModal } from "../../modules/Modal";
-import { animateTurn, animateDown } from "../../modules/Animate";
+import { hideModal } from "../../modules/Modal/Modal";
+import { animateTurn, animateDown } from "../../modules/Feature/Animate";
 import ModalSignUp from "../../components/Modal/ModalSignUp/ModalSignUp";
 import PropTypes from "prop-types";
 import { getModal, getAniamte } from "../../selector";

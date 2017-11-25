@@ -1,5 +1,5 @@
 import { all } from "redux-saga/effects";
-import { watchFetchData } from "./Post/FetchSaga";
+import { watchFetchData } from "./Post/PostFetchSaga";
 import { watchCommentSend } from "./Comment/CommentSendSaga";
 import { watchCommentReceive } from "./Comment/CommentReceiveSaga";
 import { watchPostDelete } from "./Post/PostDeleteSaga";

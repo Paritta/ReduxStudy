@@ -1,7 +1,7 @@
 import React from "react";
 import Filter from "../../components/Filter/Filter";
 import { connect } from "react-redux";
-import { filterMaterial, filterNursing, filterInformation, filterComputer, filterChemical } from "../../modules/Filter";
+import { filterMaterial, filterNursing, filterInformation, filterComputer, filterChemical } from "../../modules/Feature/Filter";
 import PropTypes from "prop-types";
 import { getFilter } from "../../selector";
 

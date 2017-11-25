@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 import { connect } from "react-redux";
-import { showModal, hideModal } from "../../modules/Modal";
+import { showModal, hideModal } from "../../modules/Modal/Modal";
 import PropTypes from "prop-types";
 import { getModal } from "../../selector";
 

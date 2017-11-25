@@ -1,5 +1,5 @@
 import React from "react";
-import { watchFetchData, fetchData, GetFirebase } from "./FetchSaga";
+import { watchFetchData, fetchData, GetFirebase } from "./PostFetchSaga";
 import { takeEvery, call, put } from "redux-saga/effects";
 
 it("handle Fetch Saga", () => {

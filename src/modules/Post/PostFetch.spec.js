@@ -1,4 +1,4 @@
-import { fetchFailure, fetchRequest, fetchSuccess } from "./Fetch";
+import { fetchFailure, fetchRequest, fetchSuccess } from "./PostFetch";
 
 describe("Fetch reducer", () => {
     it("should handle FETCH_REQUEST", () => {

@@ -1,9 +1,9 @@
 import React from "react";
 import { pathToJS } from "react-redux-firebase";
 import { connect } from "react-redux";
-import { showModal, hideModal } from "../../modules/Modal";
-import { postDeleteRequest } from "../../modules/PostDelete";
-import { imageReceiveRequest } from "../../modules/ImageReceive";
+import { showModal, hideModal } from "../../modules/Modal/Modal";
+import { postDeleteRequest } from "../../modules/Post/PostDelete";
+import { imageReceiveRequest } from "../../modules/Image/ImageReceive";
 import ModalStudy from "../../components/Modal/ModalStudy/ModalStudy";
 import PropTypes from "prop-types";
 import { getModal, getImageReceive } from "../../selector";

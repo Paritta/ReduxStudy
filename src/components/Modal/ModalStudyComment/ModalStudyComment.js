@@ -1,7 +1,7 @@
 import React from "react";
 import FaUser from "react-icons/lib/fa/user";
 import PropTypes from "prop-types";
-import { commentReceiveRequest } from "../../../modules/CommentReceive";
+import { commentReceiveRequest } from "../../../modules/Comment/CommentReceive";
 import { connect } from "react-redux";
 import { getCommentReceive } from "../../../selector";
 import styled from "styled-components";

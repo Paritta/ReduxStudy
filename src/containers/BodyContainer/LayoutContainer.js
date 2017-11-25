@@ -1,9 +1,9 @@
 import React from "react";
 import Layout from "../../components/Body/Layout";
 import { connect } from "react-redux";
-import { showModal, hideModal } from "../../modules/Modal";
-import { fetchRequest } from "../../modules/Fetch";
-import { imageReceiveRequest } from "../../modules/ImageReceive";
+import { showModal, hideModal } from "../../modules/Modal/Modal";
+import { fetchRequest } from "../../modules/Post/PostFetch";
+import { imageReceiveRequest } from "../../modules/Image/ImageReceive";
 import PropTypes from "prop-types";
 import { getFetch, getFilter, getImageReceive } from "../../selector";
 import { firebaseConnect, dataToJS } from 'react-redux-firebase';

@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { hideModal } from "../../modules/Modal";
-import { animateTurn, animateDown } from "../../modules/Animate";
-import { imageSendRequest } from "../../modules/ImageSend";
+import { hideModal } from "../../modules/Modal/Modal";
+import { animateTurn, animateDown } from "../../modules/Feature/Animate";
+import { imageSendRequest } from "../../modules/Image/ImageSend";
 import ModalImage from "../../components/Modal/ModalImage/ModalImage";
 import PropTypes from "prop-types";
 import { getModal, getAniamte } from "../../selector";
