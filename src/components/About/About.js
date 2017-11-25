@@ -76,7 +76,7 @@ const Button = styled.button`
     animation: ${BtnAni} 4s ease infinite;
     position: absolute;
     bottom: 50px;
-    right: 500px;
+    right: 400px;
 `;
 
 const BtnLink = styled(Link)`
@@ -93,12 +93,15 @@ export const About = () => {
             </Wrapper>
             <Footer>
                 <div>
-                    김회장, 재효찡, 욱이, 불꺼놓고 코딩만하는 박현진 불키고 해라, 가두래곤, 이수비, 정주연스의 친구 임성훈입니다
+                    김회장, 재효찡, 욱이, 불꺼놓고 코딩만하는 박현진 불키고 해라, 가두래곤, 이수비, 정주연스, 현지권의 친구 임성훈입니다
                 </div>
                 <Button>
-                    <BtnLink Link to="/">
-                        뒤로 가기
-                    </BtnLink>
+                    버튼 만들려고 했는데 고장...
+                    {/*<BtnLink>*/}
+                            {/*<Link to="/">*/}
+                                {/*뒤로 가기*/}
+                            {/*</Link>*/}
+                    {/*</BtnLink>*/}
                 </Button>
             </Footer>
         </div>
