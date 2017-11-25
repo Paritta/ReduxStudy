@@ -4,6 +4,7 @@ import { fadeIn } from 'react-animations';
 import PropTypes from "prop-types";
 import ModalStudyCommentContainer from "../../../containers/ModalContainers/ModalStudyCommentContainer";
 import ModalBoxLeftPage from "../ModalBoxLeftPage/ModalBoxLeftPage";
+import EmptyImage from "../../../asset/EmptyImage.png";
 import oc from "open-color";
 import ReactLoading from "react-loading";
 
@@ -69,7 +70,7 @@ const ModalBoxLeftHeader = styled.div`
     top: 0;
     left: 0;
     
-    background: url(${props => props.ImageUrl ? props.ImageUrl : oc.gray[1]}) center center;
+    background: url(${props => props.ImageUrl ? props.ImageUrl : EmptyImage}) center center;
     background-size: cover;
     
     width: 100%;
@@ -142,6 +143,9 @@ export class ModalStudy extends React.Component {
         const ImageData = ImageReceive.data;
         const ImageUrl = ImageReceive.data.Url;
 
+        console.log(ImageReceive);
+        console.log(modalProps.data.PostImageKey);
+
         return (
             <div>
                 <Dimmed />
@@ -149,26 +153,34 @@ export class ModalStudy extends React.Component {
                     <AnimationWrapper>
                         <ModalBoxLeft>
                             {
-                                !Pending && ImageData.length !== 0 ?
-                                <ModalBoxLeftHeader
-                                    ImageUrl={ImageUrl}
-                                >
-                                {
-                                    auth !== null && auth.uid === author && !modalProps.data.PostImageKey &&
-                                    <ImageRegister
-                                        onClick={() => showModal({
-                                            modalType: "MODAL_IMAGE",
-                                            modalProps: modalProps.postId
-                                        })}
-                                    >
-                                        사진 등록
-                                    </ImageRegister>
-                                }
-                                </ModalBoxLeftHeader>
-                                    :
+                                Pending && ImageData.length === 0 &&
                                 <WrappedReactLoading>
                                     <ReactLoading type="cylon" color="palevioletred"/>
                                 </WrappedReactLoading>
+                            }
+
+                            {
+                                auth !== null && auth.uid === author && modalProps.data.PostImageKey === undefined &&
+                                <ModalBoxLeftHeader
+                                    ImageUrl={false}
+                                >
+                                        <ImageRegister
+                                            onClick={() => showModal({
+                                                modalType: "MODAL_IMAGE",
+                                                modalProps: modalProps.postId
+                                            })}
+                                        >
+                                            사진 등록
+                                        </ImageRegister>
+                                </ModalBoxLeftHeader>
+                            }
+
+                            {
+                                auth !== null && auth.uid === author && modalProps.data.PostImageKey !== undefined &&
+                                <ModalBoxLeftHeader
+                                    ImageUrl={ImageUrl}
+                                >
+                                </ModalBoxLeftHeader>
                             }
                             <ModalBoxLeftPage
                                 PageData={modalProps}

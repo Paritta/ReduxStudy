@@ -117,7 +117,7 @@ export class ModalSignUp extends React.Component {
             </div>
         )
     }
-};
+}
 
 ModalSignUp.propTypes = propTypes;
 ModalSignUp.defaultTypes = defaultTypes;

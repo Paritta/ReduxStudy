@@ -9,7 +9,9 @@ const propTypes = {
     Filter: PropTypes.object,
     showModal: PropTypes.func,
     hideModal: PropTypes.func,
-    fetchRequest: PropTypes.func
+    fetchRequest: PropTypes.func,
+    imageReceiveRequest: PropTypes.func,
+    ImageReceive: PropTypes.object,
 };
 
 const defaultTypes = {
@@ -17,7 +19,9 @@ const defaultTypes = {
     Filter: {},
     showModal() {},
     hideModal() {},
-    fetchRequest() {}
+    fetchRequest() {},
+    imageReceiveRequest() {},
+    ImageReceive: {},
 };
 
 const Wrapper = styled.div`
@@ -53,7 +57,7 @@ export class Layout extends React.Component {
     }
 
     render () {
-        const { Fetch, showModal } = this.props;
+        const { Fetch, showModal, imageReceiveRequest, ImageReceive } = this.props;
         const Pending = Fetch.pending;
 
         return (
@@ -76,6 +80,9 @@ export class Layout extends React.Component {
                             >
                                 <Card
                                     item={item}
+                                    postId={item.postId}
+                                    imageReceiveRequest={imageReceiveRequest}
+                                    ImageReceive={ImageReceive}
                                 />
                             </Item>
                         )
@@ -84,7 +91,7 @@ export class Layout extends React.Component {
             </div>
         );
     }
-};
+}
 
 Layout.propTypes = propTypes;
 Layout.defaultTypes = defaultTypes;

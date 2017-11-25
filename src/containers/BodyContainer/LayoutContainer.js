@@ -3,8 +3,9 @@ import Layout from "../../components/Body/Layout";
 import { connect } from "react-redux";
 import { showModal, hideModal } from "../../modules/Modal";
 import { fetchRequest } from "../../modules/Fetch";
+import { imageReceiveRequest } from "../../modules/ImageReceive";
 import PropTypes from "prop-types";
-import { getFetch, getFilter } from "../../selector";
+import { getFetch, getFilter, getImageReceive } from "../../selector";
 import { firebaseConnect, dataToJS } from 'react-redux-firebase';
 import { compose } from "redux";
 
@@ -16,6 +17,8 @@ const propTypes = {
     fetchRequest: PropTypes.func,
     firebase: PropTypes.object,
     uploadedFiles: PropTypes.object,
+    imageReceiveRequest: PropTypes.func,
+    ImageReceive: PropTypes.object,
 };
 
 const defaultTypes = {
@@ -26,11 +29,13 @@ const defaultTypes = {
     fetchRequest() {},
     firebase: {},
     uploadedFiles: {},
+    imageReceiveRequest() {},
+    ImageReceive: {},
 };
 
 const filesPath = "/posts";
 
-function LayoutContainer({ Fetch, Filter, showModal, hideModal, fetchRequest, firebase, uploadedFiles }) {
+function LayoutContainer({ Fetch, Filter, showModal, hideModal, fetchRequest, firebase, uploadedFiles, imageReceiveRequest, ImageReceive}) {
     return (
         <div>
             <Layout
@@ -41,6 +46,8 @@ function LayoutContainer({ Fetch, Filter, showModal, hideModal, fetchRequest, fi
                 fetchRequest={fetchRequest}
                 firebase={firebase}
                 uploadedFiles={uploadedFiles}
+                imageReceiveRequest={imageReceiveRequest}
+                ImageReceive={ImageReceive}
             />
         </div>
     )
@@ -57,8 +64,9 @@ export default compose(
         state => ({
             Fetch: getFetch(state),
             Filter: getFilter(state),
+            ImageReceive: getImageReceive(state),
             uploadedFiles: dataToJS(state.firebase, filesPath)
         }),
-        { showModal, hideModal, fetchRequest }
+        { showModal, hideModal, fetchRequest, imageReceiveRequest }
     )
 )(LayoutContainer);

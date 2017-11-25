@@ -2,11 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import oc from "open-color";
 import FaCameraRetro from "react-icons/lib/fa/camera-retro";
+import PropTypes from "prop-types";
+import ReactLoading from "react-loading";
 
 const propTypes = {
+    image: PropTypes.object,
+    imageReceiveRequest: PropTypes.func,
+    ImageReceive: PropTypes.object,
 };
 
 const defaultTypes = {
+    image: {},
+    imageReceiveRequest() {},
+    ImageReceive: {},
 };
 
 const Wrapper = styled.div`
@@ -63,6 +71,16 @@ const Title = styled.div`
     color: white;
 `;
 
+const WrappedReactLoading = styled.div`
+    transform: scale(2);
+    position: absolute;
+    
+    top: 15%;
+    left: 40%;
+    
+    padding: 80px 0;
+`;
+
 const LocationDiv = styled.div`   
     font-family: 'Hanna', fantasy;
     font-size: 22px;
@@ -70,27 +88,37 @@ const LocationDiv = styled.div`
     color: white;
 `;
 
-export const Card = ({ item }) => {
-    const { StudyTitle, Location } = item.data.values;
+export class Card extends React.Component {
+    componentDidMount () {
+        this.props.imageReceiveRequest(this.props.postId)
+    }
 
-    return (
-        <div>
-            <Wrapper>
-                <View>
-                    <FaCameraRetro/>
-                </View>
-            </Wrapper>
-            <Info>
-                <Title>
-                    { StudyTitle }
-                </Title>
-                <LocationDiv>
-                    { Location }
-                </LocationDiv>
-            </Info>
-        </div>
-    );
-};
+    render () {
+        const { item, ImageReceive } = this.props;
+        const { StudyTitle, Location } = item.data.values;
+        const Pending = ImageReceive.pending;
+        const ImageData = ImageReceive.data;
+        const ImageUrl = ImageReceive.data.Url;
+
+        return (
+            <div>
+                <Wrapper>
+                    <View>
+                        <FaCameraRetro/>
+                    </View>
+                </Wrapper>
+                <Info>
+                    <Title>
+                        { StudyTitle }
+                    </Title>
+                    <LocationDiv>
+                        { Location }
+                    </LocationDiv>
+                </Info>
+            </div>
+        );
+    }
+}
 
 Card.propTypes = propTypes;
 Card.defaultTypes = defaultTypes;
