@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import oc from "open-color";
 import { firebaseConnect, pathToJS } from "react-redux-firebase";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const propTypes = {
     onShowModal: PropTypes.func,
@@ -68,6 +69,10 @@ const MenuAbout = styled.button`
     text-align: left;
 `;
 
+const StyledLink = styled(Link)`
+    text-decoration: none;
+`;
+
 export class Header extends React.Component {
     handleLogOut () {
         this.props.firebase.logout();
@@ -82,7 +87,9 @@ export class Header extends React.Component {
                     {profile&&
                         <div>
                             <MenuAbout>
-                                About
+                                <StyledLink to="About">
+                                    About
+                                </StyledLink>
                             </MenuAbout>
                             <MenuItem
                                 onClick={() => this.handleLogOut()}>

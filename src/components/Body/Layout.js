@@ -76,6 +76,7 @@ export class Layout extends React.Component {
                                         modalType: "MODAL_STUDY",
                                         modalProps: item
                                     })}}
+                                key={key}
                             >
                                 <Card
                                     item={item}
