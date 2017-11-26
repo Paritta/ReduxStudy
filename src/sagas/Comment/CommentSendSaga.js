@@ -13,8 +13,7 @@ export function* GetFireBase(action) {
 
 export function* CommentSend (action) {
     try {
-        const data = yield call(GetFireBase, action);
-
+        yield call(GetFireBase, action);
         yield put({ type: "comment/comment_send_Success" });
     } catch (error) {
         console.log(error);
