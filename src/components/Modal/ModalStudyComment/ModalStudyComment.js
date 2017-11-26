@@ -46,6 +46,9 @@ const CommentWrapper = styled.div`
 const CommentString = styled.div`
     font-size: 15px;
     font-weight: 400;
+    text-align: left;
+    
+    padding-top: 5px;
 `;
 
 const NickName = styled.div`
@@ -107,14 +110,25 @@ const DeleteMark = styled.div`
     }
 `;
 
+
+const CurrentTime = styled.div`
+    font-size: 0.7em;
+    padding: 5px; 0 0 0;
+    color: ${oc.gray[6]}
+`;
+
 export class ModalStudyComment extends React.Component {
     render () {
-        const { CommentReceive, Comment } = this.props;
+        const { CommentReceive, Comment, auth } = this.props;
 
         return (
             <div>
             <Wrapper>
-                <DeleteMark/>
+                {/* 로그인 하고, 로그인 한 사람과 댓글을 쓴 사람이 일치하면 삭제 버튼을 띄운다 */}
+                {
+                    auth !== null && auth.uid === Comment.CommentAuthor &&
+                    <DeleteMark/>
+                }
                 <CommentIcon>
                     <FaUser size={25} color="white"/>
                 </CommentIcon>
@@ -130,6 +144,12 @@ export class ModalStudyComment extends React.Component {
                         <CommentString>
                             {Comment.comment}
                         </CommentString>
+                    }
+                    {
+                        !CommentReceive.pending && CommentReceive.data.length !== 0 &&
+                        <CurrentTime>
+                            {Comment.CurrentTime}
+                        </CurrentTime>
                     }
                 </CommentWrapper>
             </Wrapper>

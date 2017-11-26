@@ -2,7 +2,6 @@ import React from "react";
 import styled, {keyframes} from "styled-components";
 import oc from "open-color";
 import FaceAsset from "../../asset/Face.jpeg";
-import { Link } from "react-router-dom";
 
 const propTypes = {
 };
@@ -77,11 +76,6 @@ const Button = styled.button`
     position: absolute;
     bottom: 50px;
     right: 400px;
-`;
-
-const BtnLink = styled(Link)`
-    text-decoration: none;
-    color: white;
 `;
 
 export const About = () => {

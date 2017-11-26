@@ -2,22 +2,27 @@ import React from "react";
 import ModalStudyComment from "../ModalStudyComment/ModalStudyComment";
 import styled from "styled-components";
 import ModalStudyCommentListForm from "./ModalStudyCommentListForm";
-import { firebaseConnect, pathToJS } from "react-redux-firebase";
-import { connect } from "react-redux";
-import { commentReceiveRequest } from "../../../modules/Comment/CommentReceive";
-import { hideModal } from "../../../modules/Modal/Modal";
 import PropTypes from "prop-types";
 import FaUser from "react-icons/lib/fa/user";
 import oc from "open-color";
 
 const propTypes = {
     commentReceiveRequest: PropTypes.func,
-    hideModal : PropTypes.func
+    hideModal : PropTypes.func,
+    CommentReceive: PropTypes.object,
+    postId: PropTypes.string,
+    auth: PropTypes.object,
+    profile: PropTypes.object,
 };
 
 const defaultTypes = {
     commentReceiveRequest () {},
-    hideModal () {}
+    hideModal () {},
+    commentSendRequest() {},
+    commentReceive: {},
+    postId: "",
+    auth: {},
+    profile: {},
 };
 
 const Wrapper = styled.div`
@@ -103,11 +108,14 @@ export class ModalStudyCommentList extends React.Component {
    submit = value => {
        const username = this.props.profile.username;
        const display = username ? username : this.props.profile.displayName;
+       const CurrentTime = new Date().toLocaleString().slice(2, new Date().toLocaleString().length-3);
 
        const comment = {
            comment: value.comment,
            NickName: display,
-           postId: this.props.postId
+           postId: this.props.postId,
+           CurrentTime: CurrentTime,
+           CommentAuthor: this.props.auth.uid,
        };
 
        this.setState({ PostUpdate: !this.state.PostUpdate});
@@ -117,8 +125,7 @@ export class ModalStudyCommentList extends React.Component {
    };
 
     render () {
-        const { CommentReceive, hideModal, username } = this.props;
-        console.log(CommentReceive);
+        const { CommentReceive, hideModal, username, auth } = this.props;
 
         return (
             <Wrapper>
@@ -138,6 +145,7 @@ export class ModalStudyCommentList extends React.Component {
                                 Comment={Comment}
                                 key={key}
                                 CommentReceive={CommentReceive.data}
+                                auth={auth}
                             />
                         )
                     }
@@ -154,11 +162,4 @@ export class ModalStudyCommentList extends React.Component {
 ModalStudyCommentList.propTypes = propTypes;
 ModalStudyCommentList.defaultTypes = defaultTypes;
 
-const WrappedModalStudyCommentList = firebaseConnect()(ModalStudyCommentList);
-
-export default connect(
-    ({ firebase }) => ({
-        profile: pathToJS(firebase, "profile")
-    }),
-    { commentReceiveRequest, hideModal }
-)(WrappedModalStudyCommentList);
+export default ModalStudyCommentList;

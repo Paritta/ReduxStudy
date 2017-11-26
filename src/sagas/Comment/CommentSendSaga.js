@@ -10,20 +10,13 @@ export function* GetFireBase(action) {
 }
 
 export function* PushFireBase(action, data) {
-    // // 해당 포스트에 comment id push
+    // 해당 포스트에 comment id push
     yield getFirebase()
         .push("posts/"+action.payload.postId+"/comments", data.key);
 }
 
 export function* CommentSend (action) {
     try {
-        // // comment 추가
-        // const data = yield getFirebase()
-        //     .push("comment", action.payload);
-        //
-        // // 해당 포스트에 comment id push
-        // yield getFirebase()
-        //     .push("posts/"+action.payload.postId+"/comments", data.key);
         const data = yield call(GetFireBase, action);
 
         const arg = [action, data];
