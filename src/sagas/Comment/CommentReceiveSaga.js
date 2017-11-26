@@ -3,7 +3,6 @@ import { getFirebase } from "react-redux-firebase";
 
 function* CommentReceive (action) {
     try {
-        console.log(action);
         const Comment = yield getFirebase()
             .database()
             .ref("comment")

@@ -120,7 +120,6 @@ const CurrentTime = styled.div`
 export class ModalStudyComment extends React.Component {
     render () {
         const { CommentReceive, Comment, auth, commentDeleteRequest } = this.props;
-        console.log(Comment);
         const CommentId = Comment.CommentId;
 
         return (
