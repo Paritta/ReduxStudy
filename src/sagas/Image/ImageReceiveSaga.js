@@ -10,7 +10,6 @@ export function* GetPostImageKey (action) {
             return res.val();
         });
 
-    // return PostImageKey
     yield call(GetImage, PostImageKey)
 }
 
@@ -26,9 +25,7 @@ export function* GetImage (PostImageKey) {
                 return res.val();
             });
 
-        // return Image;
         yield put({ type: "image/image_receive_Success", payload: Image });
-
     } else {
         yield put({ type: "image/image_receive_Failure" });
     }

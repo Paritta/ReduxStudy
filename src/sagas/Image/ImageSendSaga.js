@@ -3,7 +3,6 @@ import { getFirebase } from "react-redux-firebase";
 
 export function* GetFireBase(action) {
     // image 추가
-    // console.log(action.payload);
     const Image = action.payload;
     const data = yield getFirebase()
         .push("Images", Image);
