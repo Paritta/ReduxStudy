@@ -3,27 +3,30 @@ import { connect } from "react-redux";
 import ModalStudyCommentList from "../../components/Modal/ModalStudyCommentList/ModalStudyCommentList";
 import styled from "styled-components";
 import { commentSendRequest } from "../../modules/Comment/CommentSend";
-import { getCommentReceive } from "../../selector";
-import PropTypes from "prop-types";
 import { commentReceiveRequest } from "../../modules/Comment/CommentReceive";
 import { hideModal } from "../../modules/Modal/Modal";
+import { commentDeleteRequest } from "../../modules/Comment/CommentDelete";
+import { getCommentReceive } from "../../selector";
+import PropTypes from "prop-types";
 import { pathToJS } from "react-redux-firebase";
 
 const propTypes = {
+    CommentReceive: PropTypes.object,
+    commentReceiveRequest: PropTypes.func,
+    commentDeleteRequest: PropTypes.func,
     commentSendRequest: PropTypes.func,
     hideModal:PropTypes.func,
-    CommentReceive: PropTypes.object,
     postId: PropTypes.string,
     auth: PropTypes.object,
-    commentReceiveRequest: PropTypes.func,
     profile: PropTypes.object,
 };
 
 const defaultTypes = {
     commentReceiveRequest() {},
-    hideModal() {},
+    commentDeleteRequest() {},
     commentSendRequest() {},
     commentReceive: {},
+    hideModal() {},
     postId: "",
     auth: {},
     profile: {},
@@ -35,7 +38,7 @@ const Wrapper = styled.div`
 `;
 
 // auth는 ModalStudyContainer에서 옴
-const ModalStudyCommentContainer = ({ commentSendRequest, CommentReceive, commentReceiveRequest, hideModal, postId, auth, profile }) => {
+const ModalStudyCommentContainer = ({ commentSendRequest, CommentReceive, commentReceiveRequest, commentDeleteRequest, hideModal, postId, auth, profile }) => {
     return (
         <Wrapper>
             <ModalStudyCommentList
@@ -46,6 +49,7 @@ const ModalStudyCommentContainer = ({ commentSendRequest, CommentReceive, commen
                 postId={postId}
                 auth={auth}
                 profile={profile}
+                commentDeleteRequest={commentDeleteRequest}
             />
         </Wrapper>
     )
@@ -59,5 +63,5 @@ export default connect(
         CommentReceive: getCommentReceive(state),
         profile: pathToJS(state.firebase, "profile")
     }),
-    { commentSendRequest, commentReceiveRequest, hideModal }
+    { commentSendRequest, commentReceiveRequest, commentDeleteRequest, hideModal }
 )(ModalStudyCommentContainer);

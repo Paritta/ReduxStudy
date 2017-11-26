@@ -8,8 +8,9 @@ import oc from "open-color";
 
 const propTypes = {
     commentReceiveRequest: PropTypes.func,
-    hideModal : PropTypes.func,
     CommentReceive: PropTypes.object,
+    commentDeleteRequest: PropTypes.func,
+    hideModal : PropTypes.func,
     postId: PropTypes.string,
     auth: PropTypes.object,
     profile: PropTypes.object,
@@ -17,9 +18,10 @@ const propTypes = {
 
 const defaultTypes = {
     commentReceiveRequest () {},
-    hideModal () {},
     commentSendRequest() {},
     commentReceive: {},
+    commentDeleteRequest() {},
+    hideModal () {},
     postId: "",
     auth: {},
     profile: {},
@@ -125,7 +127,7 @@ export class ModalStudyCommentList extends React.Component {
    };
 
     render () {
-        const { CommentReceive, hideModal, username, auth } = this.props;
+        const { CommentReceive, hideModal, username, auth, commentDeleteRequest } = this.props;
 
         return (
             <Wrapper>
@@ -146,6 +148,7 @@ export class ModalStudyCommentList extends React.Component {
                                 key={key}
                                 CommentReceive={CommentReceive.data}
                                 auth={auth}
+                                commentDeleteRequest={commentDeleteRequest}
                             />
                         )
                     }

@@ -9,6 +9,7 @@ function* CommentDelete (action) {
             .remove();
 
         yield put({ type: "comment/comment_delete_Success" });
+        yield put({ type: "comment/comment_receive_Request" });
     } catch (error) {
         yield put({ type: "comment/comment_delete_Failure", payload: error })
     }

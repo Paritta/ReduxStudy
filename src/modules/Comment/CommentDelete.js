@@ -29,6 +29,7 @@ const reducer = handleActions({
         }
     },
     [COMMENT_DELETE_FAILURE]: (state, action) => {
+        console.log(action.error);
         return {
             ...state,
             pending: false,

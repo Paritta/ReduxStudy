@@ -119,7 +119,9 @@ const CurrentTime = styled.div`
 
 export class ModalStudyComment extends React.Component {
     render () {
-        const { CommentReceive, Comment, auth } = this.props;
+        const { CommentReceive, Comment, auth, commentDeleteRequest } = this.props;
+        console.log(Comment);
+        const CommentId = Comment.CommentId;
 
         return (
             <div>
@@ -127,7 +129,9 @@ export class ModalStudyComment extends React.Component {
                 {/* 로그인 하고, 로그인 한 사람과 댓글을 쓴 사람이 일치하면 삭제 버튼을 띄운다 */}
                 {
                     auth !== null && auth.uid === Comment.CommentAuthor &&
-                    <DeleteMark/>
+                    <DeleteMark
+                        onClick={() => commentDeleteRequest(CommentId)}
+                    />
                 }
                 <CommentIcon>
                     <FaUser size={25} color="white"/>

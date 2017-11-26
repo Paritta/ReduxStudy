@@ -3,6 +3,7 @@ import { getFirebase } from "react-redux-firebase";
 
 function* CommentReceive (action) {
     try {
+        console.log(action);
         const Comment = yield getFirebase()
             .database()
             .ref("comment")
@@ -25,13 +26,13 @@ function* CommentReceive (action) {
             CommentsList.push(CommentsObject.comments[key]);
         }
 
-        console.log(CommentsList);
 
         const CommentArray = [];
 
         for(let i = 0; i < CommentsList.length; i++) {
             const CommentEle = Comment[CommentsList[i]];
             CommentEle["CommentId"] = CommentsList[i];
+            // 에러. CommentsList[i]가 undefined
 
             CommentArray.push(CommentEle);
         }
