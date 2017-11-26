@@ -2,6 +2,7 @@ import { put, call, takeEvery } from "redux-saga/effects/";
 import { getFirebase } from "react-redux-firebase";
 
 export function* GetFirebase(action) {
+    // 페이지네이션 로직
     let PageNum = action.payload;
     let PageSize = 6;
     let RefData = {};
@@ -17,6 +18,9 @@ export function* GetFirebase(action) {
             .then(res => {
                 return res.val();
             });
+
+        console.log(PgData);
+
     } else {
         // 레퍼런스 데이터를 이용해서 페이지네이션 시작 엔드 포인트 키를 얻음
         RefData = yield getFirebase()
@@ -41,6 +45,8 @@ export function* GetFirebase(action) {
             .then((res) => {
                 return res.val();
             });
+
+        console.log(PgData);
     }
     return PgData;
 }
