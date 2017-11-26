@@ -15,18 +15,8 @@ it("handle CommentSend", () => {
         call(GetFireBase, action)
     );
 
-    const data = call(GetFireBase, action);
-
-    const arg = [action, action];
-
-    const pushGen = PushFireBase();
-    expect(pushGen.next().value).toEqual(
-        // call(PushFireBase, ...arg)
+    expect(commentSendgen.next().value).toEqual(
+         put({ type: "comment/comment_send_Success" })
     );
-
-    // const CommentSendGen = CommentSend();
-    // expect(CommentSendGen.next().value).toEqual(
-    //      put({ type: "comment/comment_send_Success" })
-    // );
 });
 

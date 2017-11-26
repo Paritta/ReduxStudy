@@ -23,7 +23,11 @@ exports[`Card render correctly 1`] = `
 
 .c1 {
   width: 300px;
+  font-family: 'Hanna',fantasy;
+  font-size: 1.2em;
+  line-height: 1.2;
   min-width: 200px;
+  color: #868e96;
 }
 
 <div
@@ -33,14 +37,38 @@ exports[`Card render correctly 1`] = `
     className="c1"
   >
     <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam cumque deleniti eius, incidunt labore laudantium maiores modi reiciendis sequi totam! Facere, quidem quod. A accusantium asperiores, illum libero voluptas voluptate?
+      개발자 ...
+    </div>
+    <div>
+      Github: https://github.com/Paritta
+    </div>
+    <div>
+      Blog: https://paritta.github.io/
+    </div>
+    <div>
+      Email: tjdgns8047@gmail.com
+    </div>
+    <div>
+      P.h: 010-4665-8841
     </div>
   </div>
   <div
     className="c1"
   >
     <div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam cumque deleniti eius, incidunt labore laudantium maiores modi reiciendis sequi totam! Facere, quidem quod. A accusantium asperiores, illum libero voluptas voluptate?
+      추가될 기능
+    </div>
+    <div>
+      좋아요 기능
+    </div>
+    <div>
+      인기 순위 Top 3
+    </div>
+    <div>
+      스터디 신청하기
+    </div>
+    <div>
+      퍼포먼스 개선
     </div>
   </div>
 </div>

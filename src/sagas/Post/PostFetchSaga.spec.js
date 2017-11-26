@@ -8,16 +8,14 @@ it("handle Fetch Saga", () => {
         takeEvery("fetch/fetch_Request", fetchData)
     );
 
+    const action = undefined;
+
     const genFetchData = fetchData();
     expect(genFetchData.next().value).toEqual(
-         call(GetFirebase)
+         call(GetFirebase, action)
     );
 
     expect(genFetchData.next().value).toEqual(
          put({ type: "fetch/fetch_Success", payload: [] })
     );
-
-    // expect(genFetchData.error("error").value).toEqual(
-    //     put({ type: "fetch/fetch_Success", payload: [] })
-    // );
 });
