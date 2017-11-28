@@ -97,18 +97,20 @@ export class Card extends React.Component {
         const { item, ImageReceive } = this.props;
         const { StudyTitle, Location } = item.data.values;
         const Pending = ImageReceive.pending;
-        const ImageData = ImageReceive.data;
+        const ImageUrlFromLayout = item.data.Image.Url;
         let ImageUrl = false;
-        if(this.props.key !== undefined && ImageReceive.data.length !== 0 && ImageReceive.data !== undefined) {
-            ImageUrl = ImageReceive.data[this.props.key].Url;
+
+        if(ImageUrlFromLayout !== "") {
+            ImageUrl = ImageUrlFromLayout
         }
+
         const PostImageKey = item.data.PostImageKey;
 
         return (
             <div>
                 {/* 이미지 로딩 */}
                 {
-                    Pending && ImageData.length === 0 &&
+                    Pending &&
                     <WrappedReactLoading>
                         <ReactLoading type="cylon" color="palevioletred"/>
                     </WrappedReactLoading>
@@ -136,12 +138,6 @@ export class Card extends React.Component {
                         </View>
                     </Wrapper>
                 }
-                {/*<Wrapper>*/}
-                    {/*<View>*/}
-                        {/*<FaCameraRetro/>*/}
-                    {/*</View>*/}
-                {/*</Wrapper>*/}
-
                 <Info>
                     <Title>
                         { StudyTitle }

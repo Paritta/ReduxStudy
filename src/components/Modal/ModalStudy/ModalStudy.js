@@ -142,7 +142,8 @@ export class ModalStudy extends React.Component {
         const Pending = ImageReceive.pending;
         const ImageData = ImageReceive.data;
         let ImageUrl = false;
-        if(ImageReceive.data !== undefined) {
+        console.log(ImageReceive);
+        if(ImageReceive.data !== undefined && ImageReceive.data.length > 0) {
             ImageUrl = ImageReceive.data[ImageReceive.data.length-1].Url;
         }
 
@@ -154,7 +155,7 @@ export class ModalStudy extends React.Component {
                         <ModalBoxLeft>
                             {/* 이미지 로딩 */}
                             {
-                                Pending && ImageData.length === 0 &&
+                                Pending &&
                                 <WrappedReactLoading>
                                     <ReactLoading type="cylon" color="palevioletred"/>
                                 </WrappedReactLoading>
@@ -162,7 +163,7 @@ export class ModalStudy extends React.Component {
 
                             {/* 이미지가 없을 때는 EmptyImage  */}
                             {
-                                auth !== null && auth.uid === author && modalProps.data.PostImageKey === undefined &&
+                                auth !== null && auth.uid === author && modalProps.data.PostImageKey === "" &&
                                 <ModalBoxLeftHeader
                                     ImageUrl={false}
                                 >
@@ -179,7 +180,7 @@ export class ModalStudy extends React.Component {
 
                             {/* 이미지가 있을 때는 ImageUrl, 이미지 등록 버튼 삭제 */}
                             {
-                                auth !== null && auth.uid === author && modalProps.data.PostImageKey !== undefined &&
+                                auth !== null && auth.uid === author && modalProps.data.PostImageKey !== "" &&
                                 <ModalBoxLeftHeader
                                     ImageUrl={ImageUrl}
                                 >

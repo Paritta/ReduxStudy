@@ -19,8 +19,26 @@ export function* GetFirebase(action) {
                 return res.val();
             });
 
-        console.log(PgData);
+        for(let key in PgData) {
+            const ImageKey = Object.values(PgData[key]["PostImageKey"]);
+            console.log(ImageKey[0]);
+            console.log(PgData[key]);
 
+            if(ImageKey[0] !== undefined) {
+                const Image = yield getFirebase()
+                    .database()
+                    .ref(`Images/${ImageKey[0]}`)
+                    .once("value")
+                    .then(res => {
+                        return res.val();
+                    });
+
+                PgData[key]["Image"] = Image;
+                console.log(Image);
+            } else {
+                PgData[key]["Image"] = "";
+            }
+        }
     } else {
         // 레퍼런스 데이터를 이용해서 페이지네이션 시작 엔드 포인트 키를 얻음
         RefData = yield getFirebase()
@@ -46,7 +64,27 @@ export function* GetFirebase(action) {
                 return res.val();
             });
 
-        console.log(PgData);
+        // 데이터에 이미지 삽입
+        for(let key in PgData) {
+            const ImageKey = Object.values(PgData[key]["PostImageKey"]);
+            console.log(ImageKey[0]);
+            console.log(PgData[key]);
+
+            if(ImageKey[0] !== undefined) {
+                const Image = yield getFirebase()
+                    .database()
+                    .ref(`Images/${ImageKey[0]}`)
+                    .once("value")
+                    .then(res => {
+                        return res.val();
+                    });
+
+                PgData[key]["Image"] = Image;
+                console.log(Image);
+            } else {
+                PgData[key]["Image"] = "";
+            }
+        }
     }
     return PgData;
 }
@@ -54,6 +92,7 @@ export function* GetFirebase(action) {
 export function* fetchData (action) {
     try {
         const data = yield call(GetFirebase, action);
+        console.log(data);
 
         const TransformFetch = [];
 

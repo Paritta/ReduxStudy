@@ -142,8 +142,6 @@ export class ModalImage extends React.Component {
                 };
                 this.props.imageSendRequest(ImageArg);
             });
-
-
         this.props.hideModal();
     };
 
