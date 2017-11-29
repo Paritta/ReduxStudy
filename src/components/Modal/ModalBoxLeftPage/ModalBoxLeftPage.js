@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import oc from "open-color";
-import MdAccessTime from 'react-icons/lib/md/access-time'
-import MdLocationOn from 'react-icons/lib/md/location-on'
-import MdLocationOn from 'react-icons/lib/fa'
+import MdAccessTime from "react-icons/lib/md/access-time";
+import MdLocationOn from "react-icons/lib/md/location-on";
+import FaHeartO from "react-icons/lib/fa/heart-o";
+import FaHeart from "react-icons/lib/fa/heart";
 
 const propTypes = {
     Data: PropTypes.object,
@@ -117,51 +118,85 @@ const Button = styled.button`
     }
 `;
 
-export const ModalBoxLeftPage = ({ PageData, auth, postDeleteRequest }) => {
-    const Data = PageData.data.values;
-    const author  = PageData.data.author;
+const HeartWrapper = styled.div`
+    display: inline-block;
+    margin-left: 20px;
+    pointer: cursor;
+`;
 
-    return (
-        <div>
-            <Wrapper>
-                <HeaderSideWrapper>
-                    <HeaderSide>
-                        {Data.Category}
-                    </HeaderSide>
-                    <HeaderSide>
-                        {Data.Number}
-                    </HeaderSide>
-                </HeaderSideWrapper>
-                <Header>
-                    {Data.StudyTitle}
-                </Header>
-                <Intro>
-                    {Data.Introduction}
-                </Intro>
-                <SideLocation>
-                    <MdLocationOn size={25} color="Black"/>
-                    <Span>
-                    {Data.Location}
-                </Span>
-                </SideLocation>
-                <SideTime>
-                    <MdAccessTime size={25} color="Black"/>
-                    <Span>
-                    {Data.Time}
-                </Span>
-                </SideTime>
-            </Wrapper>
-            {
-                auth !== null && auth.uid === author &&
-                <Button
-                    onClick={() => postDeleteRequest(PageData.postId)}
-                >
-                    글 내리기
-                </Button>
-            }
-        </div>
-    )
-};
+export class ModalBoxLeftPage extends React.Component {
+    state = {
+        HeartActive: false
+    };
+
+    componentDidUpdate (prevProps, prevState) {
+        if(prevState.HeartActive !== this.state.HeartActive) {
+            // 이메일 등록.
+            // this.state.HeartActive ?
+        }
+    }
+
+    render () {
+        const { PageData, auth, postDeleteRequest } = this.props;
+        const Data = PageData.data.values;
+        const author  = PageData.data.author;
+
+        return (
+            <div>
+                <Wrapper>
+                    <HeaderSideWrapper>
+                        <HeaderSide>
+                            {Data.Category}
+                        </HeaderSide>
+                        <HeaderSide>
+                            {Data.Number}
+                        </HeaderSide>
+                        {
+                            this.state.HeartActive ?
+                                <HeartWrapper
+                                    onClick={() => this.setState({ HeartActive: !this.state.HeartActive})}
+                                >
+                                    <FaHeart size={35} color="red"/>
+                                </HeartWrapper>
+                                :
+                                <HeartWrapper
+                                    onClick={() => this.setState({ HeartActive: !this.state.HeartActive})}
+                                >
+                                    <FaHeartO size={35} color="gray"/>
+                                </HeartWrapper>
+                        }
+                    </HeaderSideWrapper>
+                    <Header>
+                        {Data.StudyTitle}
+                    </Header>
+                    <Intro>
+                        {Data.Introduction}
+                    </Intro>
+                    <SideLocation>
+                        <MdLocationOn size={25} color="Black"/>
+                        <Span>
+                        {Data.Location}
+                    </Span>
+                    </SideLocation>
+                    <SideTime>
+                        <MdAccessTime size={25} color="Black"/>
+                        <Span>
+                        {Data.Time}
+                    </Span>
+                    </SideTime>
+                </Wrapper>
+                {
+                    auth !== null && auth.uid === author &&
+                    <Button
+                        onClick={() => postDeleteRequest(PageData.postId)}
+                    >
+                        글 내리기
+                    </Button>
+                }
+            </div>
+        )
+    }
+}
 
 ModalBoxLeftPage.propTypes = propTypes;
 ModalBoxLeftPage.defaultTypes = defaultTypes;

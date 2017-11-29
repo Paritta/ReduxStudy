@@ -146,8 +146,6 @@ export class ModalStudy extends React.Component {
             ImageUrl = ImageReceive.data[ImageReceive.data.length-1].Url;
         }
 
-        console.log(modalProps);
-
         return (
             <div>
                 <Dimmed />
