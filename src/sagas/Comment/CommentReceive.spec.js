@@ -1,5 +1,5 @@
 import React from "react";
-import { watchCommentReceive, CommentReceive, MakeCommentArray } from "./CommentReceiveSaga";
+import { watchCommentReceive, CommentReceive, MakeCommentArray } from "./CommentReceive";
 import { takeEvery, call, put } from "redux-saga/effects";
 
 describe("handle CommentSend", () => {

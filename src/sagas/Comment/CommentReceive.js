@@ -18,19 +18,21 @@ export function* MakeCommentArray (action) {
             return res.val();
         });
 
+    console.log(CommentsObject);
+
     const CommentsList = [];
 
-    for(let key in CommentsObject.comments) {
-        CommentsList.push(CommentsObject.comments[key]);
+    if(CommentsObject !== null){
+        for(let key in CommentsObject.comments) {
+                CommentsList.push(CommentsObject.comments[key]);
+        }
     }
-
 
     const CommentArray = [];
 
     for(let i = 0; i < CommentsList.length; i++) {
         const CommentEle = Comment[CommentsList[i]];
         CommentEle["CommentId"] = CommentsList[i];
-        // 에러. CommentsList[i]가 undefined
 
         CommentArray.push(CommentEle);
     }
@@ -44,6 +46,7 @@ export function* CommentReceive (action) {
 
         yield put({ type: "comment/comment_receive_Success", payload:  CommentArray});
     } catch (error) {
+        console.log(error);
         yield put({ type: "comment/comment_receive_Failure", payload: error })
     }
 }

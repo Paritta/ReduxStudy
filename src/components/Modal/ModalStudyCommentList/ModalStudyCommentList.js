@@ -121,13 +121,11 @@ export class ModalStudyCommentList extends React.Component {
        };
 
        this.setState({ PostUpdate: !this.state.PostUpdate});
-       console.log(this.state.PostUpdate);
-
        this.props.commentSendRequest(comment, this.props.postId);
    };
 
     render () {
-        const { CommentReceive, hideModal, username, auth, commentDeleteRequest } = this.props;
+        const { CommentReceive, hideModal, username, auth, commentDeleteRequest, postId } = this.props;
 
         return (
             <Wrapper>
@@ -142,13 +140,14 @@ export class ModalStudyCommentList extends React.Component {
                 <CommentWrapper>
                     {
                         !CommentReceive.pending && CommentReceive.data.length !== 0 &&
-                        CommentReceive.data.map((Comment, key) =>
+                        CommentReceive.data.slice(0).reverse().map((Comment, key) =>
                             <ModalStudyComment
                                 Comment={Comment}
                                 key={key}
-                                CommentReceive={CommentReceive.data}
                                 auth={auth}
+                                CommentReceive={CommentReceive.data}
                                 commentDeleteRequest={commentDeleteRequest}
+                                postId={postId}
                             />
                         )
                     }

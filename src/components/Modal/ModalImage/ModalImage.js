@@ -147,7 +147,6 @@ export class ModalImage extends React.Component {
 
     render () {
         const { hideModal, Animate } = this.props;
-        console.log(this.props);
 
         return (
             <div>

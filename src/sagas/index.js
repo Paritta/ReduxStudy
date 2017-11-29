@@ -1,11 +1,11 @@
 import { all } from "redux-saga/effects";
-import { watchFetchData } from "./Post/PostFetchSaga";
-import { watchCommentSend } from "./Comment/CommentSendSaga";
-import { watchCommentReceive } from "./Comment/CommentReceiveSaga";
+import { watchFetchData } from "./Post/PostFetch";
+import { watchCommentSend } from "./Comment/CommentSend";
+import { watchCommentReceive } from "./Comment/CommentReceive";
 import { watchCommentDelete } from "./Comment/CommentDelete";
-import { watchPostDelete } from "./Post/PostDeleteSaga";
-import { watchImageSend } from "./Image/ImageSendSaga";
-import { watchImageReceive } from "./Image/ImageReceiveSaga";
+import { watchPostDelete } from "./Post/PostDelete";
+import { watchImageSend } from "./Image/ImageSend";
+import { watchImageReceive } from "./Image/ImageReceive";
 
 export default function* rootSaga () {
     yield all([

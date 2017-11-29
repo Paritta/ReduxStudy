@@ -2,12 +2,16 @@ import React from "react";
 import { Card } from "./Card";
 import "jest-styled-components";
 import ReactTestRenderer from "react-test-renderer";
-import {imageReceiveRequest} from "../../modules/Image/ImageReceive";
 
 it("Card render correctly", () => {
     const item = {
         data: {
             values: {
+            },
+            Image: {
+                Url: {
+                    
+                }
             }
         }
     };

@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import oc from "open-color";
 import MdAccessTime from 'react-icons/lib/md/access-time'
 import MdLocationOn from 'react-icons/lib/md/location-on'
+import MdLocationOn from 'react-icons/lib/fa'
 
 const propTypes = {
     Data: PropTypes.object,

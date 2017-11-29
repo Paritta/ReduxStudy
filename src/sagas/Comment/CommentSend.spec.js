@@ -1,5 +1,5 @@
 import React from "react";
-import { watchCommentSend, CommentSend, GetFireBase, PushFireBase } from "./CommentSendSaga";
+import { watchCommentSend, CommentSend, GetFireBase, PushFireBase } from "./CommentSend";
 import { takeEvery, call, put } from "redux-saga/effects";
 
 it("handle CommentSend", () => {

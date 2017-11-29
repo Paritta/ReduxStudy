@@ -21,8 +21,6 @@ export function* GetFirebase(action) {
 
         for(let key in PgData) {
             const ImageKey = Object.values(PgData[key]["PostImageKey"]);
-            console.log(ImageKey[0]);
-            console.log(PgData[key]);
 
             if(ImageKey[0] !== undefined) {
                 const Image = yield getFirebase()
@@ -34,7 +32,6 @@ export function* GetFirebase(action) {
                     });
 
                 PgData[key]["Image"] = Image;
-                console.log(Image);
             } else {
                 PgData[key]["Image"] = "";
             }
@@ -67,8 +64,6 @@ export function* GetFirebase(action) {
         // 데이터에 이미지 삽입
         for(let key in PgData) {
             const ImageKey = Object.values(PgData[key]["PostImageKey"]);
-            console.log(ImageKey[0]);
-            console.log(PgData[key]);
 
             if(ImageKey[0] !== undefined) {
                 const Image = yield getFirebase()
@@ -80,7 +75,6 @@ export function* GetFirebase(action) {
                     });
 
                 PgData[key]["Image"] = Image;
-                console.log(Image);
             } else {
                 PgData[key]["Image"] = "";
             }
@@ -92,8 +86,6 @@ export function* GetFirebase(action) {
 export function* fetchData (action) {
     try {
         const data = yield call(GetFirebase, action);
-        console.log(data);
-
         const TransformFetch = [];
 
         for (let key in data) {
@@ -107,6 +99,7 @@ export function* fetchData (action) {
 
         yield put({ type: "fetch/fetch_Success", payload: TransformFetch });
     } catch (error) {
+        console.log(error);
         yield put({ type: "fetch/fetch_Failure", payload: error })
     }
 }

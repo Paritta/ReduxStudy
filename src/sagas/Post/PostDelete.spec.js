@@ -1,5 +1,5 @@
 import React from "react";
-import { watchPostDelete, PostDelete, MakePostDelete } from "./PostDeleteSaga";
+import { watchPostDelete, PostDelete, MakePostDelete } from "./PostDelete";
 import { takeEvery, call, put } from "redux-saga/effects";
 
 describe("handle PostDelete", () => {

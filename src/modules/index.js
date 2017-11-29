@@ -11,6 +11,8 @@ import Animate from "./Feature/Animate";
 import PostDelete from "./Post/PostDelete";
 import ImageSend from "./Image/ImageSend";
 import ImageReceive from "./Image/ImageReceive";
+import HeartSend from "./Heart/HeartSend";
+import HeartReceive from "./Heart/HeartReceive";
 
 export default combineReducers({
     Modal,
@@ -23,6 +25,8 @@ export default combineReducers({
     PostDelete,
     ImageSend,
     ImageReceive,
+    HeartSend,
+    HeartReceive,
     form: formReducer,
     firebase: firebaseStateReducer,
 });

@@ -25,6 +25,22 @@ export function* MakePostDelete(action) {
             .remove();
     }
 
+    // 댓글에 달린 이미지 삭제
+    const RefImage = yield getFirebase()
+        .database()
+        .ref(`posts/${action.payload}/PostImageKey`)
+        .once("value")
+        .then(res => {
+            return res.val();
+        });
+
+    for(let key in RefImage) {
+        yield getFirebase()
+            .database()
+            .ref(`Images/${RefImage[key]}`)
+            .remove()
+    }
+
     // 댓글 삭제 후, 포스트 삭제
     yield getFirebase()
         .database()

@@ -4,8 +4,14 @@ import { ModalImage } from "./ModalImage";
 import "jest-styled-components";
 
 it("Component render correctly", () => {
+    const Animate = {
+        AniamteOut: {}
+    };
+
     const tree = ReactTestRenderer.create(
-        <ModalImage />
+        <ModalImage
+            Animate={Animate}
+        />
     );
     expect(tree.toJSON()).toMatchSnapshot();
 });

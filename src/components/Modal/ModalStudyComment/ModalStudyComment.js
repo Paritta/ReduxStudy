@@ -119,8 +119,12 @@ const CurrentTime = styled.div`
 
 export class ModalStudyComment extends React.Component {
     render () {
-        const { CommentReceive, Comment, auth, commentDeleteRequest } = this.props;
+        const { CommentReceive, Comment, auth, commentDeleteRequest, postId } = this.props;
         const CommentId = Comment.CommentId;
+        const CommentPayload = {
+            CommentId: CommentId,
+            PostId: postId
+        };
 
         return (
             <div>
@@ -129,7 +133,7 @@ export class ModalStudyComment extends React.Component {
                 {
                     auth !== null && auth.uid === Comment.CommentAuthor &&
                     <DeleteMark
-                        onClick={() => commentDeleteRequest(CommentId)}
+                        onClick={() => commentDeleteRequest(CommentPayload)}
                     />
                 }
                 <CommentIcon>
