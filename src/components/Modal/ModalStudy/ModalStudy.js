@@ -22,6 +22,8 @@ const propTypes = {
     postDeleteRequest: PropTypes.func,
     imageReceiveRequest: PropTypes.func,
     ImageReceive: PropTypes.object,
+    heartSendRequest: PropTypes.func,
+    heartDeleteRequest: PropTypes.func,
 };
 
 const defaultTypes = {
@@ -31,6 +33,8 @@ const defaultTypes = {
     postDeleteRequest() {},
     imageReceiveRequest() {},
     ImageReceive: {},
+    heartSendRequest() {},
+    heartDeleteRequest() {},
 };
 
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -136,7 +140,7 @@ export class ModalStudy extends React.Component {
     }
 
     render () {
-        const { Modal, showModal, auth, postDeleteRequest, ImageReceive }  = this.props;
+        const { Modal, showModal, auth, postDeleteRequest, ImageReceive, heartSendRequest, heartDeleteRequest }  = this.props;
         const modalProps = Modal.modalProps;
         const author = modalProps.data.author;
         const Pending = ImageReceive.pending;
@@ -189,6 +193,9 @@ export class ModalStudy extends React.Component {
                                 PageData={modalProps}
                                 auth={auth}
                                 postDeleteRequest={postDeleteRequest}
+                                heartSendRequest={heartSendRequest}
+                                heartDeleteRequest={heartDeleteRequest}
+                                postId={modalProps.postId}
                             />
                         </ModalBoxLeft>
                         <ModalBoxRight>

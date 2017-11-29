@@ -12,7 +12,7 @@ import PostDelete from "./Post/PostDelete";
 import ImageSend from "./Image/ImageSend";
 import ImageReceive from "./Image/ImageReceive";
 import HeartSend from "./Heart/HeartSend";
-import HeartReceive from "./Heart/HeartReceive";
+import HeartReceive from "./Heart/HeartDelete";
 
 export default combineReducers({
     Modal,

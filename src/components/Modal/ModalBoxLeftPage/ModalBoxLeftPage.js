@@ -10,13 +10,17 @@ import FaHeart from "react-icons/lib/fa/heart";
 const propTypes = {
     Data: PropTypes.object,
     auth: PropTypes.object,
-    postDeleteRequest: PropTypes.func
+    postDeleteRequest: PropTypes.func,
+    heartSendRequest: PropTypes.func,
+    heartDeleteRequest: PropTypes.func,
 };
 
 const defaultTypes = {
     Data: {},
     auth: {},
-    postDeleteRequest() {}
+    postDeleteRequest() {},
+    heartSendRequest() {},
+    heartDeleteRequest() {},
 };
 
 const Wrapper = styled.div`
@@ -130,9 +134,14 @@ export class ModalBoxLeftPage extends React.Component {
     };
 
     componentDidUpdate (prevProps, prevState) {
+        const payload = {
+            Email: this.props.auth.email,
+            PostId: this.props.postId
+        };
+
         if(prevState.HeartActive !== this.state.HeartActive) {
             // 이메일 등록.
-            // this.state.HeartActive ?
+            this.state.HeartActive ? this.props.heartSendRequest(payload) : this.props.heartDeleteRequest(payload)
         }
     }
 

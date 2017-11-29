@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { showModal, hideModal } from "../../modules/Modal/Modal";
 import { postDeleteRequest } from "../../modules/Post/PostDelete";
 import { imageReceiveRequest } from "../../modules/Image/ImageReceive";
+import { heartSendRequest } from "../../modules/Heart/HeartSend";
+import { heartDeleteRequest } from "../../modules/Heart/HeartDelete";
 import ModalStudy from "../../components/Modal/ModalStudy/ModalStudy";
 import PropTypes from "prop-types";
 import { getModal, getImageReceive } from "../../selector";
@@ -15,6 +17,8 @@ const propTypes = {
     auth: PropTypes.object,
     imageReceiveRequest: PropTypes.func,
     ImageReceive: PropTypes.object,
+    heartSendRequest: PropTypes.func,
+    heartDeleteRequest: PropTypes.func,
 };
 
 const defaultTypes = {
@@ -24,9 +28,11 @@ const defaultTypes = {
     auth: {},
     imageReceiveRequest() {},
     ImageReceive: {},
+    heartSendRequest() {},
+    heartDeleteRequest() {},
 };
 
-const ModalStudyContainer = ({ Modal, showModal, hideModal, auth, postDeleteRequest, imageReceiveRequest, ImageReceive }) => {
+const ModalStudyContainer = ({ Modal, showModal, hideModal, auth, postDeleteRequest, imageReceiveRequest, ImageReceive, heartSendRequest, heartDeleteRequest }) => {
     return (
         <div>
             <ModalStudy
@@ -37,6 +43,8 @@ const ModalStudyContainer = ({ Modal, showModal, hideModal, auth, postDeleteRequ
                 postDeleteRequest={postDeleteRequest}
                 imageReceiveRequest={imageReceiveRequest}
                 ImageReceive={ImageReceive}
+                heartSendRequest={heartSendRequest}
+                heartDeleteRequest={heartDeleteRequest}
             />
         </div>
     )
@@ -51,5 +59,5 @@ export default connect(
         ImageReceive: getImageReceive(state),
         auth: pathToJS(state.firebase, "auth")
     }),
-    { showModal, hideModal, postDeleteRequest, imageReceiveRequest }
+    { showModal, hideModal, postDeleteRequest, imageReceiveRequest, heartSendRequest, heartDeleteRequest }
 )(ModalStudyContainer);
