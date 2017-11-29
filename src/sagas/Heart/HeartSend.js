@@ -1,5 +1,20 @@
 import { put, takeEvery, call } from "redux-saga/effects/";
 import { getFirebase } from "react-redux-firebase";
+import functions from "firebase-functions";
+import admin from "firebase-admin";
+
+admin.initializeApp(functions.config().firebase);
+
+function countlikes (action) {
+    const PostId = action.payload.PostId;
+
+    getFirebase()
+        .database()
+        .ref(`/posts/${PostId}/HearUser`)
+        .onWrite(e => {
+            return e.data.ref.parent.child('HeartUser_Count').set(e.data.numChildren());
+        })
+}
 
 export function* HeartPush(action) {
     // Heart (email) 추가
@@ -26,6 +41,8 @@ export function* HeartPush(action) {
     if(!isDuplicated) {
         yield getFirebase()
             .push(`posts/${PostId}/HeartUser`, Email);
+
+        countlikes()
     }
 }
 
