@@ -2,21 +2,21 @@ import { put, takeEvery, call } from "redux-saga/effects/";
 import { getFirebase } from "react-redux-firebase";
 
 export function* HeartRemove(action) {
-    // const PostId = action.payload.postid;
-    // cont Email = action.payload.Email;
+    const PostId = action.payload.PostId;
+    const Email = action.payload.Email;
 
-    // const RefData = yield getFirebase()
-    //     .database()
-    //     .ref(`posts/${PostId}/HeartUser`);
-    //
-    // for(let key in RefData) {
-    //     if(Email === RefData[key]) {
-    //         yield getFirebase()
-    //             .database()
-    //             .ref(`posts/${PostId}/HeartUser/${key}`)
-    //             .remove();
-    //     }
-    // }
+    const RefData = yield getFirebase()
+        .database()
+        .ref(`posts/${PostId}/HeartUser`);
+
+    for(let key in RefData) {
+        if(Email === RefData[key]) {
+            yield getFirebase()
+                .database()
+                .ref(`posts/${PostId}/HeartUser/${key}`)
+                .remove();
+        }
+    }
 }
 
 export function* HeartDelete (action) {
