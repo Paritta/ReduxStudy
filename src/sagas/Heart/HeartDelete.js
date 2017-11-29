@@ -7,7 +7,11 @@ export function* HeartRemove(action) {
 
     const RefData = yield getFirebase()
         .database()
-        .ref(`posts/${PostId}/HeartUser`);
+        .ref(`posts/${PostId}/HeartUser`)
+        .once("value")
+        .then(res => {
+            return res.val();
+        });
 
     for(let key in RefData) {
         if(Email === RefData[key]) {

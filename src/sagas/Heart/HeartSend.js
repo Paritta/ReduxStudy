@@ -7,8 +7,26 @@ export function* HeartPush(action) {
     const PostId = action.payload.PostId;
     const Email = action.payload.Email;
 
-    yield getFirebase()
-        .push(`posts/${PostId}/HeartUser`, Email);
+    const RefData = yield getFirebase()
+        .database()
+        .ref(`posts/${PostId}/HeartUser`)
+        .once("value")
+        .then(res => {
+            return res.val();
+        });
+
+    let isDuplicated = false;
+
+    for(let key in RefData) {
+        if (Email === RefData[key]) {
+            isDuplicated = true;
+        }
+    }
+
+    if(!isDuplicated) {
+        yield getFirebase()
+            .push(`posts/${PostId}/HeartUser`, Email);
+    }
 }
 
 export function* HeartSend (action) {

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import oc from "open-color";
+import { getFirebase } from "react-redux-firebase";
 import MdAccessTime from "react-icons/lib/md/access-time";
 import MdLocationOn from "react-icons/lib/md/location-on";
 import FaHeartO from "react-icons/lib/fa/heart-o";
@@ -125,13 +126,33 @@ const Button = styled.button`
 const HeartWrapper = styled.div`
     display: inline-block;
     margin-left: 20px;
-    pointer: cursor;
+    cursor: pointer;
 `;
 
 export class ModalBoxLeftPage extends React.Component {
     state = {
         HeartActive: false
     };
+
+    componentDidMount () {
+        const Email = this.props.auth.email;
+        const PostId = this.props.postId;
+
+        getFirebase()
+            .database()
+            .ref(`posts/${PostId}`)
+            .once("value")
+            .then(res => {
+                const RefData = res.val().HeartUser;
+                for(let key in RefData) {
+                    if(Email === RefData[key]) {
+                        this.setState({ HeartActive: true})
+                    } else {
+                        this.setState({ HeartActive: false})
+                    }
+                }
+            });
+    }
 
     componentDidUpdate (prevProps, prevState) {
         const payload = {
