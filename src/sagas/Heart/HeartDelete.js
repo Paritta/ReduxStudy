@@ -19,6 +19,12 @@ export function* HeartRemove(action) {
                 .database()
                 .ref(`posts/${PostId}/HeartUser/${key}`)
                 .remove();
+
+            const RefCountData = yield getFirebase()
+                .database()
+                .ref(`posts/${PostId}/HeartCount`);
+
+            RefCountData.transaction(count => (count || 0) - 1);
         }
     }
 }

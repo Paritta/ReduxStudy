@@ -99,7 +99,8 @@ export class ModalRegister extends React.Component {
             values,
             author: uid,
             username: display,
-            PostImageKey: ""
+            PostImageKey: "",
+            HeartCount: 0,
         };
 
         console.log(values);

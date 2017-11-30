@@ -19,6 +19,8 @@ const propTypes = {
     postId: PropTypes.string,
     auth: PropTypes.object,
     profile: PropTypes.object,
+    username: PropTypes.string,
+    HeartCount: PropTypes.number,
 };
 
 const defaultTypes = {
@@ -29,7 +31,8 @@ const defaultTypes = {
     hideModal() {},
     postId: "",
     auth: {},
-    profile: {},
+    username: "",
+    HeartCount: 0,
 };
 
 const Wrapper = styled.div`
@@ -38,7 +41,7 @@ const Wrapper = styled.div`
 `;
 
 // auth는 ModalStudyContainer에서 옴
-const ModalStudyCommentContainer = ({ commentSendRequest, CommentReceive, commentReceiveRequest, commentDeleteRequest, hideModal, postId, auth, profile }) => {
+const ModalStudyCommentContainer = ({ commentSendRequest, CommentReceive, commentReceiveRequest, commentDeleteRequest, hideModal, postId, auth, profile, username, HeartCount }) => {
     return (
         <Wrapper>
             <ModalStudyCommentList
@@ -50,6 +53,8 @@ const ModalStudyCommentContainer = ({ commentSendRequest, CommentReceive, commen
                 auth={auth}
                 profile={profile}
                 commentDeleteRequest={commentDeleteRequest}
+                username={username}
+                HeartCount={HeartCount}
             />
         </Wrapper>
     )

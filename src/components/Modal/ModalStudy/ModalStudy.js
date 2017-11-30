@@ -145,6 +145,7 @@ export class ModalStudy extends React.Component {
         const author = modalProps.data.author;
         const Pending = ImageReceive.pending;
         let ImageUrl = false;
+        const HeartCount = modalProps.data.HeartCount;
 
         if(ImageReceive.data !== undefined && ImageReceive.data.length > 0) {
             ImageUrl = ImageReceive.data[ImageReceive.data.length-1].Url;
@@ -204,6 +205,7 @@ export class ModalStudy extends React.Component {
                                 username={modalProps.data.username}
                                 auth={auth}
                                 author={author}
+                                HeartCount={HeartCount}
                             />
                         </ModalBoxRight>
                     </AnimationWrapper>

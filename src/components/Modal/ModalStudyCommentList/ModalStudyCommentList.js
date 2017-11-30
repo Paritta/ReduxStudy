@@ -3,8 +3,6 @@ import ModalStudyComment from "../ModalStudyComment/ModalStudyComment";
 import styled from "styled-components";
 import ModalStudyCommentListForm from "./ModalStudyCommentListForm";
 import PropTypes from "prop-types";
-import FaUser from "react-icons/lib/fa/user";
-import oc from "open-color";
 
 const propTypes = {
     commentReceiveRequest: PropTypes.func,
@@ -14,6 +12,7 @@ const propTypes = {
     postId: PropTypes.string,
     auth: PropTypes.object,
     profile: PropTypes.object,
+    HeartCount: PropTypes.number,
 };
 
 const defaultTypes = {
@@ -43,7 +42,7 @@ const Header = styled.div`
     height: 7%;
     width: 100%;
     
-    background: ${oc.gray[6]};
+    background: hsla(0, 0%, 0%, 0.8);
 `;
 
 const HeaderWrapper = styled.div`
@@ -51,23 +50,6 @@ const HeaderWrapper = styled.div`
     
     display: flex;
     flex-direction: row;
-`;
-
-const HeaderIcon = styled.div`
-    height: 35px;
-    width: 35px;
-   
-    border-radius: 100%;
-    
-    background: white;
-    
-    position: relative;
-    top: 10px;
-    left: 20px;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
 `;
 
 const CommentWrapper = styled.div`
@@ -83,11 +65,24 @@ const NickName = styled.span`
     position: absolute;
     
     top: 18px;
-    left: 70px;
+    left: 20px;
     
     font-family: 'Hanna', fantasy;
-    font-weight: 600;
-    font-size: 1.2em;
+    font-weight: 200;
+    font-size: 1em;
+    
+    color: white;
+`;
+
+const HeartCountWrapper = styled.div`
+    position: absolute;
+    
+    top: 18px;
+    right: 25px;
+    
+    font-family: 'Hanna', fantasy;
+    font-weight: 200;
+    font-size: 1em;
     
     color: white;
 `;
@@ -125,16 +120,14 @@ export class ModalStudyCommentList extends React.Component {
    };
 
     render () {
-        const { CommentReceive, hideModal, username, auth, commentDeleteRequest, postId } = this.props;
+        const { CommentReceive, hideModal, username, auth, commentDeleteRequest, postId, HeartCount } = this.props;
 
         return (
             <Wrapper>
                 <Header>
                     <HeaderWrapper>
-                        <HeaderIcon>
-                            <FaUser size={25} color="gray"/>
-                        </HeaderIcon>
                         <NickName>{username}</NickName>
+                        <HeartCountWrapper>좋아요 {HeartCount}개</HeartCountWrapper>
                     </HeaderWrapper>
                 </Header>
                 <CommentWrapper>

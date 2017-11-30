@@ -123,10 +123,33 @@ const Button = styled.button`
     }
 `;
 
+const HeartTooltip = styled.div`
+    position: absolute;
+    
+    bottom: 125%;
+    left: -30%;
+    
+    background: hsla(0, 0%, 0%, 0.6);
+    color: white;
+    
+    width: 200px;
+    padding: 5px 0;
+    
+    border-radius: 6px;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+`;
+
 const HeartWrapper = styled.div`
+    position: relative;
     display: inline-block;
     margin-left: 20px;
     cursor: pointer;
+    
+    &:hover ${HeartTooltip} {
+        opacity: 1;
+    }
 `;
 
 export class ModalBoxLeftPage extends React.Component {
@@ -171,6 +194,14 @@ export class ModalBoxLeftPage extends React.Component {
         const Data = PageData.data.values;
         const author  = PageData.data.author;
 
+        // 툴팁 유저 목록 작성
+        const HeartUserArr = [];
+
+        const HeartUserData = PageData.data.HeartUser;
+        for(let key in HeartUserData) {
+            HeartUserArr.push(HeartUserData[key]);
+        }
+
         return (
             <div>
                 <Wrapper>
@@ -187,6 +218,15 @@ export class ModalBoxLeftPage extends React.Component {
                                     onClick={() => this.setState({ HeartActive: !this.state.HeartActive})}
                                 >
                                     <FaHeart size={35} color="red"/>
+                                    <HeartTooltip>
+                                        {
+                                            HeartUserArr.map((User, key) => {
+                                                return <div key={key}>
+                                                    {User}
+                                                </div>
+                                            })
+                                        }
+                                    </HeartTooltip>
                                 </HeartWrapper>
                                 :
                                 <HeartWrapper

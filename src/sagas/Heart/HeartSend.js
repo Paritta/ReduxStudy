@@ -26,6 +26,12 @@ export function* HeartPush(action) {
     if(!isDuplicated) {
         yield getFirebase()
             .push(`posts/${PostId}/HeartUser`, Email);
+
+        const RefCountData = yield getFirebase()
+            .database()
+            .ref(`posts/${PostId}/HeartCount`);
+
+        RefCountData.transaction(count => (count || 0) + 1);
     }
 }
 
