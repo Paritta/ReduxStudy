@@ -218,21 +218,36 @@ export class ModalBoxLeftPage extends React.Component {
                                     onClick={() => this.setState({ HeartActive: !this.state.HeartActive})}
                                 >
                                     <FaHeart size={35} color="red"/>
-                                    <HeartTooltip>
-                                        {
-                                            HeartUserArr.map((User, key) => {
-                                                return <div key={key}>
-                                                    {User}
-                                                </div>
-                                            })
-                                        }
-                                    </HeartTooltip>
+                                    {
+                                        HeartUserArr.length > 0 &&
+                                        <HeartTooltip>
+                                            {
+                                                HeartUserArr.map((User, key) => {
+                                                    return <div key={key}>
+                                                        {User}
+                                                    </div>
+                                                })
+                                            }
+                                        </HeartTooltip>
+                                    }
                                 </HeartWrapper>
                                 :
                                 <HeartWrapper
                                     onClick={() => this.setState({ HeartActive: !this.state.HeartActive})}
                                 >
                                     <FaHeartO size={35} color="gray"/>
+                                    {
+                                        HeartUserArr.length > 0 &&
+                                        <HeartTooltip>
+                                            {
+                                                HeartUserArr.map((User, key) => {
+                                                    return <div key={key}>
+                                                        {User}
+                                                    </div>
+                                                })
+                                            }
+                                        </HeartTooltip>
+                                    }
                                 </HeartWrapper>
                         }
                     </HeaderSideWrapper>
