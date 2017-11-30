@@ -101,6 +101,7 @@ export class Layout extends React.Component {
     render () {
         const { Fetch, showModal, imageReceiveRequest, ImageReceive } = this.props;
         const Pending = Fetch.pending;
+        const DataLength = Fetch.data.length;
 
         return (
             <div>
@@ -117,13 +118,17 @@ export class Layout extends React.Component {
                                 <MdKeyboardArrowLeft size={130} color="gray"/>
                             </RightBtn>
                     }
-                    <LeftBtn
-                        onClick={() =>
-                            this.setState({PageNum: this.state.PageNum+1})
-                        }
-                    >
-                        <MdKeyboardArrowRight size={130} color="gray"/>
-                    </LeftBtn>
+                    {
+                        DataLength === 6 &&
+                        <LeftBtn
+                            onClick={() =>
+                                this.setState({PageNum: this.state.PageNum+1})
+                            }
+                        >
+                            <MdKeyboardArrowRight size={130} color="gray"/>
+                        </LeftBtn>
+
+                    }
                     {
                         Pending?
                         <WrappedReactLoading>

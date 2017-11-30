@@ -80,7 +80,10 @@ export class ModalSignUp extends React.Component {
             { email, password },
             { username, email }
         )
-    };
+        .catch(error => {
+            console.log(error.code);
+        })
+};
 
     submit = values => {
         this.createNewUser({

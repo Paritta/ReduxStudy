@@ -4,6 +4,7 @@ import ModalSignInContainer from "./ModalSignInContainer";
 import ModalSignUpContainer from "./ModalSignUpContainer";
 import ModalStudyContainer from "./ModalStudyContainer";
 import ModalImageContainer from "./ModalImageContainer";
+import ModalErrorContainer from "./ModalErrorContainer";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getModal } from "../../selector";
@@ -18,6 +19,7 @@ const MODAL_COMPONENTS ={
     "MODAL_SIGNUP": ModalSignUpContainer,
     "MODAL_STUDY": ModalStudyContainer,
     "MODAL_IMAGE": ModalImageContainer,
+    "MODAL_ERROR": ModalErrorContainer,
 };
 
 function ModalRootContainer ({ Modal }) {
