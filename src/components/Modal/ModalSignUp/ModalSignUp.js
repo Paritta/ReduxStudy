@@ -8,6 +8,7 @@ import { firebaseConnect, pathToJS } from "react-redux-firebase";
 
 const propTypes = {
     Modal: PropTypes.object,
+    showModal: PropTypes.func,
     hideModal: PropTypes.func,
     Animate: PropTypes.object,
     AnimateTurn: PropTypes.func,
@@ -17,6 +18,7 @@ const propTypes = {
 
 const defaultTypes = {
     Modal: {},
+    showModal() {},
     hideModal() {},
     Animate: {},
     AnimateTurn() {},
@@ -82,6 +84,7 @@ export class ModalSignUp extends React.Component {
         )
         .catch(error => {
             console.log(error.code);
+            this.props.showModal({ modalType: "MODAL_ERROR" })
         })
 };
 
@@ -89,7 +92,7 @@ export class ModalSignUp extends React.Component {
         this.createNewUser({
             email: values.email,
             password: values.password,
-            username: values.Nickname
+            username: values.Nickname,
         })
     };
 

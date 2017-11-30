@@ -101,7 +101,7 @@ export class Header extends React.Component {
                                 로그 아웃
                             </MenuItem>
                             <Button
-                                onClick={() => onShowModal({modalType: "MODAL_REGISTER"})}>
+                                onClick={() => onShowModal({ modalType: "MODAL_REGISTER" })}>
                                 등록하기
                             </Button>
                         </div>

@@ -42,6 +42,14 @@ const Dimmed = styled.div`
     background: rgba(0, 0, 0, 0.3);
 `;
 
+const ModalBox = styled.div`
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    
+    width: 500px;
+`;
+
 export class ModalError extends React.Component {
     render () {
         return (
@@ -49,6 +57,9 @@ export class ModalError extends React.Component {
                 <Dimmed />
                 <Wrapper>
                     <AnimationWrapper>
+                        <ModalBox>
+                            ModalError
+                        </ModalBox>
                     </AnimationWrapper>
                 </Wrapper>
             </div>

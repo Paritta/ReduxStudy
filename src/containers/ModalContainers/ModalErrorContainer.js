@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { hideModal } from "../../modules/Modal/Modal";
+import ModalError from "../../components/Modal/ModalError/ModalError";
 import PropTypes from "prop-types";
 
 const propTypes = {
