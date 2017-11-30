@@ -29,7 +29,7 @@ export class Carousel extends React.Component {
         return (
             <Wrapper>
                 <Span>
-                    슬라이드 준비 중 ...
+                    인기 순위 Top 3 준비 중 ...
                 </Span>
             </Wrapper>
         )

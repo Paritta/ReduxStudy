@@ -22,7 +22,7 @@ const MODAL_COMPONENTS ={
 
 function ModalRootContainer ({ Modal }) {
     if (!Modal.modalType) {
-        return <div>No Modal</div>
+        return <span></span>
     }
 
     const SpecificModal = MODAL_COMPONENTS[Modal.modalType];

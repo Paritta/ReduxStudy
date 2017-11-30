@@ -53,9 +53,6 @@ export const Footer = () => {
                     추가될 기능
                 </div>
                 <div>
-                    좋아요 기능
-                </div>
-                <div>
                     인기 순위 Top 3
                 </div>
                 <div>
