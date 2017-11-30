@@ -167,10 +167,12 @@ export class ModalStudy extends React.Component {
 
                             {/* 이미지가 없을 때는 EmptyImage  */}
                             {
-                                auth !== null && auth.uid === author && modalProps.data.PostImageKey === "" &&
+                                auth !== null && modalProps.data.PostImageKey === "" &&
                                 <ModalBoxLeftHeader
                                     ImageUrl={false}
                                 >
+                                    {
+                                        auth.uid === author &&
                                         <ImageRegister
                                             onClick={() => showModal({
                                                 modalType: "MODAL_IMAGE",
@@ -179,6 +181,7 @@ export class ModalStudy extends React.Component {
                                         >
                                             사진 등록
                                         </ImageRegister>
+                                    }
                                 </ModalBoxLeftHeader>
                             }
 
