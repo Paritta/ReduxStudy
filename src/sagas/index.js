@@ -8,6 +8,7 @@ import { watchImageSend } from "./Image/ImageSend";
 import { watchImageReceive } from "./Image/ImageReceive";
 import { watchHeartSend } from "./Heart/HeartSend";
 import { watchHeartDelete } from "./Heart/HeartDelete";
+import { watchTopPopuReceive } from "./TopPopu/TopPopu";
 
 export default function* rootSaga () {
     yield all([
@@ -20,6 +21,7 @@ export default function* rootSaga () {
         watchImageReceive(),
         watchHeartSend(),
         watchHeartDelete(),
+        watchTopPopuReceive(),
     ])
 }
 

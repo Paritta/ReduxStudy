@@ -13,6 +13,7 @@ import ImageSend from "./Image/ImageSend";
 import ImageReceive from "./Image/ImageReceive";
 import HeartSend from "./Heart/HeartSend";
 import HeartReceive from "./Heart/HeartDelete";
+import TopPopu from "./TopPopu/TopPopu";
 
 export default combineReducers({
     Modal,
@@ -27,6 +28,7 @@ export default combineReducers({
     ImageReceive,
     HeartSend,
     HeartReceive,
+    TopPopu,
     form: formReducer,
     firebase: firebaseStateReducer,
 });
