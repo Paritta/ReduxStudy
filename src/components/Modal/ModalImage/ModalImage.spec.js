@@ -8,9 +8,12 @@ it("Component render correctly", () => {
         AniamteOut: {}
     };
 
+    function addEventListener () { }
+
     const tree = ReactTestRenderer.create(
         <ModalImage
             Animate={Animate}
+            addEventListener={addEventListener}
         />
     );
     expect(tree.toJSON()).toMatchSnapshot();

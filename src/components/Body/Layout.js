@@ -99,9 +99,12 @@ export class Layout extends React.Component {
     }
 
     render () {
-        const { Fetch, showModal, imageReceiveRequest, ImageReceive } = this.props;
+        const { Fetch, showModal, imageReceiveRequest, ImageReceive, Filter } = this.props;
         const Pending = Fetch.pending;
         const DataLength = Fetch.data.length;
+
+        console.log(Fetch.data);
+        console.log(Filter);
 
         return (
             <div>
@@ -112,7 +115,7 @@ export class Layout extends React.Component {
                             :
                             <RightBtn
                                 onClick={() =>
-                                    this.setState({PageNum: this.state.PageNum-1})
+                                    this.setState({ PageNum: this.state.PageNum-1 })
                                 }
                             >
                                 <MdKeyboardArrowLeft size={130} color="gray"/>
@@ -122,13 +125,14 @@ export class Layout extends React.Component {
                         DataLength === 6 &&
                         <LeftBtn
                             onClick={() =>
-                                this.setState({PageNum: this.state.PageNum+1})
+                                this.setState({ PageNum: this.state.PageNum+1 })
                             }
                         >
                             <MdKeyboardArrowRight size={130} color="gray"/>
                         </LeftBtn>
 
                     }
+                    {/*필터링*/}
                     {
                         Pending?
                         <WrappedReactLoading>
@@ -136,6 +140,7 @@ export class Layout extends React.Component {
                         </WrappedReactLoading>
                         :
                         Fetch.data.map((item, key) =>
+                            item.data.values.Category === Filter.Filter &&
                             <Item
                                 onClick={() =>
                                     { showModal({
@@ -152,6 +157,32 @@ export class Layout extends React.Component {
                                 />
                             </Item>
                         )
+                    }
+                    {/*기본*/}
+                    {
+                        Pending?
+                            <WrappedReactLoading>
+                                <ReactLoading type="cylon" color="palevioletred"/>
+                            </WrappedReactLoading>
+                            :
+                            Fetch.data.map((item, key) =>
+                                Filter.Filter === "filter_default" &&
+                                <Item
+                                    onClick={() =>
+                                    { showModal({
+                                        modalType: "MODAL_STUDY",
+                                        modalProps: item
+                                    })}}
+                                    key={key}
+                                >
+                                    <Card
+                                        item={item}
+                                        postId={item.postId}
+                                        imageReceiveRequest={imageReceiveRequest}
+                                        ImageReceive={ImageReceive}
+                                    />
+                                </Item>
+                            )
                     }
                 </Wrapper>
             </div>

@@ -96,6 +96,7 @@ export function* fetchData (action) {
 
             TransformFetch.push(TransformFetchData);
         }
+        console.log(TransformFetch);
 
         yield put({ type: "fetch/fetch_Success", payload: TransformFetch });
     } catch (error) {

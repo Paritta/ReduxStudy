@@ -62,7 +62,7 @@ export const Filter = ({ filterMaterial, filterNursing, filterInformation, filte
                     <FilterBox>
                         <FilterItem
                             onClick={() => {
-                                filterMaterial("filter_Material")
+                                filterMaterial("MaterialScience")
                             }}>
                             <FaRecycle size={100} color="black"/>
                             <Span>
@@ -73,7 +73,7 @@ export const Filter = ({ filterMaterial, filterNursing, filterInformation, filte
                     <FilterBox>
                         <FilterItem
                             onClick={() => {
-                            filterNursing("filter_Nursing")
+                            filterNursing("Nursing")
                         }}>
                             <FaHeartbeat size={100} color="black"/>
                             <Span>
@@ -84,7 +84,7 @@ export const Filter = ({ filterMaterial, filterNursing, filterInformation, filte
                     <FilterBox>
                         <FilterItem
                             onClick={() => {
-                                filterInformation("filter_Information")
+                                filterInformation("ITEngineering")
                             }}>
                             <FaApple size={100} color="black"/>
                             <Span>
@@ -95,7 +95,7 @@ export const Filter = ({ filterMaterial, filterNursing, filterInformation, filte
                     <FilterBox>
                         <FilterItem
                             onClick={() => {
-                            filterComputer("filter_Computer")
+                            filterComputer("ComputerScience")
                         }}>
                             <FaFeed size={100} color="black"/>
                             <Span>
@@ -106,7 +106,7 @@ export const Filter = ({ filterMaterial, filterNursing, filterInformation, filte
                     <FilterBox>
                         <FilterItem
                             onClick={() => {
-                            filterChemical("filter_Chemical")
+                            filterChemical("Chemical")
                         }}>
                             <FaFlask size={100} color="black"/>
                             <Span>

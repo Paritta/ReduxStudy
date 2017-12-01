@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalError render correctly 1`] = `
+.c0 {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 5;
+  background: rgba(0,0,0,0.3);
+}
+
+.c1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 10;
+  width: 550px;
+}
+
+.c2 {
+  -webkit-animation: 1s eMLfYp;
+  animation: 1s eMLfYp;
+  width: 100%;
+}
+
+.c3 {
+  font-style: normal;
+  font-weight: 400;
+  color: white;
+  padding: 15px 15px;
+  background: palevioletred;
+}
+
+.c4 {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.3);
+  width: 100%;
+  height: 400px;
+  display: block;
+}
+
+.c5 {
+  font-family: 'Hanna',fantasy;
+  font-weight: 100;
+  font-size: 1.5em;
+  color: red;
+}
+
+.c6 {
+  background: palevioletred;
+  color: white;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.c6:hover {
+  background: #f783ac;
+  border: 2px solid #f783ac;
+}
+
+<div>
+  <div
+    className="c0"
+  />
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    >
+      <div
+        className="c3"
+      >
+        에러
+      </div>
+      <div
+        className="c4"
+      >
+        <div
+          className="c5"
+        >
+          Mesdage
+        </div>
+        <button
+          className="c6"
+          onClick={[Function]}
+        >
+          나가기
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

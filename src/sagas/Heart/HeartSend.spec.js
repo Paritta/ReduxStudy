@@ -10,14 +10,19 @@ describe("handle HeartSend", () => {
         );
     });
 
-    const action = undefined;
     it("it should call HeartSend and heart_send_Success", () => {
-        const HeartSendGen = HeartSend();
+        const action = {
+            payload: {
+                PostId: {},
+                Email: {}
+            }
+        };
+        const HeartPushGen = HeartPush();
         expect(HeartPushGen.next().value).toEqual(
-            call(HeartSend, action)
+            call(HeartPush, action)
         );
 
-        expect(HeartSendGen.next().value).toEqual(
+        expect(HeartPushGen.next().value).toEqual(
             put({ type: "heart/heart_send_Success" })
         );
     });

@@ -13,7 +13,7 @@ export const filterComputer = createAction(FILTER_COMPUTER);
 export const filterChemical = createAction(FILTER_CHEMICAL);
 
 const initialState = {
-    Filter: "filter_Material"
+    Filter: "filter_default"
 };
 
 const reducer = handleActions({
