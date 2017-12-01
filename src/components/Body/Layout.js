@@ -103,9 +103,6 @@ export class Layout extends React.Component {
         const Pending = Fetch.pending;
         const DataLength = Fetch.data.length;
 
-        console.log(Fetch.data);
-        console.log(Filter);
-
         return (
             <div>
                 <Wrapper>

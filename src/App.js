@@ -7,6 +7,7 @@ import HeaderContainer from "./containers/BodyContainer/HeaderContainer";
 import ModalRootContainer from "./containers/ModalContainers/ModalRootContainer";
 import FilterContainer from "./containers/BodyContainer/FilterContainer";
 import LayoutContainer from "./containers/BodyContainer/LayoutContainer";
+import TopPopuContainer from "./containers/BodyContainer/TopPopuContainer";
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
           <HeaderContainer />
           <Banner />
           <ModalRootContainer />
+          <TopPopuContainer />
           <Slider />
           <FilterContainer />
           <LayoutContainer />

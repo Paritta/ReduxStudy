@@ -4,3 +4,4 @@ export const getModal = state => state.Modal;
 export const getCommentReceive = state => state.CommentReceive;
 export const getAniamte = state => state.Animate;
 export const getImageReceive = state => state.ImageReceive;
+export const getTopPopu = state => state.TopPopu;

@@ -2,7 +2,7 @@ import { put, call, takeEvery } from "redux-saga/effects/";
 import { getFirebase } from "react-redux-firebase";
 
 export function* MakeRequest(action) {
-    PgData = yield getFirebase()
+    const PgData = yield getFirebase()
         .database()
         .ref("posts/")
         .once("value")
@@ -15,6 +15,7 @@ export function* MakeRequest(action) {
 
 export function* TopPopuRequest (action) {
     try {
+        console.log("1");
         const PgData = yield call(MakeRequest, action);
         yield put({ type: "toppopu/toppopu_receive_Success", payload: PgData });
     } catch (error) {
