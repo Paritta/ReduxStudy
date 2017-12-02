@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { hideModal } from "../../modules/Modal/Modal";
+import { showModal, hideModal } from "../../modules/Modal/Modal";
 import { animateTurn, animateDown } from "../../modules/Feature/Animate";
 import { fetchRequest } from "../../modules/Post/PostFetch";
 import { toppopuReceiveRequest } from "../../modules/TopPopu/TopPopu";
@@ -10,6 +10,7 @@ import { getModal, getAniamte } from "../../selector";
 
 const propTypes = {
     Modal: PropTypes.object,
+    showModal: PropTypes.func,
     hideModal: PropTypes.func,
     Animate: PropTypes.object,
     animateTurn: PropTypes.func,
@@ -20,6 +21,7 @@ const propTypes = {
 
 const defaultTypes = {
     Modal: {},
+    showModal() {},
     hideModal() {},
     Animate: {},
     animateTurn() {},
@@ -27,10 +29,11 @@ const defaultTypes = {
     toppopuReceiveRequest() {},
 };
 
-const ModalSignInContainer = ({ hideModal, animateTurn, animateDown, Animate, fetchRequest, toppopuReceiveRequest }) => {
+const ModalSignInContainer = ({ showModal, hideModal, animateTurn, animateDown, Animate, fetchRequest, toppopuReceiveRequest }) => {
     return (
         <div>
             <ModalSignIn
+                showModal={showModal}
                 hideModal={hideModal}
                 animateTurn={animateTurn}
                 animateDown={animateDown}
@@ -50,5 +53,5 @@ export default connect(
         Modal: getModal(state),
         Animate: getAniamte(state)
     }),
-    { hideModal, animateTurn, animateDown, fetchRequest, toppopuReceiveRequest }
+    { showModal, hideModal, animateTurn, animateDown, fetchRequest, toppopuReceiveRequest }
 )(ModalSignInContainer);

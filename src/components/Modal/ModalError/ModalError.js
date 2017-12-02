@@ -2,11 +2,14 @@ import React from "react";
 import oc from "open-color";
 import styled, {keyframes} from "styled-components";
 import { fadeIn } from 'react-animations';
+import PropTypes from "prop-types";
 
 const propTypes = {
+    Modal: PropTypes.object,
 };
 
 const defaultTypes = {
+    Modal: {},
 };
 
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -57,9 +60,12 @@ const ModalBox = styled.div`
 const ModalComment = styled.div`
     font-family: 'Hanna', fantasy;
     font-weight: 100;
-    font-size: 1.5em;
+    font-size: 2em;
     
-    color: red;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    
+    color: ${oc.gray[4]};
 `;
 
 const Button = styled.button`
@@ -89,7 +95,23 @@ const ModalHeader = styled.div`
     background: palevioletred;
 `;
 
+
 export class ModalError extends React.Component {
+    handleError () {
+        switch (this.props.Modal.modalProps) {
+            case "auth/weak-password":
+                return "비밀번호를 6자리 이상 입력해주세요."
+            case "auth/email-already-in-use":
+                return "이미 등록 이메일입니다.";
+            case "auth/wrong-password":
+                return "잘못된 비밀번호입니다.";
+            case "auth/user-not-found":
+                return "잘못된 이메일입니다";
+            case "auth/invalid-email":
+                return "잘못된 이메일입니다";
+        }
+    }
+
     render () {
         return (
             <div>
@@ -98,8 +120,8 @@ export class ModalError extends React.Component {
                     <AnimationWrapper>
                         <ModalHeader>에러</ModalHeader>
                         <ModalBox>
-                            <ModalComment>Mesdage</ModalComment>
-                            <Button onClick={() => this.hideAnimate()}>나가기</Button>
+                            <ModalComment>{this.handleError()}</ModalComment>
+                            <Button onClick={() => this.props.hideModal()}>나가기</Button>
                         </ModalBox>
                     </AnimationWrapper>
                 </Wrapper>

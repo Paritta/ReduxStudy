@@ -9,6 +9,7 @@ import ReactLoading from "react-loading";
 
 const propTypes = {
     Modal: PropTypes.object,
+    showModal: PropTypes.func,
     hideModal: PropTypes.func,
     Animate: PropTypes.object,
     AnimateTurn: PropTypes.func,
@@ -20,6 +21,7 @@ const propTypes = {
 
 const defaultTypes = {
     Modal: {},
+    showModal() {},
     hideModal() {},
     Animate: {},
     AnimateTurn() {},
@@ -112,8 +114,8 @@ export class ModalSignIn extends React.Component {
             })
             .catch((error) => {
                 this.setState({ isLoading: false });
-                console.log("there was an error:", error);
-                console.log("error prop:", this.props.authError);
+                this.props.showModal({ modalType: "MODAL_ERROR", modalProps: error.code })
+                console.log(error.code);
             })
     };
 

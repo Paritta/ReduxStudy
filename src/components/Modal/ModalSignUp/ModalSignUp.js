@@ -93,7 +93,7 @@ export class ModalSignUp extends React.Component {
         })
         .catch(error => {
             console.log(error.code);
-            this.props.showModal({ modalType: "MODAL_ERROR" })
+            this.props.showModal({ modalType: "MODAL_ERROR", modalProps: error.code })
         })
 };
 

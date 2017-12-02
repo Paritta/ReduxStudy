@@ -19,6 +19,7 @@ const propTypes = {
     ImageReceive: PropTypes.object,
     heartSendRequest: PropTypes.func,
     heartDeleteRequest: PropTypes.func,
+    Modal: PropTypes.object,
 };
 
 const defaultTypes = {
@@ -30,6 +31,7 @@ const defaultTypes = {
     ImageReceive: {},
     heartSendRequest() {},
     heartDeleteRequest() {},
+    Modal: {},
 };
 
 const ModalStudyContainer = ({ Modal, showModal, hideModal, auth, postDeleteRequest, imageReceiveRequest, ImageReceive, heartSendRequest, heartDeleteRequest }) => {

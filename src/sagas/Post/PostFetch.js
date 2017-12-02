@@ -13,27 +13,32 @@ export function* GetFirebase(action) {
         PgData = yield getFirebase()
             .database()
             .ref("posts/")
+            .orderByKey()
             .limitToFirst(PageSize)
             .once("value")
             .then(res => {
                 return res.val();
             });
 
+
         for(let key in PgData) {
-            const ImageKey = Object.values(PgData[key]["PostImageKey"]);
+            if(key !== "Popularity") {
+                const ImageKey = Object.values(PgData[key]["PostImageKey"]);
 
-            if(ImageKey[0] !== undefined) {
-                const Image = yield getFirebase()
-                    .database()
-                    .ref(`Images/${ImageKey[0]}`)
-                    .once("value")
-                    .then(res => {
-                        return res.val();
-                    });
+                if(ImageKey[0] !== undefined) {
+                    const Image = yield getFirebase()
+                        .database()
+                        .ref(`Images/${ImageKey[0]}`)
+                        .once("value")
+                        .then(res => {
+                            return res.val();
+                        });
 
-                PgData[key]["Image"] = Image;
-            } else {
-                PgData[key]["Image"] = "";
+                    PgData[key]["Image"] = Image;
+                } else {
+                    PgData[key]["Image"] = "";
+                }
+
             }
         }
     } else {
@@ -96,6 +101,7 @@ export function* fetchData (action) {
 
             TransformFetch.push(TransformFetchData);
         }
+        console.log(TransformFetch);
 
         yield put({ type: "fetch/fetch_Success", payload: TransformFetch });
     } catch (error) {

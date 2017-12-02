@@ -59,6 +59,7 @@ export const TopPopu = ({ PageData }) => {
             {
                 !Pending &&
                 PgDataSort.map((item, key) =>
+                    key < 3 &&
                         <Span key={key}>
                             {
                                 `${key+1}위. `
