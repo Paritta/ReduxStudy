@@ -24,6 +24,8 @@ Demo
 
 <img src='./PortfolioImage/Demo4.png'>
 
+<img src='./PortfolioImage/Demo9.png'>
+
 > 스터디 등록
 
 <img src='./PortfolioImage/Demo5.png'>
@@ -62,6 +64,7 @@ Feature
 * 스터디 필터링 
 * 이미지 업로드
 * 인기 순 정렬 
+* 페이지네이션
 
 Source Code
 ===
