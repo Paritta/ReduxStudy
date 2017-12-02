@@ -6,7 +6,7 @@ import { fetchRequest } from "../../modules/Post/PostFetch";
 import { imageReceiveRequest } from "../../modules/Image/ImageReceive";
 import PropTypes from "prop-types";
 import { getFetch, getFilter, getImageReceive } from "../../selector";
-import { firebaseConnect, dataToJS } from 'react-redux-firebase';
+import { pathToJS } from 'react-redux-firebase';
 import { compose } from "redux";
 
 const propTypes = {
@@ -19,6 +19,7 @@ const propTypes = {
     uploadedFiles: PropTypes.object,
     imageReceiveRequest: PropTypes.func,
     ImageReceive: PropTypes.object,
+    auth: PropTypes.object,
 };
 
 const defaultTypes = {
@@ -31,11 +32,10 @@ const defaultTypes = {
     uploadedFiles: {},
     imageReceiveRequest() {},
     ImageReceive: {},
+    auth: {},
 };
 
-const filesPath = "/posts";
-
-function LayoutContainer({ Fetch, Filter, showModal, hideModal, fetchRequest, firebase, uploadedFiles, imageReceiveRequest, ImageReceive}) {
+function LayoutContainer({ Fetch, Filter, showModal, hideModal, fetchRequest, firebase, imageReceiveRequest, ImageReceive, auth }) {
     return (
         <div>
             <Layout
@@ -45,9 +45,9 @@ function LayoutContainer({ Fetch, Filter, showModal, hideModal, fetchRequest, fi
                 hideModal={hideModal}
                 fetchRequest={fetchRequest}
                 firebase={firebase}
-                uploadedFiles={uploadedFiles}
                 imageReceiveRequest={imageReceiveRequest}
                 ImageReceive={ImageReceive}
+                auth={auth}
             />
         </div>
     )
@@ -57,15 +57,12 @@ LayoutContainer.propTypes = propTypes;
 LayoutContainer.defaultTypes = defaultTypes;
 
 export default compose(
-    firebaseConnect([
-        filesPath
-    ]),
     connect (
         state => ({
             Fetch: getFetch(state),
             Filter: getFilter(state),
             ImageReceive: getImageReceive(state),
-            uploadedFiles: dataToJS(state.firebase, filesPath)
+            auth: pathToJS(state.firebase, "auth")
         }),
         { showModal, hideModal, fetchRequest, imageReceiveRequest }
     )

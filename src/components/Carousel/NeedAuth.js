@@ -20,23 +20,23 @@ const Wrapper = styled.div`
 const Span= styled.div`
     color: ${oc.gray[5]};
     font-family: 'Hanna', fantasy;
-    font-size: 5em;
+    font-size: 3em;
 `;
 
-export class Carousel extends React.Component {
+export class NeedAuth extends React.Component {
     render () {
 
         return (
             <Wrapper>
                 <Span>
-                    인기 순위 Top 3 준비 중 ...
+                    로그인이 필요합니다.
                 </Span>
             </Wrapper>
         )
     }
 }
 
-Carousel.propTypes = propTypes;
-Carousel.defaultTypes = defaultTypes;
+NeedAuth.propTypes = propTypes;
+NeedAuth.defaultTypes = defaultTypes;
 
-export default Carousel;
+export default NeedAuth;

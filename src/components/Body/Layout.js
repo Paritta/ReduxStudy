@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import ReactLoading from "react-loading";
 import MdKeyboardArrowRight from "react-icons/lib/md/keyboard-arrow-right";
 import MdKeyboardArrowLeft from "react-icons/lib/md/keyboard-arrow-left";
+import NeedAuth from "../../components/Carousel/NeedAuth";
 
 const propTypes = {
     Fetch: PropTypes.object,
@@ -14,6 +15,7 @@ const propTypes = {
     fetchRequest: PropTypes.func,
     imageReceiveRequest: PropTypes.func,
     ImageReceive: PropTypes.object,
+    auth: PropTypes.object,
 };
 
 const defaultTypes = {
@@ -24,6 +26,7 @@ const defaultTypes = {
     fetchRequest() {},
     imageReceiveRequest() {},
     ImageReceive: {},
+    auth: {},
 };
 
 const Wrapper = styled.div`
@@ -99,7 +102,7 @@ export class Layout extends React.Component {
     }
 
     render () {
-        const { Fetch, showModal, imageReceiveRequest, ImageReceive, Filter } = this.props;
+        const { Fetch, showModal, imageReceiveRequest, ImageReceive, Filter, auth } = this.props;
         const Pending = Fetch.pending;
         const DataLength = Fetch.data.length;
 
@@ -107,7 +110,7 @@ export class Layout extends React.Component {
             <div>
                 <Wrapper>
                     {
-                        this.state.PageNum === 1 ?
+                        auth !== null && this.state.PageNum === 1 ?
                             ""
                             :
                             <RightBtn
@@ -119,7 +122,7 @@ export class Layout extends React.Component {
                             </RightBtn>
                     }
                     {
-                        DataLength === 6 &&
+                        auth !== null && DataLength === 6 &&
                         <LeftBtn
                             onClick={() =>
                                 this.setState({ PageNum: this.state.PageNum+1 })
@@ -136,7 +139,7 @@ export class Layout extends React.Component {
                             <ReactLoading type="cylon" color="palevioletred"/>
                         </WrappedReactLoading>
                         :
-                        Fetch.data.map((item, key) =>
+                        auth !== null && Fetch.data.map((item, key) =>
                             item.data.values.Category === Filter.Filter &&
                             <Item
                                 onClick={() =>
@@ -157,13 +160,13 @@ export class Layout extends React.Component {
                     }
                     {/*기본*/}
                     {
-                        Pending?
+                         Pending?
                             <WrappedReactLoading>
                                 <ReactLoading type="cylon" color="palevioletred"/>
                             </WrappedReactLoading>
                             :
                             Fetch.data.map((item, key) =>
-                                Filter.Filter === "filter_default" &&
+                                auth !== null && Filter.Filter === "filter_default" &&
                                 <Item
                                     onClick={() =>
                                     { showModal({

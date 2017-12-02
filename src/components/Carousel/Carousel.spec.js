@@ -1,5 +1,5 @@
 import React from "react";
-import { Carousel } from "./Carousel";
+import { Carousel } from "./NeedAuth";
 import "jest-styled-components";
 import ReactTestRenderer from "react-test-renderer";
 

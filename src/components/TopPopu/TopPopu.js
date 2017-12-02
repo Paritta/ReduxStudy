@@ -1,11 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import oc from "open-color";
+import NeedAuth from "../../components/Carousel/NeedAuth";
+import PropTypes from "prop-types";
 
 const propTypes = {
+    auth: PropTypes.object,
 };
 
 const defaultTypes = {
+    auth: {},
 };
 
 const Wrapper = styled.div`
@@ -32,7 +36,7 @@ const HeartSpan= styled.span`
     padding-left: 20px;
 `;
 
-export const TopPopu = ({ PageData }) => {
+export const TopPopu = ({ PageData, auth }) => {
     const PgData = PageData;
     const Pending = PgData.pending;
     const PgDataArr = [];
@@ -57,7 +61,11 @@ export const TopPopu = ({ PageData }) => {
     return (
         <Wrapper>
             {
-                !Pending &&
+                auth === null &&
+                <NeedAuth />
+            }
+            {
+                !Pending && auth !== null &&
                 PgDataSort.map((item, key) =>
                     key < 3 &&
                         <Span key={key}>
