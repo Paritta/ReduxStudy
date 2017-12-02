@@ -17,7 +17,7 @@ describe("handle HeartSend", () => {
                 Email: {}
             }
         };
-        const HeartPushGen = HeartPush();
+        const HeartPushGen = HeartPush(action);
         expect(HeartPushGen.next().value).toEqual(
             call(HeartPush, action)
         );

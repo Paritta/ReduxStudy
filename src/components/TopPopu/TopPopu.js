@@ -1,10 +1,36 @@
 import React from "react";
+import styled from "styled-components";
+import oc from "open-color";
 
 const propTypes = {
 };
 
 const defaultTypes = {
 };
+
+const Wrapper = styled.div`
+    background: white;
+    height: 50vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+`;
+
+const Span= styled.div`
+    color: ${oc.gray[5]};
+    font-family: 'Hanna', fantasy;
+    font-size: 3.5em;
+    margin-top: 20px;
+`;
+
+const HeartSpan= styled.span`
+    color: ${oc.pink[7]};
+    font-family: 'Hanna', fantasy;
+    font-size: 0.7em;
+    padding-left: 20px;
+`;
 
 export const TopPopu = ({ PageData }) => {
     const PgData = PageData;
@@ -29,18 +55,26 @@ export const TopPopu = ({ PageData }) => {
     }
 
     return (
-        <div>
+        <Wrapper>
             {
                 !Pending &&
                 PgDataSort.map((item, key) =>
-                    <div>
-                        {
-                            item.values.StudyTitle
-                        }
-                    </div>
+                        <Span key={key}>
+                            {
+                                `${key+1}위. `
+                            }
+                            {
+                                item.values.StudyTitle
+                            }
+                            <HeartSpan>
+                                {
+                                    ` 좋아요 ${item.HeartCount}개`
+                                }
+                            </HeartSpan>
+                        </Span>
                 )
             }
-        </div>
+        </Wrapper>
     )
 };
 

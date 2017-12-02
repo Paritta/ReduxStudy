@@ -15,7 +15,6 @@ export function* MakeRequest(action) {
 
 export function* TopPopuRequest (action) {
     try {
-        console.log("1");
         const PgData = yield call(MakeRequest, action);
         yield put({ type: "toppopu/toppopu_receive_Success", payload: PgData });
     } catch (error) {

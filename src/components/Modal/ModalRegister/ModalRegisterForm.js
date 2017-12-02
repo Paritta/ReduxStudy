@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Field, reduxForm  } from "redux-form";
+import { Field, reduxForm } from "redux-form";
 import oc from "open-color";
 import PropTypes from "prop-types";
 
@@ -67,6 +67,7 @@ export class ModalRegisterForm extends React.Component {
         setTimeout(this.props.hideModal, 500);
         setTimeout(this.props.animateDown, 600);
     }
+
 
     render () {
         const { handleSubmit } = this.props;

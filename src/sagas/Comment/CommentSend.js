@@ -1,5 +1,6 @@
 import { put, takeEvery, call } from "redux-saga/effects/";
 import { getFirebase } from "react-redux-firebase";
+import { reset } from "redux-form";
 
 export function* GetFireBase(action) {
     // comment 추가
@@ -15,8 +16,8 @@ export function* CommentSend (action) {
     try {
         yield call(GetFireBase, action);
         yield put({ type: "comment/comment_send_Success" });
+        yield put(reset("ModalSignIn"));
     } catch (error) {
-        console.log(error);
         yield put({ type: "comment/comment_send_Failure", payload: error })
     }
 }

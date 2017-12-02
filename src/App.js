@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Banner from "./components/Banner/Banner";
-import Slider from "./components/Carousel/Carousel";
 import Footer from "./components/Footer/Footer";
 import HeaderContainer from "./containers/BodyContainer/HeaderContainer";
 import ModalRootContainer from "./containers/ModalContainers/ModalRootContainer";
@@ -17,7 +16,6 @@ class App extends Component {
           <Banner />
           <ModalRootContainer />
           <TopPopuContainer />
-          <Slider />
           <FilterContainer />
           <LayoutContainer />
           <Footer />

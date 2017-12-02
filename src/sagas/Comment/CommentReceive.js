@@ -18,8 +18,6 @@ export function* MakeCommentArray (action) {
             return res.val();
         });
 
-    console.log(CommentsObject);
-
     const CommentsList = [];
 
     if(CommentsObject !== null){

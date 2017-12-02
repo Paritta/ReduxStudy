@@ -2,7 +2,6 @@ import React from "react";
 import oc from "open-color";
 import styled, {keyframes} from "styled-components";
 import { fadeIn } from 'react-animations';
-import MdClose from "react-icons/lib/md/close";
 
 const propTypes = {
 };
@@ -53,24 +52,6 @@ const ModalBox = styled.div`
     height: 400px;
     
     display: block;
-`;
-
-const CloseWrapper = styled.div`
-    position: absolute;
-    
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -70%);
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    border: 5px solid red;
-    border-radius: 100%;
-    
-    height: 40%;
-    width: 40%;
 `;
 
 const ModalComment = styled.div`
