@@ -35,6 +35,7 @@ export function* ImageReceive (action) {
     try {
         yield fork(GetPostImageKey, action);
     } catch (error) {
+        console.log(error);
         yield put({ type: "image/image_receive_Failure", payload: error });
     }
 }

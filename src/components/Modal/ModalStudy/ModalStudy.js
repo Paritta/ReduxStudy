@@ -187,7 +187,7 @@ export class ModalStudy extends React.Component {
 
                             {/* 이미지가 있을 때는 ImageUrl, 이미지 등록 버튼 삭제 */}
                             {
-                                auth !== null && modalProps.data.PostImageKey !== "" &&
+                                modalProps.data.PostImageKey !== "" &&
                                 <ModalBoxLeftHeader
                                     ImageUrl={ImageUrl}
                                 >
