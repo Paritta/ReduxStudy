@@ -2,22 +2,28 @@ import React from "react";
 import ModalStudyComment from "../ModalStudyComment/ModalStudyComment";
 import styled from "styled-components";
 import ModalStudyCommentListForm from "./ModalStudyCommentListForm";
-import { firebaseConnect, pathToJS } from "react-redux-firebase";
-import { connect } from "react-redux";
-import { commentReceiveRequest } from "../../../modules/CommentReceive";
-import { hideModal } from "../../../modules/Modal";
 import PropTypes from "prop-types";
-import FaUser from "react-icons/lib/fa/user";
-import oc from "open-color";
 
 const propTypes = {
     commentReceiveRequest: PropTypes.func,
-    hideModal : PropTypes.func
+    CommentReceive: PropTypes.object,
+    commentDeleteRequest: PropTypes.func,
+    hideModal : PropTypes.func,
+    postId: PropTypes.string,
+    auth: PropTypes.object,
+    profile: PropTypes.object,
+    HeartCount: PropTypes.number,
 };
 
 const defaultTypes = {
     commentReceiveRequest () {},
-    hideModal () {}
+    commentSendRequest() {},
+    commentReceive: {},
+    commentDeleteRequest() {},
+    hideModal () {},
+    postId: "",
+    auth: {},
+    profile: {},
 };
 
 const Wrapper = styled.div`
@@ -36,7 +42,7 @@ const Header = styled.div`
     height: 7%;
     width: 100%;
     
-    background: ${oc.gray[6]};
+    background: hsla(0, 0%, 0%, 0.8);
 `;
 
 const HeaderWrapper = styled.div`
@@ -44,23 +50,6 @@ const HeaderWrapper = styled.div`
     
     display: flex;
     flex-direction: row;
-`;
-
-const HeaderIcon = styled.div`
-    height: 35px;
-    width: 35px;
-   
-    border-radius: 100%;
-    
-    background: white;
-    
-    position: relative;
-    top: 10px;
-    left: 20px;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
 `;
 
 const CommentWrapper = styled.div`
@@ -76,10 +65,24 @@ const NickName = styled.span`
     position: absolute;
     
     top: 18px;
-    left: 70px;
+    left: 20px;
     
-    font-weight: 600;
-    font-size: 1.2em;
+    font-family: 'Hanna', fantasy;
+    font-weight: 200;
+    font-size: 1em;
+    
+    color: white;
+`;
+
+const HeartCountWrapper = styled.div`
+    position: absolute;
+    
+    top: 18px;
+    right: 25px;
+    
+    font-family: 'Hanna', fantasy;
+    font-weight: 200;
+    font-size: 1em;
     
     color: white;
 `;
@@ -102,40 +105,42 @@ export class ModalStudyCommentList extends React.Component {
    submit = value => {
        const username = this.props.profile.username;
        const display = username ? username : this.props.profile.displayName;
+       const CurrentTime = new Date().toLocaleString().slice(2, new Date().toLocaleString().length-3);
 
        const comment = {
            comment: value.comment,
            NickName: display,
-           postId: this.props.postId
+           postId: this.props.postId,
+           CurrentTime: CurrentTime,
+           CommentAuthor: this.props.auth.uid,
        };
 
        this.setState({ PostUpdate: !this.state.PostUpdate});
-       console.log(this.state.PostUpdate);
-
        this.props.commentSendRequest(comment, this.props.postId);
    };
 
     render () {
-        const { CommentReceive, hideModal, username } = this.props;
+        const { CommentReceive, hideModal, username, auth, commentDeleteRequest, postId, HeartCount } = this.props;
 
         return (
             <Wrapper>
                 <Header>
                     <HeaderWrapper>
-                        <HeaderIcon>
-                            <FaUser size={25} color="gray"/>
-                        </HeaderIcon>
                         <NickName>{username}</NickName>
+                        <HeartCountWrapper>좋아요 {HeartCount}개</HeartCountWrapper>
                     </HeaderWrapper>
                 </Header>
                 <CommentWrapper>
                     {
                         !CommentReceive.pending && CommentReceive.data.length !== 0 &&
-                        CommentReceive.data.map((Comment, key) =>
+                        CommentReceive.data.slice(0).reverse().map((Comment, key) =>
                             <ModalStudyComment
                                 Comment={Comment}
                                 key={key}
+                                auth={auth}
                                 CommentReceive={CommentReceive.data}
+                                commentDeleteRequest={commentDeleteRequest}
+                                postId={postId}
                             />
                         )
                     }
@@ -152,11 +157,4 @@ export class ModalStudyCommentList extends React.Component {
 ModalStudyCommentList.propTypes = propTypes;
 ModalStudyCommentList.defaultTypes = defaultTypes;
 
-const WrappedModalStudyCommentList = firebaseConnect()(ModalStudyCommentList);
-
-export default connect(
-    ({ firebase }) => ({
-        profile: pathToJS(firebase, "profile")
-    }),
-    { commentReceiveRequest, hideModal }
-)(WrappedModalStudyCommentList);
+export default ModalStudyCommentList;

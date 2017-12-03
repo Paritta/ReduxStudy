@@ -9,19 +9,25 @@ import ReactLoading from "react-loading";
 
 const propTypes = {
     Modal: PropTypes.object,
+    showModal: PropTypes.func,
     hideModal: PropTypes.func,
     Animate: PropTypes.object,
     AnimateTurn: PropTypes.func,
     AnimateDown: PropTypes.func,
-    firebase: PropTypes.object
+    firebase: PropTypes.object,
+    fetchRequest: PropTypes.func,
+    toppopuReceiveRequest: PropTypes.func,
 };
 
 const defaultTypes = {
     Modal: {},
+    showModal() {},
     hideModal() {},
     Animate: {},
     AnimateTurn() {},
-    AnimateDown() {}
+    AnimateDown() {},
+    fetchRequest() {},
+    toppopuReceiveRequest() {},
 };
 
 const bounceInLeftAnimation = keyframes`${bounceInLeft}`;
@@ -102,12 +108,14 @@ export class ModalSignIn extends React.Component {
             })
             .then(() => {
                 this.setState({ isLoading: false });
-                this.props.hideModal()
+                this.props.hideModal();
+                this.props.fetchRequest();
+                this.props.toppopuReceiveRequest();
             })
             .catch((error) => {
                 this.setState({ isLoading: false });
-                console.log("there was an error:", error);
-                console.log("error prop:", this.props.authError);
+                this.props.showModal({ modalType: "MODAL_ERROR", modalProps: error.code })
+                console.log(error.code);
             })
     };
 
@@ -117,8 +125,10 @@ export class ModalSignIn extends React.Component {
         return this.props.firebase
             .login({ provider: 'google' })
             .then(() => {
-                this.setState({ isLoading: false })
+                this.setState({ isLoading: false });
                 // this is where you can redirect to another route
+                this.props.fetchRequest();
+                this.props.toppopuReceiveRequest();
             })
             .catch((error) => {
                 this.setState({ isLoading: false });
@@ -133,8 +143,10 @@ export class ModalSignIn extends React.Component {
         return this.props.firebase
             .login({ provider: 'facebook' })
             .then(() => {
-                this.setState({ isLoading: false })
+                this.setState({ isLoading: false });
                 // this is where you can redirect to another route
+                this.props.fetchRequest();
+                this.props.toppopuReceiveRequest();
             })
             .catch((error) => {
                 this.setState({ isLoading: false });
@@ -177,7 +189,7 @@ export class ModalSignIn extends React.Component {
             </div>
         )
     }
-};
+}
 
 ModalSignIn.propTypes = propTypes;
 ModalSignIn.defaultTypes = defaultTypes;

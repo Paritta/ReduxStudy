@@ -2,10 +2,11 @@ import React from "react";
 import styled, {keyframes} from "styled-components";
 import { fadeIn } from 'react-animations';
 import PropTypes from "prop-types";
-import ModalStudyAsset from "../../../asset/ModalStudyAsset.jpeg";
-import ModalStudyCommentContainer from "../../../containers/modalcontainers/ModalStudyCommentContainer";
+import ModalStudyCommentContainer from "../../../containers/ModalContainers/ModalStudyCommentContainer";
 import ModalBoxLeftPage from "../ModalBoxLeftPage/ModalBoxLeftPage";
+import EmptyImage from "../../../asset/EmptyImage.png";
 import oc from "open-color";
+import ReactLoading from "react-loading";
 
 const propTypes = {
     Modal: PropTypes.shape({
@@ -18,14 +19,22 @@ const propTypes = {
     }),
     auth: PropTypes.object,
     showModal: PropTypes.func,
-    postDeleteRequest: PropTypes.func
+    postDeleteRequest: PropTypes.func,
+    imageReceiveRequest: PropTypes.func,
+    ImageReceive: PropTypes.object,
+    heartSendRequest: PropTypes.func,
+    heartDeleteRequest: PropTypes.func,
 };
 
 const defaultTypes = {
     Modal: {},
     auth: {},
     showModal() {},
-    postDeleteRequest() {}
+    postDeleteRequest() {},
+    imageReceiveRequest() {},
+    ImageReceive: {},
+    heartSendRequest() {},
+    heartDeleteRequest() {},
 };
 
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -65,7 +74,7 @@ const ModalBoxLeftHeader = styled.div`
     top: 0;
     left: 0;
     
-    background: url(${ModalStudyAsset}) left center;
+    background: url(${props => props.ImageUrl ? props.ImageUrl : EmptyImage}) center center;
     background-size: cover;
     
     width: 100%;
@@ -111,14 +120,36 @@ const ImageRegister = styled.button`
     
     &:hover {
         background: ${oc.pink[4]};
-    border: 2px solid ${oc.pink[4]};
+        border: 2px solid ${oc.pink[4]};
     }
 `;
 
+const WrappedReactLoading = styled.div`
+    transform: scale(2);
+    position: absolute;
+    
+    top: 15%;
+    left: 40%;
+    
+    padding: 80px 0;
+`;
+
 export class ModalStudy extends React.Component {
+    componentDidMount () {
+        this.props.imageReceiveRequest(this.props.Modal.modalProps.postId)
+    }
+
     render () {
-        const { Modal, showModal, auth, postDeleteRequest }  = this.props;
-        const Props = Modal.modalProps;
+        const { Modal, showModal, auth, postDeleteRequest, ImageReceive, heartSendRequest, heartDeleteRequest }  = this.props;
+        const modalProps = Modal.modalProps;
+        const author = modalProps.data.author;
+        const Pending = ImageReceive.pending;
+        let ImageUrl = false;
+        const HeartCount = modalProps.data.HeartCount;
+
+        if(ImageReceive.data !== undefined && ImageReceive.data.length > 0) {
+            ImageUrl = ImageReceive.data[ImageReceive.data.length-1].Url;
+        }
 
         return (
             <div>
@@ -126,23 +157,58 @@ export class ModalStudy extends React.Component {
                 <Wrapper>
                     <AnimationWrapper>
                         <ModalBoxLeft>
-                            <ModalBoxLeftHeader>
-                                <ImageRegister
-                                    onClick={() => showModal({ modalType: "MODAL_IMAGE" })}
+                            {/* 이미지 로딩 */}
+                            {
+                                Pending &&
+                                <WrappedReactLoading>
+                                    <ReactLoading type="cylon" color="palevioletred"/>
+                                </WrappedReactLoading>
+                            }
+
+                            {/* 이미지가 없을 때는 EmptyImage  */}
+                            {
+                                auth !== null && modalProps.data.PostImageKey === "" &&
+                                <ModalBoxLeftHeader
+                                    ImageUrl={false}
                                 >
-                                    사진 등록
-                                </ImageRegister>
-                            </ModalBoxLeftHeader>
+                                    {
+                                        auth.uid === author &&
+                                        <ImageRegister
+                                            onClick={() => showModal({
+                                                modalType: "MODAL_IMAGE",
+                                                modalProps: modalProps.postId
+                                            })}
+                                        >
+                                            사진 등록
+                                        </ImageRegister>
+                                    }
+                                </ModalBoxLeftHeader>
+                            }
+
+                            {/* 이미지가 있을 때는 ImageUrl, 이미지 등록 버튼 삭제 */}
+                            {
+                                modalProps.data.PostImageKey !== "" &&
+                                <ModalBoxLeftHeader
+                                    ImageUrl={ImageUrl}
+                                >
+                                </ModalBoxLeftHeader>
+                            }
                             <ModalBoxLeftPage
-                                PageData={Props}
+                                PageData={modalProps}
                                 auth={auth}
                                 postDeleteRequest={postDeleteRequest}
+                                heartSendRequest={heartSendRequest}
+                                heartDeleteRequest={heartDeleteRequest}
+                                postId={modalProps.postId}
                             />
                         </ModalBoxLeft>
                         <ModalBoxRight>
                             <ModalStudyCommentContainer
-                                postId={Props.postId}
-                                username={Props.data.username}
+                                postId={modalProps.postId}
+                                username={modalProps.data.username}
+                                auth={auth}
+                                author={author}
+                                HeartCount={HeartCount}
                             />
                         </ModalBoxRight>
                     </AnimationWrapper>

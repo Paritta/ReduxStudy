@@ -3,6 +3,7 @@ import styled, {keyframes} from "styled-components";
 import { bounceInLeft, bounceOutRight } from 'react-animations';
 import PropTypes from "prop-types";
 import Dropzone from 'react-dropzone';
+import oc from "open-color";
 import ReactLoading from "react-loading";
 
 const propTypes = {
@@ -11,7 +12,8 @@ const propTypes = {
     Animate: PropTypes.object,
     AnimateTurn: PropTypes.func,
     AnimateDown: PropTypes.func,
-    firebase: PropTypes.object
+    firebase: PropTypes.object,
+    imageSendRequest: PropTypes.func,
 };
 
 const defaultTypes = {
@@ -19,7 +21,8 @@ const defaultTypes = {
     hideModal() {},
     Animate: {},
     AnimateTurn() {},
-    AnimateDown() {}
+    AnimateDown() {},
+    imageSendRequest() {},
 };
 
 const bounceInLeftAnimation = keyframes`${bounceInLeft}`;
@@ -81,7 +84,38 @@ const WrappedReactLoading = styled.div`
     padding: 80px 0;
 `;
 
-const filesPath = "";
+const Span = styled.div`
+    font-family: 'Hanna', fantasy;
+    font-size: 1.5em;
+`;
+
+const DropWrapper= styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 50px;
+`;
+
+const Button = styled.button`
+    background: palevioletred;
+    color: white;
+    
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    
+    transition: all 0.3s ease;
+    
+    &:hover {
+        background: ${oc.pink[4]};
+        border: 2px solid ${oc.pink[4]};
+    }
+`;
+
 
 export class ModalImage extends React.Component {
     state = {
@@ -90,13 +124,29 @@ export class ModalImage extends React.Component {
     };
 
     onFilesDrop = (files) => {
+        // 해당 포스트 경로에 사진을 저장한다
+        const filesPath = `/posts/${this.props.Modal.modalProps}`;
+
         // Uploads files and push's objects containing metadata to database at dbPath
         // uploadFiles(storagePath, files, dbPath)
         this.props.firebase.uploadFiles(filesPath, files, filesPath)
+            .then(data => {
+                const Url = data[0].File.downloadURL;
+                const Path = data[0].File.fullPath;
+                const PostId = this.props.Modal.modalProps;
+
+                const ImageArg = {
+                    PostId: PostId,
+                    Url: Url,
+                    Path: Path
+                };
+                this.props.imageSendRequest(ImageArg);
+            });
+        this.props.hideModal();
     };
 
     render () {
-        const { hideModal, animateTurn, animateDown, Animate } = this.props;
+        const { hideModal, Animate } = this.props;
 
         return (
             <div>
@@ -110,12 +160,19 @@ export class ModalImage extends React.Component {
                             <ModalBox>
                                 {!this.state.isLoading
                                     ?
-                                    <span>이미지 등록</span>
+                                    <DropWrapper>
+                                        <Dropzone onDrop={this.onFilesDrop}>
+                                            <Span>
+                                                이미지를 떨구십시오.
+                                            </Span>
+                                        </Dropzone>
+                                    </DropWrapper>
                                     :
                                     <WrappedReactLoading>
                                         <ReactLoading type="cylon" color="palevioletred"/>
                                     </WrappedReactLoading>
                                 }
+                                <Button onClick={() => hideModal()}>나가기</Button>
                             </ModalBox>
                         </Wrapper>
                     </AnimationWrapper>

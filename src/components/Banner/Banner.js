@@ -5,7 +5,7 @@ import background from "../../asset/background.jpg"
 const BannerBackground = styled.div`
     background: url(${background}) left bottom;
     background-size: cover;
-    height: 40vh;
+    height: 45vh;
 `;
 
 export const Banner = () => {

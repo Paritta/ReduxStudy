@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import oc from "open-color";
 import { firebaseConnect, pathToJS } from "react-redux-firebase";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const propTypes = {
     onShowModal: PropTypes.func,
@@ -53,6 +54,30 @@ const MenuItem = styled.button`
     }
 `;
 
+const MenuAbout = styled.button`
+    background: white;
+    font-weight: 500;
+    font-size: 0.9em;
+    border: 2px solid white;
+    
+    margin: 15px 0 15px 20px;
+    
+    &:hover {
+        color: ${oc.gray[5]};
+    }
+    
+    text-align: left;
+`;
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: black;
+    
+    &:hover {
+        color: ${oc.gray[5]};
+    }
+`;
+
 export class Header extends React.Component {
     handleLogOut () {
         this.props.firebase.logout();
@@ -66,18 +91,26 @@ export class Header extends React.Component {
                 <Wrapper>
                     {profile&&
                         <div>
+                            <MenuAbout>
+                                <StyledLink to="About">
+                                    About
+                                </StyledLink>
+                            </MenuAbout>
                             <MenuItem
                                 onClick={() => this.handleLogOut()}>
                                 로그 아웃
                             </MenuItem>
                             <Button
-                                onClick={() => onShowModal({modalType: "MODAL_REGISTER"})}>
+                                onClick={() => onShowModal({ modalType: "MODAL_REGISTER" })}>
                                 등록하기
                             </Button>
                         </div>
                     }
                     {!profile&&
                         <span>
+                            <MenuAbout>
+                                About
+                            </MenuAbout>
                             <MenuItem
                                 onClick={() => onShowModal({modalType: "MODAL_SIGNUP"})}>
                                 회원가입

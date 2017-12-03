@@ -1,12 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import oc from "open-color";
-import FaCameraRetro from "react-icons/lib/fa/camera-retro";
+import EmptyImage from "../../asset/EmptyImage.png";
+import PropTypes from "prop-types";
+import ReactLoading from "react-loading";
 
 const propTypes = {
+    image: PropTypes.object,
+    imageReceiveRequest: PropTypes.func,
+    ImageReceive: PropTypes.object,
 };
 
 const defaultTypes = {
+    image: {},
+    imageReceiveRequest() {},
+    ImageReceive: {},
 };
 
 const Wrapper = styled.div`
@@ -23,9 +30,10 @@ const View = styled.div`
     padding: 0;
 
     width: 450px;
-    height: 300px;
+    height: 250px;
     
-    background: ${oc.gray[1]};
+    background: url(${props => props.ImageUrl ? props.ImageUrl : EmptyImage}) center center;
+    background-size: ${props => props.ImageUrl ? 100 : 40}px;
     
     display: flex;
     align-items: center;
@@ -57,38 +65,91 @@ const Info =styled.div`
 `;
 
 const Title = styled.div`
+    font-family: 'Hanna', fantasy;
     font-size: 40px;
     font-weight: 500;
     color: white;
 `;
 
+const WrappedReactLoading = styled.div`
+    transform: scale(2);
+    position: absolute;
+    
+    top: 15%;
+    left: 40%;
+    
+    padding: 80px 0;
+`;
+
 const LocationDiv = styled.div`   
+    font-family: 'Hanna', fantasy;
     font-size: 22px;
     font-weight: 400;
     color: white;
 `;
 
-export const Card = ({ item }) => {
-    const { StudyTitle, Location } = item.data.values;
+export class Card extends React.Component {
+    componentDidMount () {
+        this.props.imageReceiveRequest(this.props.postId)
+    }
 
-    return (
-        <div>
-            <Wrapper>
-                <View>
-                    <FaCameraRetro/>
-                </View>
-            </Wrapper>
-            <Info>
-                <Title>
-                    { StudyTitle }
-                </Title>
-                <LocationDiv>
-                    { Location }
-                </LocationDiv>
-            </Info>
-        </div>
-    );
-};
+    render () {
+        const { item, ImageReceive } = this.props;
+        const { StudyTitle, Location } = item.data.values;
+        const Pending = ImageReceive.pending;
+        const ImageUrlFromLayout = item.data.Image.Url;
+        let ImageUrl = false;
+
+        if(ImageUrlFromLayout !== "") {
+            ImageUrl = ImageUrlFromLayout
+        }
+
+        const PostImageKey = item.data.PostImageKey;
+
+        return (
+            <div>
+                {/* 이미지 로딩 */}
+                {
+                    Pending &&
+                    <WrappedReactLoading>
+                        <ReactLoading type="cylon" color="palevioletred"/>
+                    </WrappedReactLoading>
+                }
+
+                {/* 이미지가 없을 때는 EmptyImage  */}
+                {
+                    PostImageKey === undefined &&
+                    <Wrapper>
+                        <View
+                            ImageUrl={false}
+                        >
+                            .
+                        </View>
+                    </Wrapper>
+                }
+
+                {/* 이미지가 있을 때는 ImageUrl, 이미지 등록 버튼 삭제 */}
+                {
+                    PostImageKey !== undefined &&
+                    <Wrapper>
+                        <View
+                            ImageUrl={ImageUrl}
+                        >
+                        </View>
+                    </Wrapper>
+                }
+                <Info>
+                    <Title>
+                        { StudyTitle }
+                    </Title>
+                    <LocationDiv>
+                        { Location }
+                    </LocationDiv>
+                </Info>
+            </div>
+        );
+    }
+}
 
 Card.propTypes = propTypes;
 Card.defaultTypes = defaultTypes;

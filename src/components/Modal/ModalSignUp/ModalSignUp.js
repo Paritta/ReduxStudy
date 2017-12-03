@@ -8,19 +8,25 @@ import { firebaseConnect, pathToJS } from "react-redux-firebase";
 
 const propTypes = {
     Modal: PropTypes.object,
+    showModal: PropTypes.func,
     hideModal: PropTypes.func,
     Animate: PropTypes.object,
     AnimateTurn: PropTypes.func,
     AnimateDown: PropTypes.func,
-    firebase: PropTypes.object
+    firebase: PropTypes.object,
+    fetchRequest: PropTypes.func,
+    toppopuReceiveRequest: PropTypes.func,
 };
 
 const defaultTypes = {
     Modal: {},
+    showModal() {},
     hideModal() {},
     Animate: {},
     AnimateTurn() {},
-    AnimateDown() {}
+    AnimateDown() {},
+    fetchRequest() {},
+    toppopuReceiveRequest() {},
 };
 
 const bounceInLeftAnimation = keyframes`${bounceInLeft}`;
@@ -80,13 +86,22 @@ export class ModalSignUp extends React.Component {
             { email, password },
             { username, email }
         )
-    };
+        .then(() => {
+            this.props.hideModal();
+            this.props.fetchRequest();
+            this.props.toppopuReceiveRequest();
+        })
+        .catch(error => {
+            console.log(error.code);
+            this.props.showModal({ modalType: "MODAL_ERROR", modalProps: error.code })
+        })
+};
 
     submit = values => {
         this.createNewUser({
             email: values.email,
             password: values.password,
-            username: values.Nickname
+            username: values.Nickname,
         })
     };
 
@@ -117,7 +132,7 @@ export class ModalSignUp extends React.Component {
             </div>
         )
     }
-};
+}
 
 ModalSignUp.propTypes = propTypes;
 ModalSignUp.defaultTypes = defaultTypes;

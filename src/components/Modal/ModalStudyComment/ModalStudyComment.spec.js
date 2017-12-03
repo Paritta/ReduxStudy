@@ -9,12 +9,20 @@ it("Layout render correctly", () => {
         data: []
     };
 
-    const CommentId = "";
+    const Comment= {
+        CommentId: {
+        }
+    };
+
+    const auth = {
+        uid: { }
+    };
 
     const tree = ReactTestRenderer.create(
         <ModalStudyComment
             CommentReceive={CommentReceive}
-            CommentId={CommentId}
+            Comment={Comment}
+            auth={auth}
         />
     );
     expect(tree.toJSON()).toMatchSnapshot();

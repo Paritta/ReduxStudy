@@ -1,7 +1,7 @@
 import React from "react";
 import FaUser from "react-icons/lib/fa/user";
 import PropTypes from "prop-types";
-import { commentReceiveRequest } from "../../../modules/CommentReceive";
+import { commentReceiveRequest } from "../../../modules/Comment/CommentReceive";
 import { connect } from "react-redux";
 import { getCommentReceive } from "../../../selector";
 import styled from "styled-components";
@@ -29,8 +29,8 @@ const Wrapper = styled.div`
     padding: 25px 25px;
     
     &:hover {
-        background: ${oc.pink[1]};
-        border: 2px solid ${oc.pink[1]};
+        background: ${oc.gray[1]};
+        border: 2px solid ${oc.gray[1]};
     }
     
     transition: all 0.5s ease;
@@ -46,9 +46,13 @@ const CommentWrapper = styled.div`
 const CommentString = styled.div`
     font-size: 15px;
     font-weight: 400;
+    text-align: left;
+    
+    padding-top: 5px;
 `;
 
 const NickName = styled.div`
+    font-family: 'Hanna', fantasy;
     font-size: 18px;
     font-weight: 500;
     text-align: left;
@@ -76,13 +80,62 @@ const Line = styled.div`
     height: 1px;
 `;
 
+const DeleteMark = styled.div`
+    position: absolute;
+    top: 30%;
+    right: 23%;
+    
+    opacity: 0.3;
+    
+    &:hover {
+        opacity: 1;
+    }
+    
+    &:before, &:after {
+      position: absolute;
+      left: 15px;
+      content: ' ';
+      height: 27px;
+      width: 2px;
+      background-color: #333;
+      cursor: pointer;
+    }
+    
+    &:before {
+      transform: rotate(45deg);
+    }
+    
+    &:after {
+      transform: rotate(-45deg);
+    }
+`;
+
+
+const CurrentTime = styled.div`
+    font-size: 0.7em;
+    padding: 5px; 0 0 0;
+    color: ${oc.gray[6]}
+`;
+
 export class ModalStudyComment extends React.Component {
     render () {
-        const { CommentReceive, Comment } = this.props;
+        const { CommentReceive, Comment, auth, commentDeleteRequest, postId } = this.props;
+        const CommentId = Comment.CommentId;
+        const CommentPayload = {
+            CommentId: CommentId,
+            PostId: postId
+        };
 
         return (
             <div>
             <Wrapper>
+                {/* 로그인 하고, 로그인 한 사람과 댓글을 쓴 사람이 일치하면 삭제 버튼을 띄운다 */}
+                {
+                    auth !== null && auth.uid === Comment.CommentAuthor &&
+                    <DeleteMark
+                        onClick={() => commentDeleteRequest(CommentPayload)}
+                    />
+                }
                 <CommentIcon>
                     <FaUser size={25} color="white"/>
                 </CommentIcon>
@@ -98,6 +151,12 @@ export class ModalStudyComment extends React.Component {
                         <CommentString>
                             {Comment.comment}
                         </CommentString>
+                    }
+                    {
+                        !CommentReceive.pending && CommentReceive.data.length !== 0 &&
+                        <CurrentTime>
+                            {Comment.CurrentTime}
+                        </CurrentTime>
                     }
                 </CommentWrapper>
             </Wrapper>

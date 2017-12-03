@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import Banner from "./components/Banner/Banner";
-import Slider from "./components/Slider/Slider";
 import Footer from "./components/Footer/Footer";
-import HeaderContainer from "./containers/HeaderContainer";
-import ModalRootContainer from "./containers/modalcontainers/ModalRootContainer";
-import FilterContainer from "./containers/FilterContainer";
-import LayoutContainer from "./containers/LayoutContainer";
+import HeaderContainer from "./containers/BodyContainer/HeaderContainer";
+import ModalRootContainer from "./containers/ModalContainers/ModalRootContainer";
+import FilterContainer from "./containers/BodyContainer/FilterContainer";
+import LayoutContainer from "./containers/BodyContainer/LayoutContainer";
+import TopPopuContainer from "./containers/BodyContainer/TopPopuContainer";
 
 class App extends Component {
   render() {
@@ -14,8 +14,8 @@ class App extends Component {
       <div className="App">
           <HeaderContainer />
           <Banner />
-          <Slider />
           <ModalRootContainer />
+          <TopPopuContainer />
           <FilterContainer />
           <LayoutContainer />
           <Footer />

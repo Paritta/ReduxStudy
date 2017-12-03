@@ -9,13 +9,64 @@ exports[`Card render correctly 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   background: #e9ecef;
-  height: 20vh;
+  height: 50vh;
+}
+
+.c1 {
+  width: 300px;
+  font-family: 'Hanna',fantasy;
+  font-size: 1.2em;
+  line-height: 1.2;
+  min-width: 200px;
+  color: #868e96;
 }
 
 <div
   className="c0"
 >
-  Footer
+  <div
+    className="c1"
+  >
+    <div>
+      개발자 ...
+    </div>
+    <div>
+      Github: https://github.com/Paritta
+    </div>
+    <div>
+      Blog: https://paritta.github.io/
+    </div>
+    <div>
+      Email: tjdgns8047@gmail.com
+    </div>
+    <div>
+      P.h: 010-4665-8841
+    </div>
+  </div>
+  <div
+    className="c1"
+  >
+    <div>
+      추가될 기능
+    </div>
+    <div>
+      인기 순위 Top 3
+    </div>
+    <div>
+      스터디 신청하기
+    </div>
+    <div>
+      퍼포먼스 개선
+    </div>
+  </div>
 </div>
 `;

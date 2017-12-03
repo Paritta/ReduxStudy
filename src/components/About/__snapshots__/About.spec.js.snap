@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card render correctly 1`] = `
+.c0 {
+  background: #f1f3f5;
+  height: 70vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c1 {
+  background: url(Face.jpeg) center center;
+  height: 400px;
+  width: 400px;
+  border-radius: 100%;
+}
+
+.c2 {
+  background: #f1f3f5;
+  height: 30vh;
+  font-family: 'Hanna',fantasy;
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.c3 {
+  display: inline-block;
+  background: palevioletred;
+  color: white;
+  font-size: 1em;
+  padding: 0.25em 8em;
+  margin-top: 80px;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-animation: kDqeOj 4s ease infinite;
+  animation: kDqeOj 4s ease infinite;
+  position: absolute;
+  bottom: 50px;
+  right: 400px;
+}
+
+.c3:hover {
+  background: #f783ac;
+  border: 2px solid #f783ac;
+}
+
+<div>
+  <div
+    className="c0"
+  >
+    <div
+      className="c1"
+    />
+  </div>
+  <div
+    className="c2"
+  >
+    <div>
+      김회장, 재효찡, 욱이, 불꺼놓고 코딩만하는 박현진 불키고 해라, 가두래곤, 이수비, 정주연스, 현지권의 친구 임성훈입니다
+    </div>
+    <button
+      className="c3"
+    >
+      버튼 만들려고 했는데 고장...
+    </button>
+  </div>
+</div>
+`;

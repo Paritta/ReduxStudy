@@ -18,8 +18,8 @@ exports[`Layout render correctly 1`] = `
 }
 
 .c0:hover {
-  background: #ffdeeb;
-  border: 2px solid #ffdeeb;
+  background: #f1f3f5;
+  border: 2px solid #f1f3f5;
 }
 
 .c1 {

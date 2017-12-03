@@ -50,6 +50,7 @@ const Wrapper = styled.div`
 `;
 
 const ModalHeader = styled.div`
+    font-family: 'Hanna', fantasy;
     font-style: normal;
     font-weight: 400;
     color: white;
@@ -97,7 +98,9 @@ export class ModalRegister extends React.Component {
         const post = {
             values,
             author: uid,
-            username: display
+            username: display,
+            PostImageKey: "",
+            HeartCount: 0,
         };
 
         console.log(values);

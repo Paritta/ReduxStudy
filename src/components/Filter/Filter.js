@@ -9,8 +9,7 @@ import FaRecycle from "react-icons/lib/fa/recycle";
 
 const Wrapper = styled.div`
     text-align: left;
-    margin: 50px 0;
-    background: ${oc.pink[2]};
+    background: ${oc.gray[1]};
 `;
 
 const FilterBox = styled.li`
@@ -18,18 +17,18 @@ const FilterBox = styled.li`
 `;
 
 const FilterItem = styled.div`
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     
     border-radius: 100%;
-    background: ${oc.gray[3]};
-    color: white;
+    background: white;
+    color: ${oc.gray[6]};
     
     &:hover {
-        background: ${oc.gray[2]};
+        transform: translateY(-15px);
     }
     
-    transition: background 1s ease;
+    transition: transform 1s ease;
     
     display: flex;
     justify-content: center;
@@ -50,6 +49,11 @@ const FilterUl = styled.ul`
     height: 50vh;
 `;
 
+const Span = styled.span`
+    padding-top: 15px;
+    text-size: 1.5em;
+`;
+
 export const Filter = ({ filterMaterial, filterNursing, filterInformation, filterComputer, filterChemical }) => {
     return (
         <div>
@@ -58,46 +62,56 @@ export const Filter = ({ filterMaterial, filterNursing, filterInformation, filte
                     <FilterBox>
                         <FilterItem
                             onClick={() => {
-                                filterMaterial("filter_Material")
+                                filterMaterial("MaterialScience")
                             }}>
-                            <FaRecycle size={70} color="white"/>
-                            신소재 공학과
+                            <FaRecycle size={100} color="black"/>
+                            <Span>
+                                신소재 공학과
+                            </Span>
                         </FilterItem>
                     </FilterBox>
                     <FilterBox>
                         <FilterItem
                             onClick={() => {
-                            filterNursing("filter_Nursing")
+                            filterNursing("Nursing")
                         }}>
-                            <FaHeartbeat size={70} color="white"/>
-                            간호학과
+                            <FaHeartbeat size={100} color="black"/>
+                            <Span>
+                                간호학과
+                            </Span>
                         </FilterItem>
                     </FilterBox>
                     <FilterBox>
                         <FilterItem
                             onClick={() => {
-                                filterInformation("filter_Information")
+                                filterInformation("ITEngineering")
                             }}>
-                            <FaApple size={70} color="white"/>
-                            정보통신학과
+                            <FaApple size={100} color="black"/>
+                            <Span>
+                                정보통신학과
+                            </Span>
                         </FilterItem>
                     </FilterBox>
                     <FilterBox>
                         <FilterItem
                             onClick={() => {
-                            filterComputer("filter_Computer")
+                            filterComputer("ComputerScience")
                         }}>
-                            <FaFeed size={70} color="white"/>
-                            컴퓨터공학과
+                            <FaFeed size={100} color="black"/>
+                            <Span>
+                                컴퓨터공학과
+                                </Span>
                         </FilterItem>
                     </FilterBox>
                     <FilterBox>
                         <FilterItem
                             onClick={() => {
-                            filterChemical("filter_Chemical")
+                            filterChemical("Chemical")
                         }}>
-                            <FaFlask size={70} color="white"/>
-                            화학공학과
+                            <FaFlask size={100} color="black"/>
+                            <Span>
+                                화학공학과
+                            </Span>
                         </FilterItem>
                     </FilterBox>
                 </FilterUl>

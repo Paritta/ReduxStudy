@@ -16,28 +16,50 @@ const Wrapper = styled.div`
     
     background: ${oc.gray[2]};
     
-    height: 40vh;
-    margin-top: 10vh;
+    height: 50vh;
 `;
 
 const Item = styled.div`
     width: 300px;
+    font-family: 'Hanna', fantasy;
+    font-size: 1.2em;
+    line-height: 1.2;
     min-width: 200px;
+    color: ${oc.gray[6]};
 `;
 
 export const Footer = () => {
     return (
         <Wrapper>
             <Item>
-                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam cumque deleniti eius, incidunt
-                    labore laudantium maiores modi reiciendis sequi totam! Facere, quidem quod. A accusantium
-                    asperiores, illum libero voluptas voluptate?
+                <div>
+                    개발자 ...
+                </div>
+                <div>
+                    Github: https://github.com/Paritta
+                </div>
+                <div>
+                    Blog: https://paritta.github.io/
+                </div>
+                <div>
+                    Email: tjdgns8047@gmail.com
+                </div>
+                <div>
+                    P.h: 010-4665-8841
                 </div>
             </Item>
             <Item>
-                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam cumque deleniti eius, incidunt
-                    labore laudantium maiores modi reiciendis sequi totam! Facere, quidem quod. A accusantium
-                    asperiores, illum libero voluptas voluptate?
+                <div>
+                    추가될 기능
+                </div>
+                <div>
+                    인기 순위 Top 3
+                </div>
+                <div>
+                    스터디 신청하기
+                </div>
+                <div>
+                    퍼포먼스 개선
                 </div>
             </Item>
         </Wrapper>
