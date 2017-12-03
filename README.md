@@ -1,4 +1,4 @@
-<img src='http://www.tennisthis.com/wp-content/uploads/2011/06/redux.jpg'>
+<img src='https://udemy-images.udemy.com/course/750x422/1251786_28b0.jpg'>
 
 스터디 등록 플랫폼
 ========
@@ -10,33 +10,33 @@
 Demo
 ===
 
-<img src='./PortfolioImage/Demo7.png'>
+<img src='./src/asset/PortfolioImage/Demo7.png'>
 
 > 회원가입
 
-<img src='./PortfolioImage/Demo8.png'>
+<img src='./src/asset/PortfolioImage/Demo8.png'>
 
 > 로그인
 
-<img src='./PortfolioImage/Demo6.png'>
+<img src='./src/asset/PortfolioImage/Demo6.png'>
 
 > 댓글, 좋아요, 좋아요 수
 
-<img src='./PortfolioImage/Demo4.png'>
+<img src='./src/asset/PortfolioImage/Demo4.png'>
 
-<img src='./PortfolioImage/Demo9.png'>
+<img src='./src/asset/PortfolioImage/Demo9.png'>
 
 > 스터디 등록
 
-<img src='./PortfolioImage/Demo5.png'>
+<img src='./src/asset/PortfolioImage/Demo5.png'>
 
 > 필터링
 
-<img src='./PortfolioImage/Demo2.png'>
+<img src='./src/asset/PortfolioImage/Demo2.png'>
 
 > 테스트 주도 개발
 
-<img src='./PortfolioImage/Demo3.png'>
+<img src='./src/asset/PortfolioImage/Demo3.png'>
 
 > 좋아요 수 인기 순위
 
