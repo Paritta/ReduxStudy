@@ -3,7 +3,7 @@ import TopPopu from "../../components/TopPopu/TopPopu";
 import { toppopuReceiveRequest } from "../../modules/TopPopu/TopPopu";
 import { connect } from "react-redux";
 import { getTopPopu } from "../../selector";
-import { firebaseConnect, pathToJS } from 'react-redux-firebase';
+import { pathToJS } from 'react-redux-firebase';
 import { compose } from "redux";
 import PropTypes from "prop-types";
 

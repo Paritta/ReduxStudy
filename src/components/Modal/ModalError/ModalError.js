@@ -109,6 +109,8 @@ export class ModalError extends React.Component {
                 return "잘못된 이메일입니다";
             case "auth/invalid-email":
                 return "잘못된 이메일입니다";
+            default :
+                return "";
         }
     }
 

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import oc from "open-color";
 
 const propTypes = {
 };
@@ -9,16 +8,18 @@ const defaultTypes = {
 };
 
 const Wrapper = styled.div`
-    background: white;
+    background: hsla(0, 100%, 0%, 0.4);
     height: 50vh;
     
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    width: 100%;
 `;
 
 const Span= styled.div`
-    color: ${oc.gray[5]};
+    color: white;
     font-family: 'Hanna', fantasy;
     font-size: 3em;
 `;

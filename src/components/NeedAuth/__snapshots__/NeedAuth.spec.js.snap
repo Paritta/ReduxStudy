@@ -2,7 +2,7 @@
 
 exports[`Card render correctly 1`] = `
 .c0 {
-  background: white;
+  background: hsla(0,100%,0%,0.4);
   height: 50vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -16,12 +16,13 @@ exports[`Card render correctly 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  width: 100%;
 }
 
 .c1 {
-  color: #adb5bd;
+  color: white;
   font-family: 'Hanna',fantasy;
-  font-size: 5em;
+  font-size: 3em;
 }
 
 <div
@@ -30,7 +31,7 @@ exports[`Card render correctly 1`] = `
   <div
     className="c1"
   >
-    인기 순위 Top 3 준비 중 ...
+    로그인이 필요합니다.
   </div>
 </div>
 `;

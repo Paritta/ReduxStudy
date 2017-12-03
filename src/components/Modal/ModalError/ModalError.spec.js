@@ -4,8 +4,11 @@ import { ModalError } from "./ModalError";
 import "jest-styled-components";
 
 it("ModalError render correctly", () => {
+    const Modal = {};
     const tree = ReactTestRenderer.create(
-        <ModalError />
+        <ModalError
+            Modal={Modal}
+        />
     );
     expect(tree.toJSON()).toMatchSnapshot();
 });

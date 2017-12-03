@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import oc from "open-color";
-import NeedAuth from "../../components/Carousel/NeedAuth";
+import NeedAuth from "../NeedAuth/NeedAuth";
 import PropTypes from "prop-types";
 
 const propTypes = {

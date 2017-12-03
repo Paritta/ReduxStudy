@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import ReactLoading from "react-loading";
 import MdKeyboardArrowRight from "react-icons/lib/md/keyboard-arrow-right";
 import MdKeyboardArrowLeft from "react-icons/lib/md/keyboard-arrow-left";
-import NeedAuth from "../../components/Carousel/NeedAuth";
 
 const propTypes = {
     Fetch: PropTypes.object,
