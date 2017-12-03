@@ -1,4 +1,4 @@
-<img src='http://www.tennisthis.com/wp-content/uploads/2011/06/redux.jpg'>
+<img src='https://udemy-images.udemy.com/course/750x422/1251786_28b0.jpg'>
 
 스터디 등록 플랫폼
 ========
