@@ -1,0 +1,23 @@
+# project: cjb1n0o1x2bmg0122xo2cicjc
+# version: 1
+
+type User @model {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type File @model {
+  contentType: String!
+  createdAt: DateTime!
+  id: ID! @isUnique
+  name: String!
+  secret: String! @isUnique
+  size: Int!
+  updatedAt: DateTime!
+  url: String! @isUnique
+}
+
+# type Tweet {
+#   text: String!
+# }

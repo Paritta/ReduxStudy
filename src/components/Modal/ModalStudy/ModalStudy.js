@@ -2,7 +2,7 @@ import React from "react";
 import styled, {keyframes} from "styled-components";
 import { fadeIn } from 'react-animations';
 import PropTypes from "prop-types";
-import ModalStudyCommentContainer from "../../../containers/ModalContainers/ModalStudyCommentContainer";
+import ModalStudyCommentContainer from "../../../containers/Modalcontainers/ModalStudyCommentContainer";
 import ModalBoxLeftPage from "../ModalBoxLeftPage/ModalBoxLeftPage";
 import EmptyImage from "../../../asset/EmptyImage.png";
 import oc from "open-color";
